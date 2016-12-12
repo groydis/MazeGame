@@ -3,25 +3,23 @@ using System.Collections;
 
 public class Battery : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public static float maxBatteryCharge = 60f;
+	public static float batteryPickUpCharge = 2.0f;
+
+	public static void InteractWithBattery (float currentBatteryCharge, GameObject battery) 
+	{
+		if (currentBatteryCharge < Battery.maxBatteryCharge) 
+		{
+			currentBatteryCharge += Battery.batteryPickUpCharge;
+
+			if (currentBatteryCharge > Battery.maxBatteryCharge) 
+			{
+				currentBatteryCharge = Battery.maxBatteryCharge;
+			}
+		}
+		//TODO: Modify "Visual" for battery charge
+		Debug.Log ("Battery Pickup, Battery is now : " + currentBatteryCharge);
+		Destroy (battery);
 	}
 
-	void OnTrigerEnter(Collider player) {
-		Debug.Log ("Battery Script : Trigger Occured");
-	}
-
-	void OnCollisionEnter() {
-		Debug.Log ("Battery Script : Collision Occured");
-	}
-
-	void OnControllerColliderHit() {
-		Debug.Log ("Battery Script : Collision Collider Occured");
-	}
 }

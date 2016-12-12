@@ -9,13 +9,9 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector3 moveDirection;
 	private CharacterController controller;
 
-	private void Awake() {
-
-	}
-
 	// Use this for initialization
-	void Start () {
-
+	void Start () 
+	{
 		controller = GetComponent<CharacterController> ();
 
 		moveDirection = Vector3.forward;
@@ -35,83 +31,79 @@ public class PlayerMovement : MonoBehaviour {
 		#if UNITY_STANDALONE_WIN
 		Debug.Log("Stand Alone Windows");
 		#endif
-	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update () 
+	{
 		//Player always moves forward
 		controller.Move (moveDirection * movementSpeed * Time.deltaTime);
 
 		//		#if UNITY_IPHONE
-		if (SwipeManager.IsSwipingLeft ()) {
+		if (SwipeManager.IsSwipingLeft ()) 
+		{
 			TurnLeft ();
 		}
-		if (SwipeManager.IsSwipingRight ()) {
+		if (SwipeManager.IsSwipingRight ()) 
+		{
 			TurnRight ();
 		}
-		if (SwipeManager.IsSwipingUp ()) {
+		if (SwipeManager.IsSwipingUp ()) 
+		{
 			TurnUp ();
 		}
-		if (SwipeManager.IsSwipingDown ()) {
+		if (SwipeManager.IsSwipingDown ()) 
+		{
 			TurnDown ();
 		}
-
 		//		#elif UNITY_EDITOR
-		if (Input.GetKeyDown ("left")) {
+		if (Input.GetKeyDown ("left")) 
+		{
 			TurnLeft ();
 		}
-		if (Input.GetKeyDown ("right")) {
+		if (Input.GetKeyDown ("right")) 
+		{
 			TurnRight ();
 		}
 		
-		if (Input.GetKeyDown ("up")) {
+		if (Input.GetKeyDown ("up")) 
+		{
 			TurnUp ();
 		}
 
-		if (Input.GetKeyDown ("down")) {
+		if (Input.GetKeyDown ("down")) 
+		{
 			TurnDown ();
 		}
 		//		#endif
 	}
 		
-	void TurnLeft() {
+	void TurnLeft() 
+	{
 		moveDirection = Vector3.left;
 		transform.rotation = Quaternion.identity;
 		transform.Rotate (0f, -90f, 0f);
 	}
 
-	void TurnRight() {
+	void TurnRight() 
+	{
 		moveDirection = Vector3.right;
 		transform.rotation = Quaternion.identity;
 		transform.Rotate (0f, 90f, 0f);
 	}
 
-	void TurnUp() {
+	void TurnUp() 
+	{
 		moveDirection = Vector3.forward;
 		transform.rotation = Quaternion.identity;
 		transform.Rotate (0f, 0f, 0f);
 	}
 
-	void TurnDown() {
+	void TurnDown() 
+	{
 		moveDirection = Vector3.back;
 		transform.rotation = Quaternion.identity;
 		transform.Rotate (0f, 180f, 0f);
-	}
-
-	void OnTrigerEnter(Collider player) {
-		Debug.Log ("Player Script : Trigger Occured");
-	}
-
-	void OnCollisionEnter() {
-		Debug.Log ("Player Script : Collision Occured");
-	}
-
-	void OnControllerColliderHit(ControllerColliderHit hit) {
-		if (hit.transform.tag == "Battery") {
-			Debug.Log ("Player Script : Collision Collider Occured");
-		}
 	}
 		
 }

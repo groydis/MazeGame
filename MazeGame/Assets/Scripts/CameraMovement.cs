@@ -12,14 +12,14 @@ public class CameraMovement : MonoBehaviour {
 	private Vector3 velocity = Vector3.zero;
 
 	// Use this for initialization
-	void Start () {
-
+	void Start () 
+	{
 		offset = transform.position - player.transform.position;
-
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		transform.position = Vector3.SmoothDamp (transform.position, player.transform.position + offset, ref velocity, smoothTime);
 	}
 }

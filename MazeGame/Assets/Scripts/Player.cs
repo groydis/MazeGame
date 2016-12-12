@@ -6,16 +6,23 @@ public class Player : MonoBehaviour {
 	public static float batteryCharge;
 	public static float batteryDrainRate;
 
-	// Use this for initialization
-	void Start () {
-		batteryCharge = 30;
+	void Start () 
+	{
+		batteryCharge = 60;
 		batteryDrainRate = 1;
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
+	void Update () 
+	{
+
+	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit) 
+	{
+		if (hit.gameObject.tag == "Battery") {
+			Battery.InteractWithBattery (batteryCharge, hit.gameObject);
+		}
 	}
 
 }
