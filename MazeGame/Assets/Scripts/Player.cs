@@ -18,8 +18,10 @@ public class Player : MonoBehaviour {
 
 	}
 
+	// Handles all collision the player makes with intereactable items
 	void OnControllerColliderHit(ControllerColliderHit hit) 
 	{
+		// If collision occurs with a battery, performs InteractWithBattery() on the Battery Script
 		if (hit.gameObject.tag == "Battery") {
 			Battery.InteractWithBattery (batteryCharge, hit.gameObject);
 		}

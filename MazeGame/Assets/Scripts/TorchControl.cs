@@ -20,7 +20,7 @@ public class TorchControl : MonoBehaviour {
 		if (Player.batteryCharge == 15) {
 			StartCoroutine ("TorchFlicker");
 		}
-		// Checks battry depletion level adjusts flicker speed
+		// Checks battry depletion level and slows adjusts flicker speed
 		if (Player.batteryCharge < 10) {
 			minFlickerSpeed = 1f;
 			maxFlickerSpeed = 5f;
