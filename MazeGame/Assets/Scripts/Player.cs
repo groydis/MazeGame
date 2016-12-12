@@ -17,4 +17,19 @@ public class Player : MonoBehaviour {
 	void Update () {
 
 	}
+
+	void OnTrigerEnter(Collider player) {
+		Debug.Log ("Player Script : Trigger Occured");
+	}
+
+	void OnCollisionEnter() {
+		Debug.Log ("Player Script : Collision Occured");
+	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit) {
+		if (hit.transform.tag == "Battery") {
+			Debug.Log ("Player Script : Collision Collider Occured");
+		}
+	}
+
 }

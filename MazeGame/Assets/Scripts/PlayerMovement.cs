@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+[RequireComponent (typeof (CharacterController))]
 public class PlayerMovement : MonoBehaviour {
 
-	public float movementSpeed = 5f;
-	public float turnCheckDistance = 3f;
+	public float movementSpeed;
+	public float turnCheckDistance;
 	private Vector3 forward;
+	private Vector3 moveDirection;
 	private Vector3 left = Vector3.left;
 	private Vector3 right = Vector3.right;
 	private Vector3 down = Vector3.back;
 	private Vector3 up = Vector3.forward;
+
+	private CharacterController controller;
+
+	private Quaternion targetRotation;
+
+	public float rotationSpeed;
 
 	private void Awake() {
 
@@ -17,6 +26,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		controller = GetComponent<CharacterController> ();
+
+		moveDirection = Vector3.forward;
+
 		#if UNITY_EDITOR
 		Debug.Log("Unity Editor");
 		#endif
@@ -37,19 +51,21 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		forward = transform.TransformDirection (Vector3.forward) * 10;
 
-		Debug.DrawRay (transform.position, forward, Color.red);
+//		Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+//		if (input != Vector3.zero) {
+//			targetRotation = Quaternion.LookRotation (input);
+//			transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle (transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.deltaTime);
+//			transform.rotation = Quaternion.identity;
+//		}
+//		controller.Move (Vector3.forward);
 
-		Debug.DrawRay (transform.position, down, Color.green);
-		Debug.DrawRay (transform.position, up, Color.yellow);
-		Debug.DrawRay (transform.position, left, Color.blue);
-		Debug.DrawRay (transform.position, right, Color.magenta);
+		//forward = transform.TransformDirection (Vector3.forward) * 10;
+
+		//Debug.DrawRay (transform.position, forward, Color.red);
 
 		//Player always moves forward
-		if (!Physics.Raycast(transform.position, forward, 1)) {
-			transform.Translate (0f, 0f, movementSpeed * Time.deltaTime);
-		}
+		controller.Move (moveDirection * movementSpeed * Time.deltaTime);
 
 		//		#if UNITY_IPHONE
 		if (SwipeManager.IsSwipingLeft ()) {
@@ -66,58 +82,43 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		//		#elif UNITY_EDITOR
-		if (!Physics.Raycast (transform.position, left, turnCheckDistance)) {
-			if (Input.GetKeyDown ("left")) {
-				TurnLeft ();
-			}
+		if (Input.GetKeyDown ("left")) {
+			TurnLeft ();
 		}
-		if (!Physics.Raycast (transform.position, right, turnCheckDistance)) {
-			if (Input.GetKeyDown ("right")) {
-				TurnRight ();
-			}
+		if (Input.GetKeyDown ("right")) {
+			TurnRight ();
 		}
-		if (!Physics.Raycast (transform.position, up, turnCheckDistance)) {
-			
-			if (Input.GetKeyDown ("up")) {
-				TurnUp ();
-			}
+		
+		if (Input.GetKeyDown ("up")) {
+			TurnUp ();
 		}
-		if (!Physics.Raycast (transform.position, down, turnCheckDistance)) {
-			if (Input.GetKeyDown ("down")) {
-				TurnDown ();
-			}
+
+		if (Input.GetKeyDown ("down")) {
+			TurnDown ();
 		}
 		//		#endif
-		if (Physics.Raycast (transform.position, left, turnCheckDistance)) {
-			print ("Can't turn left");
-		}
-		if (Physics.Raycast (transform.position, right, turnCheckDistance)) {
-			print ("Can't turn right");
-		}
-		if (Physics.Raycast (transform.position, up, turnCheckDistance)) {
-			print ("Can't turn up");
-		}
-		if (Physics.Raycast (transform.position, down, turnCheckDistance)) {
-			print ("Can't turn down");
-		}
 	}
 		
 	void TurnLeft() {
+		moveDirection = Vector3.left;
 		transform.rotation = Quaternion.identity;
 		transform.Rotate (0f, -90f, 0f);
 	}
 
 	void TurnRight() {
+		moveDirection = Vector3.right;
 		transform.rotation = Quaternion.identity;
 		transform.Rotate (0f, 90f, 0f);
 	}
 
 	void TurnUp() {
+		moveDirection = Vector3.forward;
 		transform.rotation = Quaternion.identity;
 		transform.Rotate (0f, 0f, 0f);
 	}
 
 	void TurnDown() {
+		moveDirection = Vector3.back;
 		transform.rotation = Quaternion.identity;
 		transform.Rotate (0f, 180f, 0f);
 	}
