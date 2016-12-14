@@ -8,12 +8,14 @@ public class PlayerMovement : MonoBehaviour {
 	public float movementSpeed;
 	private Vector3 moveDirection;
 	private CharacterController controller;
+	private Rigidbody rbody;
 
 	// Use this for initialization
 	void Start () 
 	{
+		
 		controller = GetComponent<CharacterController> ();
-
+		rbody = GetComponent<Rigidbody> ();
 		moveDirection = Vector3.forward;
 
 		#if UNITY_EDITOR
@@ -37,7 +39,8 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () 
 	{
 		//Player always moves forward
-		controller.Move (moveDirection * movementSpeed * Time.deltaTime);
+		//controller.Move (moveDirection * movementSpeed * Time.deltaTime);
+		//rbody.velocity = transform.forward * movementSpeed;
 
 		//		#if UNITY_IPHONE
 		if (SwipeManager.IsSwipingLeft ()) 
@@ -76,6 +79,10 @@ public class PlayerMovement : MonoBehaviour {
 			TurnDown ();
 		}
 		//		#endif
+	}
+
+	void FixedUpdate() {
+		rbody.velocity = transform.forward * movementSpeed;
 	}
 		
 	void TurnLeft() 
