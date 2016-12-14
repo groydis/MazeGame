@@ -7,14 +7,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float movementSpeed;
 	private Vector3 moveDirection;
-	private CharacterController controller;
+	//private CharacterController controller;
 	private Rigidbody rbody;
 
 	// Use this for initialization
 	void Start () 
 	{
 		
-		controller = GetComponent<CharacterController> ();
+		//controller = GetComponent<CharacterController> ();
 		rbody = GetComponent<Rigidbody> ();
 		moveDirection = Vector3.forward;
 
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		rbody.velocity = transform.forward * movementSpeed;
+		//rbody.velocity = transform.forward * movementSpeed;
 	}
 		
 	void TurnLeft() 
