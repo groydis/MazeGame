@@ -20,11 +20,4 @@ public class Player : MonoBehaviour {
 	//TODO : move this shit off player.
 
 	// Handles all collision the player makes with intereactable items
-	void OnTriggerEnter(Collider hit) 
-	{
-		// If collision occurs with a battery, performs InteractWithBattery() on the Battery Script
-		if (hit.gameObject.tag == "Battery") {
-			Battery.InteractWithBattery (batteryCharge, hit.gameObject);
-		}
-	}
 }

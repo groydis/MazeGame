@@ -3,27 +3,35 @@ using System.Collections;
 
 public class Battery : MonoBehaviour {
 
-	public static float maxBatteryCharge = 60f;
-	public static float batteryPickUpCharge = 2.0f;
+	public float maxBatteryCharge = 60f;
+	public float batteryPickUpCharge = 10.0f;
 
 	// Checks if the current battery charge is less than the maximum battery charge.
 	// If so, increases battery current battery charge by the battery pick up charge amount.
 	// If the current battery charge is equal to the maximum battery charge then it just sets the 
 	// current battery charge to the maximum, this prevents over charging.
-	public static void InteractWithBattery (float currentBatteryCharge, GameObject battery) 
+	void InteractWithBattery () 
 	{
-		if (currentBatteryCharge < Battery.maxBatteryCharge) 
+		if (Player.batteryCharge < maxBatteryCharge) 
 		{
-			currentBatteryCharge += Battery.batteryPickUpCharge;
+			Player.batteryCharge += batteryPickUpCharge;
 
-			if (currentBatteryCharge > Battery.maxBatteryCharge) 
+			if (Player.batteryCharge > maxBatteryCharge) 
 			{
-				currentBatteryCharge = Battery.maxBatteryCharge;
+				Player.batteryCharge = maxBatteryCharge;
 			}
 		}
 		//TODO: Modify "Visual" for battery charge
-		Debug.Log ("Battery Pickup, Battery is now : " + currentBatteryCharge);
-		Destroy (battery);
+		Debug.Log ("Battery Pickup, Battery is now : " + Player.batteryCharge);
+		Destroy (this.gameObject);
+	}
+
+	void OnTriggerEnter(Collider hit) 
+	{
+		// If collision occurs with a battery, performs InteractWithBattery() on the Battery Script
+		if (hit.gameObject.tag == "Player") {
+			InteractWithBattery ();
+		}
 	}
 
 }
