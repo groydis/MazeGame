@@ -23,7 +23,6 @@ public class WallLamp : MonoBehaviour {
 	{	
 		scarePlayer = true;
 		if (hit.gameObject.tag == "Player") {
-			Debug.Log ("Wall Lamp Detected collision");
 			StartCoroutine("WallLampFlicker");
 		}
 	}
@@ -31,7 +30,6 @@ public class WallLamp : MonoBehaviour {
 	void OnTriggerExit(Collider hit) {
 		scarePlayer = false;
 		if (hit.gameObject.tag == "Player") {
-			Debug.Log ("Wall Lamp Detected collision");
 			StopCoroutine("WallLampFlicker");
 		}
 	}
