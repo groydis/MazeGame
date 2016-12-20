@@ -7,11 +7,20 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector3 moveDirection;
 	private Rigidbody rbody;
 
+	private Quaternion startingRotation;
+
+	public float rotationSpeed = 10;
+
+
+	//private Vector3 directionTurn;
+
 	// Use this for initialization
 	void Start () 
 	{
 		rbody = GetComponent<Rigidbody> ();
 		moveDirection = Vector3.forward;
+
+		startingRotation = this.transform.rotation;
 
 		#if UNITY_EDITOR
 		Debug.Log("Unity Editor");
@@ -80,30 +89,52 @@ public class PlayerMovement : MonoBehaviour {
 		
 	void TurnLeft() 
 	{
-		moveDirection = Vector3.left;
-		transform.rotation = Quaternion.identity;
-		transform.Rotate (0f, -90f, 0f);
+		StopAllCoroutines();
+		StartCoroutine(Rotate(-90));
+//		moveDirection = Vector3.left;
+//		transform.rotation = Quaternion.identity;
+//		//transform.Rotate (0f, -90f, 0f);
+//		transform.Rotate(moveDirection * 30f * Time.deltaTime);
+
 	}
 
 	void TurnRight() 
 	{
-		moveDirection = Vector3.right;
-		transform.rotation = Quaternion.identity;
-		transform.Rotate (0f, 90f, 0f);
+		StopAllCoroutines();
+		StartCoroutine(Rotate(90));
+//		moveDirection = Vector3.right;
+//		transform.rotation = Quaternion.identity;
+//		//transform.Rotate (0f, 90f, 0f);
+//		transform.Rotate(moveDirection * 30f * Time.deltaTime);
 	}
 
 	void TurnUp() 
 	{
-		moveDirection = Vector3.forward;
-		transform.rotation = Quaternion.identity;
-		transform.Rotate (0f, 0f, 0f);
+		StopAllCoroutines();
+		StartCoroutine(Rotate(0));
+//		moveDirection = Vector3.forward;
+//		transform.rotation = Quaternion.identity;
+//		//transform.Rotate (0f, 0f, 0f);
+//		transform.Rotate(moveDirection * 30f * Time.deltaTime);
 	}
 
 	void TurnDown() 
 	{
-		moveDirection = Vector3.back;
-		transform.rotation = Quaternion.identity;
-		transform.Rotate (0f, 180f, 0f);
+		StopAllCoroutines();
+		StartCoroutine(Rotate(180));
+//		moveDirection = Vector3.back;
+//		transform.rotation = Quaternion.identity;
+//		//transform.Rotate (0f, 180f, 0f);
+//		transform.Rotate(moveDirection * 30f * Time.deltaTime);
+	}
+
+	IEnumerator Rotate(float rotationAmount){
+		Quaternion finalRotation = Quaternion.Euler( 0, rotationAmount, 0 ) * startingRotation;
+
+		while(this.transform.rotation != finalRotation){
+			this.transform.rotation = Quaternion.Lerp(this.transform.rotation, finalRotation, Time.deltaTime * rotationSpeed);
+			yield return 0;
+		}
 	}
 		
 }
