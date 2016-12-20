@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 	public float movementSpeed;
-	private Vector3 moveDirection;
+
 	private Rigidbody rbody;
 
 	private Quaternion startingRotation;
@@ -12,13 +12,11 @@ public class PlayerMovement : MonoBehaviour {
 	public float rotationSpeed = 10;
 
 
-	//private Vector3 directionTurn;
-
 	// Use this for initialization
 	void Start () 
 	{
 		rbody = GetComponent<Rigidbody> ();
-		moveDirection = Vector3.forward;
+
 
 		startingRotation = this.transform.rotation;
 
@@ -90,11 +88,7 @@ public class PlayerMovement : MonoBehaviour {
 	void TurnLeft() 
 	{
 		StopAllCoroutines();
-		StartCoroutine(Rotate(-90));
-//		moveDirection = Vector3.left;
-//		transform.rotation = Quaternion.identity;
-//		//transform.Rotate (0f, -90f, 0f);
-//		transform.Rotate(moveDirection * 30f * Time.deltaTime);
+		StartCoroutine (Rotate (-90));
 
 	}
 
@@ -102,30 +96,18 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		StopAllCoroutines();
 		StartCoroutine(Rotate(90));
-//		moveDirection = Vector3.right;
-//		transform.rotation = Quaternion.identity;
-//		//transform.Rotate (0f, 90f, 0f);
-//		transform.Rotate(moveDirection * 30f * Time.deltaTime);
 	}
 
 	void TurnUp() 
 	{
 		StopAllCoroutines();
 		StartCoroutine(Rotate(0));
-//		moveDirection = Vector3.forward;
-//		transform.rotation = Quaternion.identity;
-//		//transform.Rotate (0f, 0f, 0f);
-//		transform.Rotate(moveDirection * 30f * Time.deltaTime);
 	}
 
 	void TurnDown() 
 	{
 		StopAllCoroutines();
 		StartCoroutine(Rotate(180));
-//		moveDirection = Vector3.back;
-//		transform.rotation = Quaternion.identity;
-//		//transform.Rotate (0f, 180f, 0f);
-//		transform.Rotate(moveDirection * 30f * Time.deltaTime);
 	}
 
 	IEnumerator Rotate(float rotationAmount){

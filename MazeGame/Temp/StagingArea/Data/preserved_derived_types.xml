@@ -1,0 +1,11 @@
+<linker>
+<assembly fullname="Assembly-CSharp">
+<type fullname="Battery" preserve="all"/>
+<type fullname="CameraMovement" preserve="all"/>
+<type fullname="Player" preserve="all"/>
+<type fullname="PlayerMovement" preserve="all"/>
+<type fullname="SwipeManager" preserve="all"/>
+<type fullname="TorchControl" preserve="all"/>
+<type fullname="WallLamp" preserve="all"/>
+</assembly>
+</linker>
