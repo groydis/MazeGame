@@ -7,8 +7,6 @@ public class TorchControl : MonoBehaviour {
 	public float minFlickerSpeed = 0.1f;
 	public float maxFlickerSpeed = 1.0f;
 
-	public GameObject spotLight;
-
 	void Start () 
 	{
 		StartCoroutine ("DecreaseBattery");
@@ -35,6 +33,7 @@ public class TorchControl : MonoBehaviour {
 		}
 		if (Player.batteryCharge == 0) {
 			GetComponent<Light> ().enabled = false;
+
 		}
 	}
 	// Decreases Battery over time
@@ -63,7 +62,6 @@ public class TorchControl : MonoBehaviour {
 			if (Player.batteryCharge == 0) 
 			{
 				GetComponent<Light> ().enabled = false;
-				spotLight.GetComponent<Light> ().enabled = false;
 				StopCoroutine ("TorchFlicker");
 			}
 		}

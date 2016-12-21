@@ -8,16 +8,23 @@ public class Player : MonoBehaviour {
 
 	void Start () 
 	{
-		batteryCharge = 60;
+		batteryCharge = 10;
 		batteryDrainRate = 1;
 	
 	}
 
 	void Update () 
 	{
+		if (batteryCharge > 0) {
+			Renderer renderer = GetComponent<Renderer>();
+			Material material = renderer.material;
+			material.SetColor ("_EmissionColor", Color.white);
+		}
+		if (batteryCharge == 0) {
+			Renderer renderer = GetComponent<Renderer>();
+			Material material = renderer.material;
+			material.SetColor("_EmissionColor", Color.black);
+		}
 
 	}
-	//TODO : move this shit off player.
-
-	// Handles all collision the player makes with intereactable items
 }

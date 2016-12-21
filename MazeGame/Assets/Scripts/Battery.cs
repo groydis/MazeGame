@@ -6,7 +6,6 @@ public class Battery : MonoBehaviour {
 	public float maxBatteryCharge = 60f;
 	public float batteryPickUpCharge = 10.0f;
 	public GameObject playerTorch; 
-	public GameObject playerLight;
 
 	// Checks if the current battery charge is less than the maximum battery charge.
 	// If so, increases battery current battery charge by the battery pick up charge amount.
@@ -19,7 +18,6 @@ public class Battery : MonoBehaviour {
 			Player.batteryCharge += batteryPickUpCharge;
 			if (Player.batteryCharge > 0) {
 				playerTorch.GetComponent<Light> ().enabled = true;
-				playerLight.GetComponent<Light> ().enabled = true;
 				if (Player.batteryCharge < 30) {
 					playerTorch.GetComponent<Light> ().intensity = 5f;
 				}
@@ -54,5 +52,4 @@ public class Battery : MonoBehaviour {
 			InteractWithBattery ();
 		}
 	}
-
 }
