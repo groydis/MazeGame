@@ -5,12 +5,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float movementSpeed;
 
+	public float errorCorrectSpeed;
+
 	private Rigidbody rbody;
 
 	private Quaternion startingRotation;
 
-	public float rotationSpeed = 10;
-
+	public float rotationSpeed = 10f;
 
 	// Use this for initialization
 	void Start () 
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour {
 		#if UNITY_STANDALONE_WIN
 		Debug.Log("Stand Alone Windows");
 		#endif
+
 	}
 	
 	// Update is called once per frame
@@ -61,20 +63,24 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKeyDown ("left")) 
 		{
 			TurnLeft ();
+			ErrorCorrectPosition ();
 		}
 		if (Input.GetKeyDown ("right")) 
 		{
 			TurnRight ();
+			ErrorCorrectPosition ();
 		}
 		
 		if (Input.GetKeyDown ("up")) 
 		{
 			TurnUp ();
+			ErrorCorrectPosition ();
 		}
 
 		if (Input.GetKeyDown ("down")) 
 		{
 			TurnDown ();
+			ErrorCorrectPosition ();
 		}
 		//		#endif
 	}
@@ -82,41 +88,52 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate() {
 		//Moves Player Constantly foward
 		rbody.velocity = transform.forward * movementSpeed;
-
 	}
 		
 	void TurnLeft() 
 	{
-		StopAllCoroutines();
-		StartCoroutine (Rotate (-90));
-
+		Debug.Log ("Left Started");
+		StopAllCoroutines ();
+		StartCoroutine (Rotate (-90f));
+		Debug.Log ("Left Ended");
 	}
 
 	void TurnRight() 
 	{
+		Debug.Log ("Right Started");
 		StopAllCoroutines();
-		StartCoroutine(Rotate(90));
+		StartCoroutine(Rotate(90f));
+		Debug.Log ("Right Ended");
 	}
 
 	void TurnUp() 
 	{
+		Debug.Log ("Up Started");
 		StopAllCoroutines();
-		StartCoroutine(Rotate(0));
+		StartCoroutine(Rotate(0f));
+		Debug.Log ("Up Ended");
 	}
 
 	void TurnDown() 
 	{
+		Debug.Log ("Down Started");
 		StopAllCoroutines();
-		StartCoroutine(Rotate(180));
+		StartCoroutine(Rotate(180f));
+		Debug.Log ("Down Ended");
 	}
 
 	IEnumerator Rotate(float rotationAmount){
-		Quaternion finalRotation = Quaternion.Euler( 0, rotationAmount, 0 ) * startingRotation;
-
+		Quaternion finalRotation = Quaternion.Euler( 0f, rotationAmount, 0f) * startingRotation;
 		while(this.transform.rotation != finalRotation){
 			this.transform.rotation = Quaternion.Lerp(this.transform.rotation, finalRotation, Time.deltaTime * rotationSpeed);
 			yield return 0;
 		}
+	}
+	// Maybe wrap this in an IEnumerator?
+	void ErrorCorrectPosition() {
+		Vector3 currentPos = transform.position;
+		Vector3 errorCorrectedPos = new Vector3 (Mathf.Round (currentPos.x), currentPos.y, Mathf.Round (currentPos.z));
+		transform.position = Vector3.Lerp (currentPos, errorCorrectedPos, Time.deltaTime * errorCorrectSpeed);
 	}
 		
 }

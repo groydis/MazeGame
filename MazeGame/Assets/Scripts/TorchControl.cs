@@ -25,6 +25,17 @@ public class TorchControl : MonoBehaviour {
 			minFlickerSpeed = 1f;
 			maxFlickerSpeed = 5f;
 		} 
+		if (Player.batteryCharge > 10) {
+			minFlickerSpeed = 0.1f;
+			maxFlickerSpeed = 1.0f;
+		}
+	
+		if (Player.batteryCharge > 0) {
+			GetComponent<Light> ().enabled = true;
+		}
+		if (Player.batteryCharge == 0) {
+			GetComponent<Light> ().enabled = false;
+		}
 	}
 	// Decreases Battery over time
 	IEnumerator DecreaseBattery() 
