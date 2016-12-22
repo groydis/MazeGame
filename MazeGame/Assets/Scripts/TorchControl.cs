@@ -45,7 +45,7 @@ public class TorchControl : MonoBehaviour {
 			TorchOn ();
 			decreasingBattery = true;
 			yield return new WaitForSecondsRealtime (waitTime);
-			Debug.Log (Player.batteryCharge);
+			Debug.Log ("Battery: " + Player.batteryCharge);
 			Player.batteryCharge -= Player.batteryDrainRate;
 		}
 		decreasingBattery = false;
