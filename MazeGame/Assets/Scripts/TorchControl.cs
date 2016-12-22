@@ -6,64 +6,70 @@ public class TorchControl : MonoBehaviour {
 	public float waitTime = 1.0f;
 	public float minFlickerSpeed = 0.1f;
 	public float maxFlickerSpeed = 1.0f;
+	public float flickerStartTime = 10.0f;
+	public bool batteryFailing;
+	public bool decreasingBattery;
+
 
 	void Start () 
 	{
+		batteryFailing = false;
+		TorchOn();
 		StartCoroutine ("DecreaseBattery");
 	}
 		
 	void Update () 
 	{
 		// Perform a check to see if Torch Flicker shoudl begin
-		if (Player.batteryCharge == 15) {
+		if (Player.batteryCharge <= flickerStartTime) {
+			batteryFailing = true;
 			StartCoroutine ("TorchFlicker");
 		}
-		// Checks battry depletion level and slows adjusts flicker speed
-		if (Player.batteryCharge < 10) {
-			minFlickerSpeed = 1f;
-			maxFlickerSpeed = 5f;
-		} 
-		if (Player.batteryCharge > 10) {
-			minFlickerSpeed = 0.1f;
-			maxFlickerSpeed = 1.0f;
-		}
-	
 		if (Player.batteryCharge > 0) {
-			GetComponent<Light> ().enabled = true;
+			if (!decreasingBattery) {
+				StartCoroutine ("DecreaseBattery");
+			}
 		}
 		if (Player.batteryCharge == 0) {
-			GetComponent<Light> ().enabled = false;
-
+			batteryFailing = false;
+			TorchOff ();
+		}
+		if (Player.batteryCharge > flickerStartTime) {
+			batteryFailing = false;
 		}
 	}
 	// Decreases Battery over time
 	IEnumerator DecreaseBattery() 
-	{
-		yield return new WaitForSecondsRealtime (waitTime);
-		if (Player.batteryCharge != 0) {
+	{	
+		while (Player.batteryCharge != 0) {
+			TorchOn ();
+			decreasingBattery = true;
+			yield return new WaitForSecondsRealtime (waitTime);
+			Debug.Log (Player.batteryCharge);
 			Player.batteryCharge -= Player.batteryDrainRate;
-			if (Player.batteryCharge == 30 | Player.batteryCharge == 25 | Player.batteryCharge == 20 | Player.batteryCharge == 15 | Player.batteryCharge == 10 | Player.batteryCharge == 1) 
-			{
-				GetComponent<Light> ().intensity -= 1;
-			} 
-			StartCoroutine ("DecreaseBattery");
 		}
+		decreasingBattery = false;
 	}
 
 	// Flicks Torch on and off 
 	IEnumerator TorchFlicker() 
 	{
-		while (Player.batteryCharge <= 15) 
+		while (batteryFailing) 
 		{
-			GetComponent<Light> ().enabled = true;
+			TorchOn();
 			yield return new WaitForSeconds (Random.Range (minFlickerSpeed, maxFlickerSpeed));
-			GetComponent<Light> ().enabled = false;
+			TorchOff ();
 			yield return new WaitForSeconds (Random.Range (minFlickerSpeed, maxFlickerSpeed));
-			if (Player.batteryCharge == 0) 
-			{
-				GetComponent<Light> ().enabled = false;
-				StopCoroutine ("TorchFlicker");
-			}
 		}
+		StopCoroutine ("TorchFlicker");
+	}
+
+	void TorchOff() {
+		GetComponent<Light> ().enabled = false;
+		//TODO: Play torch on / off sound
+	}
+	void TorchOn() {
+		GetComponent<Light> ().enabled = true;
+		//TODO: Play torch on / off sound
 	}
 }

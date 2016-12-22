@@ -4,7 +4,7 @@ using System.Collections;
 public class WallLamp : MonoBehaviour {
 
 	public float minFlickerSpeed = 0.1f;
-	public float maxFlickerSpeed = 0.5f;
+	public float maxFlickerSpeed = 0.1f;
 
 	public bool scarePlayer; 
 

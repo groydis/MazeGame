@@ -63,24 +63,24 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKeyDown ("left")) 
 		{
 			TurnLeft ();
-			ErrorCorrectPosition ();
+			//ErrorCorrectPosition ();
 		}
 		if (Input.GetKeyDown ("right")) 
 		{
 			TurnRight ();
-			ErrorCorrectPosition ();
+			//ErrorCorrectPosition ();
 		}
 		
 		if (Input.GetKeyDown ("up")) 
 		{
 			TurnUp ();
-			ErrorCorrectPosition ();
+			//ErrorCorrectPosition ();
 		}
 
 		if (Input.GetKeyDown ("down")) 
 		{
 			TurnDown ();
-			ErrorCorrectPosition ();
+			//ErrorCorrectPosition ();
 		}
 		//		#endif
 	}
@@ -92,34 +92,26 @@ public class PlayerMovement : MonoBehaviour {
 		
 	void TurnLeft() 
 	{
-		Debug.Log ("Left Started");
 		StopAllCoroutines ();
 		StartCoroutine (Rotate (-90f));
-		Debug.Log ("Left Ended");
 	}
 
 	void TurnRight() 
 	{
-		Debug.Log ("Right Started");
 		StopAllCoroutines();
 		StartCoroutine(Rotate(90f));
-		Debug.Log ("Right Ended");
 	}
 
 	void TurnUp() 
 	{
-		Debug.Log ("Up Started");
 		StopAllCoroutines();
 		StartCoroutine(Rotate(0f));
-		Debug.Log ("Up Ended");
 	}
 
 	void TurnDown() 
 	{
-		Debug.Log ("Down Started");
 		StopAllCoroutines();
 		StartCoroutine(Rotate(180f));
-		Debug.Log ("Down Ended");
 	}
 
 	IEnumerator Rotate(float rotationAmount){

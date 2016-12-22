@@ -8,8 +8,8 @@ public class Player : MonoBehaviour {
 
 	void Start () 
 	{
-		batteryCharge = 10;
-		batteryDrainRate = 1;
+		batteryCharge = 60.0f;
+		batteryDrainRate = 1.0f;
 	
 	}
 
@@ -17,13 +17,13 @@ public class Player : MonoBehaviour {
 	{
 		if (batteryCharge > 0) {
 			Renderer renderer = GetComponent<Renderer>();
-			Material material = renderer.material;
-			material.SetColor ("_EmissionColor", Color.white);
+			Material mat = renderer.material;
+			mat.SetColor ("_EmissionColor", Color.white);
 		}
 		if (batteryCharge == 0) {
 			Renderer renderer = GetComponent<Renderer>();
-			Material material = renderer.material;
-			material.SetColor("_EmissionColor", Color.black);
+			Material mat = renderer.material;
+			mat.SetColor("_EmissionColor", Color.black);
 		}
 
 	}

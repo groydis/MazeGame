@@ -11,28 +11,13 @@ public class Battery : MonoBehaviour {
 	// If so, increases battery current battery charge by the battery pick up charge amount.
 	// If the current battery charge is equal to the maximum battery charge then it just sets the 
 	// current battery charge to the maximum, this prevents over charging.
-	void InteractWithBattery () 
-	{
+
+	void InteractWithBattery() {
 		if (Player.batteryCharge < maxBatteryCharge) 
 		{
 			Player.batteryCharge += batteryPickUpCharge;
 			if (Player.batteryCharge > 0) {
 				playerTorch.GetComponent<Light> ().enabled = true;
-				if (Player.batteryCharge < 30) {
-					playerTorch.GetComponent<Light> ().intensity = 5f;
-				}
-				if (Player.batteryCharge < 25) {
-					playerTorch.GetComponent<Light> ().intensity = 4f;
-				}
-				if (Player.batteryCharge < 20) {
-					playerTorch.GetComponent<Light> ().intensity = 3f;
-				}
-				if (Player.batteryCharge < 15) {
-					playerTorch.GetComponent<Light> ().intensity = 2f;
-				}
-				if (Player.batteryCharge < 10) {
-					playerTorch.GetComponent<Light> ().intensity = 1f;
-				}
 			}
 
 			if (Player.batteryCharge > maxBatteryCharge) 
@@ -47,7 +32,6 @@ public class Battery : MonoBehaviour {
 
 	void OnTriggerEnter(Collider hit) 
 	{
-		// If collision occurs with a battery, performs InteractWithBattery() on the Battery Script
 		if (hit.gameObject.tag == "Player") {
 			InteractWithBattery ();
 		}
