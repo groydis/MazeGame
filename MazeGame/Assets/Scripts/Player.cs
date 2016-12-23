@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
 
 	public static bool isTriggered;
 
+	public static bool canMove;
+
 	void Start () 
 	{
 		batteryCharge = 60.0f;

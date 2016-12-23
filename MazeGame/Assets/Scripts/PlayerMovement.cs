@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float rotationSpeed = 10f;
 
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour {
 
 
 		startingRotation = this.transform.rotation;
+
+		Player.canMove = true;
 
 		#if UNITY_EDITOR
 		Debug.Log("Unity Editor");
@@ -87,7 +90,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate() {
 		//Moves Player Constantly foward
-		rbody.velocity = transform.forward * movementSpeed;
+		if (Player.canMove) {
+			
+			rbody.velocity = transform.forward * movementSpeed;
+		}
 	}
 		
 	void TurnLeft() 

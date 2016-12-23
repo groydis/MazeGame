@@ -12,7 +12,6 @@ public class Booze : MonoBehaviour {
 	}
 
 	void interactWithBooze() {
-		Debug.Log ("You got the booze, you drunk");
 		Player.isDrunk = true;
 		Destroy (this.gameObject);
 	}

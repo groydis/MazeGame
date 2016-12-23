@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\SwipeManager.cs" />
      <Compile Include="Assets\Scripts\TorchControl.cs" />
+     <Compile Include="Assets\Scripts\TrolleyController.cs" />
      <Compile Include="Assets\Scripts\TypeWriter.cs" />
      <Compile Include="Assets\Scripts\WallLamp.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
