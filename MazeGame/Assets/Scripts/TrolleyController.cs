@@ -27,7 +27,7 @@ public class TrolleyController : MonoBehaviour {
 	void OnTriggerEnter(Collider hit) 
 	{
 		if (hit.gameObject.tag == "Player") {
-			Debug.Log ("Collided with: " + hit);
+			Debug.Log ("Trolley Collided with: " + hit);
 			startMoving = true;
 		}
 	}
