@@ -9,6 +9,11 @@ public class SpectralController : MonoBehaviour {
 	public float deathTime;
 	public float respawnTime;
 	private Vector3 startPosition;
+	private Vector3 deathPosition;
+
+	public GameObject spectralSpew;
+
+	private Renderer[] renderers;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +21,11 @@ public class SpectralController : MonoBehaviour {
 		startMoving = false;
 		rBody = GetComponent<Rigidbody> ();
 		startPosition = transform.position;
+		GetComponentInChildren<Light> ().enabled = false;
+		renderers = GetComponentsInChildren<MeshRenderer> ();
+		foreach (Renderer renderer in renderers) {
+			renderer.enabled = false;
+		}
 	
 	}
 	
@@ -30,6 +40,10 @@ public class SpectralController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider hit) {
 		if (hit.gameObject.tag == "Player") {
+			GetComponentInChildren<Light> ().enabled = true;
+			foreach (Renderer renderer in renderers) {
+				renderer.enabled = true;
+			}
 			Debug.Log ("Spectral Collided with: " + hit);
 			startMoving = true;
 		}
@@ -47,22 +61,30 @@ public class SpectralController : MonoBehaviour {
 		if (coll.collider.gameObject.tag == "Player") {
 			Debug.Log ("Ooh, that tickles!");
 			startMoving = false;
-			//Destroy (this.gameObject);
+			StartCoroutine ("DestroySpectral");
 		}
 
 	}
 
 	public IEnumerator DestroySpectral () {
 		startMoving = false;
-		yield return new WaitForSeconds (deathTime);
+		for (int i = 0; i < 10; i++) {
+			Instantiate(spectralSpew, transform.position, Quaternion.identity); 
+		}
 		Player.canMove = true;
+		yield return null;
+
 		Destroy (this.gameObject);
 	}
 
 	public IEnumerator GoHomeYourDrunk () {
+		yield return new WaitForSeconds (respawnTime);
 		startMoving = false;
 		rBody.Sleep ();
-		yield return new WaitForSeconds (respawnTime);
 		transform.position = startPosition;
+		GetComponentInChildren<Light> ().enabled = false;
+		foreach (Renderer renderer in renderers) {
+			renderer.enabled = false;
+		}
 	}
 }
