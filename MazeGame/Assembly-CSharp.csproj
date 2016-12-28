@@ -49,6 +49,10 @@
      <Compile Include="Assets\Scripts\Booze.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawnPoint.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawnTrigger.cs" />
+     <Compile Include="Assets\Scripts\Entrance.cs" />
+     <Compile Include="Assets\Scripts\ExitLevel.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Hazards.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

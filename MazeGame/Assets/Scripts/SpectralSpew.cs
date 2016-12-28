@@ -14,6 +14,10 @@ public class SpectralSpew : MonoBehaviour {
 		StartCoroutine ("DestroySpew");
 
 	}
+
+	void OnCollisionEnter() {
+		//rBody.Sleep ();
+	}
 	
 	// Update is called once per frame
 	void Update () {

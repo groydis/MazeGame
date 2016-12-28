@@ -18,13 +18,13 @@ public class SpectralController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		startMoving = false;
+		startMoving = true;
 		rBody = GetComponent<Rigidbody> ();
 		startPosition = transform.position;
-		GetComponentInChildren<Light> ().enabled = false;
+		GetComponentInChildren<Light> ().enabled = true;
 		renderers = GetComponentsInChildren<MeshRenderer> ();
 		foreach (Renderer renderer in renderers) {
-			renderer.enabled = false;
+			renderer.enabled = true;
 		}
 	
 	}
@@ -37,25 +37,7 @@ public class SpectralController : MonoBehaviour {
 		}
 	
 	}
-
-	void OnTriggerEnter(Collider hit) {
-		if (hit.gameObject.tag == "Player") {
-			GetComponentInChildren<Light> ().enabled = true;
-			foreach (Renderer renderer in renderers) {
-				renderer.enabled = true;
-			}
-			Debug.Log ("Spectral Collided with: " + hit);
-			startMoving = true;
-		}
-	}
-
-	void OnTriggerExit(Collider hit) {
-		if (hit.gameObject.tag == "Player") {
-			StartCoroutine ("GoHomeYourDrunk");
-		}
-	}
-
-
+		
 	void OnCollisionEnter(Collision coll) {
 
 		if (coll.collider.gameObject.tag == "Player") {

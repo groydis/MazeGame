@@ -42,7 +42,7 @@ public class TrolleyController : MonoBehaviour {
 	// Add force to collision object and destroy game object
 	void OnCollisionEnter (Collision col)
 	{
-		if (col.gameObject.name == "Player") {
+		if (col.gameObject.tag == "Player") {
 			Player.canMove = false;
 			col.rigidbody.AddForce (-transform.forward);
 			StartCoroutine ("DestroyTrolley");

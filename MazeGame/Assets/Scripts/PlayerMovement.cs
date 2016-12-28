@@ -22,8 +22,6 @@ public class PlayerMovement : MonoBehaviour {
 
 		startingRotation = this.transform.rotation;
 
-		Player.canMove = true;
-
 		#if UNITY_EDITOR
 		Debug.Log("Unity Editor");
 		#endif

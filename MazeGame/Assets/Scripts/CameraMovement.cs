@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraMovement : MonoBehaviour {
 
-	public GameObject player;
+	private GameObject player;
 
 	private Vector3 offset;
 
@@ -14,6 +14,7 @@ public class CameraMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		player = GameObject.FindGameObjectWithTag ("Player");
 		offset = transform.position - player.transform.position;
 	}
 	
