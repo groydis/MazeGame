@@ -3,29 +3,29 @@ using System.Collections;
 
 public class SpectralController : MonoBehaviour {
 
-	public float moveSpeed = 10f;
+	private float moveSpeed = 10f;
 	private Rigidbody rBody;
 	private bool startMoving;
-	public float deathTime;
-	public float respawnTime;
-	private Vector3 startPosition;
 	private Vector3 deathPosition;
 
 	public GameObject spectralSpew;
 
 	private Renderer[] renderers;
 
+	private GameObject playerObject;
+
 	// Use this for initialization
 	void Start () {
 
 		startMoving = true;
 		rBody = GetComponent<Rigidbody> ();
-		startPosition = transform.position;
 		GetComponentInChildren<Light> ().enabled = true;
 		renderers = GetComponentsInChildren<MeshRenderer> ();
 		foreach (Renderer renderer in renderers) {
 			renderer.enabled = true;
 		}
+
+		playerObject = GameObject.FindGameObjectWithTag ("Player");
 	
 	}
 	
@@ -37,25 +37,53 @@ public class SpectralController : MonoBehaviour {
 		}
 	
 	}
+
+	void OnTriggerEnter(Collider hit) {
+		if (hit.transform.IsChildOf(transform.parent.transform)) {
+			if (hit.GetComponent<Collider>().gameObject.tag == "deSpawner") {
+				Debug.Log ("Spectral hit DeSpawner");
+				rBody.Sleep ();
+				GetComponentInParent<EnemySpawnTrigger> ().canReSpawn = false;
+				StartCoroutine ("DeSpawnSpectral");
+			}
+		}
+	}
 		
 	void OnCollisionEnter(Collision coll) {
 
 		if (coll.collider.gameObject.tag == "Player") {
 			Debug.Log ("Ooh, that tickles!");
 			startMoving = false;
-			StartCoroutine ("DestroySpectral");
+			Renderer renderer = GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>();
+			Material mat = renderer.material;
+			mat.SetColor("_EmissionColor", Color.red);
+
+			StartCoroutine ("HitPlayer");
 		}
 
 	}
 
-	public IEnumerator DestroySpectral () {
+	IEnumerator DeSpawnSpectral () {
 		startMoving = false;
-		for (int i = 0; i < 10; i++) {
-			GameObject Spew = Instantiate(spectralSpew, transform.position, Quaternion.identity) as GameObject; 
-			Spew.transform.parent = transform;
-		}
-		Player.canMove = true;
 		yield return null;
+		Destroy (this.gameObject);
+	}
+
+	IEnumerator HitPlayer() {
+		Player.movementSpeed = 1f;
+		startMoving = false;
+		foreach (Renderer renderer in renderers) {
+			renderer.enabled = false;
+		}
+		GetComponentInChildren<Light> ().enabled = false;
+		GetComponent<BoxCollider> ().enabled = false;
+		for (int i = 0; i < 10; i++) {
+			Debug.Log ("Spawning Spew");
+			GameObject Spew = Instantiate(spectralSpew, transform.position, Quaternion.identity) as GameObject; 
+			Spew.transform.parent = transform.parent;
+		}
+		yield return new WaitForSeconds (10f);
+		Player.movementSpeed = 2.5f;
 		Destroy (this.gameObject);
 	}
 }

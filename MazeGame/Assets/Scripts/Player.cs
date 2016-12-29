@@ -6,6 +6,8 @@ public class Player : MonoBehaviour {
 	public static float batteryCharge;
 	public static float batteryDrainRate;
 
+	public static float movementSpeed = 2.5f;
+
 	public static bool isDrunk;
 
 	public float intoxicationDuration = 10.0f;
@@ -34,10 +36,12 @@ public class Player : MonoBehaviour {
 
 	void Update () 
 	{
-		if (batteryCharge > 0) {
-			Renderer renderer = GetComponent<Renderer>();
-			Material mat = renderer.material;
-			mat.SetColor ("_EmissionColor", Color.white);
+		if (movementSpeed > 2) {
+			if (batteryCharge > 0) {
+				Renderer renderer = GetComponent<Renderer> ();
+				Material mat = renderer.material;
+				mat.SetColor ("_EmissionColor", Color.white);
+			}
 		}
 		if (batteryCharge == 0) {
 			Renderer renderer = GetComponent<Renderer>();

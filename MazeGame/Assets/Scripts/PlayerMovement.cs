@@ -3,8 +3,6 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-	public float movementSpeed;
-
 	public float errorCorrectSpeed;
 
 	private Rigidbody rbody;
@@ -90,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
 		//Moves Player Constantly foward
 		if (Player.canMove) {
 			
-			rbody.velocity = transform.forward * movementSpeed;
+			rbody.velocity = transform.forward * Player.movementSpeed;
 		}
 	}
 		

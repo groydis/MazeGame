@@ -1,21 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SpectralSpew.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TrolleyController.cs">
     <Files>
-      <File FileName="Assets/Scripts/SpectralController.cs" Line="21" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="18" Column="22" />
-      <File FileName="Assets/Scripts/Booze.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Battery.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CameraMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TorchControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/WallLamp.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TypeWriter.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TrolleyController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SpectralSpew.cs" Line="13" Column="20" />
-      <File FileName="Assets/Scripts/EnemySpawnPoint.cs" Line="6" Column="31" />
-      <File FileName="Assets/Scripts/EnemySpawnTrigger.cs" Line="16" Column="94" />
+      <File FileName="Assets/Scripts/TrolleyController.cs" Line="62" Column="50" />
+      <File FileName="Assets/Scripts/EnemySpawnPoint.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EnemySpawnTrigger.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

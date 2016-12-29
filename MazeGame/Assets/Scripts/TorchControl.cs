@@ -3,10 +3,11 @@ using System.Collections;
 
 public class TorchControl : MonoBehaviour {
 
-	public float waitTime = 1.0f;
-	public float minFlickerSpeed = 0.1f;
-	public float maxFlickerSpeed = 1.0f;
-	public float flickerStartTime = 10.0f;
+	private float waitTime = 1.0f;
+	private float minFlickerSpeed = 0.1f;
+	private float maxFlickerSpeed = 1.0f;
+	private float flickerStartTime = 5.0f;
+	private float torchIntensityDecreaseTime = 10f;
 	public bool batteryFailing;
 	public bool decreasingBattery;
 
@@ -20,6 +21,11 @@ public class TorchControl : MonoBehaviour {
 		
 	void Update () 
 	{
+		if (torchIntensityDecreaseTime <= 9) {
+			GetComponent<Light> ().intensity = 5f;
+		} else {
+			GetComponent<Light> ().intensity = 8f;
+		}
 		// Perform a check to see if Torch Flicker shoudl begin
 		if (Player.batteryCharge <= flickerStartTime) {
 			batteryFailing = true;

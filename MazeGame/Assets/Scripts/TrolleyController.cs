@@ -3,17 +3,18 @@ using System.Collections;
 
 public class TrolleyController : MonoBehaviour {
 
-	public float moveSpeed = 10f;
+	private float moveSpeed = 10f;
 	private Rigidbody rBody;
 	private bool startMoving;
-	public float deathTime;
-	public float respawnTime;
-	//private Vector3 startPosition;
+	private float deathTime = 5f;
+	private float deSpawnTime = 3f;
+	private bool flashingEnabled;
+	private float flashInterval = 0.5f;
 
 	void Start () {
 		startMoving = true;
 		rBody = GetComponent<Rigidbody> ();
-		//startPosition = transform.position;
+		flashingEnabled = false;
 	}
 
 
@@ -27,10 +28,28 @@ public class TrolleyController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider hit) {
 		if (hit.transform.IsChildOf(transform.parent.transform)) {
-			Debug.Log ("Trolley hit DeSpawner");
-			rBody.Sleep ();
-			GetComponentInParent<EnemySpawnTrigger> ().canReSpawn = false;
-			StartCoroutine ("DestroyTrolley");
+			Debug.Log ("Detect Hit");
+			if (hit.GetComponent<Collider>().gameObject.tag == "DeSpawner") {
+				Debug.Log ("Trolley hit DeSpawner");
+				rBody.Sleep ();
+				GetComponentInParent<EnemySpawnTrigger> ().canReSpawn = false;
+				flashingEnabled = true;
+				StartCoroutine ("FlashingRenderer");
+				StartCoroutine ("DeSpawnTrolley");
+			}
+		}
+	}
+
+	IEnumerator FlashingRenderer() {
+		yield return new WaitForSeconds(1f);
+		while (flashingEnabled) {
+			if (gameObject.GetComponent<MeshRenderer> ().enabled) {
+				gameObject.GetComponent<MeshRenderer> ().enabled = false;
+				yield return new WaitForSeconds (flashInterval);
+			} else {
+				gameObject.GetComponent<MeshRenderer> ().enabled = true;
+				yield return new WaitForSeconds (flashInterval);
+			}
 		}
 	}
 
@@ -40,18 +59,32 @@ public class TrolleyController : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			Debug.Log ("Trolley hit player");
 			Player.canMove = false;
+			rBody.AddForce (-transform.right * moveSpeed);
 			col.rigidbody.AddForce (-transform.forward);
+			flashingEnabled = true;
+			StartCoroutine ("FlashingRenderer");
 			StartCoroutine ("DestroyTrolley");
 		} 
 	}
 
-	// Is called when player is hit by the troll
-	// Player movement stops
-	// Trolley is destroyed 
 	public IEnumerator DestroyTrolley () {
+		var material = GetComponent<Renderer>().material;
+		var color = material.color;
+
+		material.color = new Color(color.r, color.g, color.b, color.a - (25f * Time.deltaTime));
 		startMoving = false;
 		yield return new WaitForSeconds (deathTime);
 		Player.canMove = true;
+		Destroy (this.gameObject);
+	}
+
+	IEnumerator DeSpawnTrolley() {
+		var material = GetComponent<Renderer>().material;
+		var color = material.color;
+
+		material.color = new Color(color.r, color.g, color.b, color.a - (25f * Time.deltaTime));
+		yield return new WaitForSeconds (deSpawnTime);
+		gameObject.GetComponent<BoxCollider> ().enabled = false;
 		Destroy (this.gameObject);
 	}
 		
