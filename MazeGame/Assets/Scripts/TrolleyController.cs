@@ -8,34 +8,29 @@ public class TrolleyController : MonoBehaviour {
 	private bool startMoving;
 	public float deathTime;
 	public float respawnTime;
-	private Vector3 startPosition;
+	//private Vector3 startPosition;
 
 	void Start () {
+		startMoving = true;
 		rBody = GetComponent<Rigidbody> ();
-		startPosition = transform.position;
+		//startPosition = transform.position;
 	}
 
+
+
 	void FixedUpdate () {
-		// Start Moving is Flagged by the player entering the collider
 		// Adds velocity to the Cleaning Trolley
 		if (startMoving) {
 			rBody.velocity = transform.forward * moveSpeed;
 		}
 	}
 
-	// Starts moving the Trolley
-	void OnTriggerEnter(Collider hit) 
-	{
-		if (hit.gameObject.tag == "Player") {
-			Debug.Log ("Trolley Collided with: " + hit);
-			startMoving = true;
-		}
-	}
-
-	// Returns Trolley to start position
-	void OnTriggerExit(Collider hit) {
-		if (hit.gameObject.tag == "Player") {
-			StartCoroutine ("GoHomeYourDrunk");
+	void OnTriggerEnter(Collider hit) {
+		if (hit.transform.IsChildOf(transform.parent.transform)) {
+			Debug.Log ("Trolley hit DeSpawner");
+			rBody.Sleep ();
+			GetComponentInParent<EnemySpawnTrigger> ().canReSpawn = false;
+			StartCoroutine ("DestroyTrolley");
 		}
 	}
 
@@ -43,6 +38,7 @@ public class TrolleyController : MonoBehaviour {
 	void OnCollisionEnter (Collision col)
 	{
 		if (col.gameObject.tag == "Player") {
+			Debug.Log ("Trolley hit player");
 			Player.canMove = false;
 			col.rigidbody.AddForce (-transform.forward);
 			StartCoroutine ("DestroyTrolley");
@@ -58,11 +54,5 @@ public class TrolleyController : MonoBehaviour {
 		Player.canMove = true;
 		Destroy (this.gameObject);
 	}
-
-	// Returns teh Trolley back to it's stating location
-	public IEnumerator GoHomeYourDrunk () {
-		startMoving = false;
-		yield return new WaitForSeconds (respawnTime);
-		transform.position = startPosition;
-	}
+		
 }

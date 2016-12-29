@@ -51,22 +51,11 @@ public class SpectralController : MonoBehaviour {
 	public IEnumerator DestroySpectral () {
 		startMoving = false;
 		for (int i = 0; i < 10; i++) {
-			Instantiate(spectralSpew, transform.position, Quaternion.identity); 
+			GameObject Spew = Instantiate(spectralSpew, transform.position, Quaternion.identity) as GameObject; 
+			Spew.transform.parent = transform;
 		}
 		Player.canMove = true;
 		yield return null;
-
 		Destroy (this.gameObject);
-	}
-
-	public IEnumerator GoHomeYourDrunk () {
-		yield return new WaitForSeconds (respawnTime);
-		startMoving = false;
-		rBody.Sleep ();
-		transform.position = startPosition;
-		GetComponentInChildren<Light> ().enabled = false;
-		foreach (Renderer renderer in renderers) {
-			renderer.enabled = false;
-		}
 	}
 }

@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public static void FinishLevel() {
-		SceneManager.LoadScene ("Tutorial");
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 	}
 		
 }
