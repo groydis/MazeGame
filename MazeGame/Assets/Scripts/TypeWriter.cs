@@ -11,7 +11,6 @@ public class TypeWriter : MonoBehaviour {
 	}
 
 	void interactWithTypeWriter() {
-		Player.isTriggered = true;
 		Destroy (this.gameObject);
 	}
 

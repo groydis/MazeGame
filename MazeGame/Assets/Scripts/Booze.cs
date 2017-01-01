@@ -7,11 +7,11 @@ public class Booze : MonoBehaviour {
 	void OnTriggerEnter(Collider hit) 
 	{
 		if (hit.gameObject.tag == "Player") {
-			interactWithBooze();
+			InteractWithBooze();
 		}
 	}
 
-	void interactWithBooze() {
+	void InteractWithBooze() {
 		Player.isDrunk = true;
 		Destroy (this.gameObject);
 	}

@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Hazards.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Soda.cs" />
      <Compile Include="Assets\Scripts\SpectralController.cs" />
      <Compile Include="Assets\Scripts\SpectralSpew.cs" />
      <Compile Include="Assets\Scripts\SwipeManager.cs" />

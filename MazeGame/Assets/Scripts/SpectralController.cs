@@ -12,8 +12,6 @@ public class SpectralController : MonoBehaviour {
 
 	private Renderer[] renderers;
 
-	private GameObject playerObject;
-
 	// Use this for initialization
 	void Start () {
 
@@ -24,9 +22,6 @@ public class SpectralController : MonoBehaviour {
 		foreach (Renderer renderer in renderers) {
 			renderer.enabled = true;
 		}
-
-		playerObject = GameObject.FindGameObjectWithTag ("Player");
-	
 	}
 	
 	// Update is called once per frame
@@ -82,7 +77,7 @@ public class SpectralController : MonoBehaviour {
 			GameObject Spew = Instantiate(spectralSpew, transform.position, Quaternion.identity) as GameObject; 
 			Spew.transform.parent = transform.parent;
 		}
-		yield return new WaitForSeconds (10f);
+		yield return new WaitForSeconds (Player.spectralEffect);
 		Player.movementSpeed = 2.5f;
 		Destroy (this.gameObject);
 	}

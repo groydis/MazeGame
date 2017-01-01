@@ -10,11 +10,13 @@ public class TrolleyController : MonoBehaviour {
 	private float deSpawnTime = 3f;
 	private bool flashingEnabled;
 	private float flashInterval = 0.5f;
+	private bool isDisabling;
 
 	void Start () {
 		startMoving = true;
 		rBody = GetComponent<Rigidbody> ();
 		flashingEnabled = false;
+		isDisabling = false;
 	}
 
 
@@ -24,6 +26,7 @@ public class TrolleyController : MonoBehaviour {
 		if (startMoving) {
 			rBody.velocity = transform.forward * moveSpeed;
 		}
+			
 	}
 
 	void OnTriggerEnter(Collider hit) {
@@ -34,6 +37,8 @@ public class TrolleyController : MonoBehaviour {
 				rBody.Sleep ();
 				GetComponentInParent<EnemySpawnTrigger> ().canReSpawn = false;
 				flashingEnabled = true;
+				isDisabling = true;
+				gameObject.layer = 12;
 				StartCoroutine ("FlashingRenderer");
 				StartCoroutine ("DeSpawnTrolley");
 			}
@@ -57,13 +62,15 @@ public class TrolleyController : MonoBehaviour {
 	void OnCollisionEnter (Collision col)
 	{
 		if (col.gameObject.tag == "Player") {
-			Debug.Log ("Trolley hit player");
-			Player.canMove = false;
-			rBody.AddForce (-transform.right * moveSpeed);
-			col.rigidbody.AddForce (-transform.forward);
-			flashingEnabled = true;
-			StartCoroutine ("FlashingRenderer");
-			StartCoroutine ("DestroyTrolley");
+			if (!isDisabling) {
+				Debug.Log ("Trolley hit player");
+				Player.canMove = false;
+				rBody.AddForce (-transform.right * moveSpeed);
+				col.rigidbody.AddForce (-transform.forward);
+				flashingEnabled = true;
+				StartCoroutine ("FlashingRenderer");
+				StartCoroutine ("DestroyTrolley");
+			}
 		} 
 	}
 
@@ -79,12 +86,12 @@ public class TrolleyController : MonoBehaviour {
 	}
 
 	IEnumerator DeSpawnTrolley() {
+		Player.canMove = true;
 		var material = GetComponent<Renderer>().material;
 		var color = material.color;
-
 		material.color = new Color(color.r, color.g, color.b, color.a - (25f * Time.deltaTime));
 		yield return new WaitForSeconds (deSpawnTime);
-		gameObject.GetComponent<BoxCollider> ().enabled = false;
+		Player.canMove = true;
 		Destroy (this.gameObject);
 	}
 		

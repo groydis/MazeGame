@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -9,15 +10,21 @@ public class Player : MonoBehaviour {
 	public static float movementSpeed = 2.5f;
 
 	public static bool isDrunk;
+	public static bool activateSoda;
 
-	public float intoxicationDuration = 10.0f;
+	public static float spectralEffect = 10.0f;
+
+	private float intoxicationDuration = 10.0f;
 	private float intoxicationCountDown;
+
+	private float sodaEffectDuration = 5.0f;
+	private float sodaEffectCountDown;
 
 	private bool imageEffectActive;
 
 	private GameObject mainCamera;
 
-	public static bool isTriggered;
+	private Text sugarRushText;
 
 	public static bool canMove;
 
@@ -27,10 +34,8 @@ public class Player : MonoBehaviour {
 		batteryDrainRate = 1.0f;
 		isDrunk = false;
 		imageEffectActive = false;
-
 		mainCamera = GameObject.Find ("Main Camera");
-
-		isTriggered = false;
+		sugarRushText = GameObject.Find ("SugarRush").GetComponent<Text>();
 	
 	}
 
@@ -54,9 +59,9 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		if (isTriggered) {
+		if (activateSoda) {
 			if (!imageEffectActive) {
-				StartCoroutine ("triggered");
+				StartCoroutine ("SodaStreaming");
 			}
 		}
 	}
@@ -70,6 +75,18 @@ public class Player : MonoBehaviour {
 			intoxicationCountDown -= 1f;
 		}
 		MuntedOff ();
+	}
+
+	IEnumerator SodaStreaming() 
+	{
+		sodaEffectCountDown = sodaEffectDuration;
+		SodaOn ();
+		while (sodaEffectCountDown != 0) {
+			yield return new WaitForSecondsRealtime (1f);
+			sodaEffectCountDown -= 1f;
+			Debug.Log (sodaEffectCountDown);
+		}
+		SodaOff ();
 	}
 
 	// Turns fish eye on
@@ -86,28 +103,29 @@ public class Player : MonoBehaviour {
 		isDrunk = false;
 	}
 
-	public IEnumerator triggered() {
-
-		while (isTriggered) {
-			mainCamera.GetComponent<UnityStandardAssets.ImageEffects.ScreenOverlay> ().enabled = true;
-			intoxicationCountDown = intoxicationDuration;
-			while (intoxicationCountDown != 0) {
-				yield return new WaitForSecondsRealtime (1f);
-				intoxicationCountDown -= 1f;
-			}
-			noLongerTriggered ();
-		}
-	}
-
-	public void suddenlyTriggered() {
-		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.ScreenOverlay> ().enabled = true;
+	public void SodaOn() {
+		StartCoroutine (PowerUpText (sugarRushText, sodaEffectDuration));
+		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.MotionBlur> ().enabled = true;
+		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ().enabled = true;
+		movementSpeed = 5f;
 		imageEffectActive = true;
+		Debug.Log ("Soda On");
 	}
 
-
-	public void noLongerTriggered() {
-		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.ScreenOverlay> ().enabled = false;
-		isTriggered = false;
+	public void SodaOff() {
+		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.MotionBlur> ().enabled = false;
+		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ().enabled = false;
+		movementSpeed = 2.5f;
+		Debug.Log ("Soda Off");
+		activateSoda = false;
 		imageEffectActive = false;
+	}
+
+	IEnumerator PowerUpText(Text text, float textDuration) {
+		Debug.Log ("Text On");
+		text.enabled = true;
+		yield return new WaitForSeconds (textDuration);
+		text.enabled = false;
+		Debug.Log ("Text Off");
 	}
 }
