@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 
 	public static bool isDrunk;
 	public static bool activateSoda;
+	public static bool activatePopCorn;
 
 	public static float spectralEffect = 10.0f;
 
@@ -20,11 +21,15 @@ public class Player : MonoBehaviour {
 	private float sodaEffectDuration = 5.0f;
 	private float sodaEffectCountDown;
 
+	private float popCornEffectDuration = 10.0f;
+	private float popCornEffectCountDown;
+
 	private bool imageEffectActive;
 
 	private GameObject mainCamera;
 
 	private Text sugarRushText;
+	public GameObject popCornTrail;
 
 	public static bool canMove;
 
@@ -36,6 +41,7 @@ public class Player : MonoBehaviour {
 		imageEffectActive = false;
 		mainCamera = GameObject.Find ("Main Camera");
 		sugarRushText = GameObject.Find ("SugarRush").GetComponent<Text>();
+		//popCornTrail = GameObject.Find("PopCornTrailPrefab");
 	
 	}
 
@@ -64,6 +70,12 @@ public class Player : MonoBehaviour {
 				StartCoroutine ("SodaStreaming");
 			}
 		}
+
+		if (activatePopCorn) {
+			if (!imageEffectActive) {
+				StartCoroutine ("PopCorn");
+			}
+		}
 	}
 
 	IEnumerator BoozyWoozy() 
@@ -88,6 +100,20 @@ public class Player : MonoBehaviour {
 		}
 		SodaOff ();
 	}
+
+	IEnumerator PopCorn() {
+		popCornEffectCountDown = popCornEffectDuration;
+		PopCornOn ();
+		Debug.Log ("Pop on");
+		while (popCornEffectCountDown != 0) {
+			yield return new WaitForSeconds (1f);
+			popCornEffectCountDown -= 1f;
+			Debug.Log (popCornEffectCountDown);
+		}
+		PopCornOff ();
+		Debug.Log ("Pop off");
+	}
+
 
 	// Turns fish eye on
 	public void MuntedOn() {
@@ -119,6 +145,28 @@ public class Player : MonoBehaviour {
 		Debug.Log ("Soda Off");
 		activateSoda = false;
 		imageEffectActive = false;
+	}
+
+	public void PopCornOn() {
+		StartCoroutine ("PopCornSpawn");
+		imageEffectActive = true;
+	
+	}
+
+	public void PopCornOff() {
+		activatePopCorn = false;
+		imageEffectActive = false;
+	
+	}
+
+	IEnumerator PopCornSpawn() {
+		Vector3 pos = new Vector3(0f, 3f, 0f);
+		while (activatePopCorn) {
+			GameObject popCorn = Instantiate(popCornTrail, transform.position + pos, Quaternion.identity) as GameObject; 
+			popCorn.transform.parent = transform.parent;
+			yield return new WaitForSeconds (Random.Range(0.5f, 1f));
+		}
+		activatePopCorn = false;
 	}
 
 	IEnumerator PowerUpText(Text text, float textDuration) {
