@@ -13,12 +13,6 @@ public class CameraMovement : MonoBehaviour {
 
 	private Vector3 velocity = Vector3.zero;
 
-	public float shakeDuration = 2f;
-	public float magnitude = 2f;
-
-
-
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -28,7 +22,7 @@ public class CameraMovement : MonoBehaviour {
 		GetComponent<UnityStandardAssets.ImageEffects.MotionBlur> ().enabled = false;
 		GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ().enabled = false;
 		GetComponent<GlitchEffect> ().enabled = true;
-		GetComponent<CRT> ().enabled = false;
+		GetComponent<CRT> ().enabled = true;
 
 	}
 	

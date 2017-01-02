@@ -40,7 +40,8 @@ public class Entrance : MonoBehaviour {
 			startText.text = currCountDownValue.ToString();
 		}
 		startText.text = "Go";
-		yield return new WaitForSeconds (1.0f);
+		GameManager.Instance.TweenOutCRT();
+		yield return new WaitForSeconds (2.5f);
 		mainCamera.GetComponent<GlitchEffect> ().enabled = false;
 		mainCamera.GetComponent<CRT> ().enabled = false;
 		startText.enabled = false;

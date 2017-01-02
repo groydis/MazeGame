@@ -72,6 +72,7 @@ public class TrolleyController : MonoBehaviour {
 				rBody.AddForce (-transform.right * moveSpeed);
 				col.rigidbody.AddForce (-transform.forward);
 				flashingEnabled = true;
+				gameObject.layer = 12;
 				StartCoroutine ("FlashingRenderer");
 				StartCoroutine ("DestroyTrolley");
 			}

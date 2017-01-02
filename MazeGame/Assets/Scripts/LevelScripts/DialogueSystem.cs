@@ -31,7 +31,9 @@ public class DialogueSystem : MonoBehaviour {
 
 	void Update() {
 		if (Input.GetMouseButtonDown(0)) {
-			ContinueDialogue ();
+			if (dialoguePanel.activeSelf) {
+				ContinueDialogue ();
+			}
 		}
 	}
 

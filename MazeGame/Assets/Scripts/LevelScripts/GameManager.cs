@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 public class GameManager : MonoBehaviour {
@@ -14,11 +15,21 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject pauseText;
 
+	private GlitchEffect glitchEffect;
+	private CRT crtEffect;
+
+	private Scene currentScene;
+	private string currentSceneName;
+
+
 	// Use this for initialization
 	void Awake () {
-		pauseGame = false;
 		pauseText = GameObject.Find ("PauseText");
 		pauseText.SetActive (false);
+		pauseGame = false;
+
+		glitchEffect = GameObject.Find ("Main Camera").GetComponent<GlitchEffect> ();
+		crtEffect = GameObject.Find ("Main Camera").GetComponent<CRT> ();
 
 		if (Instance != null && Instance != this) {
 			Destroy (gameObject);
@@ -26,15 +37,36 @@ public class GameManager : MonoBehaviour {
 			Instance = this;
 		}
 	}
-	
+
+	void Start() {
+		currentScene = SceneManager.GetActiveScene ();
+		currentSceneName = currentScene.name;
+		if (currentSceneName == "MainMenu") {
+			StartCoroutine ("MainMenuLoad");
+		} else {
+			DOTween.To(()=> crtEffect.TextureSize, x=> crtEffect.TextureSize = x, 756.8f, 3f);
+			DOTween.To (() => glitchEffect.colorIntensity, x => glitchEffect.colorIntensity = x, 0f, 3f);
+		}
+
+	}
+		
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	public void PauseGame() {
-		GameObject.Find ("Main Camera").GetComponent<GlitchEffect>().enabled = true;
-		GameObject.Find ("Main Camera").GetComponent<CRT>().enabled = false;
+		glitchEffect.colorIntensity = 0.2f;
+		glitchEffect.intensity = 0.5f;
+		glitchEffect.flipIntensity = 0.5f;
+		glitchEffect.enabled = true;
+
+		crtEffect.TextureSize = 756.8f;
+		crtEffect.Distortion = 0.1f;
+		crtEffect.InputGamma = 1f;
+		crtEffect.OutputGamma = 1f;
+		crtEffect.enabled = true;
+
 		pauseGame = true;
 		pauseText.SetActive (true);
 		Time.timeScale = 0;
@@ -42,8 +74,17 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void UnPauseGame() {
-		GameObject.Find ("Main Camera").GetComponent<GlitchEffect>().enabled = false;
-		GameObject.Find ("Main Camera").GetComponent<CRT>().enabled = false;
+		glitchEffect.colorIntensity = 0.2f;
+		glitchEffect.intensity = 0.5f;
+		glitchEffect.flipIntensity = 0.5f;
+		glitchEffect.enabled = false;
+
+		crtEffect.TextureSize = 756.8f;
+		crtEffect.Distortion = 0.1f;
+		crtEffect.InputGamma = 1f;
+		crtEffect.OutputGamma = 1f;
+		crtEffect.enabled = false;
+
 		pauseGame = false;
 		pauseText.SetActive (false);
 		Time.timeScale = 1;
@@ -59,5 +100,17 @@ public class GameManager : MonoBehaviour {
 	public static void FinishLevel() {
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 	}
-		
+
+	IEnumerator MainMenuLoad() {
+		yield return new WaitForSeconds (5f);
+		if (currentSceneName == "MainMenu") {
+			DOTween.To(()=> crtEffect.TextureSize, x=> crtEffect.TextureSize = x, 756.8f, 5f);
+			DOTween.To (() => glitchEffect.colorIntensity, x => glitchEffect.colorIntensity = x, 0f, 5f);
+		}
+	}
+
+	public void TweenOutCRT() {
+		DOTween.To(()=> crtEffect.Distortion, x=> crtEffect.Distortion = x, 0f, 2f);
+		DOTween.To (() => glitchEffect.flipIntensity, x => glitchEffect.flipIntensity = x, 0f, 2f);
+	}
 }
