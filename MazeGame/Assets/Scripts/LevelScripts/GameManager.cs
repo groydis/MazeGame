@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 
 	private GlitchEffect glitchEffect;
 	private CRT crtEffect;
+	private UnityStandardAssets.ImageEffects.ContrastEnhance contrastEnhance;
 
 	private Scene currentScene;
 	private string currentSceneName;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour {
 
 		glitchEffect = GameObject.Find ("Main Camera").GetComponent<GlitchEffect> ();
 		crtEffect = GameObject.Find ("Main Camera").GetComponent<CRT> ();
+		contrastEnhance = GameObject.Find ("Main Camera").GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ();
 
 		if (Instance != null && Instance != this) {
 			Destroy (gameObject);
@@ -67,6 +69,11 @@ public class GameManager : MonoBehaviour {
 		crtEffect.OutputGamma = 1f;
 		crtEffect.enabled = true;
 
+		contrastEnhance.intensity = 0.255f;
+		contrastEnhance.threshold = 0f;
+		contrastEnhance.blurSpread = 0.255f;
+		contrastEnhance.enabled = true;
+
 		pauseGame = true;
 		pauseText.SetActive (true);
 		Time.timeScale = 0;
@@ -83,6 +90,11 @@ public class GameManager : MonoBehaviour {
 		crtEffect.InputGamma = 1f;
 		crtEffect.OutputGamma = 1f;
 		crtEffect.enabled = false;
+
+		contrastEnhance.intensity = 0.255f;
+		contrastEnhance.threshold = 0f;
+		contrastEnhance.blurSpread = 0.255f;
+		contrastEnhance.enabled = false;
 
 		pauseGame = false;
 		pauseText.SetActive (false);

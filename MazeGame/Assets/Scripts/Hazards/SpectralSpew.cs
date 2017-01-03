@@ -10,7 +10,8 @@ public class SpectralSpew : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rBody = GetComponent<Rigidbody> ();
-		rBody.AddForce (-Vector3.forward * 3, ForceMode.Impulse);
+		transform.Rotate (Random.Range (0.0f, 360.0f), Random.Range (0.0f, 360.0f), Random.Range (0.0f, 360.0f));
+		rBody.AddForce (Vector3.up * 50, ForceMode.Force);
 		StartCoroutine ("DestroySpew");
 
 	}
