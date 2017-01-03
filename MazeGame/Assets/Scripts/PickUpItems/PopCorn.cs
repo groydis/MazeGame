@@ -6,7 +6,7 @@ public class PopCorn : MonoBehaviour {
 	void OnTriggerEnter(Collider hit) 
 	{
 		if (hit.gameObject.tag == "Player") {
-			InteractWithPopCorn();
+				InteractWithPopCorn ();
 		}
 	}
 

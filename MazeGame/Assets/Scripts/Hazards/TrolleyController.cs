@@ -66,16 +66,16 @@ public class TrolleyController : MonoBehaviour {
 	void OnCollisionEnter (Collision col)
 	{
 		if (col.gameObject.tag == "Player") {
-			if (!isDisabling) {
-				Debug.Log ("Trolley hit player");
-				Player.canMove = false;
-				rBody.AddForce (-transform.right * moveSpeed);
-				col.rigidbody.AddForce (-transform.forward);
-				flashingEnabled = true;
-				gameObject.layer = 12;
-				StartCoroutine ("FlashingRenderer");
-				StartCoroutine ("DestroyTrolley");
-			}
+				if (!isDisabling) {
+					Debug.Log ("Trolley hit player");
+					Player.canMove = false;
+					rBody.AddForce (-transform.right * moveSpeed);
+					col.rigidbody.AddForce (-transform.forward);
+					flashingEnabled = true;
+					gameObject.layer = 12;
+					StartCoroutine ("FlashingRenderer");
+					StartCoroutine ("DestroyTrolley");
+				}
 		} 
 	}
 

@@ -8,7 +8,7 @@ public class TypeWriter : MonoBehaviour {
 	void OnTriggerEnter(Collider hit) 
 	{
 		if (hit.gameObject.tag == "Player") {
-			DialogueSystem.Instance.AddNewDialogue (dialogue);
+				DialogueSystem.Instance.AddNewDialogue (dialogue);
 			//interactWithTypeWriter();
 		}
 	}

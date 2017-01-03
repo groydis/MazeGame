@@ -47,13 +47,13 @@ public class SpectralController : MonoBehaviour {
 	void OnCollisionEnter(Collision coll) {
 
 		if (coll.collider.gameObject.tag == "Player") {
-			Debug.Log ("Ooh, that tickles!");
-			startMoving = false;
-			Renderer renderer = GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>();
-			Material mat = renderer.material;
-			mat.SetColor("_EmissionColor", Color.red);
+				Debug.Log ("Ooh, that tickles!");
+				startMoving = false;
+				Renderer renderer = GameObject.FindGameObjectWithTag ("Player").GetComponent<Renderer> ();
+				Material mat = renderer.material;
+				mat.SetColor ("_EmissionColor", Color.red);
 
-			StartCoroutine ("HitPlayer");
+				StartCoroutine ("HitPlayer");
 		}
 
 	}

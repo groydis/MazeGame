@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour {
 		pauseGame = true;
 		pauseText.SetActive (true);
 		Time.timeScale = 0;
-		Player.canMove = false;
 	}
 
 	public void UnPauseGame() {
@@ -88,7 +87,6 @@ public class GameManager : MonoBehaviour {
 		pauseGame = false;
 		pauseText.SetActive (false);
 		Time.timeScale = 1;
-		Player.canMove = true;
 	}
 
 	public void PlayGame(string levelToLoad) {

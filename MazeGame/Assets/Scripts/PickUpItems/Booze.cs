@@ -7,7 +7,7 @@ public class Booze : MonoBehaviour {
 	void OnTriggerEnter(Collider hit) 
 	{
 		if (hit.gameObject.tag == "Player") {
-			InteractWithBooze();
+				InteractWithBooze ();
 		}
 	}
 

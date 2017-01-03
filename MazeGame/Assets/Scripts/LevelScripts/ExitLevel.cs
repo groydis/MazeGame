@@ -13,9 +13,9 @@ public class ExitLevel : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter() {
-
-		GameManager.FinishLevel ();
-	
+	void OnTriggerEnter(Collider hit) {
+		if (hit.gameObject.tag == "Player") {
+				GameManager.FinishLevel ();
+		}
 	}
 }

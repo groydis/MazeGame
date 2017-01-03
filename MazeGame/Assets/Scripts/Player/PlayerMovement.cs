@@ -1,16 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour {
-
-	public float errorCorrectSpeed;
 
 	private Rigidbody rbody;
 
 	private Quaternion startingRotation;
 
-	public float rotationSpeed = 10f;
-
+	public float rotationSpeed = 5f;
 
 	// Use this for initialization
 	void Start () 
@@ -41,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+
 		//		#if UNITY_IPHONE
 		if (SwipeManager.IsSwipingLeft ()) 
 		{
@@ -62,24 +61,20 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKeyDown ("left")) 
 		{
 			TurnLeft ();
-			//ErrorCorrectPosition ();
 		}
 		if (Input.GetKeyDown ("right")) 
 		{
 			TurnRight ();
-			//ErrorCorrectPosition ();
 		}
 		
 		if (Input.GetKeyDown ("up")) 
 		{
 			TurnUp ();
-			//ErrorCorrectPosition ();
 		}
 
 		if (Input.GetKeyDown ("down")) 
 		{
 			TurnDown ();
-			//ErrorCorrectPosition ();
 		}
 		//		#endif
 	}
@@ -87,10 +82,10 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate() {
 		//Moves Player Constantly foward
 		if (Player.canMove) {
-			
 			rbody.velocity = transform.forward * Player.movementSpeed;
 		}
 	}
+		
 		
 	void TurnLeft() 
 	{
@@ -122,12 +117,7 @@ public class PlayerMovement : MonoBehaviour {
 			this.transform.rotation = Quaternion.Lerp(this.transform.rotation, finalRotation, Time.deltaTime * rotationSpeed);
 			yield return 0;
 		}
-	}
-	// Maybe wrap this in an IEnumerator?
-	void ErrorCorrectPosition() {
-		Vector3 currentPos = transform.position;
-		Vector3 errorCorrectedPos = new Vector3 (Mathf.Round (currentPos.x), currentPos.y, Mathf.Round (currentPos.z));
-		transform.position = Vector3.Lerp (currentPos, errorCorrectedPos, Time.deltaTime * errorCorrectSpeed);
+
 	}
 		
 }
