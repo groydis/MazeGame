@@ -12,7 +12,14 @@ public class TrolleyController : MonoBehaviour {
 	private float flashInterval = 0.5f;
 	private bool isDisabling;
 
+	private EnemySpawnTrigger enemySpawnTrigger;
+	private MeshRenderer objectMeshRenderer;
+
 	void Start () {
+
+		enemySpawnTrigger = GetComponentInParent<EnemySpawnTrigger> ();
+		objectMeshRenderer = gameObject.GetComponent<MeshRenderer> ();
+
 		startMoving = true;
 		rBody = GetComponent<Rigidbody> ();
 		flashingEnabled = false;
@@ -35,7 +42,7 @@ public class TrolleyController : MonoBehaviour {
 			if (hit.GetComponent<Collider>().gameObject.tag == "DeSpawner") {
 				Debug.Log ("Trolley hit DeSpawner");
 				rBody.Sleep ();
-				GetComponentInParent<EnemySpawnTrigger> ().canReSpawn = false;
+				enemySpawnTrigger.canReSpawn = false;
 				flashingEnabled = true;
 				isDisabling = true;
 				gameObject.layer = 12;
@@ -52,11 +59,11 @@ public class TrolleyController : MonoBehaviour {
 		}
 		yield return new WaitForSeconds(1f);
 		while (flashingEnabled) {
-			if (gameObject.GetComponent<MeshRenderer> ().enabled) {
-				gameObject.GetComponent<MeshRenderer> ().enabled = false;
+			if (objectMeshRenderer.enabled) {
+				objectMeshRenderer.enabled = false;
 				yield return new WaitForSeconds (flashInterval);
 			} else {
-				gameObject.GetComponent<MeshRenderer> ().enabled = true;
+				objectMeshRenderer.enabled = true;
 				yield return new WaitForSeconds (flashInterval);
 			}
 		}

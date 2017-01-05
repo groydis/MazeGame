@@ -8,14 +8,12 @@ public class WallLamp : MonoBehaviour {
 
 	public bool scarePlayer; 
 
+	private Light wallLampLight;
+
 	// Use this for initialization
 	void Start () {
+		wallLampLight = GetComponentInChildren<Light> ();
 		scarePlayer = false;
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
 		
 	}
 
@@ -38,9 +36,9 @@ public class WallLamp : MonoBehaviour {
 	{
 
 		while (scarePlayer) {
-			GetComponentInChildren<Light> ().enabled = true;
+			wallLampLight.enabled = true;
 			yield return new WaitForSeconds (Random.Range (minFlickerSpeed, maxFlickerSpeed));
-			GetComponentInChildren<Light> ().enabled = false;
+			wallLampLight.enabled = false;
 			yield return new WaitForSeconds (Random.Range (minFlickerSpeed, maxFlickerSpeed));
 		}
 	}

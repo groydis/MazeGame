@@ -16,12 +16,7 @@ public class EnemySpawnTrigger : MonoBehaviour {
 		canSpawn = true;
 		canReSpawn = true;
 	}
-
-
-	void Update() {
 		
-	}
-
 	void OnTriggerEnter(Collider hit) {
 		if (hit.gameObject.tag == "Player") {
 			if (canSpawn) {

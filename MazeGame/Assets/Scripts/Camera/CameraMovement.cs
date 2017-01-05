@@ -7,14 +7,14 @@ public class CameraMovement : MonoBehaviour {
 
 	private Vector3 offset;
 
-	private float smoothTime = 0.2f;
+	private float smoothTime = 0.5f;
 
 	private Vector3 velocity = Vector3.zero;
 
 	// Use this for initialization
 	void Start () 
 	{
-		player = GameObject.FindGameObjectWithTag ("Player");
+		player = GameObject.Find ("Player");
 		offset = transform.position - player.transform.position;
 	}
 	
@@ -24,6 +24,5 @@ public class CameraMovement : MonoBehaviour {
 		transform.position = Vector3.SmoothDamp (transform.position, player.transform.position + offset, ref velocity, smoothTime);
 
 	}
-
 
 }

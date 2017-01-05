@@ -11,9 +11,12 @@ public class TorchControl : MonoBehaviour {
 	public bool batteryFailing;
 	public bool decreasingBattery;
 
+	private Light theTorch;
+
 
 	void Start () 
 	{
+		theTorch = GetComponent<Light>();
 		batteryFailing = false;
 		TorchOn();
 		StartCoroutine ("DecreaseBattery");
@@ -22,9 +25,9 @@ public class TorchControl : MonoBehaviour {
 	void Update () 
 	{
 		if (torchIntensityDecreaseTime <= 9) {
-			GetComponent<Light> ().intensity = 5f;
+			theTorch.intensity = 5f;
 		} else {
-			GetComponent<Light> ().intensity = 8f;
+			theTorch.intensity = 8f;
 		}
 		// Perform a check to see if Torch Flicker shoudl begin
 		if (Player.batteryCharge <= flickerStartTime) {
@@ -82,11 +85,11 @@ public class TorchControl : MonoBehaviour {
 	}
 
 	void TorchOff() {
-		GetComponent<Light> ().enabled = false;
+		theTorch.enabled = false;
 		//TODO: Play torch on / off sound
 	}
 	void TorchOn() {
-		GetComponent<Light> ().enabled = true;
+		theTorch.enabled = true;
 		//TODO: Play torch on / off sound
 	}
 }

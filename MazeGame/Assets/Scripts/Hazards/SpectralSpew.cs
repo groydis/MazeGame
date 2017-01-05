@@ -16,15 +16,6 @@ public class SpectralSpew : MonoBehaviour {
 
 	}
 
-	void OnCollisionEnter() {
-		//rBody.Sleep ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	IEnumerator DestroySpew() {
 		yield return new WaitForSeconds (Random.Range(despawnTimeMin, despawnTimeMax));
 		rBody.Sleep ();

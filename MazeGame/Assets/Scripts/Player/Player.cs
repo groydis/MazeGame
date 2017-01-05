@@ -33,6 +33,9 @@ public class Player : MonoBehaviour {
 
 	public static bool canMove;
 
+	private Animator playerAnim;
+
+
 	void Start () 
 	{
 		batteryCharge = 60.0f;
@@ -42,24 +45,23 @@ public class Player : MonoBehaviour {
 		mainCamera = GameObject.Find ("Main Camera");
 		sugarRushText = GameObject.Find ("SugarRushText");
 		sugarRushText.SetActive (false);
-		//popCornTrail = GameObject.Find("PopCornTrailPrefab");
+		playerAnim = GetComponentInChildren<Animator> ();
 	
 	}
 
 	void Update () 
 	{
-		if (movementSpeed > 2) {
-			if (batteryCharge > 0) {
-				Renderer renderer = GetComponent<Renderer> ();
-				Material mat = renderer.material;
-				mat.SetColor ("_EmissionColor", Color.white);
-			}
+		if (movementSpeed < 2) {
+			playerAnim.speed = 0.5f;
+
+		} else {
+			playerAnim.speed = 1f;
 		}
-		if (batteryCharge == 0) {
-			Renderer renderer = GetComponent<Renderer>();
-			Material mat = renderer.material;
-			mat.SetColor("_EmissionColor", Color.black);
-		}
+//		if (batteryCharge == 0) {
+//			Renderer renderer = GetComponentInChildren<Renderer> ();
+//			Material mat = renderer.material;
+//			mat.SetColor("_EmissionColor", Color.black);
+//		}
 		if (isDrunk) {
 			if (!imageEffectActive) {
 				StartCoroutine ("BoozyWoozy");
@@ -76,6 +78,12 @@ public class Player : MonoBehaviour {
 			if (!imageEffectActive) {
 				StartCoroutine ("PopCorn");
 			}
+		}
+
+		if (canMove) {
+			playerAnim.SetBool ("walk", true);
+		} else {
+			playerAnim.SetBool ("walk", false);
 		}
 	}
 

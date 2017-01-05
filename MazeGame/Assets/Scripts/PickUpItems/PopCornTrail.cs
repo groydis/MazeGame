@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PopCornTrail : MonoBehaviour {
 
-	public float despawnTimeMin = 4.0f;
-	public float despawnTimeMax = 5.0f;
+	public float despawnTimeMin = 8.0f;
+	public float despawnTimeMax = 10.0f;
 	private Rigidbody[] rBodys;
 	private Transform[] transformsKids;
 
@@ -22,20 +22,12 @@ public class PopCornTrail : MonoBehaviour {
 
 	}
 
-	void OnCollisionEnter() {
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
-
 	IEnumerator DestroyPopCorn() {
 		yield return new WaitForSeconds (Random.Range(despawnTimeMin, despawnTimeMax));
 		foreach (Rigidbody rbody in rBodys) {
 			rbody.Sleep ();
 		}
+		yield return new WaitForSeconds (Random.Range(despawnTimeMin, despawnTimeMax));
 		Destroy (this.gameObject);
 	}
 }

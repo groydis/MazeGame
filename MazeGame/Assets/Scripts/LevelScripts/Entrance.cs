@@ -21,12 +21,7 @@ public class Entrance : MonoBehaviour {
 		Player.canMove = false;
 		StartCoroutine ("StartCountDown");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+		
 	public IEnumerator StartCountDown()
 	{
 		startText.enabled = true;

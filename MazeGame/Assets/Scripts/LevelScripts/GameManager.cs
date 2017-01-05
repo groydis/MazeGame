@@ -52,11 +52,6 @@ public class GameManager : MonoBehaviour {
 
 	}
 		
-	// Update is called once per frame
-	void Update () {
-
-	}
-
 	public void PauseGame() {
 		glitchEffect.colorIntensity = 0.2f;
 		glitchEffect.intensity = 0.5f;

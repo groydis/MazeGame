@@ -12,13 +12,24 @@ public class SpectralController : MonoBehaviour {
 
 	private Renderer[] renderers;
 
+	private EnemySpawnTrigger enemySpawnTrigger;
+
+	private Light spectralLight;
+	private BoxCollider spectralBoxCollider;
+
 	// Use this for initialization
 	void Start () {
+		enemySpawnTrigger = GetComponentInParent<EnemySpawnTrigger> ();
+		spectralLight = GetComponentInChildren<Light> ();
+		spectralBoxCollider = GetComponent<BoxCollider> ();
+		rBody = GetComponent<Rigidbody> ();
+
 
 		startMoving = true;
-		rBody = GetComponent<Rigidbody> ();
-		GetComponentInChildren<Light> ().enabled = true;
+		spectralLight.enabled = true;
+
 		renderers = GetComponentsInChildren<MeshRenderer> ();
+
 		foreach (Renderer renderer in renderers) {
 			renderer.enabled = true;
 		}
@@ -38,7 +49,7 @@ public class SpectralController : MonoBehaviour {
 			if (hit.GetComponent<Collider>().gameObject.tag == "deSpawner") {
 				Debug.Log ("Spectral hit DeSpawner");
 				rBody.Sleep ();
-				GetComponentInParent<EnemySpawnTrigger> ().canReSpawn = false;
+				enemySpawnTrigger.canReSpawn = false;
 				StartCoroutine ("DeSpawnSpectral");
 			}
 		}
@@ -49,9 +60,9 @@ public class SpectralController : MonoBehaviour {
 		if (coll.collider.gameObject.tag == "Player") {
 				Debug.Log ("Ooh, that tickles!");
 				startMoving = false;
-				Renderer renderer = GameObject.FindGameObjectWithTag ("Player").GetComponent<Renderer> ();
-				Material mat = renderer.material;
-				mat.SetColor ("_EmissionColor", Color.red);
+//				Renderer renderer = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Renderer> ();
+//				Material mat = renderer.material;
+//				mat.SetColor ("_EmissionColor", Color.red);
 
 				StartCoroutine ("HitPlayer");
 		}
@@ -68,17 +79,22 @@ public class SpectralController : MonoBehaviour {
 
 		Player.movementSpeed = 1f;
 		startMoving = false;
+
 		foreach (Renderer renderer in renderers) {
 			renderer.enabled = false;
 		}
-		GetComponentInChildren<Light> ().enabled = false;
-		GetComponent<BoxCollider> ().enabled = false;
+
+		spectralLight.enabled = false;
+		spectralBoxCollider.enabled = false;
+
 		for (int i = 0; i < 10; i++) {
 			Debug.Log ("Spawning Spew");
 			GameObject Spew = Instantiate(spectralSpew, transform.position, Quaternion.identity) as GameObject; 
 			Spew.transform.parent = transform.parent;
 		}
+
 		yield return new WaitForSeconds (Player.spectralEffect);
+
 		Player.movementSpeed = 2.5f;
 		Destroy (this.gameObject);
 	}
