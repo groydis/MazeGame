@@ -35,6 +35,8 @@ public class Player : MonoBehaviour {
 
 	private Animator playerAnim;
 
+	private Renderer[] renderers;
+
 
 	void Start () 
 	{
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour {
 		sugarRushText = GameObject.Find ("SugarRushText");
 		sugarRushText.SetActive (false);
 		playerAnim = GetComponentInChildren<Animator> ();
+		renderers = GetComponentsInChildren<MeshRenderer> ();
 	
 	}
 
@@ -57,11 +60,12 @@ public class Player : MonoBehaviour {
 		} else {
 			playerAnim.speed = 1f;
 		}
-//		if (batteryCharge == 0) {
-//			Renderer renderer = GetComponentInChildren<Renderer> ();
-//			Material mat = renderer.material;
-//			mat.SetColor("_EmissionColor", Color.black);
-//		}
+		if (batteryCharge == 0) {
+			foreach (Renderer renderer in renderers) {
+				Material mat = renderer.material;
+				mat.SetColor("_EmissionColor", Color.black);
+			}
+		}
 		if (isDrunk) {
 			if (!imageEffectActive) {
 				StartCoroutine ("BoozyWoozy");
