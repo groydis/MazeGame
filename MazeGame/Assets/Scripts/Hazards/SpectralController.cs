@@ -46,7 +46,9 @@ public class SpectralController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider hit) {
 		if (hit.transform.IsChildOf(transform.parent.transform)) {
-			if (hit.GetComponent<Collider>().gameObject.tag == "deSpawner") {
+			Debug.Log ("Hit Transform Parent Child");
+			if (hit.gameObject.tag == "DeSpawner") {
+				Debug.Log ("Hit My Despawner");
 				Debug.Log ("Spectral hit DeSpawner");
 				rBody.Sleep ();
 				enemySpawnTrigger.canReSpawn = false;
