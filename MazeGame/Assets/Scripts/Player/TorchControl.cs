@@ -5,11 +5,13 @@ public class TorchControl : MonoBehaviour {
 
 	private float waitTime = 1.0f;
 	private float minFlickerSpeed = 0.1f;
-	private float maxFlickerSpeed = 1.0f;
-	private float flickerStartTime = 5.0f;
+	private float maxFlickerSpeed = 0.3f;
+	private float flickerStartTime = 10f;
 	private float torchIntensityDecreaseTime = 10f;
 	public bool batteryFailing;
 	public bool decreasingBattery;
+
+	private bool torchFlickerOn;
 
 	private Light theTorch;
 
@@ -18,6 +20,7 @@ public class TorchControl : MonoBehaviour {
 	{
 		theTorch = GetComponent<Light>();
 		batteryFailing = false;
+		torchFlickerOn = false;
 		TorchOn();
 		StartCoroutine ("DecreaseBattery");
 	}
@@ -32,7 +35,9 @@ public class TorchControl : MonoBehaviour {
 		// Perform a check to see if Torch Flicker shoudl begin
 		if (Player.batteryCharge <= flickerStartTime) {
 			batteryFailing = true;
-			StartCoroutine ("TorchFlicker");
+			if (!torchFlickerOn) {
+				StartCoroutine ("TorchFlicker");
+			}
 		}
 		if (Player.batteryCharge > 0) {
 			if (!decreasingBattery) {
@@ -70,7 +75,7 @@ public class TorchControl : MonoBehaviour {
 	// Flicks Torch on and off 
 	IEnumerator TorchFlicker() 
 	{
-			
+		torchFlickerOn = true;
 		while (batteryFailing) 
 		{
 			while (GameManager.pauseGame) 
@@ -82,6 +87,7 @@ public class TorchControl : MonoBehaviour {
 			TorchOff ();
 			yield return new WaitForSeconds (Random.Range (minFlickerSpeed, maxFlickerSpeed));
 		}
+		torchFlickerOn = false;
 		StopCoroutine ("TorchFlicker");
 	}
 
