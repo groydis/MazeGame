@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\Hazards\SpectralController.cs" />
      <Compile Include="Assets\Scripts\Hazards\SpectralSpew.cs" />
      <Compile Include="Assets\Scripts\Hazards\TrolleyController.cs" />
+     <Compile Include="Assets\Scripts\LevelScripts\BatteryGUI.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\DialogueSystem.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\Entrance.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\ExitLevel.cs" />
@@ -99,8 +100,8 @@
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\SwipeManager.cs" />
      <Compile Include="Assets\Scripts\Player\TorchControl.cs" />
+     <Compile Include="Assets\Scripts\Scenary\VideoCamera.cs" />
      <Compile Include="Assets\Scripts\Scenary\WallLamp.cs" />
-     <Compile Include="Assets\Scripts\VideoCamera.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />

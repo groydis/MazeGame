@@ -37,7 +37,6 @@ public class Player : MonoBehaviour {
 
 	private Renderer[] renderers;
 
-
 	void Start () 
 	{
 		batteryCharge = 60.0f;

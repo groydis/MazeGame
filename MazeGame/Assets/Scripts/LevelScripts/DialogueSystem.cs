@@ -11,6 +11,7 @@ public class DialogueSystem : MonoBehaviour {
 
 	public List <string> dialogueLines = new List <string> ();
 
+	public static bool dialogueActive;
 
 
 	Text dialogueText;
@@ -48,6 +49,7 @@ public class DialogueSystem : MonoBehaviour {
 	}
 
 	public void CreateDialogue() {
+		dialogueActive = true;
 		GameManager.Instance.PauseGame ();
 		dialogueText.text = dialogueLines[dialogueIndex];
 		dialoguePanel.SetActive (true);
@@ -59,6 +61,7 @@ public class DialogueSystem : MonoBehaviour {
 			dialogueText.text = dialogueLines [dialogueIndex];
 		} else {
 			dialoguePanel.SetActive (false);
+			dialogueActive = false;
 			GameManager.Instance.UnPauseGame ();
 		}
 	}

@@ -47,6 +47,7 @@ public class TorchControl : MonoBehaviour {
 			batteryFailing = false;
 		}
 	}
+
 	// Decreases Battery over time
 	IEnumerator DecreaseBattery() 
 	{	
