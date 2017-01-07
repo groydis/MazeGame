@@ -28,7 +28,6 @@ public class Player : MonoBehaviour {
 
 	private GameObject mainCamera;
 
-	private GameObject sugarRushText;
 	public GameObject popCornTrail;
 
 	public static bool canMove;
@@ -44,8 +43,6 @@ public class Player : MonoBehaviour {
 		isDrunk = false;
 		imageEffectActive = false;
 		mainCamera = GameObject.Find ("Main Camera");
-		sugarRushText = GameObject.Find ("SugarRushText");
-		sugarRushText.SetActive (false);
 		playerAnim = GetComponentInChildren<Animator> ();
 		renderers = GetComponentsInChildren<MeshRenderer> ();
 	
@@ -143,7 +140,6 @@ public class Player : MonoBehaviour {
 	}
 
 	public void SodaOn() {
-		sugarRushText.SetActive (true);
 		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.MotionBlur> ().enabled = true;
 		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ().enabled = true;
 		movementSpeed = 5f;
@@ -152,7 +148,6 @@ public class Player : MonoBehaviour {
 	}
 
 	public void SodaOff() {
-		sugarRushText.SetActive (false);
 		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.MotionBlur> ().enabled = false;
 		mainCamera.GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ().enabled = false;
 		movementSpeed = 2.5f;

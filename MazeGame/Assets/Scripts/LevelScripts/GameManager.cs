@@ -13,13 +13,14 @@ public class GameManager : MonoBehaviour {
 
 	public static float saveBattery;
 
-	public GameObject playButton;
-	public GameObject pauseButton;
-	public GameObject restartButton;
+	private GameObject playButton;
+	private GameObject pauseButton;
+	private GameObject restartButton;
+	private GameObject pauseText;
+	private GameObject batteryImage;
+	private GameObject sugarRushText;
 
-	public GameObject pauseText;
 
-	public GameObject batteryImage;
 
 	private GlitchEffect glitchEffect;
 	private CRT crtEffect;
@@ -38,13 +39,21 @@ public class GameManager : MonoBehaviour {
 	void Awake () {
 		startText = GameObject.Find ("Main Text").GetComponent<Text>();
 
-		pauseText.SetActive (false);
-		playButton.SetActive (false);
-		restartButton.SetActive (false);
-		batteryImage.SetActive (true);
+		sugarRushText = GameObject.Find ("SugarRushText");
+		playButton = GameObject.Find ("PlayButton");
+		pauseButton = GameObject.Find ("PauseButton");
+		restartButton = GameObject.Find ("RestartButton");
+		pauseText = GameObject.Find ("PauseText");
+		batteryImage = GameObject.Find ("BatteryImage");
 
-		pauseGame = false;
+		sugarRushText.SetActive (false);
+		playButton.SetActive (false);
+		pauseButton.SetActive (false);
+		restartButton.SetActive (false);
+		pauseText.SetActive (false);
+		batteryImage.SetActive (false);
 		DialogueSystem.dialogueActive = false;
+		pauseGame = false;
 
 		glitchEffect = GameObject.Find ("Main Camera").GetComponent<GlitchEffect> ();
 		crtEffect = GameObject.Find ("Main Camera").GetComponent<CRT> ();
@@ -66,8 +75,21 @@ public class GameManager : MonoBehaviour {
 		currentSceneName = currentScene.name;
 
 		if (currentSceneName == "MainMenu") {
+			sugarRushText.SetActive (false);
+			playButton.SetActive (false);
+			pauseButton.SetActive (false);
+			restartButton.SetActive (false);
+			pauseText.SetActive (false);
+			batteryImage.SetActive (false);
+			DialogueSystem.dialogueActive = false;
+			pauseGame = false;
+
 			StartCoroutine ("MainMenuLoad");
 		} else {
+			pauseText.SetActive (false);
+			playButton.SetActive (false);
+			restartButton.SetActive (false);
+			batteryImage.SetActive (true);
 			StartGame ();
 		}
 	}
