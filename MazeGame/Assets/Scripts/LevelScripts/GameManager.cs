@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour {
 	public static GameManager Instance { get; set; }
 
 	public static bool pauseGame;
-
 	public static float saveBattery;
 
 	private GameObject playButton;
@@ -30,8 +29,8 @@ public class GameManager : MonoBehaviour {
 	private string currentSceneName;
 
 	private float countdownValue = 3f;
-
 	private float currCountDownValue;
+
 	private Text startText;
 
 
@@ -86,16 +85,17 @@ public class GameManager : MonoBehaviour {
 
 			StartCoroutine ("MainMenuLoad");
 		} else {
-			pauseText.SetActive (false);
-			playButton.SetActive (false);
-			restartButton.SetActive (false);
-			batteryImage.SetActive (true);
 			StartGame ();
 		}
 	}
 		
 	public void StartGame() {
 		TweenInCRT ();
+		pauseText.SetActive (false);
+		playButton.SetActive (false);
+		restartButton.SetActive (false);
+		batteryImage.SetActive (true);
+		pauseButton.SetActive (true);
 		Player.canMove = false;
 		StartCoroutine ("StartCountDown");
 	}
