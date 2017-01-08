@@ -38,19 +38,20 @@
 #include "AssemblyU2DCSharp_Player2393081601.h"
 #include "AssemblyU2DCSharp_Player_U3CPowerUpU3Ec__IteratorB1022429149.h"
 #include "AssemblyU2DCSharp_Player_U3CPopCornSpawnU3Ec__Iter3024553312.h"
+#include "AssemblyU2DCSharp_Player_U3CShowGUIModelU3Ec__Itera442560664.h"
 #include "AssemblyU2DCSharp_PlayerMovement3827129040.h"
-#include "AssemblyU2DCSharp_PlayerMovement_U3CRotateU3Ec__It1162709785.h"
+#include "AssemblyU2DCSharp_PlayerMovement_U3CRotateU3Ec__It1162709786.h"
 #include "AssemblyU2DCSharp_CardinalDirection2900005919.h"
 #include "AssemblyU2DCSharp_Swipe80301850.h"
 #include "AssemblyU2DCSharp_SwipeManager1439696691.h"
 #include "AssemblyU2DCSharp_SwipeManager_OnSwipeDetectedHand2219817673.h"
-#include "AssemblyU2DCSharp_SwipeManager_U3CGetSwipeDirByTou2684003560.h"
+#include "AssemblyU2DCSharp_SwipeManager_U3CGetSwipeDirByTou2684003561.h"
 #include "AssemblyU2DCSharp_TorchControl67717601.h"
-#include "AssemblyU2DCSharp_TorchControl_U3CDecreaseBatteryU1707228177.h"
-#include "AssemblyU2DCSharp_TorchControl_U3CTorchFlickerU3Ec2859163593.h"
+#include "AssemblyU2DCSharp_TorchControl_U3CDecreaseBatteryU1707228178.h"
+#include "AssemblyU2DCSharp_TorchControl_U3CTorchFlickerU3Ec2734724860.h"
 #include "AssemblyU2DCSharp_VideoCamera2235032416.h"
 #include "AssemblyU2DCSharp_WallLamp388237026.h"
-#include "AssemblyU2DCSharp_WallLamp_U3CWallLampFlickerU3Ec__682977209.h"
+#include "AssemblyU2DCSharp_WallLamp_U3CWallLampFlickerU3Ec__682977210.h"
 
 
 
@@ -179,7 +180,7 @@ extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2016 = { sizeof (Soda
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2017 = { sizeof (ThreeDeeGlasses_t63813796), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2018 = { sizeof (TypeWriter_t683157613), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2019 = { sizeof (Player_t2393081601), -1, sizeof(Player_t2393081601_StaticFields), 0 };
-extern const int32_t g_FieldOffsetTable2019[33] = 
+extern const int32_t g_FieldOffsetTable2019[37] = 
 {
 	Player_t2393081601_StaticFields::get_offset_of_batteryCharge_2(),
 	Player_t2393081601_StaticFields::get_offset_of_batteryDrainRate_3(),
@@ -214,6 +215,10 @@ extern const int32_t g_FieldOffsetTable2019[33] =
 	Player_t2393081601::get_offset_of_contrastEnhanceEffect_32(),
 	Player_t2393081601::get_offset_of_threeDeeEffect_33(),
 	Player_t2393081601::get_offset_of_fishEyeAnim_34(),
+	Player_t2393081601::get_offset_of_guiModelShowing_35(),
+	Player_t2393081601::get_offset_of_guiThreeDeeGlasses_36(),
+	Player_t2393081601::get_offset_of_guiPopCorn_37(),
+	Player_t2393081601::get_offset_of_guiSoda_38(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2020 = { sizeof (U3CPowerUpU3Ec__IteratorB_t1022429149), -1, 0, 0 };
 extern const int32_t g_FieldOffsetTable2020[3] = 
@@ -231,25 +236,34 @@ extern const int32_t g_FieldOffsetTable2021[5] =
 	U3CPopCornSpawnU3Ec__IteratorC_t3024553312::get_offset_of_U24current_3(),
 	U3CPopCornSpawnU3Ec__IteratorC_t3024553312::get_offset_of_U3CU3Ef__this_4(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2022 = { sizeof (PlayerMovement_t3827129040), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2022[3] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2022 = { sizeof (U3CShowGUIModelU3Ec__IteratorD_t442560664), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2022[5] = 
+{
+	U3CShowGUIModelU3Ec__IteratorD_t442560664::get_offset_of_GUIModel_0(),
+	U3CShowGUIModelU3Ec__IteratorD_t442560664::get_offset_of_U24PC_1(),
+	U3CShowGUIModelU3Ec__IteratorD_t442560664::get_offset_of_U24current_2(),
+	U3CShowGUIModelU3Ec__IteratorD_t442560664::get_offset_of_U3CU24U3EGUIModel_3(),
+	U3CShowGUIModelU3Ec__IteratorD_t442560664::get_offset_of_U3CU3Ef__this_4(),
+};
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2023 = { sizeof (PlayerMovement_t3827129040), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2023[3] = 
 {
 	PlayerMovement_t3827129040::get_offset_of_rbody_2(),
 	PlayerMovement_t3827129040::get_offset_of_startingRotation_3(),
 	PlayerMovement_t3827129040::get_offset_of_rotationSpeed_4(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2023 = { sizeof (U3CRotateU3Ec__IteratorD_t1162709785), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2023[6] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2024 = { sizeof (U3CRotateU3Ec__IteratorE_t1162709786), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2024[6] = 
 {
-	U3CRotateU3Ec__IteratorD_t1162709785::get_offset_of_rotationAmount_0(),
-	U3CRotateU3Ec__IteratorD_t1162709785::get_offset_of_U3CfinalRotationU3E__0_1(),
-	U3CRotateU3Ec__IteratorD_t1162709785::get_offset_of_U24PC_2(),
-	U3CRotateU3Ec__IteratorD_t1162709785::get_offset_of_U24current_3(),
-	U3CRotateU3Ec__IteratorD_t1162709785::get_offset_of_U3CU24U3ErotationAmount_4(),
-	U3CRotateU3Ec__IteratorD_t1162709785::get_offset_of_U3CU3Ef__this_5(),
+	U3CRotateU3Ec__IteratorE_t1162709786::get_offset_of_rotationAmount_0(),
+	U3CRotateU3Ec__IteratorE_t1162709786::get_offset_of_U3CfinalRotationU3E__0_1(),
+	U3CRotateU3Ec__IteratorE_t1162709786::get_offset_of_U24PC_2(),
+	U3CRotateU3Ec__IteratorE_t1162709786::get_offset_of_U24current_3(),
+	U3CRotateU3Ec__IteratorE_t1162709786::get_offset_of_U3CU24U3ErotationAmount_4(),
+	U3CRotateU3Ec__IteratorE_t1162709786::get_offset_of_U3CU3Ef__this_5(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2024 = { sizeof (CardinalDirection_t2900005919), -1, sizeof(CardinalDirection_t2900005919_StaticFields), 0 };
-extern const int32_t g_FieldOffsetTable2024[8] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2025 = { sizeof (CardinalDirection_t2900005919), -1, sizeof(CardinalDirection_t2900005919_StaticFields), 0 };
+extern const int32_t g_FieldOffsetTable2025[8] = 
 {
 	CardinalDirection_t2900005919_StaticFields::get_offset_of_Up_0(),
 	CardinalDirection_t2900005919_StaticFields::get_offset_of_Down_1(),
@@ -260,8 +274,8 @@ extern const int32_t g_FieldOffsetTable2024[8] =
 	CardinalDirection_t2900005919_StaticFields::get_offset_of_DownRight_6(),
 	CardinalDirection_t2900005919_StaticFields::get_offset_of_DownLeft_7(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2025 = { sizeof (Swipe_t80301850)+ sizeof (Il2CppObject), sizeof(int32_t), 0, 0 };
-extern const int32_t g_FieldOffsetTable2025[10] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2026 = { sizeof (Swipe_t80301850)+ sizeof (Il2CppObject), sizeof(int32_t), 0, 0 };
+extern const int32_t g_FieldOffsetTable2026[10] = 
 {
 	Swipe_t80301850::get_offset_of_value___1() + static_cast<int32_t>(sizeof(Il2CppObject)),
 	0,
@@ -274,8 +288,8 @@ extern const int32_t g_FieldOffsetTable2025[10] =
 	0,
 	0,
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2026 = { sizeof (SwipeManager_t1439696691), -1, sizeof(SwipeManager_t1439696691_StaticFields), 0 };
-extern const int32_t g_FieldOffsetTable2026[14] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2027 = { sizeof (SwipeManager_t1439696691), -1, sizeof(SwipeManager_t1439696691_StaticFields), 0 };
+extern const int32_t g_FieldOffsetTable2027[14] = 
 {
 	0,
 	0,
@@ -292,14 +306,14 @@ extern const int32_t g_FieldOffsetTable2026[14] =
 	SwipeManager_t1439696691_StaticFields::get_offset_of_secondPressPos_14(),
 	SwipeManager_t1439696691_StaticFields::get_offset_of_instance_15(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2027 = { sizeof (OnSwipeDetectedHandler_t2219817673), sizeof(Il2CppMethodPointer), 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2028 = { sizeof (U3CGetSwipeDirByTouchU3Ec__AnonStorey11_t2684003560), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2028[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2028 = { sizeof (OnSwipeDetectedHandler_t2219817673), sizeof(Il2CppMethodPointer), 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2029 = { sizeof (U3CGetSwipeDirByTouchU3Ec__AnonStorey12_t2684003561), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2029[1] = 
 {
-	U3CGetSwipeDirByTouchU3Ec__AnonStorey11_t2684003560::get_offset_of_currentSwipe_0(),
+	U3CGetSwipeDirByTouchU3Ec__AnonStorey12_t2684003561::get_offset_of_currentSwipe_0(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2029 = { sizeof (TorchControl_t67717601), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2029[9] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2030 = { sizeof (TorchControl_t67717601), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2030[9] = 
 {
 	TorchControl_t67717601::get_offset_of_waitTime_2(),
 	TorchControl_t67717601::get_offset_of_minFlickerSpeed_3(),
@@ -311,41 +325,41 @@ extern const int32_t g_FieldOffsetTable2029[9] =
 	TorchControl_t67717601::get_offset_of_torchFlickerOn_9(),
 	TorchControl_t67717601::get_offset_of_theTorch_10(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2030 = { sizeof (U3CDecreaseBatteryU3Ec__IteratorE_t1707228177), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2030[3] = 
-{
-	U3CDecreaseBatteryU3Ec__IteratorE_t1707228177::get_offset_of_U24PC_0(),
-	U3CDecreaseBatteryU3Ec__IteratorE_t1707228177::get_offset_of_U24current_1(),
-	U3CDecreaseBatteryU3Ec__IteratorE_t1707228177::get_offset_of_U3CU3Ef__this_2(),
-};
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2031 = { sizeof (U3CTorchFlickerU3Ec__IteratorF_t2859163593), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2031 = { sizeof (U3CDecreaseBatteryU3Ec__IteratorF_t1707228178), -1, 0, 0 };
 extern const int32_t g_FieldOffsetTable2031[3] = 
 {
-	U3CTorchFlickerU3Ec__IteratorF_t2859163593::get_offset_of_U24PC_0(),
-	U3CTorchFlickerU3Ec__IteratorF_t2859163593::get_offset_of_U24current_1(),
-	U3CTorchFlickerU3Ec__IteratorF_t2859163593::get_offset_of_U3CU3Ef__this_2(),
+	U3CDecreaseBatteryU3Ec__IteratorF_t1707228178::get_offset_of_U24PC_0(),
+	U3CDecreaseBatteryU3Ec__IteratorF_t1707228178::get_offset_of_U24current_1(),
+	U3CDecreaseBatteryU3Ec__IteratorF_t1707228178::get_offset_of_U3CU3Ef__this_2(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2032 = { sizeof (VideoCamera_t2235032416), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2032 = { sizeof (U3CTorchFlickerU3Ec__Iterator10_t2734724860), -1, 0, 0 };
 extern const int32_t g_FieldOffsetTable2032[3] = 
+{
+	U3CTorchFlickerU3Ec__Iterator10_t2734724860::get_offset_of_U24PC_0(),
+	U3CTorchFlickerU3Ec__Iterator10_t2734724860::get_offset_of_U24current_1(),
+	U3CTorchFlickerU3Ec__Iterator10_t2734724860::get_offset_of_U3CU3Ef__this_2(),
+};
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2033 = { sizeof (VideoCamera_t2235032416), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2033[3] = 
 {
 	VideoCamera_t2235032416::get_offset_of_cameraHead_2(),
 	VideoCamera_t2235032416::get_offset_of_target_3(),
 	VideoCamera_t2235032416::get_offset_of_moveHead_4(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2033 = { sizeof (WallLamp_t388237026), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2033[4] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2034 = { sizeof (WallLamp_t388237026), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2034[4] = 
 {
 	WallLamp_t388237026::get_offset_of_minFlickerSpeed_2(),
 	WallLamp_t388237026::get_offset_of_maxFlickerSpeed_3(),
 	WallLamp_t388237026::get_offset_of_scarePlayer_4(),
 	WallLamp_t388237026::get_offset_of_wallLampLight_5(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2034 = { sizeof (U3CWallLampFlickerU3Ec__Iterator10_t682977209), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2034[3] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2035 = { sizeof (U3CWallLampFlickerU3Ec__Iterator11_t682977210), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2035[3] = 
 {
-	U3CWallLampFlickerU3Ec__Iterator10_t682977209::get_offset_of_U24PC_0(),
-	U3CWallLampFlickerU3Ec__Iterator10_t682977209::get_offset_of_U24current_1(),
-	U3CWallLampFlickerU3Ec__Iterator10_t682977209::get_offset_of_U3CU3Ef__this_2(),
+	U3CWallLampFlickerU3Ec__Iterator11_t682977210::get_offset_of_U24PC_0(),
+	U3CWallLampFlickerU3Ec__Iterator11_t682977210::get_offset_of_U24current_1(),
+	U3CWallLampFlickerU3Ec__Iterator11_t682977210::get_offset_of_U3CU3Ef__this_2(),
 };
 #ifdef __clang__
 #pragma clang diagnostic pop

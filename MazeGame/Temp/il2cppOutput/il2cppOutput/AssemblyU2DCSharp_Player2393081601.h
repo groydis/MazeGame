@@ -85,6 +85,14 @@ public:
 	Anaglyph3D_t2235875337 * ___threeDeeEffect_33;
 	// UnityEngine.Animation Player::fishEyeAnim
 	Animation_t1724966010 * ___fishEyeAnim_34;
+	// System.Boolean Player::guiModelShowing
+	bool ___guiModelShowing_35;
+	// UnityEngine.GameObject Player::guiThreeDeeGlasses
+	GameObject_t3674682005 * ___guiThreeDeeGlasses_36;
+	// UnityEngine.GameObject Player::guiPopCorn
+	GameObject_t3674682005 * ___guiPopCorn_37;
+	// UnityEngine.GameObject Player::guiSoda
+	GameObject_t3674682005 * ___guiSoda_38;
 
 public:
 	inline static int32_t get_offset_of_sodaEffectMovementSpeed_5() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___sodaEffectMovementSpeed_5)); }
@@ -278,6 +286,41 @@ public:
 	{
 		___fishEyeAnim_34 = value;
 		Il2CppCodeGenWriteBarrier(&___fishEyeAnim_34, value);
+	}
+
+	inline static int32_t get_offset_of_guiModelShowing_35() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___guiModelShowing_35)); }
+	inline bool get_guiModelShowing_35() const { return ___guiModelShowing_35; }
+	inline bool* get_address_of_guiModelShowing_35() { return &___guiModelShowing_35; }
+	inline void set_guiModelShowing_35(bool value)
+	{
+		___guiModelShowing_35 = value;
+	}
+
+	inline static int32_t get_offset_of_guiThreeDeeGlasses_36() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___guiThreeDeeGlasses_36)); }
+	inline GameObject_t3674682005 * get_guiThreeDeeGlasses_36() const { return ___guiThreeDeeGlasses_36; }
+	inline GameObject_t3674682005 ** get_address_of_guiThreeDeeGlasses_36() { return &___guiThreeDeeGlasses_36; }
+	inline void set_guiThreeDeeGlasses_36(GameObject_t3674682005 * value)
+	{
+		___guiThreeDeeGlasses_36 = value;
+		Il2CppCodeGenWriteBarrier(&___guiThreeDeeGlasses_36, value);
+	}
+
+	inline static int32_t get_offset_of_guiPopCorn_37() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___guiPopCorn_37)); }
+	inline GameObject_t3674682005 * get_guiPopCorn_37() const { return ___guiPopCorn_37; }
+	inline GameObject_t3674682005 ** get_address_of_guiPopCorn_37() { return &___guiPopCorn_37; }
+	inline void set_guiPopCorn_37(GameObject_t3674682005 * value)
+	{
+		___guiPopCorn_37 = value;
+		Il2CppCodeGenWriteBarrier(&___guiPopCorn_37, value);
+	}
+
+	inline static int32_t get_offset_of_guiSoda_38() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___guiSoda_38)); }
+	inline GameObject_t3674682005 * get_guiSoda_38() const { return ___guiSoda_38; }
+	inline GameObject_t3674682005 ** get_address_of_guiSoda_38() { return &___guiSoda_38; }
+	inline void set_guiSoda_38(GameObject_t3674682005 * value)
+	{
+		___guiSoda_38 = value;
+		Il2CppCodeGenWriteBarrier(&___guiSoda_38, value);
 	}
 };
 

@@ -23,19 +23,19 @@ struct TorchControl_t67717601;
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 
-// TorchControl/<DecreaseBattery>c__IteratorE
-struct  U3CDecreaseBatteryU3Ec__IteratorE_t1707228177  : public Il2CppObject
+// TorchControl/<TorchFlicker>c__Iterator10
+struct  U3CTorchFlickerU3Ec__Iterator10_t2734724860  : public Il2CppObject
 {
 public:
-	// System.Int32 TorchControl/<DecreaseBattery>c__IteratorE::$PC
+	// System.Int32 TorchControl/<TorchFlicker>c__Iterator10::$PC
 	int32_t ___U24PC_0;
-	// System.Object TorchControl/<DecreaseBattery>c__IteratorE::$current
+	// System.Object TorchControl/<TorchFlicker>c__Iterator10::$current
 	Il2CppObject * ___U24current_1;
-	// TorchControl TorchControl/<DecreaseBattery>c__IteratorE::<>f__this
+	// TorchControl TorchControl/<TorchFlicker>c__Iterator10::<>f__this
 	TorchControl_t67717601 * ___U3CU3Ef__this_2;
 
 public:
-	inline static int32_t get_offset_of_U24PC_0() { return static_cast<int32_t>(offsetof(U3CDecreaseBatteryU3Ec__IteratorE_t1707228177, ___U24PC_0)); }
+	inline static int32_t get_offset_of_U24PC_0() { return static_cast<int32_t>(offsetof(U3CTorchFlickerU3Ec__Iterator10_t2734724860, ___U24PC_0)); }
 	inline int32_t get_U24PC_0() const { return ___U24PC_0; }
 	inline int32_t* get_address_of_U24PC_0() { return &___U24PC_0; }
 	inline void set_U24PC_0(int32_t value)
@@ -43,7 +43,7 @@ public:
 		___U24PC_0 = value;
 	}
 
-	inline static int32_t get_offset_of_U24current_1() { return static_cast<int32_t>(offsetof(U3CDecreaseBatteryU3Ec__IteratorE_t1707228177, ___U24current_1)); }
+	inline static int32_t get_offset_of_U24current_1() { return static_cast<int32_t>(offsetof(U3CTorchFlickerU3Ec__Iterator10_t2734724860, ___U24current_1)); }
 	inline Il2CppObject * get_U24current_1() const { return ___U24current_1; }
 	inline Il2CppObject ** get_address_of_U24current_1() { return &___U24current_1; }
 	inline void set_U24current_1(Il2CppObject * value)
@@ -52,7 +52,7 @@ public:
 		Il2CppCodeGenWriteBarrier(&___U24current_1, value);
 	}
 
-	inline static int32_t get_offset_of_U3CU3Ef__this_2() { return static_cast<int32_t>(offsetof(U3CDecreaseBatteryU3Ec__IteratorE_t1707228177, ___U3CU3Ef__this_2)); }
+	inline static int32_t get_offset_of_U3CU3Ef__this_2() { return static_cast<int32_t>(offsetof(U3CTorchFlickerU3Ec__Iterator10_t2734724860, ___U3CU3Ef__this_2)); }
 	inline TorchControl_t67717601 * get_U3CU3Ef__this_2() const { return ___U3CU3Ef__this_2; }
 	inline TorchControl_t67717601 ** get_address_of_U3CU3Ef__this_2() { return &___U3CU3Ef__this_2; }
 	inline void set_U3CU3Ef__this_2(TorchControl_t67717601 * value)

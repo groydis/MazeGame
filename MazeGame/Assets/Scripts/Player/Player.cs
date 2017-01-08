@@ -82,8 +82,10 @@ public class Player : MonoBehaviour {
 	// Animation to control the fish eye effect 
 	private Animation fishEyeAnim;
 
-
+	private bool guiModelShowing;
 	private GameObject guiThreeDeeGlasses;
+	private GameObject guiPopCorn;
+	private GameObject guiSoda;
 
 	// Finds various components for the player script
 	void Awake() {
@@ -99,6 +101,8 @@ public class Player : MonoBehaviour {
 		fishEyeAnim = mainCamera.GetComponent<Animation> ();
 
 		guiThreeDeeGlasses = GameObject.Find ("GUI3DGlasses01");
+		guiSoda = GameObject.Find ("GUISoda01");
+		guiPopCorn = GameObject.Find ("GUIPopCorn01");
 	}
 
 	// All Image effects and power ups should be false on start in the player script
@@ -165,6 +169,9 @@ public class Player : MonoBehaviour {
 			sodaActive = true;
 			while (activateSoda) {
 				Debug.Log ("It was Soda");
+
+				StartCoroutine (ShowGUIModel (guiSoda));
+
 				sodaEffectCountDown = sodaEffectDuration;
 
 				if (!imageEffectActive) {
@@ -204,6 +211,9 @@ public class Player : MonoBehaviour {
 			popcornActive = true;
 			while (activatePopCorn) {
 				Debug.Log ("It Was Pop Corn");
+
+				StartCoroutine (ShowGUIModel (guiPopCorn));
+
 				popCornEffectCountDown = popCornEffectDuration;
 
 				StartCoroutine ("PopCornSpawn");
@@ -226,7 +236,9 @@ public class Player : MonoBehaviour {
 			threedeeActive = true;
 			while (activateThreeDee) {
 				Debug.Log ("It Was Three Dee");
+
 				StartCoroutine (ShowGUIModel (guiThreeDeeGlasses));
+
 				threeDeeEffectCountDown = threeDeeEffectDuration;
 
 				threeDeeEffect.enabled = true;
@@ -300,11 +312,15 @@ public class Player : MonoBehaviour {
 	}
 
 	public IEnumerator ShowGUIModel(GameObject GUIModel) {
-		GUIModel.SetActive (true);
-		GUIModel.transform.DOScale (new Vector3 (100f, 100f, 100f), 1f);
-		yield return new WaitForSeconds (3f);
-		GUIModel.transform.DOScale (new Vector3 (0.0f, 0.0f, 0.0f), 1f);
-		yield return new WaitForSeconds (1f);
-		GUIModel.SetActive (false);
+		guiModelShowing = true;
+		while (guiModelShowing) {
+			GUIModel.SetActive (true);
+			GUIModel.transform.DOScale (new Vector3 (100f, 100f, 100f), 1f);
+			yield return new WaitForSeconds (3f);
+			GUIModel.transform.DOScale (new Vector3 (0.0f, 0.0f, 0.0f), 1f);
+			yield return new WaitForSeconds (1f);
+			GUIModel.SetActive (false);
+			guiModelShowing = false;
+		}
 	}
 }

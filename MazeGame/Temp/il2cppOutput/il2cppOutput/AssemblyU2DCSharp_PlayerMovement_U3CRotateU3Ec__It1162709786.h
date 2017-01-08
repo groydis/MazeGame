@@ -24,25 +24,25 @@ struct PlayerMovement_t3827129040;
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 
-// PlayerMovement/<Rotate>c__IteratorD
-struct  U3CRotateU3Ec__IteratorD_t1162709785  : public Il2CppObject
+// PlayerMovement/<Rotate>c__IteratorE
+struct  U3CRotateU3Ec__IteratorE_t1162709786  : public Il2CppObject
 {
 public:
-	// System.Single PlayerMovement/<Rotate>c__IteratorD::rotationAmount
+	// System.Single PlayerMovement/<Rotate>c__IteratorE::rotationAmount
 	float ___rotationAmount_0;
-	// UnityEngine.Quaternion PlayerMovement/<Rotate>c__IteratorD::<finalRotation>__0
+	// UnityEngine.Quaternion PlayerMovement/<Rotate>c__IteratorE::<finalRotation>__0
 	Quaternion_t1553702882  ___U3CfinalRotationU3E__0_1;
-	// System.Int32 PlayerMovement/<Rotate>c__IteratorD::$PC
+	// System.Int32 PlayerMovement/<Rotate>c__IteratorE::$PC
 	int32_t ___U24PC_2;
-	// System.Object PlayerMovement/<Rotate>c__IteratorD::$current
+	// System.Object PlayerMovement/<Rotate>c__IteratorE::$current
 	Il2CppObject * ___U24current_3;
-	// System.Single PlayerMovement/<Rotate>c__IteratorD::<$>rotationAmount
+	// System.Single PlayerMovement/<Rotate>c__IteratorE::<$>rotationAmount
 	float ___U3CU24U3ErotationAmount_4;
-	// PlayerMovement PlayerMovement/<Rotate>c__IteratorD::<>f__this
+	// PlayerMovement PlayerMovement/<Rotate>c__IteratorE::<>f__this
 	PlayerMovement_t3827129040 * ___U3CU3Ef__this_5;
 
 public:
-	inline static int32_t get_offset_of_rotationAmount_0() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorD_t1162709785, ___rotationAmount_0)); }
+	inline static int32_t get_offset_of_rotationAmount_0() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorE_t1162709786, ___rotationAmount_0)); }
 	inline float get_rotationAmount_0() const { return ___rotationAmount_0; }
 	inline float* get_address_of_rotationAmount_0() { return &___rotationAmount_0; }
 	inline void set_rotationAmount_0(float value)
@@ -50,7 +50,7 @@ public:
 		___rotationAmount_0 = value;
 	}
 
-	inline static int32_t get_offset_of_U3CfinalRotationU3E__0_1() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorD_t1162709785, ___U3CfinalRotationU3E__0_1)); }
+	inline static int32_t get_offset_of_U3CfinalRotationU3E__0_1() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorE_t1162709786, ___U3CfinalRotationU3E__0_1)); }
 	inline Quaternion_t1553702882  get_U3CfinalRotationU3E__0_1() const { return ___U3CfinalRotationU3E__0_1; }
 	inline Quaternion_t1553702882 * get_address_of_U3CfinalRotationU3E__0_1() { return &___U3CfinalRotationU3E__0_1; }
 	inline void set_U3CfinalRotationU3E__0_1(Quaternion_t1553702882  value)
@@ -58,7 +58,7 @@ public:
 		___U3CfinalRotationU3E__0_1 = value;
 	}
 
-	inline static int32_t get_offset_of_U24PC_2() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorD_t1162709785, ___U24PC_2)); }
+	inline static int32_t get_offset_of_U24PC_2() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorE_t1162709786, ___U24PC_2)); }
 	inline int32_t get_U24PC_2() const { return ___U24PC_2; }
 	inline int32_t* get_address_of_U24PC_2() { return &___U24PC_2; }
 	inline void set_U24PC_2(int32_t value)
@@ -66,7 +66,7 @@ public:
 		___U24PC_2 = value;
 	}
 
-	inline static int32_t get_offset_of_U24current_3() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorD_t1162709785, ___U24current_3)); }
+	inline static int32_t get_offset_of_U24current_3() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorE_t1162709786, ___U24current_3)); }
 	inline Il2CppObject * get_U24current_3() const { return ___U24current_3; }
 	inline Il2CppObject ** get_address_of_U24current_3() { return &___U24current_3; }
 	inline void set_U24current_3(Il2CppObject * value)
@@ -75,7 +75,7 @@ public:
 		Il2CppCodeGenWriteBarrier(&___U24current_3, value);
 	}
 
-	inline static int32_t get_offset_of_U3CU24U3ErotationAmount_4() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorD_t1162709785, ___U3CU24U3ErotationAmount_4)); }
+	inline static int32_t get_offset_of_U3CU24U3ErotationAmount_4() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorE_t1162709786, ___U3CU24U3ErotationAmount_4)); }
 	inline float get_U3CU24U3ErotationAmount_4() const { return ___U3CU24U3ErotationAmount_4; }
 	inline float* get_address_of_U3CU24U3ErotationAmount_4() { return &___U3CU24U3ErotationAmount_4; }
 	inline void set_U3CU24U3ErotationAmount_4(float value)
@@ -83,7 +83,7 @@ public:
 		___U3CU24U3ErotationAmount_4 = value;
 	}
 
-	inline static int32_t get_offset_of_U3CU3Ef__this_5() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorD_t1162709785, ___U3CU3Ef__this_5)); }
+	inline static int32_t get_offset_of_U3CU3Ef__this_5() { return static_cast<int32_t>(offsetof(U3CRotateU3Ec__IteratorE_t1162709786, ___U3CU3Ef__this_5)); }
 	inline PlayerMovement_t3827129040 * get_U3CU3Ef__this_5() const { return ___U3CU3Ef__this_5; }
 	inline PlayerMovement_t3827129040 ** get_address_of_U3CU3Ef__this_5() { return &___U3CU3Ef__this_5; }
 	inline void set_U3CU3Ef__this_5(PlayerMovement_t3827129040 * value)

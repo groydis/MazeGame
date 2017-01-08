@@ -12379,6 +12379,7 @@ extern "C" void Player_Start_m4113811386 ();
 extern "C" void Player_Update_m2979953555 ();
 extern "C" void Player_PowerUp_m1250417488 ();
 extern "C" void Player_PopCornSpawn_m4092986228 ();
+extern "C" void Player_ShowGUIModel_m2332123221 ();
 extern "C" void U3CPopCornSpawnU3Ec__IteratorC__ctor_m3646284811 ();
 extern "C" void U3CPopCornSpawnU3Ec__IteratorC_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m2924990823 ();
 extern "C" void U3CPopCornSpawnU3Ec__IteratorC_System_Collections_IEnumerator_get_Current_m2886697723 ();
@@ -12391,6 +12392,12 @@ extern "C" void U3CPowerUpU3Ec__IteratorB_System_Collections_IEnumerator_get_Cur
 extern "C" void U3CPowerUpU3Ec__IteratorB_MoveNext_m348944318 ();
 extern "C" void U3CPowerUpU3Ec__IteratorB_Dispose_m448450587 ();
 extern "C" void U3CPowerUpU3Ec__IteratorB_Reset_m788901387 ();
+extern "C" void U3CShowGUIModelU3Ec__IteratorD__ctor_m440735699 ();
+extern "C" void U3CShowGUIModelU3Ec__IteratorD_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m2222811807 ();
+extern "C" void U3CShowGUIModelU3Ec__IteratorD_System_Collections_IEnumerator_get_Current_m574524467 ();
+extern "C" void U3CShowGUIModelU3Ec__IteratorD_MoveNext_m3909652033 ();
+extern "C" void U3CShowGUIModelU3Ec__IteratorD_Dispose_m2538494800 ();
+extern "C" void U3CShowGUIModelU3Ec__IteratorD_Reset_m2382135936 ();
 extern "C" void PlayerMovement__ctor_m537500619 ();
 extern "C" void PlayerMovement_Start_m3779605707 ();
 extern "C" void PlayerMovement_Update_m1209512098 ();
@@ -12400,12 +12407,12 @@ extern "C" void PlayerMovement_TurnRight_m325155016 ();
 extern "C" void PlayerMovement_TurnUp_m21153809 ();
 extern "C" void PlayerMovement_TurnDown_m2663743256 ();
 extern "C" void PlayerMovement_Rotate_m2695011375 ();
-extern "C" void U3CRotateU3Ec__IteratorD__ctor_m2762351730 ();
-extern "C" void U3CRotateU3Ec__IteratorD_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m4170515616 ();
-extern "C" void U3CRotateU3Ec__IteratorD_System_Collections_IEnumerator_get_Current_m4037298228 ();
-extern "C" void U3CRotateU3Ec__IteratorD_MoveNext_m1950484034 ();
-extern "C" void U3CRotateU3Ec__IteratorD_Dispose_m228506671 ();
-extern "C" void U3CRotateU3Ec__IteratorD_Reset_m408784671 ();
+extern "C" void U3CRotateU3Ec__IteratorE__ctor_m2565838225 ();
+extern "C" void U3CRotateU3Ec__IteratorE_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m3961817313 ();
+extern "C" void U3CRotateU3Ec__IteratorE_System_Collections_IEnumerator_get_Current_m1713270389 ();
+extern "C" void U3CRotateU3Ec__IteratorE_MoveNext_m1657081027 ();
+extern "C" void U3CRotateU3Ec__IteratorE_Dispose_m357589390 ();
+extern "C" void U3CRotateU3Ec__IteratorE_Reset_m212271166 ();
 extern "C" void PopCorn__ctor_m4271991314 ();
 extern "C" void PopCorn_OnTriggerEnter_m1640944294 ();
 extern "C" void PopCorn_InteractWithPopCorn_m3986744205 ();
@@ -12471,8 +12478,8 @@ extern "C" void SwipeManager_GetMouseInput_m1607428621 ();
 extern "C" void SwipeManager_IsDirection_m3114322727 ();
 extern "C" void SwipeManager_GetSwipeDirByTouch_m2116532358 ();
 extern "C" void SwipeManager_IsSwipingDirection_m2230816150 ();
-extern "C" void U3CGetSwipeDirByTouchU3Ec__AnonStorey11__ctor_m3672319667 ();
-extern "C" void U3CGetSwipeDirByTouchU3Ec__AnonStorey11_U3CU3Em__E_m3118081528 ();
+extern "C" void U3CGetSwipeDirByTouchU3Ec__AnonStorey12__ctor_m3475806162 ();
+extern "C" void U3CGetSwipeDirByTouchU3Ec__AnonStorey12_U3CU3Em__E_m3238201401 ();
 extern "C" void OnSwipeDetectedHandler__ctor_m2303842336 ();
 extern "C" void OnSwipeDetectedHandler_Invoke_m809775774 ();
 extern "C" void OnSwipeDetectedHandler_BeginInvoke_m789052735 ();
@@ -12487,18 +12494,18 @@ extern "C" void TorchControl_DecreaseBattery_m2405782207 ();
 extern "C" void TorchControl_TorchFlicker_m1781827790 ();
 extern "C" void TorchControl_TorchOff_m376372925 ();
 extern "C" void TorchControl_TorchOn_m3475830131 ();
-extern "C" void U3CDecreaseBatteryU3Ec__IteratorE__ctor_m2208759722 ();
-extern "C" void U3CDecreaseBatteryU3Ec__IteratorE_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m65954354 ();
-extern "C" void U3CDecreaseBatteryU3Ec__IteratorE_System_Collections_IEnumerator_get_Current_m1589578182 ();
-extern "C" void U3CDecreaseBatteryU3Ec__IteratorE_MoveNext_m1195506930 ();
-extern "C" void U3CDecreaseBatteryU3Ec__IteratorE_Dispose_m802531687 ();
-extern "C" void U3CDecreaseBatteryU3Ec__IteratorE_Reset_m4150159959 ();
-extern "C" void U3CTorchFlickerU3Ec__IteratorF__ctor_m372040130 ();
-extern "C" void U3CTorchFlickerU3Ec__IteratorF_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m3037662160 ();
-extern "C" void U3CTorchFlickerU3Ec__IteratorF_System_Collections_IEnumerator_get_Current_m2431823716 ();
-extern "C" void U3CTorchFlickerU3Ec__IteratorF_MoveNext_m2321826034 ();
-extern "C" void U3CTorchFlickerU3Ec__IteratorF_Dispose_m946562431 ();
-extern "C" void U3CTorchFlickerU3Ec__IteratorF_Reset_m2313440367 ();
+extern "C" void U3CDecreaseBatteryU3Ec__IteratorF__ctor_m2012246217 ();
+extern "C" void U3CDecreaseBatteryU3Ec__IteratorF_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m4152223347 ();
+extern "C" void U3CDecreaseBatteryU3Ec__IteratorF_System_Collections_IEnumerator_get_Current_m3560517639 ();
+extern "C" void U3CDecreaseBatteryU3Ec__IteratorF_MoveNext_m902103923 ();
+extern "C" void U3CDecreaseBatteryU3Ec__IteratorF_Dispose_m931614406 ();
+extern "C" void U3CDecreaseBatteryU3Ec__IteratorF_Reset_m3953646454 ();
+extern "C" void U3CTorchFlickerU3Ec__Iterator10__ctor_m3153453855 ();
+extern "C" void U3CTorchFlickerU3Ec__Iterator10_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1824892701 ();
+extern "C" void U3CTorchFlickerU3Ec__Iterator10_System_Collections_IEnumerator_get_Current_m2145092785 ();
+extern "C" void U3CTorchFlickerU3Ec__Iterator10_MoveNext_m3684025949 ();
+extern "C" void U3CTorchFlickerU3Ec__Iterator10_Dispose_m2415494044 ();
+extern "C" void U3CTorchFlickerU3Ec__Iterator10_Reset_m799886796 ();
 extern "C" void TrolleyController__ctor_m477525450 ();
 extern "C" void TrolleyController_Start_m3719630538 ();
 extern "C" void TrolleyController_FixedUpdate_m952062917 ();
@@ -12540,13 +12547,13 @@ extern "C" void WallLamp_Start_m3700944633 ();
 extern "C" void WallLamp_OnTriggerEnter_m2446435359 ();
 extern "C" void WallLamp_OnTriggerExit_m698671523 ();
 extern "C" void WallLamp_WallLampFlicker_m1468172197 ();
-extern "C" void U3CWallLampFlickerU3Ec__Iterator10__ctor_m303351762 ();
-extern "C" void U3CWallLampFlickerU3Ec__Iterator10_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m822267840 ();
-extern "C" void U3CWallLampFlickerU3Ec__Iterator10_System_Collections_IEnumerator_get_Current_m390878036 ();
-extern "C" void U3CWallLampFlickerU3Ec__Iterator10_MoveNext_m431087842 ();
-extern "C" void U3CWallLampFlickerU3Ec__Iterator10_Dispose_m3656517519 ();
-extern "C" void U3CWallLampFlickerU3Ec__Iterator10_Reset_m2244751999 ();
-extern const Il2CppMethodPointer g_MethodPointers[12535] = 
+extern "C" void U3CWallLampFlickerU3Ec__Iterator11__ctor_m106838257 ();
+extern "C" void U3CWallLampFlickerU3Ec__Iterator11_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m613569537 ();
+extern "C" void U3CWallLampFlickerU3Ec__Iterator11_System_Collections_IEnumerator_get_Current_m2361817493 ();
+extern "C" void U3CWallLampFlickerU3Ec__Iterator11_MoveNext_m137684835 ();
+extern "C" void U3CWallLampFlickerU3Ec__Iterator11_Dispose_m3785600238 ();
+extern "C" void U3CWallLampFlickerU3Ec__Iterator11_Reset_m2048238494 ();
+extern const Il2CppMethodPointer g_MethodPointers[12542] = 
 {
 	Locale_GetText_m2389348044,
 	Locale_GetText_m2218462520,
@@ -24916,6 +24923,7 @@ extern const Il2CppMethodPointer g_MethodPointers[12535] =
 	Player_Update_m2979953555,
 	Player_PowerUp_m1250417488,
 	Player_PopCornSpawn_m4092986228,
+	Player_ShowGUIModel_m2332123221,
 	U3CPopCornSpawnU3Ec__IteratorC__ctor_m3646284811,
 	U3CPopCornSpawnU3Ec__IteratorC_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m2924990823,
 	U3CPopCornSpawnU3Ec__IteratorC_System_Collections_IEnumerator_get_Current_m2886697723,
@@ -24928,6 +24936,12 @@ extern const Il2CppMethodPointer g_MethodPointers[12535] =
 	U3CPowerUpU3Ec__IteratorB_MoveNext_m348944318,
 	U3CPowerUpU3Ec__IteratorB_Dispose_m448450587,
 	U3CPowerUpU3Ec__IteratorB_Reset_m788901387,
+	U3CShowGUIModelU3Ec__IteratorD__ctor_m440735699,
+	U3CShowGUIModelU3Ec__IteratorD_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m2222811807,
+	U3CShowGUIModelU3Ec__IteratorD_System_Collections_IEnumerator_get_Current_m574524467,
+	U3CShowGUIModelU3Ec__IteratorD_MoveNext_m3909652033,
+	U3CShowGUIModelU3Ec__IteratorD_Dispose_m2538494800,
+	U3CShowGUIModelU3Ec__IteratorD_Reset_m2382135936,
 	PlayerMovement__ctor_m537500619,
 	PlayerMovement_Start_m3779605707,
 	PlayerMovement_Update_m1209512098,
@@ -24937,12 +24951,12 @@ extern const Il2CppMethodPointer g_MethodPointers[12535] =
 	PlayerMovement_TurnUp_m21153809,
 	PlayerMovement_TurnDown_m2663743256,
 	PlayerMovement_Rotate_m2695011375,
-	U3CRotateU3Ec__IteratorD__ctor_m2762351730,
-	U3CRotateU3Ec__IteratorD_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m4170515616,
-	U3CRotateU3Ec__IteratorD_System_Collections_IEnumerator_get_Current_m4037298228,
-	U3CRotateU3Ec__IteratorD_MoveNext_m1950484034,
-	U3CRotateU3Ec__IteratorD_Dispose_m228506671,
-	U3CRotateU3Ec__IteratorD_Reset_m408784671,
+	U3CRotateU3Ec__IteratorE__ctor_m2565838225,
+	U3CRotateU3Ec__IteratorE_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m3961817313,
+	U3CRotateU3Ec__IteratorE_System_Collections_IEnumerator_get_Current_m1713270389,
+	U3CRotateU3Ec__IteratorE_MoveNext_m1657081027,
+	U3CRotateU3Ec__IteratorE_Dispose_m357589390,
+	U3CRotateU3Ec__IteratorE_Reset_m212271166,
 	PopCorn__ctor_m4271991314,
 	PopCorn_OnTriggerEnter_m1640944294,
 	PopCorn_InteractWithPopCorn_m3986744205,
@@ -25008,8 +25022,8 @@ extern const Il2CppMethodPointer g_MethodPointers[12535] =
 	SwipeManager_IsDirection_m3114322727,
 	SwipeManager_GetSwipeDirByTouch_m2116532358,
 	SwipeManager_IsSwipingDirection_m2230816150,
-	U3CGetSwipeDirByTouchU3Ec__AnonStorey11__ctor_m3672319667,
-	U3CGetSwipeDirByTouchU3Ec__AnonStorey11_U3CU3Em__E_m3118081528,
+	U3CGetSwipeDirByTouchU3Ec__AnonStorey12__ctor_m3475806162,
+	U3CGetSwipeDirByTouchU3Ec__AnonStorey12_U3CU3Em__E_m3238201401,
 	OnSwipeDetectedHandler__ctor_m2303842336,
 	OnSwipeDetectedHandler_Invoke_m809775774,
 	OnSwipeDetectedHandler_BeginInvoke_m789052735,
@@ -25024,18 +25038,18 @@ extern const Il2CppMethodPointer g_MethodPointers[12535] =
 	TorchControl_TorchFlicker_m1781827790,
 	TorchControl_TorchOff_m376372925,
 	TorchControl_TorchOn_m3475830131,
-	U3CDecreaseBatteryU3Ec__IteratorE__ctor_m2208759722,
-	U3CDecreaseBatteryU3Ec__IteratorE_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m65954354,
-	U3CDecreaseBatteryU3Ec__IteratorE_System_Collections_IEnumerator_get_Current_m1589578182,
-	U3CDecreaseBatteryU3Ec__IteratorE_MoveNext_m1195506930,
-	U3CDecreaseBatteryU3Ec__IteratorE_Dispose_m802531687,
-	U3CDecreaseBatteryU3Ec__IteratorE_Reset_m4150159959,
-	U3CTorchFlickerU3Ec__IteratorF__ctor_m372040130,
-	U3CTorchFlickerU3Ec__IteratorF_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m3037662160,
-	U3CTorchFlickerU3Ec__IteratorF_System_Collections_IEnumerator_get_Current_m2431823716,
-	U3CTorchFlickerU3Ec__IteratorF_MoveNext_m2321826034,
-	U3CTorchFlickerU3Ec__IteratorF_Dispose_m946562431,
-	U3CTorchFlickerU3Ec__IteratorF_Reset_m2313440367,
+	U3CDecreaseBatteryU3Ec__IteratorF__ctor_m2012246217,
+	U3CDecreaseBatteryU3Ec__IteratorF_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m4152223347,
+	U3CDecreaseBatteryU3Ec__IteratorF_System_Collections_IEnumerator_get_Current_m3560517639,
+	U3CDecreaseBatteryU3Ec__IteratorF_MoveNext_m902103923,
+	U3CDecreaseBatteryU3Ec__IteratorF_Dispose_m931614406,
+	U3CDecreaseBatteryU3Ec__IteratorF_Reset_m3953646454,
+	U3CTorchFlickerU3Ec__Iterator10__ctor_m3153453855,
+	U3CTorchFlickerU3Ec__Iterator10_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m1824892701,
+	U3CTorchFlickerU3Ec__Iterator10_System_Collections_IEnumerator_get_Current_m2145092785,
+	U3CTorchFlickerU3Ec__Iterator10_MoveNext_m3684025949,
+	U3CTorchFlickerU3Ec__Iterator10_Dispose_m2415494044,
+	U3CTorchFlickerU3Ec__Iterator10_Reset_m799886796,
 	TrolleyController__ctor_m477525450,
 	TrolleyController_Start_m3719630538,
 	TrolleyController_FixedUpdate_m952062917,
@@ -25077,10 +25091,10 @@ extern const Il2CppMethodPointer g_MethodPointers[12535] =
 	WallLamp_OnTriggerEnter_m2446435359,
 	WallLamp_OnTriggerExit_m698671523,
 	WallLamp_WallLampFlicker_m1468172197,
-	U3CWallLampFlickerU3Ec__Iterator10__ctor_m303351762,
-	U3CWallLampFlickerU3Ec__Iterator10_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m822267840,
-	U3CWallLampFlickerU3Ec__Iterator10_System_Collections_IEnumerator_get_Current_m390878036,
-	U3CWallLampFlickerU3Ec__Iterator10_MoveNext_m431087842,
-	U3CWallLampFlickerU3Ec__Iterator10_Dispose_m3656517519,
-	U3CWallLampFlickerU3Ec__Iterator10_Reset_m2244751999,
+	U3CWallLampFlickerU3Ec__Iterator11__ctor_m106838257,
+	U3CWallLampFlickerU3Ec__Iterator11_System_Collections_Generic_IEnumeratorU3CobjectU3E_get_Current_m613569537,
+	U3CWallLampFlickerU3Ec__Iterator11_System_Collections_IEnumerator_get_Current_m2361817493,
+	U3CWallLampFlickerU3Ec__Iterator11_MoveNext_m137684835,
+	U3CWallLampFlickerU3Ec__Iterator11_Dispose_m3785600238,
+	U3CWallLampFlickerU3Ec__Iterator11_Reset_m2048238494,
 };

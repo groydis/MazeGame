@@ -20,15 +20,15 @@
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 
-// SwipeManager/<GetSwipeDirByTouch>c__AnonStorey11
-struct  U3CGetSwipeDirByTouchU3Ec__AnonStorey11_t2684003560  : public Il2CppObject
+// SwipeManager/<GetSwipeDirByTouch>c__AnonStorey12
+struct  U3CGetSwipeDirByTouchU3Ec__AnonStorey12_t2684003561  : public Il2CppObject
 {
 public:
-	// UnityEngine.Vector2 SwipeManager/<GetSwipeDirByTouch>c__AnonStorey11::currentSwipe
+	// UnityEngine.Vector2 SwipeManager/<GetSwipeDirByTouch>c__AnonStorey12::currentSwipe
 	Vector2_t4282066565  ___currentSwipe_0;
 
 public:
-	inline static int32_t get_offset_of_currentSwipe_0() { return static_cast<int32_t>(offsetof(U3CGetSwipeDirByTouchU3Ec__AnonStorey11_t2684003560, ___currentSwipe_0)); }
+	inline static int32_t get_offset_of_currentSwipe_0() { return static_cast<int32_t>(offsetof(U3CGetSwipeDirByTouchU3Ec__AnonStorey12_t2684003561, ___currentSwipe_0)); }
 	inline Vector2_t4282066565  get_currentSwipe_0() const { return ___currentSwipe_0; }
 	inline Vector2_t4282066565 * get_address_of_currentSwipe_0() { return &___currentSwipe_0; }
 	inline void set_currentSwipe_0(Vector2_t4282066565  value)
