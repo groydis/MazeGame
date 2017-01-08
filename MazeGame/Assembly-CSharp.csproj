@@ -89,6 +89,7 @@
      <Compile Include="Assets\Scripts\LevelScripts\Entrance.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\ExitLevel.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\LevelScripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\TutorialText.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\Battery.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\Booze.cs" />

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TrolleyController : MonoBehaviour {
 
-	private float moveSpeed = 10f;
+	private float moveSpeed = 8f;
 	private Rigidbody rBody;
 	private bool startMoving;
 	private float deathTime = 5f;
@@ -73,16 +73,16 @@ public class TrolleyController : MonoBehaviour {
 	void OnCollisionEnter (Collision col)
 	{
 		if (col.gameObject.tag == "Player") {
-				if (!isDisabling) {
-					Debug.Log ("Trolley hit player");
-					Player.canMove = false;
-					rBody.AddForce (-transform.right * moveSpeed);
-					col.rigidbody.AddForce (-transform.forward);
-					flashingEnabled = true;
-					gameObject.layer = 12;
-					StartCoroutine ("FlashingRenderer");
-					StartCoroutine ("DestroyTrolley");
-				}
+			if (!isDisabling) {
+				Debug.Log ("Trolley hit player");
+				Player.canMove = false;
+				rBody.AddForce (-transform.right * moveSpeed,ForceMode.VelocityChange);
+				col.rigidbody.AddForce (transform.forward * moveSpeed, ForceMode.VelocityChange);
+				flashingEnabled = true;
+				gameObject.layer = 12;
+				StartCoroutine ("FlashingRenderer");
+				StartCoroutine ("DestroyTrolley");
+			}
 		} 
 	}
 

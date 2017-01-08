@@ -81,6 +81,7 @@
 <type fullname="Entrance" preserve="all"/>
 <type fullname="ExitLevel" preserve="all"/>
 <type fullname="GameManager" preserve="all"/>
+<type fullname="MainMenu" preserve="all"/>
 <type fullname="TutorialText" preserve="all"/>
 <type fullname="Battery" preserve="all"/>
 <type fullname="Booze" preserve="all"/>

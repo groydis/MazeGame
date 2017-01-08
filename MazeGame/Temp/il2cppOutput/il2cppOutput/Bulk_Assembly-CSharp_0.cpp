@@ -10625,7 +10625,7 @@ extern "C"  void U3CTorchFlickerU3Ec__Iterator10_Reset_m799886796 (U3CTorchFlick
 extern "C"  void TrolleyController__ctor_m477525450 (TrolleyController_t3484123329 * __this, const MethodInfo* method)
 {
 	{
-		__this->set_moveSpeed_2((10.0f));
+		__this->set_moveSpeed_2((8.0f));
 		__this->set_deathTime_5((5.0f));
 		__this->set_deSpawnTime_6((3.0f));
 		__this->set_flashInterval_8((0.5f));
