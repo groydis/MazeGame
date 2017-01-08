@@ -22,6 +22,8 @@ struct Fisheye_t2084831179;
 struct MotionBlur_t3002754187;
 // UnityStandardAssets.ImageEffects.ContrastEnhance
 struct ContrastEnhance_t3797097022;
+// MorePPEffects.Anaglyph3D
+struct Anaglyph3D_t2235875337;
 // UnityEngine.Animation
 struct Animation_t1724966010;
 
@@ -40,41 +42,49 @@ public:
 	// System.Single Player::sodaEffectMovementSpeed
 	float ___sodaEffectMovementSpeed_5;
 	// System.Single Player::intoxicationDuration
-	float ___intoxicationDuration_11;
+	float ___intoxicationDuration_12;
 	// System.Single Player::intoxicationCountDown
-	float ___intoxicationCountDown_12;
+	float ___intoxicationCountDown_13;
 	// System.Single Player::sodaEffectDuration
-	float ___sodaEffectDuration_13;
+	float ___sodaEffectDuration_14;
 	// System.Single Player::sodaEffectCountDown
-	float ___sodaEffectCountDown_14;
+	float ___sodaEffectCountDown_15;
 	// System.Single Player::popCornEffectDuration
-	float ___popCornEffectDuration_15;
+	float ___popCornEffectDuration_16;
 	// System.Single Player::popCornEffectCountDown
-	float ___popCornEffectCountDown_16;
+	float ___popCornEffectCountDown_17;
+	// System.Single Player::threeDeeEffectDuration
+	float ___threeDeeEffectDuration_18;
+	// System.Single Player::threeDeeEffectCountDown
+	float ___threeDeeEffectCountDown_19;
 	// System.Boolean Player::sodaActive
-	bool ___sodaActive_17;
+	bool ___sodaActive_20;
 	// System.Boolean Player::popcornActive
-	bool ___popcornActive_18;
+	bool ___popcornActive_21;
 	// System.Boolean Player::drunkActive
-	bool ___drunkActive_19;
+	bool ___drunkActive_22;
+	// System.Boolean Player::threedeeActive
+	bool ___threedeeActive_23;
 	// System.Boolean Player::imageEffectActive
-	bool ___imageEffectActive_20;
+	bool ___imageEffectActive_24;
 	// UnityEngine.GameObject Player::mainCamera
-	GameObject_t3674682005 * ___mainCamera_21;
+	GameObject_t3674682005 * ___mainCamera_25;
 	// UnityEngine.GameObject Player::popCornTrail
-	GameObject_t3674682005 * ___popCornTrail_22;
+	GameObject_t3674682005 * ___popCornTrail_26;
 	// UnityEngine.Animator Player::playerAnim
-	Animator_t2776330603 * ___playerAnim_24;
+	Animator_t2776330603 * ___playerAnim_28;
 	// UnityEngine.Renderer[] Player::renderers
-	RendererU5BU5D_t440051646* ___renderers_25;
+	RendererU5BU5D_t440051646* ___renderers_29;
 	// UnityStandardAssets.ImageEffects.Fisheye Player::fishEyeEffect
-	Fisheye_t2084831179 * ___fishEyeEffect_26;
+	Fisheye_t2084831179 * ___fishEyeEffect_30;
 	// UnityStandardAssets.ImageEffects.MotionBlur Player::motionBlurEffect
-	MotionBlur_t3002754187 * ___motionBlurEffect_27;
+	MotionBlur_t3002754187 * ___motionBlurEffect_31;
 	// UnityStandardAssets.ImageEffects.ContrastEnhance Player::contrastEnhanceEffect
-	ContrastEnhance_t3797097022 * ___contrastEnhanceEffect_28;
+	ContrastEnhance_t3797097022 * ___contrastEnhanceEffect_32;
+	// MorePPEffects.Anaglyph3D Player::threeDeeEffect
+	Anaglyph3D_t2235875337 * ___threeDeeEffect_33;
 	// UnityEngine.Animation Player::fishEyeAnim
-	Animation_t1724966010 * ___fishEyeAnim_29;
+	Animation_t1724966010 * ___fishEyeAnim_34;
 
 public:
 	inline static int32_t get_offset_of_sodaEffectMovementSpeed_5() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___sodaEffectMovementSpeed_5)); }
@@ -85,156 +95,189 @@ public:
 		___sodaEffectMovementSpeed_5 = value;
 	}
 
-	inline static int32_t get_offset_of_intoxicationDuration_11() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___intoxicationDuration_11)); }
-	inline float get_intoxicationDuration_11() const { return ___intoxicationDuration_11; }
-	inline float* get_address_of_intoxicationDuration_11() { return &___intoxicationDuration_11; }
-	inline void set_intoxicationDuration_11(float value)
+	inline static int32_t get_offset_of_intoxicationDuration_12() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___intoxicationDuration_12)); }
+	inline float get_intoxicationDuration_12() const { return ___intoxicationDuration_12; }
+	inline float* get_address_of_intoxicationDuration_12() { return &___intoxicationDuration_12; }
+	inline void set_intoxicationDuration_12(float value)
 	{
-		___intoxicationDuration_11 = value;
+		___intoxicationDuration_12 = value;
 	}
 
-	inline static int32_t get_offset_of_intoxicationCountDown_12() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___intoxicationCountDown_12)); }
-	inline float get_intoxicationCountDown_12() const { return ___intoxicationCountDown_12; }
-	inline float* get_address_of_intoxicationCountDown_12() { return &___intoxicationCountDown_12; }
-	inline void set_intoxicationCountDown_12(float value)
+	inline static int32_t get_offset_of_intoxicationCountDown_13() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___intoxicationCountDown_13)); }
+	inline float get_intoxicationCountDown_13() const { return ___intoxicationCountDown_13; }
+	inline float* get_address_of_intoxicationCountDown_13() { return &___intoxicationCountDown_13; }
+	inline void set_intoxicationCountDown_13(float value)
 	{
-		___intoxicationCountDown_12 = value;
+		___intoxicationCountDown_13 = value;
 	}
 
-	inline static int32_t get_offset_of_sodaEffectDuration_13() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___sodaEffectDuration_13)); }
-	inline float get_sodaEffectDuration_13() const { return ___sodaEffectDuration_13; }
-	inline float* get_address_of_sodaEffectDuration_13() { return &___sodaEffectDuration_13; }
-	inline void set_sodaEffectDuration_13(float value)
+	inline static int32_t get_offset_of_sodaEffectDuration_14() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___sodaEffectDuration_14)); }
+	inline float get_sodaEffectDuration_14() const { return ___sodaEffectDuration_14; }
+	inline float* get_address_of_sodaEffectDuration_14() { return &___sodaEffectDuration_14; }
+	inline void set_sodaEffectDuration_14(float value)
 	{
-		___sodaEffectDuration_13 = value;
+		___sodaEffectDuration_14 = value;
 	}
 
-	inline static int32_t get_offset_of_sodaEffectCountDown_14() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___sodaEffectCountDown_14)); }
-	inline float get_sodaEffectCountDown_14() const { return ___sodaEffectCountDown_14; }
-	inline float* get_address_of_sodaEffectCountDown_14() { return &___sodaEffectCountDown_14; }
-	inline void set_sodaEffectCountDown_14(float value)
+	inline static int32_t get_offset_of_sodaEffectCountDown_15() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___sodaEffectCountDown_15)); }
+	inline float get_sodaEffectCountDown_15() const { return ___sodaEffectCountDown_15; }
+	inline float* get_address_of_sodaEffectCountDown_15() { return &___sodaEffectCountDown_15; }
+	inline void set_sodaEffectCountDown_15(float value)
 	{
-		___sodaEffectCountDown_14 = value;
+		___sodaEffectCountDown_15 = value;
 	}
 
-	inline static int32_t get_offset_of_popCornEffectDuration_15() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___popCornEffectDuration_15)); }
-	inline float get_popCornEffectDuration_15() const { return ___popCornEffectDuration_15; }
-	inline float* get_address_of_popCornEffectDuration_15() { return &___popCornEffectDuration_15; }
-	inline void set_popCornEffectDuration_15(float value)
+	inline static int32_t get_offset_of_popCornEffectDuration_16() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___popCornEffectDuration_16)); }
+	inline float get_popCornEffectDuration_16() const { return ___popCornEffectDuration_16; }
+	inline float* get_address_of_popCornEffectDuration_16() { return &___popCornEffectDuration_16; }
+	inline void set_popCornEffectDuration_16(float value)
 	{
-		___popCornEffectDuration_15 = value;
+		___popCornEffectDuration_16 = value;
 	}
 
-	inline static int32_t get_offset_of_popCornEffectCountDown_16() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___popCornEffectCountDown_16)); }
-	inline float get_popCornEffectCountDown_16() const { return ___popCornEffectCountDown_16; }
-	inline float* get_address_of_popCornEffectCountDown_16() { return &___popCornEffectCountDown_16; }
-	inline void set_popCornEffectCountDown_16(float value)
+	inline static int32_t get_offset_of_popCornEffectCountDown_17() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___popCornEffectCountDown_17)); }
+	inline float get_popCornEffectCountDown_17() const { return ___popCornEffectCountDown_17; }
+	inline float* get_address_of_popCornEffectCountDown_17() { return &___popCornEffectCountDown_17; }
+	inline void set_popCornEffectCountDown_17(float value)
 	{
-		___popCornEffectCountDown_16 = value;
+		___popCornEffectCountDown_17 = value;
 	}
 
-	inline static int32_t get_offset_of_sodaActive_17() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___sodaActive_17)); }
-	inline bool get_sodaActive_17() const { return ___sodaActive_17; }
-	inline bool* get_address_of_sodaActive_17() { return &___sodaActive_17; }
-	inline void set_sodaActive_17(bool value)
+	inline static int32_t get_offset_of_threeDeeEffectDuration_18() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___threeDeeEffectDuration_18)); }
+	inline float get_threeDeeEffectDuration_18() const { return ___threeDeeEffectDuration_18; }
+	inline float* get_address_of_threeDeeEffectDuration_18() { return &___threeDeeEffectDuration_18; }
+	inline void set_threeDeeEffectDuration_18(float value)
 	{
-		___sodaActive_17 = value;
+		___threeDeeEffectDuration_18 = value;
 	}
 
-	inline static int32_t get_offset_of_popcornActive_18() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___popcornActive_18)); }
-	inline bool get_popcornActive_18() const { return ___popcornActive_18; }
-	inline bool* get_address_of_popcornActive_18() { return &___popcornActive_18; }
-	inline void set_popcornActive_18(bool value)
+	inline static int32_t get_offset_of_threeDeeEffectCountDown_19() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___threeDeeEffectCountDown_19)); }
+	inline float get_threeDeeEffectCountDown_19() const { return ___threeDeeEffectCountDown_19; }
+	inline float* get_address_of_threeDeeEffectCountDown_19() { return &___threeDeeEffectCountDown_19; }
+	inline void set_threeDeeEffectCountDown_19(float value)
 	{
-		___popcornActive_18 = value;
+		___threeDeeEffectCountDown_19 = value;
 	}
 
-	inline static int32_t get_offset_of_drunkActive_19() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___drunkActive_19)); }
-	inline bool get_drunkActive_19() const { return ___drunkActive_19; }
-	inline bool* get_address_of_drunkActive_19() { return &___drunkActive_19; }
-	inline void set_drunkActive_19(bool value)
+	inline static int32_t get_offset_of_sodaActive_20() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___sodaActive_20)); }
+	inline bool get_sodaActive_20() const { return ___sodaActive_20; }
+	inline bool* get_address_of_sodaActive_20() { return &___sodaActive_20; }
+	inline void set_sodaActive_20(bool value)
 	{
-		___drunkActive_19 = value;
+		___sodaActive_20 = value;
 	}
 
-	inline static int32_t get_offset_of_imageEffectActive_20() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___imageEffectActive_20)); }
-	inline bool get_imageEffectActive_20() const { return ___imageEffectActive_20; }
-	inline bool* get_address_of_imageEffectActive_20() { return &___imageEffectActive_20; }
-	inline void set_imageEffectActive_20(bool value)
+	inline static int32_t get_offset_of_popcornActive_21() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___popcornActive_21)); }
+	inline bool get_popcornActive_21() const { return ___popcornActive_21; }
+	inline bool* get_address_of_popcornActive_21() { return &___popcornActive_21; }
+	inline void set_popcornActive_21(bool value)
 	{
-		___imageEffectActive_20 = value;
+		___popcornActive_21 = value;
 	}
 
-	inline static int32_t get_offset_of_mainCamera_21() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___mainCamera_21)); }
-	inline GameObject_t3674682005 * get_mainCamera_21() const { return ___mainCamera_21; }
-	inline GameObject_t3674682005 ** get_address_of_mainCamera_21() { return &___mainCamera_21; }
-	inline void set_mainCamera_21(GameObject_t3674682005 * value)
+	inline static int32_t get_offset_of_drunkActive_22() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___drunkActive_22)); }
+	inline bool get_drunkActive_22() const { return ___drunkActive_22; }
+	inline bool* get_address_of_drunkActive_22() { return &___drunkActive_22; }
+	inline void set_drunkActive_22(bool value)
 	{
-		___mainCamera_21 = value;
-		Il2CppCodeGenWriteBarrier(&___mainCamera_21, value);
+		___drunkActive_22 = value;
 	}
 
-	inline static int32_t get_offset_of_popCornTrail_22() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___popCornTrail_22)); }
-	inline GameObject_t3674682005 * get_popCornTrail_22() const { return ___popCornTrail_22; }
-	inline GameObject_t3674682005 ** get_address_of_popCornTrail_22() { return &___popCornTrail_22; }
-	inline void set_popCornTrail_22(GameObject_t3674682005 * value)
+	inline static int32_t get_offset_of_threedeeActive_23() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___threedeeActive_23)); }
+	inline bool get_threedeeActive_23() const { return ___threedeeActive_23; }
+	inline bool* get_address_of_threedeeActive_23() { return &___threedeeActive_23; }
+	inline void set_threedeeActive_23(bool value)
 	{
-		___popCornTrail_22 = value;
-		Il2CppCodeGenWriteBarrier(&___popCornTrail_22, value);
+		___threedeeActive_23 = value;
 	}
 
-	inline static int32_t get_offset_of_playerAnim_24() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___playerAnim_24)); }
-	inline Animator_t2776330603 * get_playerAnim_24() const { return ___playerAnim_24; }
-	inline Animator_t2776330603 ** get_address_of_playerAnim_24() { return &___playerAnim_24; }
-	inline void set_playerAnim_24(Animator_t2776330603 * value)
+	inline static int32_t get_offset_of_imageEffectActive_24() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___imageEffectActive_24)); }
+	inline bool get_imageEffectActive_24() const { return ___imageEffectActive_24; }
+	inline bool* get_address_of_imageEffectActive_24() { return &___imageEffectActive_24; }
+	inline void set_imageEffectActive_24(bool value)
 	{
-		___playerAnim_24 = value;
-		Il2CppCodeGenWriteBarrier(&___playerAnim_24, value);
+		___imageEffectActive_24 = value;
 	}
 
-	inline static int32_t get_offset_of_renderers_25() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___renderers_25)); }
-	inline RendererU5BU5D_t440051646* get_renderers_25() const { return ___renderers_25; }
-	inline RendererU5BU5D_t440051646** get_address_of_renderers_25() { return &___renderers_25; }
-	inline void set_renderers_25(RendererU5BU5D_t440051646* value)
+	inline static int32_t get_offset_of_mainCamera_25() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___mainCamera_25)); }
+	inline GameObject_t3674682005 * get_mainCamera_25() const { return ___mainCamera_25; }
+	inline GameObject_t3674682005 ** get_address_of_mainCamera_25() { return &___mainCamera_25; }
+	inline void set_mainCamera_25(GameObject_t3674682005 * value)
 	{
-		___renderers_25 = value;
-		Il2CppCodeGenWriteBarrier(&___renderers_25, value);
+		___mainCamera_25 = value;
+		Il2CppCodeGenWriteBarrier(&___mainCamera_25, value);
 	}
 
-	inline static int32_t get_offset_of_fishEyeEffect_26() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___fishEyeEffect_26)); }
-	inline Fisheye_t2084831179 * get_fishEyeEffect_26() const { return ___fishEyeEffect_26; }
-	inline Fisheye_t2084831179 ** get_address_of_fishEyeEffect_26() { return &___fishEyeEffect_26; }
-	inline void set_fishEyeEffect_26(Fisheye_t2084831179 * value)
+	inline static int32_t get_offset_of_popCornTrail_26() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___popCornTrail_26)); }
+	inline GameObject_t3674682005 * get_popCornTrail_26() const { return ___popCornTrail_26; }
+	inline GameObject_t3674682005 ** get_address_of_popCornTrail_26() { return &___popCornTrail_26; }
+	inline void set_popCornTrail_26(GameObject_t3674682005 * value)
 	{
-		___fishEyeEffect_26 = value;
-		Il2CppCodeGenWriteBarrier(&___fishEyeEffect_26, value);
+		___popCornTrail_26 = value;
+		Il2CppCodeGenWriteBarrier(&___popCornTrail_26, value);
 	}
 
-	inline static int32_t get_offset_of_motionBlurEffect_27() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___motionBlurEffect_27)); }
-	inline MotionBlur_t3002754187 * get_motionBlurEffect_27() const { return ___motionBlurEffect_27; }
-	inline MotionBlur_t3002754187 ** get_address_of_motionBlurEffect_27() { return &___motionBlurEffect_27; }
-	inline void set_motionBlurEffect_27(MotionBlur_t3002754187 * value)
+	inline static int32_t get_offset_of_playerAnim_28() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___playerAnim_28)); }
+	inline Animator_t2776330603 * get_playerAnim_28() const { return ___playerAnim_28; }
+	inline Animator_t2776330603 ** get_address_of_playerAnim_28() { return &___playerAnim_28; }
+	inline void set_playerAnim_28(Animator_t2776330603 * value)
 	{
-		___motionBlurEffect_27 = value;
-		Il2CppCodeGenWriteBarrier(&___motionBlurEffect_27, value);
+		___playerAnim_28 = value;
+		Il2CppCodeGenWriteBarrier(&___playerAnim_28, value);
 	}
 
-	inline static int32_t get_offset_of_contrastEnhanceEffect_28() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___contrastEnhanceEffect_28)); }
-	inline ContrastEnhance_t3797097022 * get_contrastEnhanceEffect_28() const { return ___contrastEnhanceEffect_28; }
-	inline ContrastEnhance_t3797097022 ** get_address_of_contrastEnhanceEffect_28() { return &___contrastEnhanceEffect_28; }
-	inline void set_contrastEnhanceEffect_28(ContrastEnhance_t3797097022 * value)
+	inline static int32_t get_offset_of_renderers_29() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___renderers_29)); }
+	inline RendererU5BU5D_t440051646* get_renderers_29() const { return ___renderers_29; }
+	inline RendererU5BU5D_t440051646** get_address_of_renderers_29() { return &___renderers_29; }
+	inline void set_renderers_29(RendererU5BU5D_t440051646* value)
 	{
-		___contrastEnhanceEffect_28 = value;
-		Il2CppCodeGenWriteBarrier(&___contrastEnhanceEffect_28, value);
+		___renderers_29 = value;
+		Il2CppCodeGenWriteBarrier(&___renderers_29, value);
 	}
 
-	inline static int32_t get_offset_of_fishEyeAnim_29() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___fishEyeAnim_29)); }
-	inline Animation_t1724966010 * get_fishEyeAnim_29() const { return ___fishEyeAnim_29; }
-	inline Animation_t1724966010 ** get_address_of_fishEyeAnim_29() { return &___fishEyeAnim_29; }
-	inline void set_fishEyeAnim_29(Animation_t1724966010 * value)
+	inline static int32_t get_offset_of_fishEyeEffect_30() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___fishEyeEffect_30)); }
+	inline Fisheye_t2084831179 * get_fishEyeEffect_30() const { return ___fishEyeEffect_30; }
+	inline Fisheye_t2084831179 ** get_address_of_fishEyeEffect_30() { return &___fishEyeEffect_30; }
+	inline void set_fishEyeEffect_30(Fisheye_t2084831179 * value)
 	{
-		___fishEyeAnim_29 = value;
-		Il2CppCodeGenWriteBarrier(&___fishEyeAnim_29, value);
+		___fishEyeEffect_30 = value;
+		Il2CppCodeGenWriteBarrier(&___fishEyeEffect_30, value);
+	}
+
+	inline static int32_t get_offset_of_motionBlurEffect_31() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___motionBlurEffect_31)); }
+	inline MotionBlur_t3002754187 * get_motionBlurEffect_31() const { return ___motionBlurEffect_31; }
+	inline MotionBlur_t3002754187 ** get_address_of_motionBlurEffect_31() { return &___motionBlurEffect_31; }
+	inline void set_motionBlurEffect_31(MotionBlur_t3002754187 * value)
+	{
+		___motionBlurEffect_31 = value;
+		Il2CppCodeGenWriteBarrier(&___motionBlurEffect_31, value);
+	}
+
+	inline static int32_t get_offset_of_contrastEnhanceEffect_32() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___contrastEnhanceEffect_32)); }
+	inline ContrastEnhance_t3797097022 * get_contrastEnhanceEffect_32() const { return ___contrastEnhanceEffect_32; }
+	inline ContrastEnhance_t3797097022 ** get_address_of_contrastEnhanceEffect_32() { return &___contrastEnhanceEffect_32; }
+	inline void set_contrastEnhanceEffect_32(ContrastEnhance_t3797097022 * value)
+	{
+		___contrastEnhanceEffect_32 = value;
+		Il2CppCodeGenWriteBarrier(&___contrastEnhanceEffect_32, value);
+	}
+
+	inline static int32_t get_offset_of_threeDeeEffect_33() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___threeDeeEffect_33)); }
+	inline Anaglyph3D_t2235875337 * get_threeDeeEffect_33() const { return ___threeDeeEffect_33; }
+	inline Anaglyph3D_t2235875337 ** get_address_of_threeDeeEffect_33() { return &___threeDeeEffect_33; }
+	inline void set_threeDeeEffect_33(Anaglyph3D_t2235875337 * value)
+	{
+		___threeDeeEffect_33 = value;
+		Il2CppCodeGenWriteBarrier(&___threeDeeEffect_33, value);
+	}
+
+	inline static int32_t get_offset_of_fishEyeAnim_34() { return static_cast<int32_t>(offsetof(Player_t2393081601, ___fishEyeAnim_34)); }
+	inline Animation_t1724966010 * get_fishEyeAnim_34() const { return ___fishEyeAnim_34; }
+	inline Animation_t1724966010 ** get_address_of_fishEyeAnim_34() { return &___fishEyeAnim_34; }
+	inline void set_fishEyeAnim_34(Animation_t1724966010 * value)
+	{
+		___fishEyeAnim_34 = value;
+		Il2CppCodeGenWriteBarrier(&___fishEyeAnim_34, value);
 	}
 };
 
@@ -255,10 +298,12 @@ public:
 	bool ___activateSoda_8;
 	// System.Boolean Player::activatePopCorn
 	bool ___activatePopCorn_9;
+	// System.Boolean Player::activateThreeDee
+	bool ___activateThreeDee_10;
 	// System.Single Player::spectralEffect
-	float ___spectralEffect_10;
+	float ___spectralEffect_11;
 	// System.Boolean Player::canMove
-	bool ___canMove_23;
+	bool ___canMove_27;
 
 public:
 	inline static int32_t get_offset_of_batteryCharge_2() { return static_cast<int32_t>(offsetof(Player_t2393081601_StaticFields, ___batteryCharge_2)); }
@@ -317,20 +362,28 @@ public:
 		___activatePopCorn_9 = value;
 	}
 
-	inline static int32_t get_offset_of_spectralEffect_10() { return static_cast<int32_t>(offsetof(Player_t2393081601_StaticFields, ___spectralEffect_10)); }
-	inline float get_spectralEffect_10() const { return ___spectralEffect_10; }
-	inline float* get_address_of_spectralEffect_10() { return &___spectralEffect_10; }
-	inline void set_spectralEffect_10(float value)
+	inline static int32_t get_offset_of_activateThreeDee_10() { return static_cast<int32_t>(offsetof(Player_t2393081601_StaticFields, ___activateThreeDee_10)); }
+	inline bool get_activateThreeDee_10() const { return ___activateThreeDee_10; }
+	inline bool* get_address_of_activateThreeDee_10() { return &___activateThreeDee_10; }
+	inline void set_activateThreeDee_10(bool value)
 	{
-		___spectralEffect_10 = value;
+		___activateThreeDee_10 = value;
 	}
 
-	inline static int32_t get_offset_of_canMove_23() { return static_cast<int32_t>(offsetof(Player_t2393081601_StaticFields, ___canMove_23)); }
-	inline bool get_canMove_23() const { return ___canMove_23; }
-	inline bool* get_address_of_canMove_23() { return &___canMove_23; }
-	inline void set_canMove_23(bool value)
+	inline static int32_t get_offset_of_spectralEffect_11() { return static_cast<int32_t>(offsetof(Player_t2393081601_StaticFields, ___spectralEffect_11)); }
+	inline float get_spectralEffect_11() const { return ___spectralEffect_11; }
+	inline float* get_address_of_spectralEffect_11() { return &___spectralEffect_11; }
+	inline void set_spectralEffect_11(float value)
 	{
-		___canMove_23 = value;
+		___spectralEffect_11 = value;
+	}
+
+	inline static int32_t get_offset_of_canMove_27() { return static_cast<int32_t>(offsetof(Player_t2393081601_StaticFields, ___canMove_27)); }
+	inline bool get_canMove_27() const { return ___canMove_27; }
+	inline bool* get_address_of_canMove_27() { return &___canMove_27; }
+	inline void set_canMove_27(bool value)
+	{
+		___canMove_27 = value;
 	}
 };
 

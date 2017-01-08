@@ -11,7 +11,7 @@
 #include "class-internals.h"
 #include "codegen/il2cpp-codegen.h"
 
-extern const Il2CppMethodSpec g_Il2CppMethodSpecTable[5984] = 
+extern const Il2CppMethodSpec g_Il2CppMethodSpecTable[5985] = 
 {
 	{ 86, 0, -1 },
 	{ 94, 0, -1 },
@@ -1661,6 +1661,7 @@ extern const Il2CppMethodSpec g_Il2CppMethodSpecTable[5984] =
 	{ 9174, -1, 601 },
 	{ 9215, -1, 594 },
 	{ 9215, -1, 595 },
+	{ 9215, -1, 599 },
 	{ 9215, -1, 602 },
 	{ 9164, -1, 351 },
 	{ 9174, -1, 351 },

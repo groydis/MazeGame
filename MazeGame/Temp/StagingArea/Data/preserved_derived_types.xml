@@ -87,6 +87,7 @@
 <type fullname="PopCorn" preserve="all"/>
 <type fullname="PopCornTrail" preserve="all"/>
 <type fullname="Soda" preserve="all"/>
+<type fullname="ThreeDeeGlasses" preserve="all"/>
 <type fullname="TypeWriter" preserve="all"/>
 <type fullname="Player" preserve="all"/>
 <type fullname="PlayerMovement" preserve="all"/>

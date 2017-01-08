@@ -12477,6 +12477,9 @@ extern "C" void OnSwipeDetectedHandler__ctor_m2303842336 ();
 extern "C" void OnSwipeDetectedHandler_Invoke_m809775774 ();
 extern "C" void OnSwipeDetectedHandler_BeginInvoke_m789052735 ();
 extern "C" void OnSwipeDetectedHandler_EndInvoke_m462838320 ();
+extern "C" void ThreeDeeGlasses__ctor_m223708999 ();
+extern "C" void ThreeDeeGlasses_OnTriggerEnter_m1925930385 ();
+extern "C" void ThreeDeeGlasses_InteractWithThreeDeeGlasses_m173519981 ();
 extern "C" void TorchControl__ctor_m2746037722 ();
 extern "C" void TorchControl_Start_m1693175514 ();
 extern "C" void TorchControl_Update_m954685555 ();
@@ -12543,7 +12546,7 @@ extern "C" void U3CWallLampFlickerU3Ec__Iterator10_System_Collections_IEnumerato
 extern "C" void U3CWallLampFlickerU3Ec__Iterator10_MoveNext_m431087842 ();
 extern "C" void U3CWallLampFlickerU3Ec__Iterator10_Dispose_m3656517519 ();
 extern "C" void U3CWallLampFlickerU3Ec__Iterator10_Reset_m2244751999 ();
-extern const Il2CppMethodPointer g_MethodPointers[12532] = 
+extern const Il2CppMethodPointer g_MethodPointers[12535] = 
 {
 	Locale_GetText_m2389348044,
 	Locale_GetText_m2218462520,
@@ -25011,6 +25014,9 @@ extern const Il2CppMethodPointer g_MethodPointers[12532] =
 	OnSwipeDetectedHandler_Invoke_m809775774,
 	OnSwipeDetectedHandler_BeginInvoke_m789052735,
 	OnSwipeDetectedHandler_EndInvoke_m462838320,
+	ThreeDeeGlasses__ctor_m223708999,
+	ThreeDeeGlasses_OnTriggerEnter_m1925930385,
+	ThreeDeeGlasses_InteractWithThreeDeeGlasses_m173519981,
 	TorchControl__ctor_m2746037722,
 	TorchControl_Start_m1693175514,
 	TorchControl_Update_m954685555,

@@ -203,6 +203,8 @@ struct U3CGetSwipeDirByTouchU3Ec__AnonStorey11_t2684003560;
 struct IAsyncResult_t2754620036;
 // System.AsyncCallback
 struct AsyncCallback_t1369114871;
+// ThreeDeeGlasses
+struct ThreeDeeGlasses_t63813796;
 // TorchControl
 struct TorchControl_t67717601;
 // TorchControl/<DecreaseBattery>c__IteratorE
@@ -495,6 +497,8 @@ struct U3CWallLampFlickerU3Ec__Iterator10_t682977209;
 #include "System_Core_System_Linq_Enumerable839044124.h"
 #include "mscorlib_System_Collections_Generic_KeyValuePair_23424597024MethodDeclarations.h"
 #include "mscorlib_System_AsyncCallback1369114871.h"
+#include "AssemblyU2DCSharp_ThreeDeeGlasses63813796.h"
+#include "AssemblyU2DCSharp_ThreeDeeGlasses63813796MethodDeclarations.h"
 #include "AssemblyU2DCSharp_TorchControl67717601.h"
 #include "AssemblyU2DCSharp_TorchControl67717601MethodDeclarations.h"
 #include "UnityEngine_UnityEngine_Light4202674828MethodDeclarations.h"
@@ -590,6 +594,8 @@ extern "C"  ObjectU5BU5D_t1108656482* Component_GetComponentsInChildren_TisIl2Cp
 #define GameObject_GetComponent_TisFisheye_t2084831179_m4038905586(__this, method) ((  Fisheye_t2084831179 * (*) (GameObject_t3674682005 *, const MethodInfo*))GameObject_GetComponent_TisIl2CppObject_m2447772384_gshared)(__this, method)
 // !!0 UnityEngine.GameObject::GetComponent<UnityStandardAssets.ImageEffects.MotionBlur>()
 #define GameObject_GetComponent_TisMotionBlur_t3002754187_m2351370038(__this, method) ((  MotionBlur_t3002754187 * (*) (GameObject_t3674682005 *, const MethodInfo*))GameObject_GetComponent_TisIl2CppObject_m2447772384_gshared)(__this, method)
+// !!0 UnityEngine.GameObject::GetComponent<MorePPEffects.Anaglyph3D>()
+#define GameObject_GetComponent_TisAnaglyph3D_t2235875337_m110357171(__this, method) ((  Anaglyph3D_t2235875337 * (*) (GameObject_t3674682005 *, const MethodInfo*))GameObject_GetComponent_TisIl2CppObject_m2447772384_gshared)(__this, method)
 // !!0 UnityEngine.GameObject::GetComponent<UnityEngine.Animation>()
 #define GameObject_GetComponent_TisAnimation_t1724966010_m2530801684(__this, method) ((  Animation_t1724966010 * (*) (GameObject_t3674682005 *, const MethodInfo*))GameObject_GetComponent_TisIl2CppObject_m2447772384_gshared)(__this, method)
 // !!0 UnityEngine.Component::GetComponent<UnityEngine.Rigidbody>()
@@ -2189,7 +2195,7 @@ IL_001f:
 extern "C"  void GameManager__ctor_m4112277136 (GameManager_t2369589051 * __this, const MethodInfo* method)
 {
 	{
-		__this->set_countdownValue_15((3.0f));
+		__this->set_countdownValue_14((3.0f));
 		MonoBehaviour__ctor_m2022291967(__this, /*hidden argument*/NULL);
 		return;
 	}
@@ -2206,7 +2212,7 @@ extern "C"  GameManager_t2369589051 * GameManager_get_Instance_m4109253338 (Il2C
 		s_Il2CppMethodIntialized = true;
 	}
 	{
-		GameManager_t2369589051 * L_0 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_U3CInstanceU3Ek__BackingField_20();
+		GameManager_t2369589051 * L_0 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_U3CInstanceU3Ek__BackingField_19();
 		return L_0;
 	}
 }
@@ -2223,7 +2229,7 @@ extern "C"  void GameManager_set_Instance_m1709377361 (Il2CppObject * __this /* 
 	}
 	{
 		GameManager_t2369589051 * L_0 = ___value0;
-		((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->set_U3CInstanceU3Ek__BackingField_20(L_0);
+		((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->set_U3CInstanceU3Ek__BackingField_19(L_0);
 		return;
 	}
 }
@@ -2237,7 +2243,6 @@ extern const MethodInfo* GameObject_GetComponent_TisGlitchEffect_t2030701382_m23
 extern const MethodInfo* GameObject_GetComponent_TisCRT_t67013_m3020943356_MethodInfo_var;
 extern const MethodInfo* GameObject_GetComponent_TisContrastEnhance_t3797097022_m2788539807_MethodInfo_var;
 extern Il2CppCodeGenString* _stringLiteral1693806388;
-extern Il2CppCodeGenString* _stringLiteral2490691675;
 extern Il2CppCodeGenString* _stringLiteral3091022758;
 extern Il2CppCodeGenString* _stringLiteral3671462056;
 extern Il2CppCodeGenString* _stringLiteral3806321153;
@@ -2258,89 +2263,84 @@ extern "C"  void GameManager_Awake_m54915059 (GameManager_t2369589051 * __this, 
 		GameObject_t3674682005 * L_0 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral1693806388, /*hidden argument*/NULL);
 		NullCheck(L_0);
 		Text_t9039225 * L_1 = GameObject_GetComponent_TisText_t9039225_m202917489(L_0, /*hidden argument*/GameObject_GetComponent_TisText_t9039225_m202917489_MethodInfo_var);
-		__this->set_startText_17(L_1);
-		GameObject_t3674682005 * L_2 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral2490691675, /*hidden argument*/NULL);
-		__this->set_sugarRushText_9(L_2);
-		GameObject_t3674682005 * L_3 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3091022758, /*hidden argument*/NULL);
-		__this->set_playButton_4(L_3);
-		GameObject_t3674682005 * L_4 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3671462056, /*hidden argument*/NULL);
-		__this->set_pauseButton_5(L_4);
-		GameObject_t3674682005 * L_5 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3806321153, /*hidden argument*/NULL);
-		__this->set_restartButton_6(L_5);
-		GameObject_t3674682005 * L_6 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral2986602279, /*hidden argument*/NULL);
-		__this->set_pauseRecText_7(L_6);
-		GameObject_t3674682005 * L_7 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral2748129134, /*hidden argument*/NULL);
-		__this->set_batteryImage_8(L_7);
-		GameObject_t3674682005 * L_8 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral2443884217, /*hidden argument*/NULL);
-		NullCheck(L_8);
-		Image_t538875265 * L_9 = GameObject_GetComponent_TisImage_t538875265_m2140199269(L_8, /*hidden argument*/GameObject_GetComponent_TisImage_t538875265_m2140199269_MethodInfo_var);
-		__this->set_recImage_19(L_9);
-		GameObject_t3674682005 * L_10 = __this->get_pauseRecText_7();
-		NullCheck(L_10);
-		Text_t9039225 * L_11 = GameObject_GetComponent_TisText_t9039225_m202917489(L_10, /*hidden argument*/GameObject_GetComponent_TisText_t9039225_m202917489_MethodInfo_var);
-		__this->set_pauseRecTextText_18(L_11);
-		GameObject_t3674682005 * L_12 = __this->get_sugarRushText_9();
+		__this->set_startText_16(L_1);
+		GameObject_t3674682005 * L_2 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3091022758, /*hidden argument*/NULL);
+		__this->set_playButton_4(L_2);
+		GameObject_t3674682005 * L_3 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3671462056, /*hidden argument*/NULL);
+		__this->set_pauseButton_5(L_3);
+		GameObject_t3674682005 * L_4 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3806321153, /*hidden argument*/NULL);
+		__this->set_restartButton_6(L_4);
+		GameObject_t3674682005 * L_5 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral2986602279, /*hidden argument*/NULL);
+		__this->set_pauseRecText_7(L_5);
+		GameObject_t3674682005 * L_6 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral2748129134, /*hidden argument*/NULL);
+		__this->set_batteryImage_8(L_6);
+		GameObject_t3674682005 * L_7 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral2443884217, /*hidden argument*/NULL);
+		NullCheck(L_7);
+		Image_t538875265 * L_8 = GameObject_GetComponent_TisImage_t538875265_m2140199269(L_7, /*hidden argument*/GameObject_GetComponent_TisImage_t538875265_m2140199269_MethodInfo_var);
+		__this->set_recImage_18(L_8);
+		GameObject_t3674682005 * L_9 = __this->get_pauseRecText_7();
+		NullCheck(L_9);
+		Text_t9039225 * L_10 = GameObject_GetComponent_TisText_t9039225_m202917489(L_9, /*hidden argument*/GameObject_GetComponent_TisText_t9039225_m202917489_MethodInfo_var);
+		__this->set_pauseRecTextText_17(L_10);
+		GameObject_t3674682005 * L_11 = __this->get_playButton_4();
+		NullCheck(L_11);
+		GameObject_SetActive_m3538205401(L_11, (bool)0, /*hidden argument*/NULL);
+		GameObject_t3674682005 * L_12 = __this->get_pauseButton_5();
 		NullCheck(L_12);
 		GameObject_SetActive_m3538205401(L_12, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_13 = __this->get_playButton_4();
+		GameObject_t3674682005 * L_13 = __this->get_restartButton_6();
 		NullCheck(L_13);
 		GameObject_SetActive_m3538205401(L_13, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_14 = __this->get_pauseButton_5();
+		GameObject_t3674682005 * L_14 = __this->get_pauseRecText_7();
 		NullCheck(L_14);
 		GameObject_SetActive_m3538205401(L_14, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_15 = __this->get_restartButton_6();
+		GameObject_t3674682005 * L_15 = __this->get_batteryImage_8();
 		NullCheck(L_15);
 		GameObject_SetActive_m3538205401(L_15, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_16 = __this->get_pauseRecText_7();
-		NullCheck(L_16);
-		GameObject_SetActive_m3538205401(L_16, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_17 = __this->get_batteryImage_8();
-		NullCheck(L_17);
-		GameObject_SetActive_m3538205401(L_17, (bool)0, /*hidden argument*/NULL);
 		((DialogueSystem_t236143175_StaticFields*)DialogueSystem_t236143175_il2cpp_TypeInfo_var->static_fields)->set_dialogueActive_4((bool)0);
 		((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->set_pauseGame_2((bool)0);
+		GameObject_t3674682005 * L_16 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3759572844, /*hidden argument*/NULL);
+		NullCheck(L_16);
+		GlitchEffect_t2030701382 * L_17 = GameObject_GetComponent_TisGlitchEffect_t2030701382_m2358542551(L_16, /*hidden argument*/GameObject_GetComponent_TisGlitchEffect_t2030701382_m2358542551_MethodInfo_var);
+		__this->set_glitchEffect_9(L_17);
 		GameObject_t3674682005 * L_18 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3759572844, /*hidden argument*/NULL);
 		NullCheck(L_18);
-		GlitchEffect_t2030701382 * L_19 = GameObject_GetComponent_TisGlitchEffect_t2030701382_m2358542551(L_18, /*hidden argument*/GameObject_GetComponent_TisGlitchEffect_t2030701382_m2358542551_MethodInfo_var);
-		__this->set_glitchEffect_10(L_19);
+		CRT_t67013 * L_19 = GameObject_GetComponent_TisCRT_t67013_m3020943356(L_18, /*hidden argument*/GameObject_GetComponent_TisCRT_t67013_m3020943356_MethodInfo_var);
+		__this->set_crtEffect_10(L_19);
 		GameObject_t3674682005 * L_20 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3759572844, /*hidden argument*/NULL);
 		NullCheck(L_20);
-		CRT_t67013 * L_21 = GameObject_GetComponent_TisCRT_t67013_m3020943356(L_20, /*hidden argument*/GameObject_GetComponent_TisCRT_t67013_m3020943356_MethodInfo_var);
-		__this->set_crtEffect_11(L_21);
-		GameObject_t3674682005 * L_22 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3759572844, /*hidden argument*/NULL);
-		NullCheck(L_22);
-		ContrastEnhance_t3797097022 * L_23 = GameObject_GetComponent_TisContrastEnhance_t3797097022_m2788539807(L_22, /*hidden argument*/GameObject_GetComponent_TisContrastEnhance_t3797097022_m2788539807_MethodInfo_var);
-		__this->set_contrastEnhance_12(L_23);
+		ContrastEnhance_t3797097022 * L_21 = GameObject_GetComponent_TisContrastEnhance_t3797097022_m2788539807(L_20, /*hidden argument*/GameObject_GetComponent_TisContrastEnhance_t3797097022_m2788539807_MethodInfo_var);
+		__this->set_contrastEnhance_11(L_21);
+		GameManager_t2369589051 * L_22 = GameManager_get_Instance_m4109253338(NULL /*static, unused*/, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Object_t3071478659_il2cpp_TypeInfo_var);
+		bool L_23 = Object_op_Inequality_m1296218211(NULL /*static, unused*/, L_22, (Object_t3071478659 *)NULL, /*hidden argument*/NULL);
+		if (!L_23)
+		{
+			goto IL_0142;
+		}
+	}
+	{
 		GameManager_t2369589051 * L_24 = GameManager_get_Instance_m4109253338(NULL /*static, unused*/, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Object_t3071478659_il2cpp_TypeInfo_var);
-		bool L_25 = Object_op_Inequality_m1296218211(NULL /*static, unused*/, L_24, (Object_t3071478659 *)NULL, /*hidden argument*/NULL);
+		bool L_25 = Object_op_Inequality_m1296218211(NULL /*static, unused*/, L_24, __this, /*hidden argument*/NULL);
 		if (!L_25)
 		{
-			goto IL_015e;
+			goto IL_0142;
 		}
 	}
 	{
-		GameManager_t2369589051 * L_26 = GameManager_get_Instance_m4109253338(NULL /*static, unused*/, /*hidden argument*/NULL);
+		GameObject_t3674682005 * L_26 = Component_get_gameObject_m1170635899(__this, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Object_t3071478659_il2cpp_TypeInfo_var);
-		bool L_27 = Object_op_Inequality_m1296218211(NULL /*static, unused*/, L_26, __this, /*hidden argument*/NULL);
-		if (!L_27)
-		{
-			goto IL_015e;
-		}
-	}
-	{
-		GameObject_t3674682005 * L_28 = Component_get_gameObject_m1170635899(__this, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Object_t3071478659_il2cpp_TypeInfo_var);
-		Object_Destroy_m176400816(NULL /*static, unused*/, L_28, /*hidden argument*/NULL);
-		goto IL_0164;
+		Object_Destroy_m176400816(NULL /*static, unused*/, L_26, /*hidden argument*/NULL);
+		goto IL_0148;
 	}
 
-IL_015e:
+IL_0142:
 	{
 		GameManager_set_Instance_m1709377361(NULL /*static, unused*/, __this, /*hidden argument*/NULL);
 	}
 
-IL_0164:
+IL_0148:
 	{
 		return;
 	}
@@ -2366,49 +2366,46 @@ extern "C"  void GameManager_Start_m3059414928 (GameManager_t2369589051 * __this
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
 		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral1387669992, /*hidden argument*/NULL);
 		Scene_t1080795294  L_0 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
-		__this->set_currentScene_13(L_0);
-		Scene_t1080795294 * L_1 = __this->get_address_of_currentScene_13();
+		__this->set_currentScene_12(L_0);
+		Scene_t1080795294 * L_1 = __this->get_address_of_currentScene_12();
 		String_t* L_2 = Scene_get_name_m894591657(L_1, /*hidden argument*/NULL);
-		__this->set_currentSceneName_14(L_2);
-		String_t* L_3 = __this->get_currentSceneName_14();
+		__this->set_currentSceneName_13(L_2);
+		String_t* L_3 = __this->get_currentSceneName_13();
 		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
 		bool L_4 = String_op_Equality_m1260523650(NULL /*static, unused*/, L_3, _stringLiteral55996120, /*hidden argument*/NULL);
 		if (!L_4)
 		{
-			goto IL_00a0;
+			goto IL_0094;
 		}
 	}
 	{
-		GameObject_t3674682005 * L_5 = __this->get_sugarRushText_9();
+		GameObject_t3674682005 * L_5 = __this->get_playButton_4();
 		NullCheck(L_5);
 		GameObject_SetActive_m3538205401(L_5, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_6 = __this->get_playButton_4();
+		GameObject_t3674682005 * L_6 = __this->get_pauseButton_5();
 		NullCheck(L_6);
 		GameObject_SetActive_m3538205401(L_6, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_7 = __this->get_pauseButton_5();
+		GameObject_t3674682005 * L_7 = __this->get_restartButton_6();
 		NullCheck(L_7);
 		GameObject_SetActive_m3538205401(L_7, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_8 = __this->get_restartButton_6();
+		GameObject_t3674682005 * L_8 = __this->get_pauseRecText_7();
 		NullCheck(L_8);
 		GameObject_SetActive_m3538205401(L_8, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_9 = __this->get_pauseRecText_7();
+		GameObject_t3674682005 * L_9 = __this->get_batteryImage_8();
 		NullCheck(L_9);
 		GameObject_SetActive_m3538205401(L_9, (bool)0, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_10 = __this->get_batteryImage_8();
-		NullCheck(L_10);
-		GameObject_SetActive_m3538205401(L_10, (bool)0, /*hidden argument*/NULL);
 		((DialogueSystem_t236143175_StaticFields*)DialogueSystem_t236143175_il2cpp_TypeInfo_var->static_fields)->set_dialogueActive_4((bool)0);
 		((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->set_pauseGame_2((bool)0);
 		MonoBehaviour_StartCoroutine_m2272783641(__this, _stringLiteral2188868574, /*hidden argument*/NULL);
-		goto IL_00a6;
+		goto IL_009a;
 	}
 
-IL_00a0:
+IL_0094:
 	{
 		GameManager_StartGame_m3525516194(__this, /*hidden argument*/NULL);
 	}
 
-IL_00a6:
+IL_009a:
 	{
 		return;
 	}
@@ -2444,11 +2441,11 @@ extern "C"  void GameManager_StartGame_m3525516194 (GameManager_t2369589051 * __
 		NullCheck(L_4);
 		GameObject_SetActive_m3538205401(L_4, (bool)1, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_23((bool)0);
-		Text_t9039225 * L_5 = __this->get_pauseRecTextText_18();
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_27((bool)0);
+		Text_t9039225 * L_5 = __this->get_pauseRecTextText_17();
 		NullCheck(L_5);
 		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_5, _stringLiteral86551752);
-		Image_t538875265 * L_6 = __this->get_recImage_19();
+		Image_t538875265 * L_6 = __this->get_recImage_18();
 		NullCheck(L_6);
 		Behaviour_set_enabled_m2046806933(L_6, (bool)1, /*hidden argument*/NULL);
 		MonoBehaviour_StartCoroutine_m2272783641(__this, _stringLiteral4289904687, /*hidden argument*/NULL);
@@ -2517,49 +2514,49 @@ IL_003d:
 
 IL_0075:
 	{
-		Text_t9039225 * L_8 = __this->get_pauseRecTextText_18();
+		Text_t9039225 * L_8 = __this->get_pauseRecTextText_17();
 		NullCheck(L_8);
 		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_8, _stringLiteral3904703540);
-		Image_t538875265 * L_9 = __this->get_recImage_19();
+		Image_t538875265 * L_9 = __this->get_recImage_18();
 		NullCheck(L_9);
 		Behaviour_set_enabled_m2046806933(L_9, (bool)0, /*hidden argument*/NULL);
-		GlitchEffect_t2030701382 * L_10 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_10 = __this->get_glitchEffect_9();
 		NullCheck(L_10);
 		L_10->set_colorIntensity_13((0.2f));
-		GlitchEffect_t2030701382 * L_11 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_11 = __this->get_glitchEffect_9();
 		NullCheck(L_11);
 		L_11->set_intensity_11((0.5f));
-		GlitchEffect_t2030701382 * L_12 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_12 = __this->get_glitchEffect_9();
 		NullCheck(L_12);
 		L_12->set_flipIntensity_12((0.5f));
-		GlitchEffect_t2030701382 * L_13 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_13 = __this->get_glitchEffect_9();
 		NullCheck(L_13);
 		Behaviour_set_enabled_m2046806933(L_13, (bool)1, /*hidden argument*/NULL);
-		CRT_t67013 * L_14 = __this->get_crtEffect_11();
+		CRT_t67013 * L_14 = __this->get_crtEffect_10();
 		NullCheck(L_14);
 		L_14->set_TextureSize_6((756.8f));
-		CRT_t67013 * L_15 = __this->get_crtEffect_11();
+		CRT_t67013 * L_15 = __this->get_crtEffect_10();
 		NullCheck(L_15);
 		L_15->set_Distortion_3((0.1f));
-		CRT_t67013 * L_16 = __this->get_crtEffect_11();
+		CRT_t67013 * L_16 = __this->get_crtEffect_10();
 		NullCheck(L_16);
 		L_16->set_InputGamma_4((1.0f));
-		CRT_t67013 * L_17 = __this->get_crtEffect_11();
+		CRT_t67013 * L_17 = __this->get_crtEffect_10();
 		NullCheck(L_17);
 		L_17->set_OutputGamma_5((1.0f));
-		CRT_t67013 * L_18 = __this->get_crtEffect_11();
+		CRT_t67013 * L_18 = __this->get_crtEffect_10();
 		NullCheck(L_18);
 		Behaviour_set_enabled_m2046806933(L_18, (bool)1, /*hidden argument*/NULL);
-		ContrastEnhance_t3797097022 * L_19 = __this->get_contrastEnhance_12();
+		ContrastEnhance_t3797097022 * L_19 = __this->get_contrastEnhance_11();
 		NullCheck(L_19);
 		L_19->set_intensity_6((0.255f));
-		ContrastEnhance_t3797097022 * L_20 = __this->get_contrastEnhance_12();
+		ContrastEnhance_t3797097022 * L_20 = __this->get_contrastEnhance_11();
 		NullCheck(L_20);
 		L_20->set_threshold_7((0.0f));
-		ContrastEnhance_t3797097022 * L_21 = __this->get_contrastEnhance_12();
+		ContrastEnhance_t3797097022 * L_21 = __this->get_contrastEnhance_11();
 		NullCheck(L_21);
 		L_21->set_blurSpread_10((0.255f));
-		ContrastEnhance_t3797097022 * L_22 = __this->get_contrastEnhance_12();
+		ContrastEnhance_t3797097022 * L_22 = __this->get_contrastEnhance_11();
 		NullCheck(L_22);
 		Behaviour_set_enabled_m2046806933(L_22, (bool)1, /*hidden argument*/NULL);
 		((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->set_pauseGame_2((bool)1);
@@ -2584,43 +2581,43 @@ extern "C"  void GameManager_UnPauseGame_m1782011549 (GameManager_t2369589051 * 
 		s_Il2CppMethodIntialized = true;
 	}
 	{
-		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_9();
 		NullCheck(L_0);
 		L_0->set_colorIntensity_13((0.2f));
-		GlitchEffect_t2030701382 * L_1 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_1 = __this->get_glitchEffect_9();
 		NullCheck(L_1);
 		L_1->set_intensity_11((0.5f));
-		GlitchEffect_t2030701382 * L_2 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_2 = __this->get_glitchEffect_9();
 		NullCheck(L_2);
 		L_2->set_flipIntensity_12((0.5f));
-		GlitchEffect_t2030701382 * L_3 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_3 = __this->get_glitchEffect_9();
 		NullCheck(L_3);
 		Behaviour_set_enabled_m2046806933(L_3, (bool)0, /*hidden argument*/NULL);
-		CRT_t67013 * L_4 = __this->get_crtEffect_11();
+		CRT_t67013 * L_4 = __this->get_crtEffect_10();
 		NullCheck(L_4);
 		L_4->set_TextureSize_6((756.8f));
-		CRT_t67013 * L_5 = __this->get_crtEffect_11();
+		CRT_t67013 * L_5 = __this->get_crtEffect_10();
 		NullCheck(L_5);
 		L_5->set_Distortion_3((0.1f));
-		CRT_t67013 * L_6 = __this->get_crtEffect_11();
+		CRT_t67013 * L_6 = __this->get_crtEffect_10();
 		NullCheck(L_6);
 		L_6->set_InputGamma_4((1.0f));
-		CRT_t67013 * L_7 = __this->get_crtEffect_11();
+		CRT_t67013 * L_7 = __this->get_crtEffect_10();
 		NullCheck(L_7);
 		L_7->set_OutputGamma_5((1.0f));
-		CRT_t67013 * L_8 = __this->get_crtEffect_11();
+		CRT_t67013 * L_8 = __this->get_crtEffect_10();
 		NullCheck(L_8);
 		Behaviour_set_enabled_m2046806933(L_8, (bool)0, /*hidden argument*/NULL);
-		ContrastEnhance_t3797097022 * L_9 = __this->get_contrastEnhance_12();
+		ContrastEnhance_t3797097022 * L_9 = __this->get_contrastEnhance_11();
 		NullCheck(L_9);
 		L_9->set_intensity_6((0.255f));
-		ContrastEnhance_t3797097022 * L_10 = __this->get_contrastEnhance_12();
+		ContrastEnhance_t3797097022 * L_10 = __this->get_contrastEnhance_11();
 		NullCheck(L_10);
 		L_10->set_threshold_7((0.0f));
-		ContrastEnhance_t3797097022 * L_11 = __this->get_contrastEnhance_12();
+		ContrastEnhance_t3797097022 * L_11 = __this->get_contrastEnhance_11();
 		NullCheck(L_11);
 		L_11->set_blurSpread_10((0.255f));
-		ContrastEnhance_t3797097022 * L_12 = __this->get_contrastEnhance_12();
+		ContrastEnhance_t3797097022 * L_12 = __this->get_contrastEnhance_11();
 		NullCheck(L_12);
 		Behaviour_set_enabled_m2046806933(L_12, (bool)0, /*hidden argument*/NULL);
 		bool L_13 = ((DialogueSystem_t236143175_StaticFields*)DialogueSystem_t236143175_il2cpp_TypeInfo_var->static_fields)->get_dialogueActive_4();
@@ -2668,10 +2665,10 @@ IL_0101:
 
 IL_0139:
 	{
-		Text_t9039225 * L_21 = __this->get_pauseRecTextText_18();
+		Text_t9039225 * L_21 = __this->get_pauseRecTextText_17();
 		NullCheck(L_21);
 		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_21, _stringLiteral86551752);
-		Image_t538875265 * L_22 = __this->get_recImage_19();
+		Image_t538875265 * L_22 = __this->get_recImage_18();
 		NullCheck(L_22);
 		Behaviour_set_enabled_m2046806933(L_22, (bool)1, /*hidden argument*/NULL);
 		((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->set_pauseGame_2((bool)0);
@@ -2871,7 +2868,7 @@ extern "C"  Il2CppObject * GameManager_StartCountDown_m398666747 (GameManager_t2
 extern "C"  float GameManager_U3CTweenInCRTU3Em__2_m237381050 (GameManager_t2369589051 * __this, const MethodInfo* method)
 {
 	{
-		CRT_t67013 * L_0 = __this->get_crtEffect_11();
+		CRT_t67013 * L_0 = __this->get_crtEffect_10();
 		NullCheck(L_0);
 		float L_1 = L_0->get_TextureSize_6();
 		return L_1;
@@ -2881,7 +2878,7 @@ extern "C"  float GameManager_U3CTweenInCRTU3Em__2_m237381050 (GameManager_t2369
 extern "C"  void GameManager_U3CTweenInCRTU3Em__3_m673135940 (GameManager_t2369589051 * __this, float ___x0, const MethodInfo* method)
 {
 	{
-		CRT_t67013 * L_0 = __this->get_crtEffect_11();
+		CRT_t67013 * L_0 = __this->get_crtEffect_10();
 		float L_1 = ___x0;
 		NullCheck(L_0);
 		L_0->set_TextureSize_6(L_1);
@@ -2892,7 +2889,7 @@ extern "C"  void GameManager_U3CTweenInCRTU3Em__3_m673135940 (GameManager_t23695
 extern "C"  float GameManager_U3CTweenInCRTU3Em__4_m237382972 (GameManager_t2369589051 * __this, const MethodInfo* method)
 {
 	{
-		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_9();
 		NullCheck(L_0);
 		float L_1 = L_0->get_colorIntensity_13();
 		return L_1;
@@ -2902,7 +2899,7 @@ extern "C"  float GameManager_U3CTweenInCRTU3Em__4_m237382972 (GameManager_t2369
 extern "C"  void GameManager_U3CTweenInCRTU3Em__5_m3947034882 (GameManager_t2369589051 * __this, float ___x0, const MethodInfo* method)
 {
 	{
-		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_9();
 		float L_1 = ___x0;
 		NullCheck(L_0);
 		L_0->set_colorIntensity_13(L_1);
@@ -2913,7 +2910,7 @@ extern "C"  void GameManager_U3CTweenInCRTU3Em__5_m3947034882 (GameManager_t2369
 extern "C"  float GameManager_U3CTweenOutCRTU3Em__6_m3649663611 (GameManager_t2369589051 * __this, const MethodInfo* method)
 {
 	{
-		CRT_t67013 * L_0 = __this->get_crtEffect_11();
+		CRT_t67013 * L_0 = __this->get_crtEffect_10();
 		NullCheck(L_0);
 		float L_1 = L_0->get_Distortion_3();
 		return L_1;
@@ -2923,7 +2920,7 @@ extern "C"  float GameManager_U3CTweenOutCRTU3Em__6_m3649663611 (GameManager_t23
 extern "C"  void GameManager_U3CTweenOutCRTU3Em__7_m706301499 (GameManager_t2369589051 * __this, float ___x0, const MethodInfo* method)
 {
 	{
-		CRT_t67013 * L_0 = __this->get_crtEffect_11();
+		CRT_t67013 * L_0 = __this->get_crtEffect_10();
 		float L_1 = ___x0;
 		NullCheck(L_0);
 		L_0->set_Distortion_3(L_1);
@@ -2934,7 +2931,7 @@ extern "C"  void GameManager_U3CTweenOutCRTU3Em__7_m706301499 (GameManager_t2369
 extern "C"  float GameManager_U3CTweenOutCRTU3Em__8_m3649665533 (GameManager_t2369589051 * __this, const MethodInfo* method)
 {
 	{
-		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_9();
 		NullCheck(L_0);
 		float L_1 = L_0->get_flipIntensity_12();
 		return L_1;
@@ -2944,7 +2941,7 @@ extern "C"  float GameManager_U3CTweenOutCRTU3Em__8_m3649665533 (GameManager_t23
 extern "C"  void GameManager_U3CTweenOutCRTU3Em__9_m3980200441 (GameManager_t2369589051 * __this, float ___x0, const MethodInfo* method)
 {
 	{
-		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_0 = __this->get_glitchEffect_9();
 		float L_1 = ___x0;
 		NullCheck(L_0);
 		L_0->set_flipIntensity_12(L_1);
@@ -3030,7 +3027,7 @@ IL_003d:
 	{
 		GameManager_t2369589051 * L_3 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_3);
-		String_t* L_4 = L_3->get_currentSceneName_14();
+		String_t* L_4 = L_3->get_currentSceneName_13();
 		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
 		bool L_5 = String_op_Equality_m1260523650(NULL /*static, unused*/, L_4, _stringLiteral55996120, /*hidden argument*/NULL);
 		if (!L_5)
@@ -3107,7 +3104,7 @@ extern "C"  float U3CMainMenuLoadU3Ec__Iterator8_U3CU3Em__A_m885126922 (U3CMainM
 	{
 		GameManager_t2369589051 * L_0 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_0);
-		CRT_t67013 * L_1 = L_0->get_crtEffect_11();
+		CRT_t67013 * L_1 = L_0->get_crtEffect_10();
 		NullCheck(L_1);
 		float L_2 = L_1->get_TextureSize_6();
 		return L_2;
@@ -3119,7 +3116,7 @@ extern "C"  void U3CMainMenuLoadU3Ec__Iterator8_U3CU3Em__B_m1803997708 (U3CMainM
 	{
 		GameManager_t2369589051 * L_0 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_0);
-		CRT_t67013 * L_1 = L_0->get_crtEffect_11();
+		CRT_t67013 * L_1 = L_0->get_crtEffect_10();
 		float L_2 = ___x0;
 		NullCheck(L_1);
 		L_1->set_TextureSize_6(L_2);
@@ -3132,7 +3129,7 @@ extern "C"  float U3CMainMenuLoadU3Ec__Iterator8_U3CU3Em__C_m885128844 (U3CMainM
 	{
 		GameManager_t2369589051 * L_0 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_0);
-		GlitchEffect_t2030701382 * L_1 = L_0->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_1 = L_0->get_glitchEffect_9();
 		NullCheck(L_1);
 		float L_2 = L_1->get_colorIntensity_13();
 		return L_2;
@@ -3144,7 +3141,7 @@ extern "C"  void U3CMainMenuLoadU3Ec__Iterator8_U3CU3Em__D_m782929354 (U3CMainMe
 	{
 		GameManager_t2369589051 * L_0 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_0);
-		GlitchEffect_t2030701382 * L_1 = L_0->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_1 = L_0->get_glitchEffect_9();
 		float L_2 = ___x0;
 		NullCheck(L_1);
 		L_1->set_colorIntensity_13(L_2);
@@ -3217,22 +3214,22 @@ IL_0025:
 	{
 		GameManager_t2369589051 * L_2 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_2);
-		Text_t9039225 * L_3 = L_2->get_startText_17();
+		Text_t9039225 * L_3 = L_2->get_startText_16();
 		NullCheck(L_3);
 		Behaviour_set_enabled_m2046806933(L_3, (bool)1, /*hidden argument*/NULL);
 		GameManager_t2369589051 * L_4 = __this->get_U3CU3Ef__this_2();
 		GameManager_t2369589051 * L_5 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_5);
-		float L_6 = L_5->get_countdownValue_15();
+		float L_6 = L_5->get_countdownValue_14();
 		NullCheck(L_4);
-		L_4->set_currCountDownValue_16(L_6);
+		L_4->set_currCountDownValue_15(L_6);
 		goto IL_00aa;
 	}
 
 IL_0051:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_23((bool)0);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_27((bool)0);
 		WaitForSeconds_t1615819279 * L_7 = (WaitForSeconds_t1615819279 *)il2cpp_codegen_object_new(WaitForSeconds_t1615819279_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m3184996201(L_7, (1.0f), /*hidden argument*/NULL);
 		__this->set_U24current_1(L_7);
@@ -3245,15 +3242,15 @@ IL_0073:
 		GameManager_t2369589051 * L_8 = __this->get_U3CU3Ef__this_2();
 		GameManager_t2369589051 * L_9 = L_8;
 		NullCheck(L_9);
-		float L_10 = L_9->get_currCountDownValue_16();
+		float L_10 = L_9->get_currCountDownValue_15();
 		NullCheck(L_9);
-		L_9->set_currCountDownValue_16(((float)((float)L_10-(float)(1.0f))));
+		L_9->set_currCountDownValue_15(((float)((float)L_10-(float)(1.0f))));
 		GameManager_t2369589051 * L_11 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_11);
-		Text_t9039225 * L_12 = L_11->get_startText_17();
+		Text_t9039225 * L_12 = L_11->get_startText_16();
 		GameManager_t2369589051 * L_13 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_13);
-		float* L_14 = L_13->get_address_of_currCountDownValue_16();
+		float* L_14 = L_13->get_address_of_currCountDownValue_15();
 		String_t* L_15 = Single_ToString_m5736032(L_14, /*hidden argument*/NULL);
 		NullCheck(L_12);
 		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_12, L_15);
@@ -3263,7 +3260,7 @@ IL_00aa:
 	{
 		GameManager_t2369589051 * L_16 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_16);
-		float L_17 = L_16->get_currCountDownValue_16();
+		float L_17 = L_16->get_currCountDownValue_15();
 		if ((((float)L_17) > ((float)(0.0f))))
 		{
 			goto IL_0051;
@@ -3272,7 +3269,7 @@ IL_00aa:
 	{
 		GameManager_t2369589051 * L_18 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_18);
-		Text_t9039225 * L_19 = L_18->get_startText_17();
+		Text_t9039225 * L_19 = L_18->get_startText_16();
 		NullCheck(L_19);
 		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_19, _stringLiteral2312);
 		GameManager_t2369589051 * L_20 = GameManager_get_Instance_m4109253338(NULL /*static, unused*/, /*hidden argument*/NULL);
@@ -3289,22 +3286,22 @@ IL_00fa:
 	{
 		GameManager_t2369589051 * L_22 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_22);
-		GlitchEffect_t2030701382 * L_23 = L_22->get_glitchEffect_10();
+		GlitchEffect_t2030701382 * L_23 = L_22->get_glitchEffect_9();
 		NullCheck(L_23);
 		Behaviour_set_enabled_m2046806933(L_23, (bool)0, /*hidden argument*/NULL);
 		GameManager_t2369589051 * L_24 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_24);
-		CRT_t67013 * L_25 = L_24->get_crtEffect_11();
+		CRT_t67013 * L_25 = L_24->get_crtEffect_10();
 		NullCheck(L_25);
 		Behaviour_set_enabled_m2046806933(L_25, (bool)0, /*hidden argument*/NULL);
 		GameManager_t2369589051 * L_26 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_26);
-		Text_t9039225 * L_27 = L_26->get_startText_17();
+		Text_t9039225 * L_27 = L_26->get_startText_16();
 		NullCheck(L_27);
 		Behaviour_set_enabled_m2046806933(L_27, (bool)0, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_batteryCharge_2((60.0f));
-		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_23((bool)1);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_27((bool)1);
 		GameManager_t2369589051 * L_28 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_28);
 		MonoBehaviour_StopCoroutine_m2790918991(L_28, _stringLiteral4289904687, /*hidden argument*/NULL);
@@ -6260,9 +6257,10 @@ extern "C"  void Player__ctor_m871706298 (Player_t2393081601 * __this, const Met
 {
 	{
 		__this->set_sodaEffectMovementSpeed_5((5.0f));
-		__this->set_intoxicationDuration_11((10.0f));
-		__this->set_sodaEffectDuration_13((5.0f));
-		__this->set_popCornEffectDuration_15((10.0f));
+		__this->set_intoxicationDuration_12((10.0f));
+		__this->set_sodaEffectDuration_14((5.0f));
+		__this->set_popCornEffectDuration_16((10.0f));
+		__this->set_threeDeeEffectDuration_18((10.0f));
 		MonoBehaviour__ctor_m2022291967(__this, /*hidden argument*/NULL);
 		return;
 	}
@@ -6280,7 +6278,7 @@ extern "C"  void Player__cctor_m770995251 (Il2CppObject * __this /* static, unus
 	}
 	{
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_movementSpeed_4((2.5f));
-		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_spectralEffect_10((10.0f));
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_spectralEffect_11((10.0f));
 		return;
 	}
 }
@@ -6290,6 +6288,7 @@ extern const MethodInfo* Component_GetComponentsInChildren_TisMeshRenderer_t2804
 extern const MethodInfo* GameObject_GetComponent_TisFisheye_t2084831179_m4038905586_MethodInfo_var;
 extern const MethodInfo* GameObject_GetComponent_TisMotionBlur_t3002754187_m2351370038_MethodInfo_var;
 extern const MethodInfo* GameObject_GetComponent_TisContrastEnhance_t3797097022_m2788539807_MethodInfo_var;
+extern const MethodInfo* GameObject_GetComponent_TisAnaglyph3D_t2235875337_m110357171_MethodInfo_var;
 extern const MethodInfo* GameObject_GetComponent_TisAnimation_t1724966010_m2530801684_MethodInfo_var;
 extern Il2CppCodeGenString* _stringLiteral3759572844;
 extern const uint32_t Player_Awake_m1109311517_MetadataUsageId;
@@ -6303,27 +6302,31 @@ extern "C"  void Player_Awake_m1109311517 (Player_t2393081601 * __this, const Me
 	}
 	{
 		GameObject_t3674682005 * L_0 = GameObject_Find_m332785498(NULL /*static, unused*/, _stringLiteral3759572844, /*hidden argument*/NULL);
-		__this->set_mainCamera_21(L_0);
+		__this->set_mainCamera_25(L_0);
 		Animator_t2776330603 * L_1 = Component_GetComponentInChildren_TisAnimator_t2776330603_m1462315915(__this, /*hidden argument*/Component_GetComponentInChildren_TisAnimator_t2776330603_m1462315915_MethodInfo_var);
-		__this->set_playerAnim_24(L_1);
+		__this->set_playerAnim_28(L_1);
 		MeshRendererU5BU5D_t3685338461* L_2 = Component_GetComponentsInChildren_TisMeshRenderer_t2804666580_m2059153807(__this, /*hidden argument*/Component_GetComponentsInChildren_TisMeshRenderer_t2804666580_m2059153807_MethodInfo_var);
-		__this->set_renderers_25((RendererU5BU5D_t440051646*)L_2);
-		GameObject_t3674682005 * L_3 = __this->get_mainCamera_21();
+		__this->set_renderers_29((RendererU5BU5D_t440051646*)L_2);
+		GameObject_t3674682005 * L_3 = __this->get_mainCamera_25();
 		NullCheck(L_3);
 		Fisheye_t2084831179 * L_4 = GameObject_GetComponent_TisFisheye_t2084831179_m4038905586(L_3, /*hidden argument*/GameObject_GetComponent_TisFisheye_t2084831179_m4038905586_MethodInfo_var);
-		__this->set_fishEyeEffect_26(L_4);
-		GameObject_t3674682005 * L_5 = __this->get_mainCamera_21();
+		__this->set_fishEyeEffect_30(L_4);
+		GameObject_t3674682005 * L_5 = __this->get_mainCamera_25();
 		NullCheck(L_5);
 		MotionBlur_t3002754187 * L_6 = GameObject_GetComponent_TisMotionBlur_t3002754187_m2351370038(L_5, /*hidden argument*/GameObject_GetComponent_TisMotionBlur_t3002754187_m2351370038_MethodInfo_var);
-		__this->set_motionBlurEffect_27(L_6);
-		GameObject_t3674682005 * L_7 = __this->get_mainCamera_21();
+		__this->set_motionBlurEffect_31(L_6);
+		GameObject_t3674682005 * L_7 = __this->get_mainCamera_25();
 		NullCheck(L_7);
 		ContrastEnhance_t3797097022 * L_8 = GameObject_GetComponent_TisContrastEnhance_t3797097022_m2788539807(L_7, /*hidden argument*/GameObject_GetComponent_TisContrastEnhance_t3797097022_m2788539807_MethodInfo_var);
-		__this->set_contrastEnhanceEffect_28(L_8);
-		GameObject_t3674682005 * L_9 = __this->get_mainCamera_21();
+		__this->set_contrastEnhanceEffect_32(L_8);
+		GameObject_t3674682005 * L_9 = __this->get_mainCamera_25();
 		NullCheck(L_9);
-		Animation_t1724966010 * L_10 = GameObject_GetComponent_TisAnimation_t1724966010_m2530801684(L_9, /*hidden argument*/GameObject_GetComponent_TisAnimation_t1724966010_m2530801684_MethodInfo_var);
-		__this->set_fishEyeAnim_29(L_10);
+		Anaglyph3D_t2235875337 * L_10 = GameObject_GetComponent_TisAnaglyph3D_t2235875337_m110357171(L_9, /*hidden argument*/GameObject_GetComponent_TisAnaglyph3D_t2235875337_m110357171_MethodInfo_var);
+		__this->set_threeDeeEffect_33(L_10);
+		GameObject_t3674682005 * L_11 = __this->get_mainCamera_25();
+		NullCheck(L_11);
+		Animation_t1724966010 * L_12 = GameObject_GetComponent_TisAnimation_t1724966010_m2530801684(L_11, /*hidden argument*/GameObject_GetComponent_TisAnimation_t1724966010_m2530801684_MethodInfo_var);
+		__this->set_fishEyeAnim_34(L_12);
 		return;
 	}
 }
@@ -6343,9 +6346,10 @@ extern "C"  void Player_Start_m4113811386 (Player_t2393081601 * __this, const Me
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_batteryCharge_2((60.0f));
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_batteryDrainRate_3((1.0f));
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_isDrunk_7((bool)0);
-		__this->set_imageEffectActive_20((bool)0);
+		__this->set_imageEffectActive_24((bool)0);
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_activateSoda_8((bool)0);
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_activatePopCorn_9((bool)0);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_activateThreeDee_10((bool)0);
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_PickedUpPowerUp_6((bool)0);
 		return;
 	}
@@ -6379,7 +6383,7 @@ extern "C"  void Player_Update_m2979953555 (Player_t2393081601 * __this, const M
 		}
 	}
 	{
-		Animator_t2776330603 * L_1 = __this->get_playerAnim_24();
+		Animator_t2776330603 * L_1 = __this->get_playerAnim_28();
 		NullCheck(L_1);
 		Animator_set_speed_m2513936029(L_1, (0.5f), /*hidden argument*/NULL);
 		goto IL_0034;
@@ -6387,7 +6391,7 @@ extern "C"  void Player_Update_m2979953555 (Player_t2393081601 * __this, const M
 
 IL_0024:
 	{
-		Animator_t2776330603 * L_2 = __this->get_playerAnim_24();
+		Animator_t2776330603 * L_2 = __this->get_playerAnim_28();
 		NullCheck(L_2);
 		Animator_set_speed_m2513936029(L_2, (1.0f), /*hidden argument*/NULL);
 	}
@@ -6402,7 +6406,7 @@ IL_0034:
 		}
 	}
 	{
-		RendererU5BU5D_t440051646* L_4 = __this->get_renderers_25();
+		RendererU5BU5D_t440051646* L_4 = __this->get_renderers_29();
 		V_1 = L_4;
 		V_2 = 0;
 		goto IL_0070;
@@ -6458,14 +6462,14 @@ IL_0079:
 IL_0099:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		bool L_17 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_canMove_23();
+		bool L_17 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_canMove_27();
 		if (!L_17)
 		{
 			goto IL_00b9;
 		}
 	}
 	{
-		Animator_t2776330603 * L_18 = __this->get_playerAnim_24();
+		Animator_t2776330603 * L_18 = __this->get_playerAnim_28();
 		NullCheck(L_18);
 		Animator_SetBool_m2336836203(L_18, _stringLiteral3641801, (bool)1, /*hidden argument*/NULL);
 		goto IL_00ca;
@@ -6473,7 +6477,7 @@ IL_0099:
 
 IL_00b9:
 	{
-		Animator_t2776330603 * L_19 = __this->get_playerAnim_24();
+		Animator_t2776330603 * L_19 = __this->get_playerAnim_28();
 		NullCheck(L_19);
 		Animator_SetBool_m2336836203(L_19, _stringLiteral3641801, (bool)0, /*hidden argument*/NULL);
 	}
@@ -6600,7 +6604,7 @@ IL_0040:
 	{
 		Player_t2393081601 * L_3 = __this->get_U3CU3Ef__this_4();
 		NullCheck(L_3);
-		GameObject_t3674682005 * L_4 = L_3->get_popCornTrail_22();
+		GameObject_t3674682005 * L_4 = L_3->get_popCornTrail_26();
 		Player_t2393081601 * L_5 = __this->get_U3CU3Ef__this_4();
 		NullCheck(L_5);
 		Transform_t1659122786 * L_6 = Component_get_transform_m4257140443(L_5, /*hidden argument*/NULL);
@@ -6715,6 +6719,8 @@ extern Il2CppCodeGenString* _stringLiteral1848659131;
 extern Il2CppCodeGenString* _stringLiteral1027057795;
 extern Il2CppCodeGenString* _stringLiteral4267420034;
 extern Il2CppCodeGenString* _stringLiteral2967777053;
+extern Il2CppCodeGenString* _stringLiteral3303820182;
+extern Il2CppCodeGenString* _stringLiteral1002822674;
 extern Il2CppCodeGenString* _stringLiteral3612450320;
 extern Il2CppCodeGenString* _stringLiteral3394533804;
 extern const uint32_t U3CPowerUpU3Ec__IteratorB_MoveNext_m348944318_MetadataUsageId;
@@ -6735,115 +6741,119 @@ extern "C"  bool U3CPowerUpU3Ec__IteratorB_MoveNext_m348944318 (U3CPowerUpU3Ec__
 		uint32_t L_1 = V_0;
 		if (L_1 == 0)
 		{
-			goto IL_0029;
+			goto IL_002d;
 		}
 		if (L_1 == 1)
 		{
-			goto IL_00df;
+			goto IL_00e3;
 		}
 		if (L_1 == 2)
 		{
-			goto IL_0207;
+			goto IL_020b;
 		}
 		if (L_1 == 3)
 		{
-			goto IL_030a;
+			goto IL_02eb;
+		}
+		if (L_1 == 4)
+		{
+			goto IL_03ff;
 		}
 	}
 	{
-		goto IL_03c6;
+		goto IL_04bb;
 	}
 
-IL_0029:
+IL_002d:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_PickedUpPowerUp_6((bool)0);
 		Player_t2393081601 * L_2 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_2);
-		bool L_3 = L_2->get_sodaActive_17();
+		bool L_3 = L_2->get_sodaActive_20();
 		if (L_3)
 		{
-			goto IL_017e;
+			goto IL_0182;
 		}
 	}
 	{
 		Player_t2393081601 * L_4 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_4);
-		L_4->set_sodaActive_17((bool)1);
-		goto IL_0163;
+		L_4->set_sodaActive_20((bool)1);
+		goto IL_0167;
 	}
 
-IL_0050:
+IL_0054:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
 		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral3390837253, /*hidden argument*/NULL);
 		Player_t2393081601 * L_5 = __this->get_U3CU3Ef__this_2();
 		Player_t2393081601 * L_6 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_6);
-		float L_7 = L_6->get_sodaEffectDuration_13();
+		float L_7 = L_6->get_sodaEffectDuration_14();
 		NullCheck(L_5);
-		L_5->set_sodaEffectCountDown_14(L_7);
+		L_5->set_sodaEffectCountDown_15(L_7);
 		Player_t2393081601 * L_8 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_8);
-		bool L_9 = L_8->get_imageEffectActive_20();
+		bool L_9 = L_8->get_imageEffectActive_24();
 		if (L_9)
 		{
-			goto IL_00ae;
+			goto IL_00b2;
 		}
 	}
 	{
 		Player_t2393081601 * L_10 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_10);
-		MotionBlur_t3002754187 * L_11 = L_10->get_motionBlurEffect_27();
+		MotionBlur_t3002754187 * L_11 = L_10->get_motionBlurEffect_31();
 		NullCheck(L_11);
 		Behaviour_set_enabled_m2046806933(L_11, (bool)1, /*hidden argument*/NULL);
 		Player_t2393081601 * L_12 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_12);
-		ContrastEnhance_t3797097022 * L_13 = L_12->get_contrastEnhanceEffect_28();
+		ContrastEnhance_t3797097022 * L_13 = L_12->get_contrastEnhanceEffect_32();
 		NullCheck(L_13);
 		Behaviour_set_enabled_m2046806933(L_13, (bool)1, /*hidden argument*/NULL);
 		Player_t2393081601 * L_14 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_14);
-		L_14->set_imageEffectActive_20((bool)1);
+		L_14->set_imageEffectActive_24((bool)1);
 	}
 
-IL_00ae:
+IL_00b2:
 	{
 		Player_t2393081601 * L_15 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_15);
 		float L_16 = L_15->get_sodaEffectMovementSpeed_5();
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_movementSpeed_4(L_16);
-		goto IL_00f6;
+		goto IL_00fa;
 	}
 
-IL_00c3:
+IL_00c7:
 	{
 		WaitForSecondsRealtime_t3698499994 * L_17 = (WaitForSecondsRealtime_t3698499994 *)il2cpp_codegen_object_new(WaitForSecondsRealtime_t3698499994_il2cpp_TypeInfo_var);
 		WaitForSecondsRealtime__ctor_m1777059252(L_17, (1.0f), /*hidden argument*/NULL);
 		__this->set_U24current_1(L_17);
 		__this->set_U24PC_0(1);
-		goto IL_03c8;
+		goto IL_04bd;
 	}
 
-IL_00df:
+IL_00e3:
 	{
 		Player_t2393081601 * L_18 = __this->get_U3CU3Ef__this_2();
 		Player_t2393081601 * L_19 = L_18;
 		NullCheck(L_19);
-		float L_20 = L_19->get_sodaEffectCountDown_14();
+		float L_20 = L_19->get_sodaEffectCountDown_15();
 		NullCheck(L_19);
-		L_19->set_sodaEffectCountDown_14(((float)((float)L_20-(float)(1.0f))));
+		L_19->set_sodaEffectCountDown_15(((float)((float)L_20-(float)(1.0f))));
 	}
 
-IL_00f6:
+IL_00fa:
 	{
 		Player_t2393081601 * L_21 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_21);
-		float L_22 = L_21->get_sodaEffectCountDown_14();
+		float L_22 = L_21->get_sodaEffectCountDown_15();
 		if ((!(((float)L_22) == ((float)(0.0f)))))
 		{
-			goto IL_00c3;
+			goto IL_00c7;
 		}
 	}
 	{
@@ -6852,120 +6862,120 @@ IL_00f6:
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_activateSoda_8((bool)0);
 		Player_t2393081601 * L_23 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_23);
-		bool L_24 = L_23->get_imageEffectActive_20();
+		bool L_24 = L_23->get_imageEffectActive_24();
 		if (!L_24)
 		{
-			goto IL_0159;
+			goto IL_015d;
 		}
 	}
 	{
 		Player_t2393081601 * L_25 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_25);
-		MotionBlur_t3002754187 * L_26 = L_25->get_motionBlurEffect_27();
+		MotionBlur_t3002754187 * L_26 = L_25->get_motionBlurEffect_31();
 		NullCheck(L_26);
 		Behaviour_set_enabled_m2046806933(L_26, (bool)0, /*hidden argument*/NULL);
 		Player_t2393081601 * L_27 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_27);
-		ContrastEnhance_t3797097022 * L_28 = L_27->get_contrastEnhanceEffect_28();
+		ContrastEnhance_t3797097022 * L_28 = L_27->get_contrastEnhanceEffect_32();
 		NullCheck(L_28);
 		Behaviour_set_enabled_m2046806933(L_28, (bool)0, /*hidden argument*/NULL);
 		Player_t2393081601 * L_29 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_29);
-		L_29->set_imageEffectActive_20((bool)0);
+		L_29->set_imageEffectActive_24((bool)0);
 	}
 
-IL_0159:
+IL_015d:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
 		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral1848659131, /*hidden argument*/NULL);
 	}
 
-IL_0163:
+IL_0167:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
 		bool L_30 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_activateSoda_8();
 		if (L_30)
 		{
-			goto IL_0050;
+			goto IL_0054;
 		}
 	}
 	{
 		Player_t2393081601 * L_31 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_31);
-		L_31->set_sodaActive_17((bool)0);
-		goto IL_0194;
+		L_31->set_sodaActive_20((bool)0);
+		goto IL_0198;
 	}
 
-IL_017e:
+IL_0182:
 	{
 		Player_t2393081601 * L_32 = __this->get_U3CU3Ef__this_2();
 		Player_t2393081601 * L_33 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_33);
-		float L_34 = L_33->get_sodaEffectDuration_13();
+		float L_34 = L_33->get_sodaEffectDuration_14();
 		NullCheck(L_32);
-		L_32->set_sodaEffectCountDown_14(L_34);
+		L_32->set_sodaEffectCountDown_15(L_34);
 	}
 
-IL_0194:
+IL_0198:
 	{
 		Player_t2393081601 * L_35 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_35);
-		bool L_36 = L_35->get_popcornActive_18();
+		bool L_36 = L_35->get_popcornActive_21();
 		if (L_36)
 		{
-			goto IL_025e;
+			goto IL_0262;
 		}
 	}
 	{
 		Player_t2393081601 * L_37 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_37);
-		L_37->set_popcornActive_18((bool)1);
-		goto IL_0243;
+		L_37->set_popcornActive_21((bool)1);
+		goto IL_0247;
 	}
 
-IL_01b5:
+IL_01b9:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
 		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral1027057795, /*hidden argument*/NULL);
 		Player_t2393081601 * L_38 = __this->get_U3CU3Ef__this_2();
 		Player_t2393081601 * L_39 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_39);
-		float L_40 = L_39->get_popCornEffectDuration_15();
+		float L_40 = L_39->get_popCornEffectDuration_16();
 		NullCheck(L_38);
-		L_38->set_popCornEffectCountDown_16(L_40);
+		L_38->set_popCornEffectCountDown_17(L_40);
 		Player_t2393081601 * L_41 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_41);
 		MonoBehaviour_StartCoroutine_m2272783641(L_41, _stringLiteral4267420034, /*hidden argument*/NULL);
-		goto IL_021e;
+		goto IL_0222;
 	}
 
-IL_01eb:
+IL_01ef:
 	{
 		WaitForSeconds_t1615819279 * L_42 = (WaitForSeconds_t1615819279 *)il2cpp_codegen_object_new(WaitForSeconds_t1615819279_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m3184996201(L_42, (1.0f), /*hidden argument*/NULL);
 		__this->set_U24current_1(L_42);
 		__this->set_U24PC_0(2);
-		goto IL_03c8;
+		goto IL_04bd;
 	}
 
-IL_0207:
+IL_020b:
 	{
 		Player_t2393081601 * L_43 = __this->get_U3CU3Ef__this_2();
 		Player_t2393081601 * L_44 = L_43;
 		NullCheck(L_44);
-		float L_45 = L_44->get_popCornEffectCountDown_16();
+		float L_45 = L_44->get_popCornEffectCountDown_17();
 		NullCheck(L_44);
-		L_44->set_popCornEffectCountDown_16(((float)((float)L_45-(float)(1.0f))));
+		L_44->set_popCornEffectCountDown_17(((float)((float)L_45-(float)(1.0f))));
 	}
 
-IL_021e:
+IL_0222:
 	{
 		Player_t2393081601 * L_46 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_46);
-		float L_47 = L_46->get_popCornEffectCountDown_16();
+		float L_47 = L_46->get_popCornEffectCountDown_17();
 		if ((!(((float)L_47) == ((float)(0.0f)))))
 		{
-			goto IL_01eb;
+			goto IL_01ef;
 		}
 	}
 	{
@@ -6975,191 +6985,293 @@ IL_021e:
 		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral2967777053, /*hidden argument*/NULL);
 	}
 
-IL_0243:
+IL_0247:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
 		bool L_48 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_activatePopCorn_9();
 		if (L_48)
 		{
-			goto IL_01b5;
+			goto IL_01b9;
 		}
 	}
 	{
 		Player_t2393081601 * L_49 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_49);
-		L_49->set_popcornActive_18((bool)0);
-		goto IL_0274;
+		L_49->set_popcornActive_21((bool)0);
+		goto IL_0278;
 	}
 
-IL_025e:
+IL_0262:
 	{
 		Player_t2393081601 * L_50 = __this->get_U3CU3Ef__this_2();
 		Player_t2393081601 * L_51 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_51);
-		float L_52 = L_51->get_popCornEffectDuration_15();
+		float L_52 = L_51->get_popCornEffectDuration_16();
 		NullCheck(L_50);
-		L_50->set_popCornEffectCountDown_16(L_52);
+		L_50->set_popCornEffectCountDown_17(L_52);
 	}
 
-IL_0274:
+IL_0278:
 	{
 		Player_t2393081601 * L_53 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_53);
-		bool L_54 = L_53->get_drunkActive_19();
+		bool L_54 = L_53->get_threedeeActive_23();
 		if (L_54)
 		{
-			goto IL_039f;
+			goto IL_0353;
 		}
 	}
 	{
 		Player_t2393081601 * L_55 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_55);
-		L_55->set_drunkActive_19((bool)1);
-		goto IL_0384;
+		L_55->set_threedeeActive_23((bool)1);
+		goto IL_0338;
 	}
 
-IL_0295:
+IL_0299:
 	{
+		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
+		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral3303820182, /*hidden argument*/NULL);
 		Player_t2393081601 * L_56 = __this->get_U3CU3Ef__this_2();
 		Player_t2393081601 * L_57 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_57);
-		float L_58 = L_57->get_intoxicationDuration_11();
+		float L_58 = L_57->get_threeDeeEffectDuration_18();
 		NullCheck(L_56);
-		L_56->set_intoxicationCountDown_12(L_58);
+		L_56->set_threeDeeEffectCountDown_19(L_58);
 		Player_t2393081601 * L_59 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_59);
-		bool L_60 = L_59->get_imageEffectActive_20();
-		if (L_60)
+		Anaglyph3D_t2235875337 * L_60 = L_59->get_threeDeeEffect_33();
+		NullCheck(L_60);
+		Behaviour_set_enabled_m2046806933(L_60, (bool)1, /*hidden argument*/NULL);
+		goto IL_0302;
+	}
+
+IL_02cf:
+	{
+		WaitForSeconds_t1615819279 * L_61 = (WaitForSeconds_t1615819279 *)il2cpp_codegen_object_new(WaitForSeconds_t1615819279_il2cpp_TypeInfo_var);
+		WaitForSeconds__ctor_m3184996201(L_61, (1.0f), /*hidden argument*/NULL);
+		__this->set_U24current_1(L_61);
+		__this->set_U24PC_0(3);
+		goto IL_04bd;
+	}
+
+IL_02eb:
+	{
+		Player_t2393081601 * L_62 = __this->get_U3CU3Ef__this_2();
+		Player_t2393081601 * L_63 = L_62;
+		NullCheck(L_63);
+		float L_64 = L_63->get_threeDeeEffectCountDown_19();
+		NullCheck(L_63);
+		L_63->set_threeDeeEffectCountDown_19(((float)((float)L_64-(float)(1.0f))));
+	}
+
+IL_0302:
+	{
+		Player_t2393081601 * L_65 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_65);
+		float L_66 = L_65->get_threeDeeEffectCountDown_19();
+		if ((!(((float)L_66) == ((float)(0.0f)))))
 		{
-			goto IL_02e9;
+			goto IL_02cf;
 		}
 	}
 	{
-		Player_t2393081601 * L_61 = __this->get_U3CU3Ef__this_2();
-		NullCheck(L_61);
-		Fisheye_t2084831179 * L_62 = L_61->get_fishEyeEffect_26();
-		NullCheck(L_62);
-		Behaviour_set_enabled_m2046806933(L_62, (bool)1, /*hidden argument*/NULL);
-		Player_t2393081601 * L_63 = __this->get_U3CU3Ef__this_2();
-		NullCheck(L_63);
-		Animation_t1724966010 * L_64 = L_63->get_fishEyeAnim_29();
-		NullCheck(L_64);
-		Behaviour_set_enabled_m2046806933(L_64, (bool)1, /*hidden argument*/NULL);
-		Player_t2393081601 * L_65 = __this->get_U3CU3Ef__this_2();
-		NullCheck(L_65);
-		L_65->set_imageEffectActive_20((bool)1);
-	}
-
-IL_02e9:
-	{
-		goto IL_0321;
-	}
-
-IL_02ee:
-	{
-		WaitForSecondsRealtime_t3698499994 * L_66 = (WaitForSecondsRealtime_t3698499994 *)il2cpp_codegen_object_new(WaitForSecondsRealtime_t3698499994_il2cpp_TypeInfo_var);
-		WaitForSecondsRealtime__ctor_m1777059252(L_66, (1.0f), /*hidden argument*/NULL);
-		__this->set_U24current_1(L_66);
-		__this->set_U24PC_0(3);
-		goto IL_03c8;
-	}
-
-IL_030a:
-	{
 		Player_t2393081601 * L_67 = __this->get_U3CU3Ef__this_2();
-		Player_t2393081601 * L_68 = L_67;
+		NullCheck(L_67);
+		Anaglyph3D_t2235875337 * L_68 = L_67->get_threeDeeEffect_33();
 		NullCheck(L_68);
-		float L_69 = L_68->get_intoxicationCountDown_12();
-		NullCheck(L_68);
-		L_68->set_intoxicationCountDown_12(((float)((float)L_69-(float)(1.0f))));
+		Behaviour_set_enabled_m2046806933(L_68, (bool)0, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_activateThreeDee_10((bool)0);
+		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
+		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral1002822674, /*hidden argument*/NULL);
 	}
 
-IL_0321:
+IL_0338:
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
+		bool L_69 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_activateThreeDee_10();
+		if (L_69)
+		{
+			goto IL_0299;
+		}
+	}
 	{
 		Player_t2393081601 * L_70 = __this->get_U3CU3Ef__this_2();
 		NullCheck(L_70);
-		float L_71 = L_70->get_intoxicationCountDown_12();
-		if ((!(((float)L_71) == ((float)(0.0f)))))
+		L_70->set_threedeeActive_23((bool)0);
+		goto IL_0369;
+	}
+
+IL_0353:
+	{
+		Player_t2393081601 * L_71 = __this->get_U3CU3Ef__this_2();
+		Player_t2393081601 * L_72 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_72);
+		float L_73 = L_72->get_threeDeeEffectDuration_18();
+		NullCheck(L_71);
+		L_71->set_threeDeeEffectCountDown_19(L_73);
+	}
+
+IL_0369:
+	{
+		Player_t2393081601 * L_74 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_74);
+		bool L_75 = L_74->get_drunkActive_22();
+		if (L_75)
 		{
-			goto IL_02ee;
+			goto IL_0494;
+		}
+	}
+	{
+		Player_t2393081601 * L_76 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_76);
+		L_76->set_drunkActive_22((bool)1);
+		goto IL_0479;
+	}
+
+IL_038a:
+	{
+		Player_t2393081601 * L_77 = __this->get_U3CU3Ef__this_2();
+		Player_t2393081601 * L_78 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_78);
+		float L_79 = L_78->get_intoxicationDuration_12();
+		NullCheck(L_77);
+		L_77->set_intoxicationCountDown_13(L_79);
+		Player_t2393081601 * L_80 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_80);
+		bool L_81 = L_80->get_imageEffectActive_24();
+		if (L_81)
+		{
+			goto IL_03de;
+		}
+	}
+	{
+		Player_t2393081601 * L_82 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_82);
+		Fisheye_t2084831179 * L_83 = L_82->get_fishEyeEffect_30();
+		NullCheck(L_83);
+		Behaviour_set_enabled_m2046806933(L_83, (bool)1, /*hidden argument*/NULL);
+		Player_t2393081601 * L_84 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_84);
+		Animation_t1724966010 * L_85 = L_84->get_fishEyeAnim_34();
+		NullCheck(L_85);
+		Behaviour_set_enabled_m2046806933(L_85, (bool)1, /*hidden argument*/NULL);
+		Player_t2393081601 * L_86 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_86);
+		L_86->set_imageEffectActive_24((bool)1);
+	}
+
+IL_03de:
+	{
+		goto IL_0416;
+	}
+
+IL_03e3:
+	{
+		WaitForSecondsRealtime_t3698499994 * L_87 = (WaitForSecondsRealtime_t3698499994 *)il2cpp_codegen_object_new(WaitForSecondsRealtime_t3698499994_il2cpp_TypeInfo_var);
+		WaitForSecondsRealtime__ctor_m1777059252(L_87, (1.0f), /*hidden argument*/NULL);
+		__this->set_U24current_1(L_87);
+		__this->set_U24PC_0(4);
+		goto IL_04bd;
+	}
+
+IL_03ff:
+	{
+		Player_t2393081601 * L_88 = __this->get_U3CU3Ef__this_2();
+		Player_t2393081601 * L_89 = L_88;
+		NullCheck(L_89);
+		float L_90 = L_89->get_intoxicationCountDown_13();
+		NullCheck(L_89);
+		L_89->set_intoxicationCountDown_13(((float)((float)L_90-(float)(1.0f))));
+	}
+
+IL_0416:
+	{
+		Player_t2393081601 * L_91 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_91);
+		float L_92 = L_91->get_intoxicationCountDown_13();
+		if ((!(((float)L_92) == ((float)(0.0f)))))
+		{
+			goto IL_03e3;
 		}
 	}
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
 		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_isDrunk_7((bool)0);
-		Player_t2393081601 * L_72 = __this->get_U3CU3Ef__this_2();
-		NullCheck(L_72);
-		bool L_73 = L_72->get_imageEffectActive_20();
-		if (!L_73)
+		Player_t2393081601 * L_93 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_93);
+		bool L_94 = L_93->get_imageEffectActive_24();
+		if (!L_94)
 		{
-			goto IL_037a;
+			goto IL_046f;
 		}
 	}
 	{
-		Player_t2393081601 * L_74 = __this->get_U3CU3Ef__this_2();
-		NullCheck(L_74);
-		Fisheye_t2084831179 * L_75 = L_74->get_fishEyeEffect_26();
-		NullCheck(L_75);
-		Behaviour_set_enabled_m2046806933(L_75, (bool)0, /*hidden argument*/NULL);
-		Player_t2393081601 * L_76 = __this->get_U3CU3Ef__this_2();
-		NullCheck(L_76);
-		Animation_t1724966010 * L_77 = L_76->get_fishEyeAnim_29();
-		NullCheck(L_77);
-		Behaviour_set_enabled_m2046806933(L_77, (bool)0, /*hidden argument*/NULL);
-		Player_t2393081601 * L_78 = __this->get_U3CU3Ef__this_2();
-		NullCheck(L_78);
-		L_78->set_imageEffectActive_20((bool)0);
+		Player_t2393081601 * L_95 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_95);
+		Fisheye_t2084831179 * L_96 = L_95->get_fishEyeEffect_30();
+		NullCheck(L_96);
+		Behaviour_set_enabled_m2046806933(L_96, (bool)0, /*hidden argument*/NULL);
+		Player_t2393081601 * L_97 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_97);
+		Animation_t1724966010 * L_98 = L_97->get_fishEyeAnim_34();
+		NullCheck(L_98);
+		Behaviour_set_enabled_m2046806933(L_98, (bool)0, /*hidden argument*/NULL);
+		Player_t2393081601 * L_99 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_99);
+		L_99->set_imageEffectActive_24((bool)0);
 	}
 
-IL_037a:
+IL_046f:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
 		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral3612450320, /*hidden argument*/NULL);
 	}
 
-IL_0384:
+IL_0479:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		bool L_79 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_isDrunk_7();
-		if (L_79)
+		bool L_100 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_isDrunk_7();
+		if (L_100)
 		{
-			goto IL_0295;
+			goto IL_038a;
 		}
 	}
 	{
-		Player_t2393081601 * L_80 = __this->get_U3CU3Ef__this_2();
-		NullCheck(L_80);
-		L_80->set_drunkActive_19((bool)0);
-		goto IL_03b5;
+		Player_t2393081601 * L_101 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_101);
+		L_101->set_drunkActive_22((bool)0);
+		goto IL_04aa;
 	}
 
-IL_039f:
+IL_0494:
 	{
-		Player_t2393081601 * L_81 = __this->get_U3CU3Ef__this_2();
-		Player_t2393081601 * L_82 = __this->get_U3CU3Ef__this_2();
-		NullCheck(L_82);
-		float L_83 = L_82->get_intoxicationDuration_11();
-		NullCheck(L_81);
-		L_81->set_intoxicationCountDown_12(L_83);
+		Player_t2393081601 * L_102 = __this->get_U3CU3Ef__this_2();
+		Player_t2393081601 * L_103 = __this->get_U3CU3Ef__this_2();
+		NullCheck(L_103);
+		float L_104 = L_103->get_intoxicationDuration_12();
+		NullCheck(L_102);
+		L_102->set_intoxicationCountDown_13(L_104);
 	}
 
-IL_03b5:
+IL_04aa:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
 		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral3394533804, /*hidden argument*/NULL);
 		__this->set_U24PC_0((-1));
 	}
 
-IL_03c6:
+IL_04bb:
 	{
 		return (bool)0;
 	}
 
-IL_03c8:
+IL_04bd:
 	{
 		return (bool)1;
 	}
-	// Dead block : IL_03ca: ldloc.1
+	// Dead block : IL_04bf: ldloc.1
 }
 // System.Void Player/<PowerUp>c__IteratorB::Dispose()
 extern "C"  void U3CPowerUpU3Ec__IteratorB_Dispose_m448450587 (U3CPowerUpU3Ec__IteratorB_t1022429149 * __this, const MethodInfo* method)
@@ -7357,7 +7469,7 @@ extern "C"  void PlayerMovement_FixedUpdate_m1673803014 (PlayerMovement_t3827129
 	}
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		bool L_0 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_canMove_23();
+		bool L_0 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_canMove_27();
 		if (!L_0)
 		{
 			goto IL_002a;
@@ -8612,7 +8724,7 @@ IL_012a:
 	}
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		float L_31 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_spectralEffect_10();
+		float L_31 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_spectralEffect_11();
 		WaitForSeconds_t1615819279 * L_32 = (WaitForSeconds_t1615819279 *)il2cpp_codegen_object_new(WaitForSeconds_t1615819279_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m3184996201(L_32, L_31, /*hidden argument*/NULL);
 		__this->set_U24current_6(L_32);
@@ -9631,6 +9743,72 @@ extern "C"  void OnSwipeDetectedHandler_EndInvoke_m462838320 (OnSwipeDetectedHan
 {
 	il2cpp_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
 }
+// System.Void ThreeDeeGlasses::.ctor()
+extern "C"  void ThreeDeeGlasses__ctor_m223708999 (ThreeDeeGlasses_t63813796 * __this, const MethodInfo* method)
+{
+	{
+		MonoBehaviour__ctor_m2022291967(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void ThreeDeeGlasses::OnTriggerEnter(UnityEngine.Collider)
+extern Il2CppClass* String_t_il2cpp_TypeInfo_var;
+extern Il2CppClass* Player_t2393081601_il2cpp_TypeInfo_var;
+extern Il2CppCodeGenString* _stringLiteral2393081601;
+extern const uint32_t ThreeDeeGlasses_OnTriggerEnter_m1925930385_MetadataUsageId;
+extern "C"  void ThreeDeeGlasses_OnTriggerEnter_m1925930385 (ThreeDeeGlasses_t63813796 * __this, Collider_t2939674232 * ___hit0, const MethodInfo* method)
+{
+	static bool s_Il2CppMethodIntialized;
+	if (!s_Il2CppMethodIntialized)
+	{
+		il2cpp_codegen_initialize_method (ThreeDeeGlasses_OnTriggerEnter_m1925930385_MetadataUsageId);
+		s_Il2CppMethodIntialized = true;
+	}
+	{
+		Collider_t2939674232 * L_0 = ___hit0;
+		NullCheck(L_0);
+		GameObject_t3674682005 * L_1 = Component_get_gameObject_m1170635899(L_0, /*hidden argument*/NULL);
+		NullCheck(L_1);
+		String_t* L_2 = GameObject_get_tag_m211612200(L_1, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
+		bool L_3 = String_op_Equality_m1260523650(NULL /*static, unused*/, L_2, _stringLiteral2393081601, /*hidden argument*/NULL);
+		if (!L_3)
+		{
+			goto IL_0026;
+		}
+	}
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_PickedUpPowerUp_6((bool)1);
+		ThreeDeeGlasses_InteractWithThreeDeeGlasses_m173519981(__this, /*hidden argument*/NULL);
+	}
+
+IL_0026:
+	{
+		return;
+	}
+}
+// System.Void ThreeDeeGlasses::InteractWithThreeDeeGlasses()
+extern Il2CppClass* Player_t2393081601_il2cpp_TypeInfo_var;
+extern Il2CppClass* Object_t3071478659_il2cpp_TypeInfo_var;
+extern const uint32_t ThreeDeeGlasses_InteractWithThreeDeeGlasses_m173519981_MetadataUsageId;
+extern "C"  void ThreeDeeGlasses_InteractWithThreeDeeGlasses_m173519981 (ThreeDeeGlasses_t63813796 * __this, const MethodInfo* method)
+{
+	static bool s_Il2CppMethodIntialized;
+	if (!s_Il2CppMethodIntialized)
+	{
+		il2cpp_codegen_initialize_method (ThreeDeeGlasses_InteractWithThreeDeeGlasses_m173519981_MetadataUsageId);
+		s_Il2CppMethodIntialized = true;
+	}
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_activateThreeDee_10((bool)1);
+		GameObject_t3674682005 * L_0 = Component_get_gameObject_m1170635899(__this, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Object_t3071478659_il2cpp_TypeInfo_var);
+		Object_Destroy_m176400816(NULL /*static, unused*/, L_0, /*hidden argument*/NULL);
+		return;
+	}
+}
 // System.Void TorchControl::.ctor()
 extern "C"  void TorchControl__ctor_m2746037722 (TorchControl_t67717601 * __this, const MethodInfo* method)
 {
@@ -10411,7 +10589,7 @@ extern "C"  void TrolleyController_OnCollisionEnter_m1837469592 (TrolleyControll
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
 		Debug_Log_m1731103628(NULL /*static, unused*/, _stringLiteral1192823753, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_23((bool)0);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_27((bool)0);
 		Rigidbody_t3346577219 * L_5 = __this->get_rBody_3();
 		Transform_t1659122786 * L_6 = Component_get_transform_m4257140443(__this, /*hidden argument*/NULL);
 		NullCheck(L_6);
@@ -10550,7 +10728,7 @@ extern "C"  bool U3CDeSpawnTrolleyU3Ec__Iterator6_MoveNext_m1933385195 (U3CDeSpa
 IL_0021:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_23((bool)1);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_27((bool)1);
 		TrolleyController_t3484123329 * L_2 = __this->get_U3CU3Ef__this_4();
 		NullCheck(L_2);
 		Renderer_t3076687687 * L_3 = Component_GetComponent_TisRenderer_t3076687687_m500377675(L_2, /*hidden argument*/Component_GetComponent_TisRenderer_t3076687687_m500377675_MethodInfo_var);
@@ -10589,7 +10767,7 @@ IL_0021:
 IL_00b8:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_23((bool)1);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_27((bool)1);
 		TrolleyController_t3484123329 * L_21 = __this->get_U3CU3Ef__this_4();
 		NullCheck(L_21);
 		GameObject_t3674682005 * L_22 = Component_get_gameObject_m1170635899(L_21, /*hidden argument*/NULL);
@@ -10735,7 +10913,7 @@ IL_0021:
 IL_00be:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_23((bool)1);
+		((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->set_canMove_27((bool)1);
 		TrolleyController_t3484123329 * L_22 = __this->get_U3CU3Ef__this_4();
 		NullCheck(L_22);
 		GameObject_t3674682005 * L_23 = Component_get_gameObject_m1170635899(L_22, /*hidden argument*/NULL);

@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour {
 	private GameObject restartButton;
 	private GameObject pauseRecText;
 	private GameObject batteryImage;
-	private GameObject sugarRushText;
 
 
 
@@ -40,7 +39,6 @@ public class GameManager : MonoBehaviour {
 	void Awake () {
 		startText = GameObject.Find ("Main Text").GetComponent<Text>();
 
-		sugarRushText = GameObject.Find ("SugarRushText");
 		playButton = GameObject.Find ("PlayButton");
 		pauseButton = GameObject.Find ("PauseButton");
 		restartButton = GameObject.Find ("RestartButton");
@@ -51,7 +49,6 @@ public class GameManager : MonoBehaviour {
 
 		pauseRecTextText = pauseRecText.GetComponent<Text> ();
 
-		sugarRushText.SetActive (false);
 		playButton.SetActive (false);
 		pauseButton.SetActive (false);
 		restartButton.SetActive (false);
@@ -80,7 +77,6 @@ public class GameManager : MonoBehaviour {
 		currentSceneName = currentScene.name;
 
 		if (currentSceneName == "MainMenu") {
-			sugarRushText.SetActive (false);
 			playButton.SetActive (false);
 			pauseButton.SetActive (false);
 			restartButton.SetActive (false);

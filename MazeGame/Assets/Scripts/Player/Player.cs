@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Player : MonoBehaviour {
 
@@ -81,6 +82,9 @@ public class Player : MonoBehaviour {
 	// Animation to control the fish eye effect 
 	private Animation fishEyeAnim;
 
+
+	private GameObject guiThreeDeeGlasses;
+
 	// Finds various components for the player script
 	void Awake() {
 		mainCamera = GameObject.Find ("Main Camera");
@@ -93,6 +97,8 @@ public class Player : MonoBehaviour {
 		threeDeeEffect = mainCamera.GetComponent<MorePPEffects.Anaglyph3D> ();
 
 		fishEyeAnim = mainCamera.GetComponent<Animation> ();
+
+		guiThreeDeeGlasses = GameObject.Find ("GUI3DGlasses01");
 	}
 
 	// All Image effects and power ups should be false on start in the player script
@@ -111,6 +117,8 @@ public class Player : MonoBehaviour {
 		activatePopCorn = false;
 		activateThreeDee = false;
 		PickedUpPowerUp = false;
+
+		guiThreeDeeGlasses.SetActive (false);
 	}
 
 	void Update () {
@@ -218,6 +226,7 @@ public class Player : MonoBehaviour {
 			threedeeActive = true;
 			while (activateThreeDee) {
 				Debug.Log ("It Was Three Dee");
+				StartCoroutine (ShowGUIModel (guiThreeDeeGlasses));
 				threeDeeEffectCountDown = threeDeeEffectDuration;
 
 				threeDeeEffect.enabled = true;
@@ -288,5 +297,14 @@ public class Player : MonoBehaviour {
 
 		//TODO : Test this, I think the line is redundant
 		activatePopCorn = false;
+	}
+
+	public IEnumerator ShowGUIModel(GameObject GUIModel) {
+		GUIModel.SetActive (true);
+		GUIModel.transform.DOScale (new Vector3 (100f, 100f, 100f), 1f);
+		yield return new WaitForSeconds (3f);
+		GUIModel.transform.DOScale (new Vector3 (0.0f, 0.0f, 0.0f), 1f);
+		yield return new WaitForSeconds (1f);
+		GUIModel.SetActive (false);
 	}
 }
