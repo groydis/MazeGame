@@ -22,6 +22,8 @@ struct ContrastEnhance_t3797097022;
 struct String_t;
 // UnityEngine.UI.Text
 struct Text_t9039225;
+// UnityEngine.UI.Image
+struct Image_t538875265;
 // GameManager
 struct GameManager_t2369589051;
 
@@ -44,8 +46,8 @@ public:
 	GameObject_t3674682005 * ___pauseButton_5;
 	// UnityEngine.GameObject GameManager::restartButton
 	GameObject_t3674682005 * ___restartButton_6;
-	// UnityEngine.GameObject GameManager::pauseText
-	GameObject_t3674682005 * ___pauseText_7;
+	// UnityEngine.GameObject GameManager::pauseRecText
+	GameObject_t3674682005 * ___pauseRecText_7;
 	// UnityEngine.GameObject GameManager::batteryImage
 	GameObject_t3674682005 * ___batteryImage_8;
 	// UnityEngine.GameObject GameManager::sugarRushText
@@ -66,6 +68,10 @@ public:
 	float ___currCountDownValue_16;
 	// UnityEngine.UI.Text GameManager::startText
 	Text_t9039225 * ___startText_17;
+	// UnityEngine.UI.Text GameManager::pauseRecTextText
+	Text_t9039225 * ___pauseRecTextText_18;
+	// UnityEngine.UI.Image GameManager::recImage
+	Image_t538875265 * ___recImage_19;
 
 public:
 	inline static int32_t get_offset_of_playButton_4() { return static_cast<int32_t>(offsetof(GameManager_t2369589051, ___playButton_4)); }
@@ -95,13 +101,13 @@ public:
 		Il2CppCodeGenWriteBarrier(&___restartButton_6, value);
 	}
 
-	inline static int32_t get_offset_of_pauseText_7() { return static_cast<int32_t>(offsetof(GameManager_t2369589051, ___pauseText_7)); }
-	inline GameObject_t3674682005 * get_pauseText_7() const { return ___pauseText_7; }
-	inline GameObject_t3674682005 ** get_address_of_pauseText_7() { return &___pauseText_7; }
-	inline void set_pauseText_7(GameObject_t3674682005 * value)
+	inline static int32_t get_offset_of_pauseRecText_7() { return static_cast<int32_t>(offsetof(GameManager_t2369589051, ___pauseRecText_7)); }
+	inline GameObject_t3674682005 * get_pauseRecText_7() const { return ___pauseRecText_7; }
+	inline GameObject_t3674682005 ** get_address_of_pauseRecText_7() { return &___pauseRecText_7; }
+	inline void set_pauseRecText_7(GameObject_t3674682005 * value)
 	{
-		___pauseText_7 = value;
-		Il2CppCodeGenWriteBarrier(&___pauseText_7, value);
+		___pauseRecText_7 = value;
+		Il2CppCodeGenWriteBarrier(&___pauseRecText_7, value);
 	}
 
 	inline static int32_t get_offset_of_batteryImage_8() { return static_cast<int32_t>(offsetof(GameManager_t2369589051, ___batteryImage_8)); }
@@ -190,6 +196,24 @@ public:
 		___startText_17 = value;
 		Il2CppCodeGenWriteBarrier(&___startText_17, value);
 	}
+
+	inline static int32_t get_offset_of_pauseRecTextText_18() { return static_cast<int32_t>(offsetof(GameManager_t2369589051, ___pauseRecTextText_18)); }
+	inline Text_t9039225 * get_pauseRecTextText_18() const { return ___pauseRecTextText_18; }
+	inline Text_t9039225 ** get_address_of_pauseRecTextText_18() { return &___pauseRecTextText_18; }
+	inline void set_pauseRecTextText_18(Text_t9039225 * value)
+	{
+		___pauseRecTextText_18 = value;
+		Il2CppCodeGenWriteBarrier(&___pauseRecTextText_18, value);
+	}
+
+	inline static int32_t get_offset_of_recImage_19() { return static_cast<int32_t>(offsetof(GameManager_t2369589051, ___recImage_19)); }
+	inline Image_t538875265 * get_recImage_19() const { return ___recImage_19; }
+	inline Image_t538875265 ** get_address_of_recImage_19() { return &___recImage_19; }
+	inline void set_recImage_19(Image_t538875265 * value)
+	{
+		___recImage_19 = value;
+		Il2CppCodeGenWriteBarrier(&___recImage_19, value);
+	}
 };
 
 struct GameManager_t2369589051_StaticFields
@@ -200,7 +224,7 @@ public:
 	// System.Single GameManager::saveBattery
 	float ___saveBattery_3;
 	// GameManager GameManager::<Instance>k__BackingField
-	GameManager_t2369589051 * ___U3CInstanceU3Ek__BackingField_18;
+	GameManager_t2369589051 * ___U3CInstanceU3Ek__BackingField_20;
 
 public:
 	inline static int32_t get_offset_of_pauseGame_2() { return static_cast<int32_t>(offsetof(GameManager_t2369589051_StaticFields, ___pauseGame_2)); }
@@ -219,13 +243,13 @@ public:
 		___saveBattery_3 = value;
 	}
 
-	inline static int32_t get_offset_of_U3CInstanceU3Ek__BackingField_18() { return static_cast<int32_t>(offsetof(GameManager_t2369589051_StaticFields, ___U3CInstanceU3Ek__BackingField_18)); }
-	inline GameManager_t2369589051 * get_U3CInstanceU3Ek__BackingField_18() const { return ___U3CInstanceU3Ek__BackingField_18; }
-	inline GameManager_t2369589051 ** get_address_of_U3CInstanceU3Ek__BackingField_18() { return &___U3CInstanceU3Ek__BackingField_18; }
-	inline void set_U3CInstanceU3Ek__BackingField_18(GameManager_t2369589051 * value)
+	inline static int32_t get_offset_of_U3CInstanceU3Ek__BackingField_20() { return static_cast<int32_t>(offsetof(GameManager_t2369589051_StaticFields, ___U3CInstanceU3Ek__BackingField_20)); }
+	inline GameManager_t2369589051 * get_U3CInstanceU3Ek__BackingField_20() const { return ___U3CInstanceU3Ek__BackingField_20; }
+	inline GameManager_t2369589051 ** get_address_of_U3CInstanceU3Ek__BackingField_20() { return &___U3CInstanceU3Ek__BackingField_20; }
+	inline void set_U3CInstanceU3Ek__BackingField_20(GameManager_t2369589051 * value)
 	{
-		___U3CInstanceU3Ek__BackingField_18 = value;
-		Il2CppCodeGenWriteBarrier(&___U3CInstanceU3Ek__BackingField_18, value);
+		___U3CInstanceU3Ek__BackingField_20 = value;
+		Il2CppCodeGenWriteBarrier(&___U3CInstanceU3Ek__BackingField_20, value);
 	}
 };
 

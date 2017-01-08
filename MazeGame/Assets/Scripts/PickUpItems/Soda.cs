@@ -6,7 +6,8 @@ public class Soda : MonoBehaviour {
 	void OnTriggerEnter(Collider hit) 
 	{
 		if (hit.gameObject.tag == "Player") {
-				InteractWithSoda ();
+			Player.PickedUpPowerUp = true;
+			InteractWithSoda ();
 		}
 	}
 

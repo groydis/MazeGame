@@ -10,8 +10,6 @@
 
 #include <stdint.h>
 
-// System.String[]
-struct StringU5BU5D_t4054002952;
 
 #include "UnityEngine_UnityEngine_MonoBehaviour667441552.h"
 
@@ -25,18 +23,8 @@ struct StringU5BU5D_t4054002952;
 struct  TypeWriter_t683157613  : public MonoBehaviour_t667441552
 {
 public:
-	// System.String[] TypeWriter::dialogue
-	StringU5BU5D_t4054002952* ___dialogue_2;
 
 public:
-	inline static int32_t get_offset_of_dialogue_2() { return static_cast<int32_t>(offsetof(TypeWriter_t683157613, ___dialogue_2)); }
-	inline StringU5BU5D_t4054002952* get_dialogue_2() const { return ___dialogue_2; }
-	inline StringU5BU5D_t4054002952** get_address_of_dialogue_2() { return &___dialogue_2; }
-	inline void set_dialogue_2(StringU5BU5D_t4054002952* value)
-	{
-		___dialogue_2 = value;
-		Il2CppCodeGenWriteBarrier(&___dialogue_2, value);
-	}
 };
 
 #ifdef __clang__

@@ -95,6 +95,7 @@
      <Compile Include="Assets\Scripts\PickUpItems\PopCorn.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\PopCornTrail.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\Soda.cs" />
+     <Compile Include="Assets\Scripts\PickUpItems\ThreeDeeGlasses.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\TypeWriter.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />

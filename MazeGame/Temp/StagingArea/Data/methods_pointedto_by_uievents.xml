@@ -6,8 +6,8 @@
 			<method name="UnPauseGame"/>
 			<method name="PauseGame"/>
 			<method name="PauseGame"/>
-			<method name="UnPauseGame"/>
 			<method name="RestartGame"/>
+			<method name="UnPauseGame"/>
 		</type>
 	</assembly>
 </linker>

@@ -13,6 +13,13 @@ public class Player : MonoBehaviour {
 	// Speed in which the player moves
 	public static float movementSpeed = 2.5f;
 
+	// Speed in which the player moves when the Soda Effect is active
+	private float sodaEffectMovementSpeed = 5f;
+
+
+	// When power up collected, enables this
+	public static bool PickedUpPowerUp;
+
 	// TODO: Will this effect make it into the game??
 	// Bool to declare if the drunk effect is active
 	public static bool isDrunk;
@@ -20,8 +27,12 @@ public class Player : MonoBehaviour {
 	// Occurs when player collides with Soda Pick Up item
 	public static bool activateSoda;
 	// Bool to declare if Popcorn effect has been activated
-	// Occurs when player collids with Popcorn Pick Up item
+	// Occurs when player collides with Popcorn Pick Up item
 	public static bool activatePopCorn;
+	// Bool to declare if 3D Glasses effect is on
+	// Occurs when player collides with ThreeDeeGlasses
+	public static bool activateThreeDee;
+
 	// Bool to declare if spectral effect has been actived
 	// Occurs when player collides with spectral
 	public static float spectralEffect = 10.0f;
@@ -34,6 +45,15 @@ public class Player : MonoBehaviour {
 	// Duration in which the Popcorn Effect takes place
 	private float popCornEffectDuration = 10.0f;
 	private float popCornEffectCountDown;
+
+	// Duration in which ThreeDee Effect takes place
+	private float threeDeeEffectDuration = 10.0f;
+	private float threeDeeEffectCountDown;
+
+	private bool sodaActive;
+	private bool popcornActive;
+	private bool drunkActive;
+	private bool threedeeActive;
 
 	// Declares if an image effect has been activated
 	private bool imageEffectActive;
@@ -57,6 +77,7 @@ public class Player : MonoBehaviour {
 	private UnityStandardAssets.ImageEffects.Fisheye fishEyeEffect;
 	private UnityStandardAssets.ImageEffects.MotionBlur motionBlurEffect;
 	private UnityStandardAssets.ImageEffects.ContrastEnhance contrastEnhanceEffect;
+	private MorePPEffects.Anaglyph3D threeDeeEffect;
 	// Animation to control the fish eye effect 
 	private Animation fishEyeAnim;
 
@@ -69,6 +90,8 @@ public class Player : MonoBehaviour {
 		fishEyeEffect = mainCamera.GetComponent<UnityStandardAssets.ImageEffects.Fisheye> ();
 		motionBlurEffect = mainCamera.GetComponent<UnityStandardAssets.ImageEffects.MotionBlur> ();
 		contrastEnhanceEffect = mainCamera.GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ();
+		threeDeeEffect = mainCamera.GetComponent<MorePPEffects.Anaglyph3D> ();
+
 		fishEyeAnim = mainCamera.GetComponent<Animation> ();
 	}
 
@@ -79,19 +102,18 @@ public class Player : MonoBehaviour {
 	// Declare image effect is false
 	// Declare soda effect is false
 	// Delcare Pop Corn effect is false
-	void Start () 
-	{
+	void Start () {
 		batteryCharge = 60.0f;
 		batteryDrainRate = 1.0f;
 		isDrunk = false;
 		imageEffectActive = false;
 		activateSoda = false;
 		activatePopCorn = false;
-	
+		activateThreeDee = false;
+		PickedUpPowerUp = false;
 	}
 
-	void Update ()
-	{
+	void Update () {
 		// If the player speed reduces, reduce the speed of the players walk animation
 		if (movementSpeed < 2) {
 			playerAnim.speed = 0.5f;
@@ -108,26 +130,10 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		// All Power-Ups currently check if existing effect is in place, but can be any effect
-
-		// If isDrunk is activated, turn on the BoozyWooze Coroutine
-		if (isDrunk) {
-			if (!imageEffectActive) {
-				StartCoroutine ("BoozyWoozy");
-			}
-		}
-
-		// If activateSoda is activated, turn on the SodaStreaming Coroutine
-		if (activateSoda) {
-			if (!imageEffectActive) {
-				StartCoroutine ("SodaStreaming");
-			}
-		}
-		// If activatePopCorn is activate, turn on PopCorn Coroutine
-		if (activatePopCorn) {
-			if (!imageEffectActive) {
-				StartCoroutine ("PopCorn");
-			}
+		// If the player collects a powerup, activates the PowerUp Coroutine
+		if (PickedUpPowerUp) {
+			Debug.Log ("Picked Up a Power Up");
+			StartCoroutine ("PowerUp");
 		}
 
 		// If the player can walk, animate the player, if not, do not animate the player
@@ -139,104 +145,132 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	// When BoozyWoozy starts, sets the intoxicationCountDown to intoxicationDuration
-	// Begins MuntedOn
-	// Performs countdown intoxicationDuration
-	// Begins MuntedOff once countdonw complete
-	IEnumerator BoozyWoozy() 
-	{
-		intoxicationCountDown = intoxicationDuration;
-		MuntedOn ();
-		while (intoxicationCountDown != 0) {
-			yield return new WaitForSecondsRealtime (1f);
-			intoxicationCountDown -= 1f;
+	// Each power up checks to see if it is already running
+	// If it is, restarts the effect countdown, if not begins running the power up
+	IEnumerator PowerUp() {
+		PickedUpPowerUp = false;
+		// When SodaStreaming starts, sets the sodaEffectCountDown to sodaEffectDuration
+		// Begins SodaOn
+		// Performs countdown sodaEffectDuration
+		// Begins SodaOff once countdonw complete
+		if (!sodaActive) {
+			sodaActive = true;
+			while (activateSoda) {
+				Debug.Log ("It was Soda");
+				sodaEffectCountDown = sodaEffectDuration;
+
+				if (!imageEffectActive) {
+					motionBlurEffect.enabled = true;
+					contrastEnhanceEffect.enabled = true;
+					imageEffectActive = true;
+				}
+
+				movementSpeed = sodaEffectMovementSpeed;
+
+				while (sodaEffectCountDown != 0) {
+					yield return new WaitForSecondsRealtime (1f);
+					sodaEffectCountDown -= 1f;
+				}
+
+				movementSpeed = 2.5f;
+
+				activateSoda = false;
+
+				if (imageEffectActive) {
+					motionBlurEffect.enabled = false;
+					contrastEnhanceEffect.enabled = false;
+					imageEffectActive = false;
+				}
+				Debug.Log ("Soda Over");
+			}
+			sodaActive = false;
+		} else {
+			sodaEffectCountDown = sodaEffectDuration;
 		}
-		MuntedOff ();
-	}
 
-	// When SodaStreaming starts, sets the sodaEffectCountDown to sodaEffectDuration
-	// Begins SodaOn
-	// Performs countdown sodaEffectDuration
-	// Begins SodaOff once countdonw complete
-	IEnumerator SodaStreaming() 
-	{
-		sodaEffectCountDown = sodaEffectDuration;
-		SodaOn ();
-		while (sodaEffectCountDown != 0) {
-			yield return new WaitForSecondsRealtime (1f);
-			sodaEffectCountDown -= 1f;
+		// When PopCorn starts, sets the popCornEffectCountDown to popCornEffectDuration
+		// Begins PopCornOn
+		// Performs countdown sodaEffectDuration
+		// Begins PopCornOff once countdonw complete
+		if (!popcornActive) {
+			popcornActive = true;
+			while (activatePopCorn) {
+				Debug.Log ("It Was Pop Corn");
+				popCornEffectCountDown = popCornEffectDuration;
+
+				StartCoroutine ("PopCornSpawn");
+
+				while (popCornEffectCountDown != 0) {
+					yield return new WaitForSeconds (1f);
+					popCornEffectCountDown -= 1f;
+				}
+
+				activatePopCorn = false;
+
+				Debug.Log ("Pop Corn Over");
+			}
+			popcornActive = false;
+		} else {
+			popCornEffectCountDown = popCornEffectDuration;
 		}
-		SodaOff ();
-	}
 
-	// When PopCorn starts, sets the popCornEffectCountDown to popCornEffectDuration
-	// Begins PopCornOn
-	// Performs countdown sodaEffectDuration
-	// Begins PopCornOff once countdonw complete
-	IEnumerator PopCorn() {
-		popCornEffectCountDown = popCornEffectDuration;
-		PopCornOn ();
-		while (popCornEffectCountDown != 0) {
-			yield return new WaitForSeconds (1f);
-			popCornEffectCountDown -= 1f;
+		if (!threedeeActive) {
+			threedeeActive = true;
+			while (activateThreeDee) {
+				Debug.Log ("It Was Three Dee");
+				threeDeeEffectCountDown = threeDeeEffectDuration;
+
+				threeDeeEffect.enabled = true;
+
+				while (threeDeeEffectCountDown != 0) {
+					yield return new WaitForSeconds (1f);
+					threeDeeEffectCountDown -= 1f;
+				}
+
+				threeDeeEffect.enabled = false;
+				activateThreeDee = false;
+
+				Debug.Log ("Three Dee Over");
+			}
+			threedeeActive = false;
+		} else {
+			threeDeeEffectCountDown = threeDeeEffectDuration;
 		}
-		PopCornOff ();
-	}
 
+		// When BoozyWoozy starts, sets the intoxicationCountDown to intoxicationDuration
+		// Begins MuntedOn
+		// Performs countdown intoxicationDuration
+		// Begins MuntedOff once countdonw complete
+		if (!drunkActive) {
+			drunkActive = true;
+			while (isDrunk) {
+				intoxicationCountDown = intoxicationDuration;
+				if (!imageEffectActive) {
+					fishEyeEffect.enabled = true;
+					fishEyeAnim.enabled = true;
+					imageEffectActive = true;
+				}
 
-	// Turns fish eye on
-	// Animates the fish eye effect
-	// Sets imageEffectActive to true
-	public void MuntedOn() {
-		fishEyeEffect.enabled = true;
-		fishEyeAnim.enabled = true;
-		imageEffectActive = true;
-	}
+				while (intoxicationCountDown != 0) {
+					yield return new WaitForSecondsRealtime (1f);
+					intoxicationCountDown -= 1f;
+				}
 
-	// Turns fish eye off
-	// Turns the fish eye animation off
-	// Sets imageEffectActive to false
-	// Sets isDrunk to false
-	public void MuntedOff() {
-		fishEyeEffect.enabled = false;
-		fishEyeAnim.enabled = false;
-		imageEffectActive = false;
-		isDrunk = false;
-	}
+				isDrunk = false;
 
-	// Turns motion blur effect on
-	// Turns contrast enhancement effect on
-	// Increases player movement speed to 5
-	// Sets imageEffectActive to true
-	public void SodaOn() {
-		motionBlurEffect.enabled = true;
-		contrastEnhanceEffect.enabled = true;
-		movementSpeed = 5f;
-		imageEffectActive = true;
-	}
+				if (imageEffectActive) {
+					fishEyeEffect.enabled = false;
+					fishEyeAnim.enabled = false;
+					imageEffectActive = false;
+				}
+				Debug.Log ("Drunk Over");
+			} 
+			drunkActive = false;
+		} else {
+			intoxicationCountDown = intoxicationDuration;
+		}
 
-	// Turns motion blur effect off
-	// Turns contrast enhancement effect off
-	// Increases player movement speed back to default
-	// Sets imageEffectActive to false
-	public void SodaOff() {
-		motionBlurEffect.enabled = false;
-		contrastEnhanceEffect.enabled = false;
-		movementSpeed = 2.5f;
-		activateSoda = false;
-		imageEffectActive = false;
-	}
-	// Starts the PopCornSpawn Coroutine
-	// Sets imageEffectActive to true
-	public void PopCornOn() {
-		StartCoroutine ("PopCornSpawn");
-		imageEffectActive = true;
-	}
-	// Sets activatePopCorn to false which disables teh PopCornSpawn Coroutine
-	// Sets imageEffectActive to false
-	public void PopCornOff() {
-		activatePopCorn = false;
-		imageEffectActive = false;
+		Debug.Log ("Power Up Done");
 	}
 
 	// Grabs a vector 3f off the y axis
@@ -251,6 +285,8 @@ public class Player : MonoBehaviour {
 			popCorn.transform.parent = transform.parent;
 			yield return new WaitForSeconds (Random.Range(0.5f, 1f));
 		}
+
+		//TODO : Test this, I think the line is redundant
 		activatePopCorn = false;
 	}
 }

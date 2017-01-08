@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 	private GameObject playButton;
 	private GameObject pauseButton;
 	private GameObject restartButton;
-	private GameObject pauseText;
+	private GameObject pauseRecText;
 	private GameObject batteryImage;
 	private GameObject sugarRushText;
 
@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour {
 	private float currCountDownValue;
 
 	private Text startText;
+	private Text pauseRecTextText;
+	private Image recImage;
 
 
 	// Use this for initialization
@@ -42,14 +44,18 @@ public class GameManager : MonoBehaviour {
 		playButton = GameObject.Find ("PlayButton");
 		pauseButton = GameObject.Find ("PauseButton");
 		restartButton = GameObject.Find ("RestartButton");
-		pauseText = GameObject.Find ("PauseText");
+		pauseRecText = GameObject.Find ("PauseRecText");
 		batteryImage = GameObject.Find ("BatteryImage");
+
+		recImage = GameObject.Find ("RecDot").GetComponent<Image>();
+
+		pauseRecTextText = pauseRecText.GetComponent<Text> ();
 
 		sugarRushText.SetActive (false);
 		playButton.SetActive (false);
 		pauseButton.SetActive (false);
 		restartButton.SetActive (false);
-		pauseText.SetActive (false);
+		pauseRecText.SetActive (false);
 		batteryImage.SetActive (false);
 		DialogueSystem.dialogueActive = false;
 		pauseGame = false;
@@ -78,7 +84,7 @@ public class GameManager : MonoBehaviour {
 			playButton.SetActive (false);
 			pauseButton.SetActive (false);
 			restartButton.SetActive (false);
-			pauseText.SetActive (false);
+			pauseRecText.SetActive (false);
 			batteryImage.SetActive (false);
 			DialogueSystem.dialogueActive = false;
 			pauseGame = false;
@@ -91,12 +97,17 @@ public class GameManager : MonoBehaviour {
 		
 	public void StartGame() {
 		TweenInCRT ();
-		pauseText.SetActive (false);
+		pauseRecText.SetActive (true);
 		playButton.SetActive (false);
 		restartButton.SetActive (false);
 		batteryImage.SetActive (true);
 		pauseButton.SetActive (true);
+
 		Player.canMove = false;
+
+		pauseRecTextText.text = "[REC]";
+		recImage.enabled = true;
+
 		StartCoroutine ("StartCountDown");
 	}
 
@@ -112,6 +123,8 @@ public class GameManager : MonoBehaviour {
 			playButton.SetActive (false);
 			restartButton.SetActive (false);
 		}
+		pauseRecTextText.text = "[PAUSED]";
+		recImage.enabled = false;
 		glitchEffect.colorIntensity = 0.2f;
 		glitchEffect.intensity = 0.5f;
 		glitchEffect.flipIntensity = 0.5f;
@@ -129,11 +142,12 @@ public class GameManager : MonoBehaviour {
 		contrastEnhance.enabled = true;
 
 		pauseGame = true;
-		pauseText.SetActive (true);
+		//pauseText.SetActive (true);
 		Time.timeScale = 0;
 	}
 
 	public void UnPauseGame() {
+
 		glitchEffect.colorIntensity = 0.2f;
 		glitchEffect.intensity = 0.5f;
 		glitchEffect.flipIntensity = 0.5f;
@@ -165,8 +179,10 @@ public class GameManager : MonoBehaviour {
 			restartButton.SetActive (false);
 		}
 
+		pauseRecTextText.text = "[REC]";
+		recImage.enabled = true;
+
 		pauseGame = false;
-		pauseText.SetActive (false);
 		Time.timeScale = 1;
 	}
 
