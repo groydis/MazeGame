@@ -150,7 +150,6 @@ public class GameManager : MonoBehaviour {
 		}
 
 		pauseGame = true;
-		//pauseText.SetActive (true);
 		Time.timeScale = 0;
 	}
 

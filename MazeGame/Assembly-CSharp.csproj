@@ -49,6 +49,7 @@
      <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
      <Compile Include="Assets\GUI\CRT.cs" />
      <Compile Include="Assets\GUI\GlitchEffect.cs" />
+     <Compile Include="Assets\LevelSelectController.cs" />
      <Compile Include="Assets\More PostProcessing Effects\Scripts\Anaglyph3D.cs" />
      <Compile Include="Assets\More PostProcessing Effects\Scripts\BlackAndBlue.cs" />
      <Compile Include="Assets\More PostProcessing Effects\Scripts\BlackAndGreen.cs" />

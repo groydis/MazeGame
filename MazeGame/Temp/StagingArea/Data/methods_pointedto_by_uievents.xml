@@ -3,10 +3,13 @@
 		<type fullname="MainMenu">
 			<method name="PlayGame"/>
 		</type>
+		<type fullname="LevelSelectController">
+			<method name="PlayLevel"/>
+		</type>
 		<type fullname="GameManager">
-			<method name="RestartGame"/>
-			<method name="UnPauseGame"/>
 			<method name="PauseGame"/>
+			<method name="UnPauseGame"/>
+			<method name="RestartGame"/>
 			<method name="PauseGame"/>
 			<method name="UnPauseGame"/>
 			<method name="RestartGame"/>

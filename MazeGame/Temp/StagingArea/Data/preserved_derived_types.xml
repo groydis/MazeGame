@@ -41,6 +41,7 @@
 <type fullname="Sequences" preserve="all"/>
 <type fullname="CRT" preserve="all"/>
 <type fullname="GlitchEffect" preserve="all"/>
+<type fullname="LevelSelectController" preserve="all"/>
 <type fullname="MorePPEffects.Anaglyph3D" preserve="all"/>
 <type fullname="MorePPEffects.BlackAndBlue" preserve="all"/>
 <type fullname="MorePPEffects.BlackAndGreen" preserve="all"/>

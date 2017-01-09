@@ -12,26 +12,36 @@ public class SpectralController : MonoBehaviour {
 
 	private Renderer[] renderers;
 
-	private EnemySpawnTrigger enemySpawnTrigger;
+	public EnemySpawnTrigger enemySpawnTrigger;
 
 	private Light spectralLight;
 	private BoxCollider spectralBoxCollider;
 
 	private bool hitPlayer;
 
+	// Audio
+
+	private AudioSource aSource;
+	private AudioClip spectralClip;
+
 	// Use this for initialization
 	void Start () {
-		hitPlayer = false;
+
+		aSource = GetComponent<AudioSource> ();
+
 		enemySpawnTrigger = GetComponentInParent<EnemySpawnTrigger> ();
 		spectralLight = GetComponentInChildren<Light> ();
 		spectralBoxCollider = GetComponent<BoxCollider> ();
 		rBody = GetComponent<Rigidbody> ();
 
+		renderers = GetComponentsInChildren<MeshRenderer> ();
+
+		hitPlayer = false;
+
 
 		startMoving = true;
 		spectralLight.enabled = true;
 
-		renderers = GetComponentsInChildren<MeshRenderer> ();
 
 		foreach (Renderer renderer in renderers) {
 			renderer.enabled = true;
@@ -68,9 +78,6 @@ public class SpectralController : MonoBehaviour {
 			hitPlayer = true;
 			Debug.Log ("Ooh, that tickles!");
 			startMoving = false;
-//				Renderer renderer = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Renderer> ();
-//				Material mat = renderer.material;
-//				mat.SetColor ("_EmissionColor", Color.red);
 
 			StartCoroutine ("HitPlayer");
 		}
@@ -89,6 +96,10 @@ public class SpectralController : MonoBehaviour {
 
 		Player.movementSpeed = 1f;
 		startMoving = false;
+
+		if (aSource.isPlaying) {
+			aSource.Stop ();
+		}
 
 		foreach (Renderer renderer in renderers) {
 			renderer.enabled = false;

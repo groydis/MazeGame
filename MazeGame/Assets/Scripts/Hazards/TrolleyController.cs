@@ -47,8 +47,9 @@ public class TrolleyController : MonoBehaviour {
 		if (hit.transform.IsChildOf(transform.parent.transform)) {
 			Debug.Log ("Detect Hit");
 			if (hit.GetComponent<Collider>().gameObject.tag == "DeSpawner") {
-				if (!aSource.clip == null) {
-					Debug.Log ("Playing Crash Cause I hit the Wall");
+				if (aSource.clip != null) {
+					Debug.Log ("Playing Crash Cause I hit the DeSpawner");
+					aSource.Stop ();
 					aSource.clip = crash;
 					aSource.loop = false;
 					aSource.Play ();
