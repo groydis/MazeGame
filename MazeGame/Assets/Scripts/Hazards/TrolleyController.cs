@@ -15,6 +15,13 @@ public class TrolleyController : MonoBehaviour {
 	private EnemySpawnTrigger enemySpawnTrigger;
 	private MeshRenderer objectMeshRenderer;
 
+	public AudioClip crash;
+	private AudioSource aSource;
+
+	void Awake() {
+		aSource = GetComponent<AudioSource> ();
+	}
+
 	void Start () {
 
 		enemySpawnTrigger = GetComponentInParent<EnemySpawnTrigger> ();
@@ -40,6 +47,12 @@ public class TrolleyController : MonoBehaviour {
 		if (hit.transform.IsChildOf(transform.parent.transform)) {
 			Debug.Log ("Detect Hit");
 			if (hit.GetComponent<Collider>().gameObject.tag == "DeSpawner") {
+				if (!aSource.clip == null) {
+					Debug.Log ("Playing Crash Cause I hit the Wall");
+					aSource.clip = crash;
+					aSource.loop = false;
+					aSource.Play ();
+				}
 				Debug.Log ("Trolley hit DeSpawner");
 				rBody.Sleep ();
 				enemySpawnTrigger.canReSpawn = false;
@@ -75,8 +88,15 @@ public class TrolleyController : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			if (!isDisabling) {
 				Debug.Log ("Trolley hit player");
+				if (aSource.clip != null) {
+					Debug.Log ("Playing Crash Cause I hit the Player");
+					aSource.Stop ();
+					aSource.clip = crash;
+					aSource.loop = false;
+					aSource.Play ();
+				}
 				Player.canMove = false;
-				rBody.AddForce (-transform.right * moveSpeed,ForceMode.VelocityChange);
+				rBody.AddForce (-transform.forward * moveSpeed,ForceMode.VelocityChange);
 				col.rigidbody.AddForce (transform.forward * moveSpeed, ForceMode.VelocityChange);
 				flashingEnabled = true;
 				gameObject.layer = 12;

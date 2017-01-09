@@ -17,8 +17,11 @@ public class SpectralController : MonoBehaviour {
 	private Light spectralLight;
 	private BoxCollider spectralBoxCollider;
 
+	private bool hitPlayer;
+
 	// Use this for initialization
 	void Start () {
+		hitPlayer = false;
 		enemySpawnTrigger = GetComponentInParent<EnemySpawnTrigger> ();
 		spectralLight = GetComponentInChildren<Light> ();
 		spectralBoxCollider = GetComponent<BoxCollider> ();
@@ -48,11 +51,13 @@ public class SpectralController : MonoBehaviour {
 		if (hit.transform.IsChildOf(transform.parent.transform)) {
 			Debug.Log ("Hit Transform Parent Child");
 			if (hit.gameObject.tag == "DeSpawner") {
-				Debug.Log ("Hit My Despawner");
-				Debug.Log ("Spectral hit DeSpawner");
-				rBody.Sleep ();
-				enemySpawnTrigger.canReSpawn = false;
-				StartCoroutine ("DeSpawnSpectral");
+				if (!hitPlayer) {
+					Debug.Log ("Hit My Despawner");
+					Debug.Log ("Spectral hit DeSpawner");
+					rBody.Sleep ();
+					enemySpawnTrigger.canReSpawn = false;
+					StartCoroutine ("DeSpawnSpectral");
+				}
 			}
 		}
 	}
@@ -60,21 +65,24 @@ public class SpectralController : MonoBehaviour {
 	void OnCollisionEnter(Collision coll) {
 
 		if (coll.collider.gameObject.tag == "Player") {
-				Debug.Log ("Ooh, that tickles!");
-				startMoving = false;
+			hitPlayer = true;
+			Debug.Log ("Ooh, that tickles!");
+			startMoving = false;
 //				Renderer renderer = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Renderer> ();
 //				Material mat = renderer.material;
 //				mat.SetColor ("_EmissionColor", Color.red);
 
-				StartCoroutine ("HitPlayer");
+			StartCoroutine ("HitPlayer");
 		}
 
 	}
 
 	IEnumerator DeSpawnSpectral () {
-		startMoving = false;
-		yield return null;
-		Destroy (this.gameObject);
+		if (!hitPlayer) {
+			startMoving = false;
+			yield return null;
+			Destroy (this.gameObject);
+		}
 	}
 
 	IEnumerator HitPlayer() {

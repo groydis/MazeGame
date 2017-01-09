@@ -1,4 +1,4 @@
-//Generated on : 8/01/2017 6:33:01 PM
+//Generated on : 9/01/2017 12:22:59 PM
 void RegisterAllStrippedInternalCalls()
 {
 	//Start Registrations for type : UnityEngine.Animation
@@ -147,6 +147,10 @@ void RegisterAllStrippedInternalCalls()
 
 	//Start Registrations for type : UnityEngine.AudioSource
 
+		//System.Boolean UnityEngine.AudioSource::get_isPlaying()
+		void Register_UnityEngine_AudioSource_get_isPlaying();
+		Register_UnityEngine_AudioSource_get_isPlaying();
+
 		//System.Single UnityEngine.AudioSource::get_pitch()
 		void Register_UnityEngine_AudioSource_get_pitch();
 		Register_UnityEngine_AudioSource_get_pitch();
@@ -155,6 +159,30 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_AudioSource_get_volume();
 		Register_UnityEngine_AudioSource_get_volume();
 
+		//System.Void UnityEngine.AudioSource::INTERNAL_CALL_Pause(UnityEngine.AudioSource)
+		void Register_UnityEngine_AudioSource_INTERNAL_CALL_Pause();
+		Register_UnityEngine_AudioSource_INTERNAL_CALL_Pause();
+
+		//System.Void UnityEngine.AudioSource::INTERNAL_CALL_UnPause(UnityEngine.AudioSource)
+		void Register_UnityEngine_AudioSource_INTERNAL_CALL_UnPause();
+		Register_UnityEngine_AudioSource_INTERNAL_CALL_UnPause();
+
+		//System.Void UnityEngine.AudioSource::Play(System.UInt64)
+		void Register_UnityEngine_AudioSource_Play();
+		Register_UnityEngine_AudioSource_Play();
+
+		//System.Void UnityEngine.AudioSource::Stop()
+		void Register_UnityEngine_AudioSource_Stop();
+		Register_UnityEngine_AudioSource_Stop();
+
+		//System.Void UnityEngine.AudioSource::set_clip(UnityEngine.AudioClip)
+		void Register_UnityEngine_AudioSource_set_clip();
+		Register_UnityEngine_AudioSource_set_clip();
+
+		//System.Void UnityEngine.AudioSource::set_loop(System.Boolean)
+		void Register_UnityEngine_AudioSource_set_loop();
+		Register_UnityEngine_AudioSource_set_loop();
+
 		//System.Void UnityEngine.AudioSource::set_pitch(System.Single)
 		void Register_UnityEngine_AudioSource_set_pitch();
 		Register_UnityEngine_AudioSource_set_pitch();
@@ -162,6 +190,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.AudioSource::set_volume(System.Single)
 		void Register_UnityEngine_AudioSource_set_volume();
 		Register_UnityEngine_AudioSource_set_volume();
+
+		//UnityEngine.AudioClip UnityEngine.AudioSource::get_clip()
+		void Register_UnityEngine_AudioSource_get_clip();
+		Register_UnityEngine_AudioSource_get_clip();
 
 	//End Registrations for type : UnityEngine.AudioSource
 

@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
 
 	// Bool to declare if spectral effect has been actived
 	// Occurs when player collides with spectral
-	public static float spectralEffect = 10.0f;
+	public static float spectralEffect = 5.0f;
 	// Duration in which teh isDrunk effect takes place;
 	private float intoxicationDuration = 10.0f;
 	private float intoxicationCountDown;
@@ -87,8 +87,16 @@ public class Player : MonoBehaviour {
 	private GameObject guiPopCorn;
 	private GameObject guiSoda;
 
+	//AUDIO
+//	public AudioSource aSource;
+//	public AudioClip walkSound;
+
 	// Finds various components for the player script
 	void Awake() {
+
+		// Audio 
+//		aSource = GetComponent<AudioSource>();
+
 		mainCamera = GameObject.Find ("Main Camera");
 		playerAnim = GetComponentInChildren<Animator> ();
 		renderers = GetComponentsInChildren<MeshRenderer> ();
@@ -130,6 +138,8 @@ public class Player : MonoBehaviour {
 		if (movementSpeed < 2) {
 			playerAnim.speed = 0.5f;
 
+		} else if (movementSpeed > 3) {
+			playerAnim.speed = 2f;
 		} else {
 			playerAnim.speed = 1f;
 		}
@@ -151,6 +161,11 @@ public class Player : MonoBehaviour {
 		// If the player can walk, animate the player, if not, do not animate the player
 		if (canMove) {
 			playerAnim.SetBool ("walk", true);
+//			if (!aSource.isPlaying) {
+//				aSource.pitch = Random.Range (0.8f, 1.1f);
+//				aSource.volume = Random.Range (0.8f, 1f);
+//				aSource.Play ();
+//			}
 		} else {
 			// If this bool is set ot false, player will default to idle animation
 			playerAnim.SetBool ("walk", false);
