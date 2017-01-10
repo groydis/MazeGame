@@ -113,7 +113,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void PauseGame() {
-		allAudioSources = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
 
 		if (!DialogueSystem.dialogueActive) {
 			Debug.Log ("This is a user Pause");

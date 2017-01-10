@@ -24,6 +24,8 @@ public class SpectralController : MonoBehaviour {
 	private AudioSource aSource;
 	private AudioClip spectralClip;
 
+
+
 	// Use this for initialization
 	void Start () {
 
