@@ -49,7 +49,6 @@
      <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
      <Compile Include="Assets\GUI\CRT.cs" />
      <Compile Include="Assets\GUI\GlitchEffect.cs" />
-     <Compile Include="Assets\LevelSelectController.cs" />
      <Compile Include="Assets\More PostProcessing Effects\Scripts\Anaglyph3D.cs" />
      <Compile Include="Assets\More PostProcessing Effects\Scripts\BlackAndBlue.cs" />
      <Compile Include="Assets\More PostProcessing Effects\Scripts\BlackAndGreen.cs" />
@@ -92,6 +91,7 @@
      <Compile Include="Assets\Scripts\LevelScripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\TutorialText.cs" />
+     <Compile Include="Assets\Scripts\LevelSelectController.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\Battery.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\Booze.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\PopCorn.cs" />

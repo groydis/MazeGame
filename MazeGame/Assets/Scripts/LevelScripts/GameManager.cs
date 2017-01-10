@@ -36,13 +36,13 @@ public class GameManager : MonoBehaviour {
 
 	// Audio
 
-	private AudioSource[] allAudioSources;
 
 
 	// Use this for initialization
 	void Awake () {
 		
 		startText = GameObject.Find ("Main Text").GetComponent<Text>();
+
 
 		playButton = GameObject.Find ("PlayButton");
 		pauseButton = GameObject.Find ("PauseButton");
@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour {
 
 	public void PauseGame() {
 		allAudioSources = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
+
 		if (!DialogueSystem.dialogueActive) {
 			Debug.Log ("This is a user Pause");
 			pauseButton.SetActive (false);
@@ -143,11 +144,9 @@ public class GameManager : MonoBehaviour {
 		contrastEnhance.blurSpread = 0.255f;
 		contrastEnhance.enabled = true;
 
-		foreach (AudioSource aSource in allAudioSources) {
-			if (aSource.isPlaying) {
-				aSource.Pause ();
-			}
-		}
+
+		AudioListener.pause = true;
+			
 
 		pauseGame = true;
 		Time.timeScale = 0;
@@ -155,7 +154,7 @@ public class GameManager : MonoBehaviour {
 
 	public void UnPauseGame() {
 
-		allAudioSources = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
+		//allAudioSources = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
 
 		glitchEffect.colorIntensity = 0.2f;
 		glitchEffect.intensity = 0.5f;
@@ -191,11 +190,7 @@ public class GameManager : MonoBehaviour {
 		pauseRecTextText.text = "[REC]";
 		recImage.enabled = true;
 
-		foreach (AudioSource aSource in allAudioSources) {
-			if (aSource.isPlaying) {
-				aSource.UnPause ();
-			}
-		}
+		AudioListener.pause = false;
 
 		pauseGame = false;
 		Time.timeScale = 1;
