@@ -98,7 +98,7 @@ public class TrolleyController : MonoBehaviour {
 				}
 				Player.canMove = false;
 				rBody.AddForce (-transform.forward * moveSpeed,ForceMode.VelocityChange);
-				col.rigidbody.AddForce (transform.forward * moveSpeed, ForceMode.VelocityChange);
+				col.rigidbody.AddForce (transform.forward, ForceMode.VelocityChange);
 				flashingEnabled = true;
 				gameObject.layer = 12;
 				StartCoroutine ("FlashingRenderer");
