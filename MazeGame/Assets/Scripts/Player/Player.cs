@@ -88,14 +88,15 @@ public class Player : MonoBehaviour {
 	private GameObject guiSoda;
 
 	//AUDIO
-//	public AudioSource aSource;
-//	public AudioClip walkSound;
+	private AudioSource aSource;
+	public AudioClip guiPop;
+	//public AudioClip flashLightClick;
 
 	// Finds various components for the player script
 	void Awake() {
 
 		// Audio 
-//		aSource = GetComponent<AudioSource>();
+		aSource = GetComponent<AudioSource> ();
 
 		mainCamera = GameObject.Find ("Main Camera");
 		playerAnim = GetComponentInChildren<Animator> ();
@@ -331,9 +332,16 @@ public class Player : MonoBehaviour {
 		while (guiModelShowing) {
 			GUIModel.SetActive (true);
 			GUIModel.transform.DOScale (new Vector3 (100f, 100f, 100f), 1f);
-			yield return new WaitForSeconds (3f);
+			yield return new WaitForSeconds (1f);
 			GUIModel.transform.DOScale (new Vector3 (0.0f, 0.0f, 0.0f), 1f);
 			yield return new WaitForSeconds (1f);
+			if (aSource.clip != null) {
+				Debug.Log ("Playing Crash Cause I hit the Player");
+				aSource.Stop ();
+				aSource.clip = guiPop;
+				aSource.loop = false;
+				aSource.Play ();
+			}
 			GUIModel.SetActive (false);
 			guiModelShowing = false;
 		}

@@ -7,6 +7,12 @@ public class Battery : MonoBehaviour {
 	public float batteryPickUpCharge = 10.0f;
 	public Light playerTorch; 
 
+	private AudioSource aSource;
+
+	void Awake() {
+		aSource = GetComponent<AudioSource> ();
+	}
+
 	// Checks if the current battery charge is less than the maximum battery charge.
 	// If so, increases battery current battery charge by the battery pick up charge amount.
 	// If the current battery charge is equal to the maximum battery charge then it just sets the 
@@ -25,9 +31,14 @@ public class Battery : MonoBehaviour {
 				Player.batteryCharge = maxBatteryCharge;
 			}
 		}
-		//TODO: Modify "Visual" for battery charge
+		if (aSource.clip != null) {
+			Debug.Log ("Playing Crash Cause I hit the Player");
+			aSource.Stop ();
+			aSource.loop = false;
+			aSource.Play ();
+		}
 		Debug.Log ("Battery Pickup, Battery is now : " + Player.batteryCharge);
-		Destroy (this.gameObject);
+		Destroy (this.gameObject, aSource.clip.length);
 	}
 
 	void OnTriggerEnter(Collider hit) 
