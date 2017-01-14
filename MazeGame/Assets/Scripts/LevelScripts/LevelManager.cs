@@ -9,9 +9,11 @@ public class LevelManager : MonoBehaviour {
 	public static int level03;
 	public static int level04;
 
-	void Awake() {
-		
-	}
+//	public static int
+//
+//	void Awake() {
+//		
+//	}
 
 	// Use this for initialization
 	void Start () {

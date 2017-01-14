@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent (typeof (CRT), typeof(GlitchEffect), typeof(MorePPEffects.Anaglyph3D))]
 public class CameraController : MonoBehaviour {
 
+
 	// Use this for initialization
 	void Start () {
 

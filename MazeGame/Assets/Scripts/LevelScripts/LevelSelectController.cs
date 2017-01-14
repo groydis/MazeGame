@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
 
 public class LevelSelectController : MonoBehaviour {
 	public string[] filmTitles;
@@ -72,7 +71,7 @@ public class LevelSelectController : MonoBehaviour {
 
 	public IEnumerator SpinLeft() {
 		canSpin = false;
-		transform.DORotate(new Vector3(0f, 90f, 0f), 1f, RotateMode.LocalAxisAdd);
+		LeanTween.rotateAround (this.gameObject, Vector3.up, 90f, 1f);
 
 		if (currentFilm != filmTitleCount) {
 			currentFilm = currentFilm + 1;
@@ -121,7 +120,8 @@ public class LevelSelectController : MonoBehaviour {
 
 	public IEnumerator SpinRight() {
 		canSpin = false;
-		transform.DORotate(new Vector3(0f, -90f, 0f), 1f, RotateMode.LocalAxisAdd);
+		LeanTween.rotateAround (this.gameObject, Vector3.up, -90f, 1f);
+
 		if (currentFilm == 0) {
 			currentFilm = filmTitleCount - 1;
 		} else {

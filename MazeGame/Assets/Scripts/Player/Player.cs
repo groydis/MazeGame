@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using DG.Tweening;
 
 public class Player : MonoBehaviour {
 
@@ -331,9 +330,9 @@ public class Player : MonoBehaviour {
 		guiModelShowing = true;
 		while (guiModelShowing) {
 			GUIModel.SetActive (true);
-			GUIModel.transform.DOScale (new Vector3 (100f, 100f, 100f), 1f);
+			LeanTween.scale (GUIModel, new Vector3(100f, 100f, 100f), 1f );
 			yield return new WaitForSeconds (1f);
-			GUIModel.transform.DOScale (new Vector3 (0.0f, 0.0f, 0.0f), 1f);
+			LeanTween.scale (GUIModel, new Vector3(0.0f, 0.0f, 0.0f), 1f );
 			yield return new WaitForSeconds (1f);
 			if (aSource.clip != null) {
 				Debug.Log ("Playing Crash Cause I hit the Player");

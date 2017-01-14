@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
+
+
 public class MainMenu : MonoBehaviour {
 
 	private GlitchEffect glitchEffect;
@@ -28,8 +29,12 @@ public class MainMenu : MonoBehaviour {
 
 	public IEnumerator MainMenuLoad() {
 		yield return new WaitForSeconds (5f);
-			DOTween.To(()=> crtEffect.TextureSize, x=> crtEffect.TextureSize = x, 756.8f, 5f);
-			DOTween.To (() => glitchEffect.colorIntensity, x => glitchEffect.colorIntensity = x, 0f, 3f);
+		LeanTween.value (this.gameObject, 0, 756.8f, 5.0f).setOnUpdate ((float val) => {
+			crtEffect.TextureSize = val;
+		});
+		LeanTween.value (this.gameObject, 1.0f, 0, 3.0f).setOnUpdate ((float val) => {
+			glitchEffect.colorIntensity = val;
+		});
 	}
 
 

@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using DG.Tweening;
 
 
 public class GameManager : MonoBehaviour {
@@ -152,9 +151,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void UnPauseGame() {
-
-		//allAudioSources = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
-
 		glitchEffect.colorIntensity = 0.2f;
 		glitchEffect.intensity = 0.5f;
 		glitchEffect.flipIntensity = 0.5f;
@@ -215,20 +211,33 @@ public class GameManager : MonoBehaviour {
 	public IEnumerator MainMenuLoad() {
 		yield return new WaitForSeconds (5f);
 		if (currentSceneName == "MainMenu") {
-			DOTween.To(()=> crtEffect.TextureSize, x=> crtEffect.TextureSize = x, 756.8f, 5f);
-			DOTween.To (() => glitchEffect.colorIntensity, x => glitchEffect.colorIntensity = x, 0f, 3f);
+			LeanTween.value (this.gameObject, 0, 756.8f, 3.0f).setOnUpdate ((float val) => {
+				crtEffect.TextureSize = val;
+			});
+			LeanTween.value (this.gameObject, 1.0f, 0, 3.0f).setOnUpdate ((float val) => {
+				//Debug.Log("timeScale val:"+val);
+				glitchEffect.colorIntensity = val;
+			});
 		}
 	}
 	//Todo: Make TweenInCRT()
 
 	public void TweenInCRT() {
-		DOTween.To(()=> crtEffect.TextureSize, x=> crtEffect.TextureSize = x, 756.8f, 3f);
-		DOTween.To (() => glitchEffect.colorIntensity, x => glitchEffect.colorIntensity = x, 0f, 3f);
+		LeanTween.value (this.gameObject, 0, 756.8f, 3.0f).setOnUpdate ((float val) => {
+			crtEffect.TextureSize = val;
+		});
+		LeanTween.value (this.gameObject, 1.0f, 0, 3.0f).setOnUpdate ((float val) => {
+			glitchEffect.colorIntensity = val;
+		});
 	}
 
 	public void TweenOutCRT() {
-		DOTween.To(()=> crtEffect.Distortion, x=> crtEffect.Distortion = x, 0f, 2f);
-		DOTween.To (() => glitchEffect.flipIntensity, x => glitchEffect.flipIntensity = x, 0f, 2f);
+		LeanTween.value (this.gameObject, 756.8f, 0.0f, 2.0f).setOnUpdate ((float val) => {
+			crtEffect.TextureSize = val;
+		});
+		LeanTween.value (this.gameObject, 1.0f, 0, 2.0f).setOnUpdate ((float val) => {
+			glitchEffect.colorIntensity = val;
+		});
 	}
 
 	public IEnumerator StartCountDown()
