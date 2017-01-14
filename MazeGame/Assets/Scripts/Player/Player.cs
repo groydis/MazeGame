@@ -89,6 +89,7 @@ public class Player : MonoBehaviour {
 	//AUDIO
 	private AudioSource aSource;
 	public AudioClip guiPop;
+
 	//public AudioClip flashLightClick;
 
 	// Finds various components for the player script
@@ -334,13 +335,10 @@ public class Player : MonoBehaviour {
 			yield return new WaitForSeconds (1f);
 			LeanTween.scale (GUIModel, new Vector3(0.0f, 0.0f, 0.0f), 1f );
 			yield return new WaitForSeconds (1f);
-			if (aSource.clip != null) {
-				Debug.Log ("Playing Crash Cause I hit the Player");
-				aSource.Stop ();
-				aSource.clip = guiPop;
-				aSource.loop = false;
-				aSource.Play ();
-			}
+			aSource.Stop ();
+			aSource.clip = guiPop;
+			aSource.loop = false;
+			aSource.Play ();
 			GUIModel.SetActive (false);
 			guiModelShowing = false;
 		}

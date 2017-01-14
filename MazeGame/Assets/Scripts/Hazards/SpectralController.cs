@@ -22,7 +22,7 @@ public class SpectralController : MonoBehaviour {
 	// Audio
 
 	private AudioSource aSource;
-	private AudioClip spectralClip;
+	public AudioClip spectralSplat;
 
 
 
@@ -99,9 +99,10 @@ public class SpectralController : MonoBehaviour {
 		Player.movementSpeed = 1f;
 		startMoving = false;
 
-		if (aSource.isPlaying) {
-			aSource.Stop ();
-		}
+		aSource.Stop ();
+		aSource.clip = spectralSplat;
+		aSource.loop = false;
+		aSource.Play ();
 
 		foreach (Renderer renderer in renderers) {
 			renderer.enabled = false;

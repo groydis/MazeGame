@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
 	private GameObject playButton;
 	private GameObject pauseButton;
 	private GameObject restartButton;
+	private GameObject toolsButton;
+	private GameObject exitButton;
 	private GameObject pauseRecText;
 	private GameObject batteryImage;
 
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour {
 		playButton = GameObject.Find ("PlayButton");
 		pauseButton = GameObject.Find ("PauseButton");
 		restartButton = GameObject.Find ("RestartButton");
+		toolsButton = GameObject.Find ("ToolsButton");
+		exitButton = GameObject.Find ("ShutDownButton");
 		pauseRecText = GameObject.Find ("PauseRecText");
 		batteryImage = GameObject.Find ("BatteryImage");
 
@@ -102,6 +106,8 @@ public class GameManager : MonoBehaviour {
 		restartButton.SetActive (false);
 		batteryImage.SetActive (true);
 		pauseButton.SetActive (true);
+		toolsButton.SetActive (false);
+		exitButton.SetActive (false);
 
 		Player.canMove = false;
 
@@ -118,11 +124,15 @@ public class GameManager : MonoBehaviour {
 			pauseButton.SetActive (false);
 			playButton.SetActive (true);
 			restartButton.SetActive (true);
+			toolsButton.SetActive (true);
+			exitButton.SetActive (true);
 		} else if (DialogueSystem.dialogueActive){
 			Debug.Log ("This is a dialogue Pause");
 			pauseButton.SetActive (false);
 			playButton.SetActive (false);
 			restartButton.SetActive (false);
+			toolsButton.SetActive (false);
+			exitButton.SetActive (false);
 		}
 		pauseRecTextText.text = "[PAUSED]";
 		recImage.enabled = false;
@@ -173,6 +183,8 @@ public class GameManager : MonoBehaviour {
 			playButton.SetActive (false);
 			restartButton.SetActive (false);
 			pauseButton.SetActive (true);
+			toolsButton.SetActive (false);
+			exitButton.SetActive (false);
 
 		} else if (DialogueSystem.dialogueActive) {
 			Debug.Log ("Dialogue Unpause");
@@ -193,9 +205,17 @@ public class GameManager : MonoBehaviour {
 
 	public void RestartGame() {
 		Debug.Log ("Restart the level");
-		//TODO: Restart the level
 		UnPauseGame();
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+	}
+
+	public void ExitGame() {
+		Debug.Log ("Exit the level");
+		SceneManager.LoadScene ("LevelSelect");
+	}
+
+	public void ToolsButton() {
+		Debug.Log ("Settings Button LOL");
 	}
 
 	public void PlayGame(string levelToLoad) {

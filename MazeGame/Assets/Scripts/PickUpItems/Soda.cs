@@ -19,8 +19,9 @@ public class Soda : MonoBehaviour {
 
 	void InteractWithSoda() {
 		Player.activateSoda = true;
+		this.gameObject.GetComponent<Renderer>().enabled = false;
+		this.gameObject.GetComponent<BoxCollider> ().enabled = false;
 		if (aSource.clip != null) {
-			Debug.Log ("Playing Crash Cause I hit the Player");
 			aSource.Stop ();
 			aSource.loop = false;
 			aSource.Play ();

@@ -3,6 +3,12 @@ using System.Collections;
 
 public class ThreeDeeGlasses : MonoBehaviour {
 
+	private AudioSource aSource;
+
+	void Awake() {
+		aSource = GetComponent<AudioSource> ();
+	}
+
 	void OnTriggerEnter(Collider hit) 
 	{
 		if (hit.gameObject.tag == "Player") {
@@ -13,6 +19,13 @@ public class ThreeDeeGlasses : MonoBehaviour {
 
 	void InteractWithThreeDeeGlasses() {
 		Player.activateThreeDee = true;
-		Destroy (this.gameObject);
+		this.gameObject.GetComponent<Renderer>().enabled = false;
+		this.gameObject.GetComponent<BoxCollider> ().enabled = false;
+		if (aSource.clip != null) {
+			aSource.Stop ();
+			aSource.loop = false;
+			aSource.Play ();
+		}
+		Destroy (this.gameObject, aSource.clip.length);
 	}
 }
