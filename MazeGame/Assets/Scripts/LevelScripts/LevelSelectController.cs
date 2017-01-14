@@ -68,7 +68,9 @@ public class LevelSelectController : MonoBehaviour {
 	
 	}
 
-	IEnumerator SpinLeft() {
+
+
+	public IEnumerator SpinLeft() {
 		canSpin = false;
 		transform.DORotate(new Vector3(0f, 90f, 0f), 1f, RotateMode.LocalAxisAdd);
 
@@ -105,7 +107,19 @@ public class LevelSelectController : MonoBehaviour {
 
 	}
 
-	IEnumerator SpinRight() {
+	public void SpinLeftButton() {
+		if (canSpin) {
+			StartCoroutine (SpinLeft ()); 
+		}
+	}
+
+	public void SpinRightButton() {
+		if (canSpin) {
+			StartCoroutine (SpinRight ()); 
+		}
+	}
+
+	public IEnumerator SpinRight() {
 		canSpin = false;
 		transform.DORotate(new Vector3(0f, -90f, 0f), 1f, RotateMode.LocalAxisAdd);
 		if (currentFilm == 0) {
