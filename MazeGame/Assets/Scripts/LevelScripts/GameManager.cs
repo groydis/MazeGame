@@ -225,6 +225,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public static void FinishLevel() {
+		LevelManager.SaveLevelProgress (SceneManager.GetActiveScene ().name, 1);
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 	}
 

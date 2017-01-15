@@ -9,22 +9,6 @@ public class LevelManager : MonoBehaviour {
 	public static int level03;
 	public static int level04;
 
-//	public static int
-//
-//	void Awake() {
-//		
-//	}
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	public static bool GetLevelProgress(string level) {
 		int collectedInt = PlayerPrefs.GetInt (level);
 		if (collectedInt == 1) {

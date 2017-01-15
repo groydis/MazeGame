@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,11 @@ public class LevelSelectController : MonoBehaviour {
 
 	private Text titleText;
 	private Button playButton;
+	private GameObject backToScenarioSelect;
+
+	public List<string> scenarioOneLevels;
+
+	public Button[] levelButtonsScenarioOne;
 
 	private GlitchEffect glitchEffect;
 	private MorePPEffects.ColoredRays crtEffect;
@@ -20,6 +26,9 @@ public class LevelSelectController : MonoBehaviour {
 	private Light[] lights;
 
 	private GameObject levelSelectScreen;
+	private GameObject waitText;
+
+	private bool canPlay;
 
 	// AUDIO
 
@@ -36,6 +45,9 @@ public class LevelSelectController : MonoBehaviour {
 		crtEffect = GameObject.Find ("Main Camera").GetComponent<MorePPEffects.ColoredRays> ();
 
 		levelSelectScreen = GameObject.Find ("LevelSelectScreen");
+		waitText = GameObject.Find ("WaitText");
+
+		backToScenarioSelect = GameObject.Find ("BackToScenario");
 
 		// AUDIO
 
@@ -57,6 +69,7 @@ public class LevelSelectController : MonoBehaviour {
 
 		Debug.Log ("Film Index Count : " + filmTitleCount);
 		canSpin = true;
+		canPlay = true;
 	
 	}
 	
@@ -66,26 +79,26 @@ public class LevelSelectController : MonoBehaviour {
 		if (SwipeManager.IsSwipingLeft ()) 
 		{
 			if (canSpin) {
-				//StartCoroutine (SpinLeft ()); 
+				StartCoroutine ("Next");
 			}
 		}
 		if (SwipeManager.IsSwipingRight ()) 
 		{
 			if (canSpin) {
-				//StartCoroutine (SpinRight ()); 
+				StartCoroutine ("Back");
 			}
 		}
 		//		#elif UNITY_EDITOR
 		if (Input.GetKeyDown ("left")) 
 		{
 			if (canSpin) {
-				//StartCoroutine (SpinLeft ()); 
+				StartCoroutine ("Back");
 			}
 		}
 		if (Input.GetKeyDown ("right")) 
 		{
 			if (canSpin) {
-				//StartCoroutine (SpinRight ()); 
+				StartCoroutine ("Next");
 			}
 		}
 		//		#endif
@@ -111,8 +124,8 @@ public class LevelSelectController : MonoBehaviour {
 
 		canSpin = false;
 
-//		crtEffect.enabled = true;
-//		glitchEffect.enabled = true;
+		crtEffect.enabled = true;
+		glitchEffect.enabled = true;
 
 		LeanTween.rotateAround (this.gameObject, Vector3.up, -90f, 1f);
 
@@ -149,8 +162,8 @@ public class LevelSelectController : MonoBehaviour {
 
 		yield return new WaitForSeconds (1f);
 
-//		crtEffect.enabled = false;
-//		glitchEffect.enabled = false;
+		crtEffect.enabled = false;
+		glitchEffect.enabled = false;
 		canSpin = true;
 
 	}
@@ -159,8 +172,8 @@ public class LevelSelectController : MonoBehaviour {
 		Debug.Log ("Next");
 		canSpin = false;
 
-//		crtEffect.enabled = true;
-//		glitchEffect.enabled = true;
+		crtEffect.enabled = true;
+		glitchEffect.enabled = true;
 
 		LeanTween.rotateAround (this.gameObject, Vector3.up, 90f, 1f);
 
@@ -201,33 +214,56 @@ public class LevelSelectController : MonoBehaviour {
 //		aSource.Play ();
 
 		yield return new WaitForSeconds (1f);
-//
-//		crtEffect.enabled = false;
-//		glitchEffect.enabled = false;
+
+		crtEffect.enabled = false;
+		glitchEffect.enabled = false;
 
 		canSpin = true;
 
 	}
-
-	// TOOD: This is temp
+		
 
 	public void PlayScenario() {
 		levelSelectScreen.SetActive (true);
+		crtEffect.enabled = true;
+		glitchEffect.enabled = true;
+		int i = 0;
+		foreach (Button button in levelButtonsScenarioOne) {
+			if (LevelManager.GetLevelProgress (scenarioOneLevels[i])) {
+				button.interactable = true;
+				button.GetComponentInChildren<Text> ().color = Color.green;
+			} else {
+				button.interactable = true;
+				button.GetComponentInChildren<Text> ().color = Color.red;
+			}
+			i++;
+		}
 	}
 
 	public void PlayLevel(string levelToLoad) {
-		StartCoroutine (PlaySceneSoundAndLoad (levelToLoad));
+		if (canPlay) {
+			StartCoroutine (PlaySceneSoundAndLoad (levelToLoad));
+		}
 	}
 
 	IEnumerator PlaySceneSoundAndLoad(string levelToLoad) {
-		if (aSource.isPlaying) {
-			aSource.Stop ();
+		canPlay = false;
+		waitText.SetActive (true);
+		if (LevelManager.GetLevelProgress(levelToLoad) || levelToLoad == "Tutorial") {
+			if (aSource.isPlaying) {
+				aSource.Stop ();
+			}
+			aSource.clip = playButtonClip;
+			aSource.loop = false;
+			aSource.Play ();
+			yield return new WaitForSeconds (aSource.clip.length);
+			SceneManager.LoadScene (levelToLoad);
 		}
-		aSource.clip = playButtonClip;
-		aSource.loop = false;
-		aSource.Play ();
-		yield return new WaitForSeconds (aSource.clip.length);
-		// Present level select screen
-		SceneManager.LoadScene (levelToLoad);
+	}
+
+	public void BackToScenarioButton() {
+		levelSelectScreen.SetActive (false);
+		crtEffect.enabled = false;
+		glitchEffect.enabled = false;
 	}
 }
