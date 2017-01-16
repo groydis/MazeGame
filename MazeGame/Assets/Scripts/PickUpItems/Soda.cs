@@ -18,6 +18,7 @@ public class Soda : MonoBehaviour {
 	}
 
 	void InteractWithSoda() {
+		Player.sodaCollectedCount++;
 		Player.activateSoda = true;
 		this.gameObject.GetComponent<Renderer>().enabled = false;
 		this.gameObject.GetComponent<BoxCollider> ().enabled = false;

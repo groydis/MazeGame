@@ -11,11 +11,14 @@ public class ExitLevel : MonoBehaviour {
 		}
 	}
 
+	// Temp Code for Alpha
 	IEnumerator Exiting() {
-		DialogueSystem.Instance.AddNewDialogue (dialogue);
-		while (DialogueSystem.dialogueActive) {
-			yield return new WaitForSeconds (1f);
+		if (dialogue.Length > 0) {
+			DialogueSystem.Instance.AddNewDialogue (dialogue);
+			while (DialogueSystem.dialogueActive) {
+				yield return new WaitForSeconds (1f);
+			}
 		}
-		GameManager.FinishLevel ();
+		GameManager.GameOverPanel ();
 	}
 }

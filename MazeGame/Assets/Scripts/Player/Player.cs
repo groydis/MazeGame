@@ -16,6 +16,13 @@ public class Player : MonoBehaviour {
 	// Speed in which the player moves when the Soda Effect is active
 	private float sodaEffectMovementSpeed = 5f;
 
+	// Used for item collection
+	public static int vhsCollectedCount;
+	public static int batteryCollectedCount;
+	public static int popcornCollectedCount;
+	public static int sodaCollectedCount;
+	public static int threedeeglassesCollectedCount;
+
 
 	// When power up collected, enables this
 	public static bool PickedUpPowerUp;

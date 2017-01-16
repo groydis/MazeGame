@@ -18,6 +18,7 @@ public class PopCorn : MonoBehaviour {
 	}
 
 	void InteractWithPopCorn() {
+		Player.popcornCollectedCount++;
 		this.gameObject.GetComponent<Renderer>().enabled = false;
 		this.gameObject.GetComponent<BoxCollider> ().enabled = false;
 

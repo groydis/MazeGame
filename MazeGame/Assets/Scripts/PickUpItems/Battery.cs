@@ -19,6 +19,9 @@ public class Battery : MonoBehaviour {
 	// current battery charge to the maximum, this prevents over charging.
 
 	void InteractWithBattery(GameObject playerHit) {
+		Player.batteryCollectedCount++;
+		this.gameObject.GetComponent<Renderer>().enabled = false;
+		this.gameObject.GetComponent<BoxCollider> ().enabled = false;
 		if (Player.batteryCharge < maxBatteryCharge) 
 		{
 			Player.batteryCharge += batteryPickUpCharge;

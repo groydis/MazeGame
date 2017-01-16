@@ -3,12 +3,6 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour {
 
-	public static int tutorial;
-	public static int level01;
-	public static int level02;
-	public static int level03;
-	public static int level04;
-
 	//public static string currentLevel;
 
 	public static bool GetLevelProgress(string level) {
@@ -45,4 +39,5 @@ public class LevelManager : MonoBehaviour {
 		string currentLevel = PlayerPrefs.GetString ("CurrentLevel");
 		return currentLevel;
 	}
+
 }

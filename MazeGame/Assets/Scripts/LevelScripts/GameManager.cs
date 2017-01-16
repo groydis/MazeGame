@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
 	private GameObject pauseRecText;
 	private GameObject batteryImage;
 
+	public static GameObject levelOverPanel;
 
 
 	private GlitchEffect glitchEffect;
@@ -37,6 +38,19 @@ public class GameManager : MonoBehaviour {
 
 	// Audio
 
+	// Item Collection Stuff
+	public static int vhsCount;
+	public static int batteryCount;
+	public static int popcornCount;
+	public static int sodaCount;
+	public static int threedeeglassesCount;
+
+	public static Text vhsText;
+	public static Text batteryText;
+	public static Text popcornText;
+	public static Text sodaText;
+	public static Text threedeeglassesText;
+
 
 
 	// Use this for initialization
@@ -53,6 +67,13 @@ public class GameManager : MonoBehaviour {
 		pauseRecText = GameObject.Find ("PauseRecText");
 		batteryImage = GameObject.Find ("BatteryImage");
 
+		levelOverPanel = GameObject.Find ("LevelOverPanel");
+		vhsText = GameObject.Find ("TapesText").GetComponent<Text> ();
+		batteryText = GameObject.Find ("BatteryText").GetComponent<Text> ();
+		popcornText = GameObject.Find ("PopcornText").GetComponent<Text> ();
+		sodaText = GameObject.Find ("SodaText").GetComponent<Text> ();
+		threedeeglassesText = GameObject.Find ("ThreeDeeGlassesText").GetComponent<Text> ();
+
 		recImage = GameObject.Find ("RecDot").GetComponent<Image>();
 
 		pauseRecTextText = pauseRecText.GetComponent<Text> ();
@@ -62,6 +83,7 @@ public class GameManager : MonoBehaviour {
 		restartButton.SetActive (false);
 		pauseRecText.SetActive (false);
 		batteryImage.SetActive (false);
+		levelOverPanel.SetActive (false);
 		DialogueSystem.dialogueActive = false;
 		pauseGame = false;
 
@@ -77,6 +99,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start() {
+		
+		CountPickUpItemsInScene ();
+
+
+		Debug.Log ("VHS: " + vhsCount + " Battery: " + batteryCount + " Popcorn: " + popcornCount + " Soda: " + sodaCount + " 3D Glasses: " + threedeeglassesCount);
 		
 		//DialogueSystem.dialogueActive = false;
 
@@ -225,7 +252,19 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
-	public static void FinishLevel() {
+	public static void GameOverPanel() {
+		levelOverPanel.SetActive (true);
+		// Get Best time (if it exsists)
+		// Get Current time, if the current is < best time.. well you know.
+
+		// Set Items Found Text
+		vhsText.text = Player.vhsCollectedCount + "/" + vhsCount;
+		batteryText.text = Player.batteryCollectedCount + "/" + batteryCount;
+		popcornText.text = Player.popcornCollectedCount + "/" + popcornCount;
+		sodaText.text = Player.sodaCollectedCount + "/" + sodaCount;
+		threedeeglassesText.text = Player.threedeeglassesCollectedCount + "/" + threedeeglassesCount;
+
+
 		int resultsInt = 0;
 		if (LevelManager.GetLevelRuns (SceneManager.GetActiveScene ().name) != 0) {
 			resultsInt = LevelManager.GetLevelRuns (SceneManager.GetActiveScene ().name);
@@ -233,6 +272,9 @@ public class GameManager : MonoBehaviour {
 			resultsInt = 1;
 		}
 		LevelManager.SaveLevelProgress (SceneManager.GetActiveScene ().name, resultsInt);
+	}
+
+	public void FinishLevel() {
 		if (SceneManager.GetActiveScene ().name == "Level04") {
 			SceneManager.LoadScene ("LevelSelect");
 		} else {
@@ -296,5 +338,30 @@ public class GameManager : MonoBehaviour {
 		Player.batteryCharge = 60f;
 		Player.canMove = true;
 		StopCoroutine ("StartCountDown");
+	}
+
+	public static void CountPickUpItemsInScene() {
+		GameObject[] totalVHS = GameObject.FindGameObjectsWithTag ("VHS Tape");
+		GameObject[] totalBattery = GameObject.FindGameObjectsWithTag ("Battery");
+		GameObject[] totalPopcorn = GameObject.FindGameObjectsWithTag ("Popcorn");
+		GameObject[] totalSoda = GameObject.FindGameObjectsWithTag ("Soda");
+		GameObject[] totalThreeDeeGlasses = GameObject.FindGameObjectsWithTag ("Three Dee Glasses");
+
+		// Then Tally them up
+		foreach (GameObject vhs in totalVHS) {
+			GameManager.vhsCount++;
+		}
+		foreach (GameObject batterys in totalBattery) {
+			GameManager.batteryCount++;
+		}
+		foreach (GameObject popcorns in totalPopcorn) {
+			GameManager.popcornCount++;
+		}
+		foreach (GameObject sodas in totalSoda) {
+			GameManager.sodaCount++;
+		}
+		foreach (GameObject threedeeglasses in totalThreeDeeGlasses) {
+			GameManager.threedeeglassesCount++;
+		}
 	}
 }
