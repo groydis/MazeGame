@@ -19,6 +19,7 @@ public class ThreeDeeGlasses : MonoBehaviour {
 
 	void InteractWithThreeDeeGlasses() {
 		Player.activateThreeDee = true;
+		Player.batteryDrainRate = 0.5f;
 		this.gameObject.GetComponent<Renderer>().enabled = false;
 		this.gameObject.GetComponent<BoxCollider> ().enabled = false;
 		if (aSource.clip != null) {

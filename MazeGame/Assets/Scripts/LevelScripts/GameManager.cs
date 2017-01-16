@@ -233,7 +233,11 @@ public class GameManager : MonoBehaviour {
 			resultsInt = 1;
 		}
 		LevelManager.SaveLevelProgress (SceneManager.GetActiveScene ().name, resultsInt);
-		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
+		if (SceneManager.GetActiveScene ().name == "Level04") {
+			SceneManager.LoadScene ("LevelSelect");
+		} else {
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+		}
 	}
 
 	public IEnumerator MainMenuLoad() {

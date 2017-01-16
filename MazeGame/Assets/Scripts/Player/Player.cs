@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
 	// Totall amount of Battery the Player has - Default is 60 seconds worth
-	public static float batteryCharge;
+	public static float batteryCharge = 60f;
 
 	// The rate in which the players battery is drained, default is 1 point for each seconds, total battery draining in 60 seconds.
-	public static float batteryDrainRate;
+	public static float batteryDrainRate = 1f;
 
 	// Speed in which the player moves
 	public static float movementSpeed = 2.5f;
@@ -252,7 +252,6 @@ public class Player : MonoBehaviour {
 			threedeeActive = true;
 			while (activateThreeDee) {
 				Debug.Log ("It Was Three Dee");
-
 				StartCoroutine (ShowGUIModel (guiThreeDeeGlasses));
 
 				threeDeeEffectCountDown = threeDeeEffectDuration;
@@ -268,6 +267,7 @@ public class Player : MonoBehaviour {
 				activateThreeDee = false;
 
 				Debug.Log ("Three Dee Over");
+				batteryDrainRate = 1f;
 			}
 			threedeeActive = false;
 		} else {
