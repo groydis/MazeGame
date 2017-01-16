@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Battery : MonoBehaviour {
 
-	public float maxBatteryCharge = 60f;
-	public float batteryPickUpCharge = 15.0f;
+	private float maxBatteryCharge = 60f;
+	private float batteryPickUpCharge = 15.0f;
 	public Light playerTorch; 
 
 	private AudioSource aSource;
