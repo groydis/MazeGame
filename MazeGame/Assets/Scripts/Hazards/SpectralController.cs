@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SpectralController : MonoBehaviour {
 
-	private float moveSpeed = 10f;
+	private float moveSpeed = 8f;
 	private Rigidbody rBody;
 	private bool startMoving;
 	private Vector3 deathPosition;

@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		
+
 		startText = GameObject.Find ("Main Text").GetComponent<Text>();
 
 
@@ -77,8 +77,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start() {
-		Debug.Log ("I ran!!");
-
+		
 		//DialogueSystem.dialogueActive = false;
 
 		currentScene = SceneManager.GetActiveScene ();
@@ -210,12 +209,14 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void ExitGame() {
+		UnPauseGame ();
 		Debug.Log ("Exit the level");
 		SceneManager.LoadScene ("LevelSelect");
 	}
 
 	public void ToolsButton() {
-		Debug.Log ("Settings Button LOL");
+		Debug.Log ("Settings Button LO.. actually this deletes all the player prefs... shit aye... sneaky.");
+		PlayerPrefs.DeleteAll ();
 	}
 
 	public void PlayGame(string levelToLoad) {
@@ -225,7 +226,13 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public static void FinishLevel() {
-		LevelManager.SaveLevelProgress (SceneManager.GetActiveScene ().name, 1);
+		int resultsInt = 0;
+		if (LevelManager.GetLevelRuns (SceneManager.GetActiveScene ().name) != 0) {
+			resultsInt = LevelManager.GetLevelRuns (SceneManager.GetActiveScene ().name);
+		} else {
+			resultsInt = 1;
+		}
+		LevelManager.SaveLevelProgress (SceneManager.GetActiveScene ().name, resultsInt);
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
@@ -263,6 +270,10 @@ public class GameManager : MonoBehaviour {
 
 	public IEnumerator StartCountDown()
 	{
+		int resultsInt = LevelManager.GetLevelRuns (SceneManager.GetActiveScene ().name);
+		if (resultsInt == 0) {
+			LevelManager.SaveCurrentLevel (SceneManager.GetActiveScene ().name);
+		}
 		startText.enabled = true;
 		currCountDownValue = countdownValue;
 		while (currCountDownValue > 0)

@@ -9,7 +9,7 @@ public class LevelSelectController : MonoBehaviour {
 
 	private Text titleText;
 	private Button playButton;
-	private GameObject backToScenarioSelect;
+	//private GameObject backToScenarioSelect;
 
 	public List<string> scenarioOneLevels;
 
@@ -47,7 +47,7 @@ public class LevelSelectController : MonoBehaviour {
 		levelSelectScreen = GameObject.Find ("LevelSelectScreen");
 		waitText = GameObject.Find ("WaitText");
 
-		backToScenarioSelect = GameObject.Find ("BackToScenario");
+		//backToScenarioSelect = GameObject.Find ("BackToScenario");
 
 		// AUDIO
 
@@ -66,6 +66,7 @@ public class LevelSelectController : MonoBehaviour {
 		titleText.text = filmTitles [currentFilm];
 
 		levelSelectScreen.SetActive (false);
+		waitText.SetActive (false);
 
 		Debug.Log ("Film Index Count : " + filmTitleCount);
 		canSpin = true;
@@ -229,11 +230,11 @@ public class LevelSelectController : MonoBehaviour {
 		glitchEffect.enabled = true;
 		int i = 0;
 		foreach (Button button in levelButtonsScenarioOne) {
-			if (LevelManager.GetLevelProgress (scenarioOneLevels[i])) {
+			if (LevelManager.GetLevelProgress (scenarioOneLevels [i])) {
 				button.interactable = true;
 				button.GetComponentInChildren<Text> ().color = Color.green;
 			} else {
-				button.interactable = true;
+				button.interactable = false;
 				button.GetComponentInChildren<Text> ().color = Color.red;
 			}
 			i++;
@@ -248,21 +249,28 @@ public class LevelSelectController : MonoBehaviour {
 
 	IEnumerator PlaySceneSoundAndLoad(string levelToLoad) {
 		canPlay = false;
-		waitText.SetActive (true);
-		if (LevelManager.GetLevelProgress(levelToLoad) || levelToLoad == "Tutorial") {
+		if (LevelManager.GetLevelProgress (levelToLoad) || levelToLoad == "Tutorial" || levelToLoad == LevelManager.GetCurrentLevel()) {
+			waitText.SetActive (true);
+			Debug.Log ("Can Load: " + levelToLoad + " Prepping audio to play");
 			if (aSource.isPlaying) {
 				aSource.Stop ();
 			}
 			aSource.clip = playButtonClip;
 			aSource.loop = false;
+			Debug.Log ("Playing Audio");
 			aSource.Play ();
 			yield return new WaitForSeconds (aSource.clip.length);
+			Debug.Log ("Loading Scene: " + levelToLoad);
 			SceneManager.LoadScene (levelToLoad);
+
+		} else {
+			Debug.Log ("Can not load: " + levelToLoad + ". Level not completed.");
 		}
 	}
 
 	public void BackToScenarioButton() {
 		levelSelectScreen.SetActive (false);
+		waitText.SetActive (false);
 		crtEffect.enabled = false;
 		glitchEffect.enabled = false;
 	}
