@@ -1,4 +1,4 @@
-//Generated on : 16/01/2017 5:28:30 PM
+//Generated on : 17/01/2017 10:35:15 AM
 void RegisterAllStrippedInternalCalls()
 {
 	//Start Registrations for type : UnityEngine.Animation
@@ -2339,6 +2339,10 @@ void RegisterAllStrippedInternalCalls()
 
 	//Start Registrations for type : UnityEngine.PlayerPrefs
 
+		//System.Boolean UnityEngine.PlayerPrefs::TrySetFloat(System.String,System.Single)
+		void Register_UnityEngine_PlayerPrefs_TrySetFloat();
+		Register_UnityEngine_PlayerPrefs_TrySetFloat();
+
 		//System.Boolean UnityEngine.PlayerPrefs::TrySetInt(System.String,System.Int32)
 		void Register_UnityEngine_PlayerPrefs_TrySetInt();
 		Register_UnityEngine_PlayerPrefs_TrySetInt();
@@ -2350,6 +2354,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Int32 UnityEngine.PlayerPrefs::GetInt(System.String,System.Int32)
 		void Register_UnityEngine_PlayerPrefs_GetInt();
 		Register_UnityEngine_PlayerPrefs_GetInt();
+
+		//System.Single UnityEngine.PlayerPrefs::GetFloat(System.String,System.Single)
+		void Register_UnityEngine_PlayerPrefs_GetFloat();
+		Register_UnityEngine_PlayerPrefs_GetFloat();
 
 		//System.String UnityEngine.PlayerPrefs::GetString(System.String,System.String)
 		void Register_UnityEngine_PlayerPrefs_GetString();

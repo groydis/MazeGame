@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	public static bool pauseGame;
 	public static float saveBattery;
 
+	// GUI
 	private GameObject playButton;
 	private GameObject pauseButton;
 	private GameObject restartButton;
@@ -21,13 +22,10 @@ public class GameManager : MonoBehaviour {
 
 	public static GameObject levelOverPanel;
 
-
 	private GlitchEffect glitchEffect;
-	private CRT crtEffect;
-	private UnityStandardAssets.ImageEffects.ContrastEnhance contrastEnhance;
+	private MorePPEffects.ColoredRays crtEffect;
 
-	private Scene currentScene;
-	private string currentSceneName;
+	private UnityStandardAssets.ImageEffects.ContrastEnhance contrastEnhance;
 
 	private float countdownValue = 3f;
 	private float currCountDownValue;
@@ -36,9 +34,13 @@ public class GameManager : MonoBehaviour {
 	private Text pauseRecTextText;
 	private Image recImage;
 
-	// Audio
+	private Text completetionTimeText;
+	private Text bestTimeText;
 
-	// Item Collection Stuff
+	// AUDIO
+
+
+	// ITEM COLLECTION
 	public static int vhsCount;
 	public static int batteryCount;
 	public static int popcornCount;
@@ -50,6 +52,13 @@ public class GameManager : MonoBehaviour {
 	public static Text popcornText;
 	public static Text sodaText;
 	public static Text threedeeglassesText;
+
+	// TIMER
+	public bool stopTimer;
+	public float timerTime;
+	public static float currentLevelTime;
+	public static float bestLevelTime;
+
 
 
 
@@ -73,6 +82,8 @@ public class GameManager : MonoBehaviour {
 		popcornText = GameObject.Find ("PopcornText").GetComponent<Text> ();
 		sodaText = GameObject.Find ("SodaText").GetComponent<Text> ();
 		threedeeglassesText = GameObject.Find ("ThreeDeeGlassesText").GetComponent<Text> ();
+		completetionTimeText = GameObject.Find ("CompletionTime").GetComponent<Text> ();
+		bestTimeText = GameObject.Find ("BestTime").GetComponent<Text> ();
 
 		recImage = GameObject.Find ("RecDot").GetComponent<Image>();
 
@@ -88,7 +99,7 @@ public class GameManager : MonoBehaviour {
 		pauseGame = false;
 
 		glitchEffect = GameObject.Find ("Main Camera").GetComponent<GlitchEffect> ();
-		crtEffect = GameObject.Find ("Main Camera").GetComponent<CRT> ();
+		crtEffect = GameObject.Find ("Main Camera").GetComponent<MorePPEffects.ColoredRays> ();
 		contrastEnhance = GameObject.Find ("Main Camera").GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ();
 
 		if (Instance != null && Instance != this) {
@@ -99,34 +110,20 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start() {
-		
+		stopTimer = true;
 		CountPickUpItemsInScene ();
-
-
-		Debug.Log ("VHS: " + vhsCount + " Battery: " + batteryCount + " Popcorn: " + popcornCount + " Soda: " + sodaCount + " 3D Glasses: " + threedeeglassesCount);
-		
-		//DialogueSystem.dialogueActive = false;
-
-		currentScene = SceneManager.GetActiveScene ();
-		currentSceneName = currentScene.name;
-
-		if (currentSceneName == "MainMenu") {
-			playButton.SetActive (false);
-			pauseButton.SetActive (false);
-			restartButton.SetActive (false);
-			pauseRecText.SetActive (false);
-			batteryImage.SetActive (false);
-			DialogueSystem.dialogueActive = false;
-			pauseGame = false;
-
-			StartCoroutine ("MainMenuLoad");
-		} else {
 			StartGame ();
+
+	}
+
+	void Update() {
+		if (!stopTimer) {
+			timerTime += Time.deltaTime;
+			Debug.Log (FloatToTime(timerTime));
 		}
 	}
 		
 	public void StartGame() {
-		TweenInCRT ();
 		pauseRecText.SetActive (true);
 		playButton.SetActive (false);
 		restartButton.SetActive (false);
@@ -167,10 +164,6 @@ public class GameManager : MonoBehaviour {
 		glitchEffect.flipIntensity = 0.5f;
 		glitchEffect.enabled = true;
 
-		crtEffect.TextureSize = 756.8f;
-		crtEffect.Distortion = 0.1f;
-		crtEffect.InputGamma = 1f;
-		crtEffect.OutputGamma = 1f;
 		crtEffect.enabled = true;
 
 		contrastEnhance.intensity = 0.255f;
@@ -192,10 +185,6 @@ public class GameManager : MonoBehaviour {
 		glitchEffect.flipIntensity = 0.5f;
 		glitchEffect.enabled = false;
 
-		crtEffect.TextureSize = 756.8f;
-		crtEffect.Distortion = 0.1f;
-		crtEffect.InputGamma = 1f;
-		crtEffect.OutputGamma = 1f;
 		crtEffect.enabled = false;
 
 		contrastEnhance.intensity = 0.255f;
@@ -232,7 +221,7 @@ public class GameManager : MonoBehaviour {
 	public void RestartGame() {
 		Debug.Log ("Restart the level");
 		UnPauseGame();
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		SceneManager.LoadScene (SceneManager.GetActiveScene().name);
 	}
 
 	public void ExitGame() {
@@ -252,7 +241,29 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
-	public static void GameOverPanel() {
+	public void GameOverPanel() {
+		stopTimer = true;
+		currentLevelTime = timerTime;
+		bestLevelTime = LevelManager.GetBestLevelTime (SceneManager.GetActiveScene ().name);
+		Debug.Log("Best Level Time : " + bestLevelTime);
+		if (currentLevelTime < bestLevelTime || bestLevelTime == 0.0f) {
+			bestLevelTime = currentLevelTime;
+			LevelManager.SaveNewBestLevelTime (SceneManager.GetActiveScene ().name, bestLevelTime);
+			Debug.Log ("Winner Winner : Best Level Time : " + bestLevelTime);
+
+			completetionTimeText.text = "Completion Time: " + FloatToTime(currentLevelTime);
+			bestTimeText.text = "Best Time: " + FloatToTime(bestLevelTime);
+
+		} else {
+			
+			completetionTimeText.text = "Completion Time: " + FloatToTime(currentLevelTime);
+			bestTimeText.text = "Best Time: " + FloatToTime(bestLevelTime);
+
+			Debug.Log("No Winnere Here : Best Level Time : " + bestLevelTime);
+		}
+
+		EnableGlitchAndCRT ();
+		LevelManager.SaveHundredPercent(SceneManager.GetActiveScene().name);
 		levelOverPanel.SetActive (true);
 		// Get Best time (if it exsists)
 		// Get Current time, if the current is < best time.. well you know.
@@ -266,81 +277,49 @@ public class GameManager : MonoBehaviour {
 
 
 		int resultsInt = 0;
-		if (LevelManager.GetLevelRuns (SceneManager.GetActiveScene ().name) != 0) {
-			resultsInt = LevelManager.GetLevelRuns (SceneManager.GetActiveScene ().name);
+		if (LevelManager.GetLevelRuns (SceneManager.GetActiveScene().name) != 0) {
+			resultsInt = LevelManager.GetLevelRuns (SceneManager.GetActiveScene().name);
 		} else {
 			resultsInt = 1;
 		}
-		LevelManager.SaveLevelProgress (SceneManager.GetActiveScene ().name, resultsInt);
+		LevelManager.SaveLevelProgress (SceneManager.GetActiveScene().name, resultsInt);
 	}
 
 	public void FinishLevel() {
 		if (SceneManager.GetActiveScene ().name == "Level04") {
 			SceneManager.LoadScene ("LevelSelect");
 		} else {
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 		}
-	}
-
-	public IEnumerator MainMenuLoad() {
-		yield return new WaitForSeconds (5f);
-		if (currentSceneName == "MainMenu") {
-			LeanTween.value (this.gameObject, 0, 756.8f, 3.0f).setOnUpdate ((float val) => {
-				crtEffect.TextureSize = val;
-			});
-			LeanTween.value (this.gameObject, 1.0f, 0, 3.0f).setOnUpdate ((float val) => {
-				//Debug.Log("timeScale val:"+val);
-				glitchEffect.colorIntensity = val;
-			});
-		}
-	}
-	//Todo: Make TweenInCRT()
-
-	public void TweenInCRT() {
-		LeanTween.value (this.gameObject, 0, 756.8f, 3.0f).setOnUpdate ((float val) => {
-			crtEffect.TextureSize = val;
-		});
-		LeanTween.value (this.gameObject, 1.0f, 0, 3.0f).setOnUpdate ((float val) => {
-			glitchEffect.colorIntensity = val;
-		});
-	}
-
-	public void TweenOutCRT() {
-		LeanTween.value (this.gameObject, 756.8f, 0.0f, 2.0f).setOnUpdate ((float val) => {
-			crtEffect.TextureSize = val;
-		});
-		LeanTween.value (this.gameObject, 1.0f, 0, 2.0f).setOnUpdate ((float val) => {
-			glitchEffect.colorIntensity = val;
-		});
 	}
 
 	public IEnumerator StartCountDown()
 	{
-		int resultsInt = LevelManager.GetLevelRuns (SceneManager.GetActiveScene ().name);
+		int resultsInt = LevelManager.GetLevelRuns (SceneManager.GetActiveScene().name);
 		if (resultsInt == 0) {
-			LevelManager.SaveCurrentLevel (SceneManager.GetActiveScene ().name);
+			LevelManager.SaveCurrentLevel (SceneManager.GetActiveScene().name);
 		}
 		startText.enabled = true;
 		currCountDownValue = countdownValue;
 		while (currCountDownValue > 0)
 		{
 			Player.canMove = false;
+			startText.text = currCountDownValue.ToString();
 			yield return new WaitForSeconds(1.0f);
 			currCountDownValue--;
-			startText.text = currCountDownValue.ToString();
 		}
 		startText.text = "Go";
-		GameManager.Instance.TweenOutCRT();
 		yield return new WaitForSeconds (1f);
+		stopTimer = false;
+		startText.text = "";
 		glitchEffect.enabled = false;
-		crtEffect.enabled = false;
-		startText.enabled = false;
+		DisableGlitchAndCRT ();
 		Player.batteryCharge = 60f;
 		Player.canMove = true;
 		StopCoroutine ("StartCountDown");
 	}
 
-	public static void CountPickUpItemsInScene() {
+	public void CountPickUpItemsInScene() {
 		GameObject[] totalVHS = GameObject.FindGameObjectsWithTag ("VHS Tape");
 		GameObject[] totalBattery = GameObject.FindGameObjectsWithTag ("Battery");
 		GameObject[] totalPopcorn = GameObject.FindGameObjectsWithTag ("Popcorn");
@@ -348,20 +327,41 @@ public class GameManager : MonoBehaviour {
 		GameObject[] totalThreeDeeGlasses = GameObject.FindGameObjectsWithTag ("Three Dee Glasses");
 
 		// Then Tally them up
-		foreach (GameObject vhs in totalVHS) {
+		for (int i = 1; i <= totalVHS.Length; i++) {
 			GameManager.vhsCount++;
 		}
-		foreach (GameObject batterys in totalBattery) {
+		for (int i = 1; i <= totalBattery.Length; i++) {
 			GameManager.batteryCount++;
 		}
-		foreach (GameObject popcorns in totalPopcorn) {
+		for (int i = 1; i <= totalPopcorn.Length; i++) {
 			GameManager.popcornCount++;
 		}
-		foreach (GameObject sodas in totalSoda) {
+		for (int i = 1; i <= totalSoda.Length; i++) {
 			GameManager.sodaCount++;
 		}
-		foreach (GameObject threedeeglasses in totalThreeDeeGlasses) {
+		for (int i = 1; i <= totalThreeDeeGlasses.Length; i++) {
 			GameManager.threedeeglassesCount++;
 		}
+	}
+
+	public void EnableGlitchAndCRT() {
+		crtEffect.enabled = true;
+		glitchEffect.enabled = true;
+		glitchEffect.intensity = 0.2f;
+		glitchEffect.colorIntensity = 0.1f;
+		crtEffect.strength = 1f;
+	}
+
+	public void DisableGlitchAndCRT() {
+		crtEffect.enabled = false;
+		glitchEffect.enabled = false;
+		glitchEffect.intensity = 0.2f;
+		glitchEffect.colorIntensity = 1f;
+		crtEffect.strength = 1f;
+	}
+
+	public string FloatToTime (float time) {
+		System.TimeSpan t = System.TimeSpan.FromSeconds(time);
+		return string.Format("{0:D2}h/{1:D2}m/{2:D2}s", t.Hours, t.Minutes, t.Seconds);
 	}
 }

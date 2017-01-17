@@ -1,11 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelScripts/MainMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelScripts/LevelManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/LevelScripts/LevelSelectController.cs" Line="240" Column="4" />
-      <File FileName="Assets/Scripts/LevelScripts/LevelManager.cs" Line="18" Column="22" />
-      <File FileName="Assets/Scripts/LevelScripts/GameManager.cs" Line="270" Column="2" />
-      <File FileName="Assets/Scripts/LevelScripts/MainMenu.cs" Line="25" Column="35" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="148" Column="36" />
+      <File FileName="Assets/Scripts/LevelScripts/GameManager.cs" Line="362" Column="27" />
+      <File FileName="Assets/Scripts/LevelScripts/LevelManager.cs" Line="35" Column="23" />
+      <File FileName="Assets/Scripts/LevelScripts/LevelSelectController.cs" Line="45" Column="15" />
+      <File FileName="Assets/Scripts/Camera/CameraController.cs" Line="16" Column="1" />
+      <File FileName="Assets/Scripts/LevelScripts/ExitLevel.cs" Line="24" Column="2" />
+      <File FileName="Assets/Scripts/Camera/CameraMovement.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

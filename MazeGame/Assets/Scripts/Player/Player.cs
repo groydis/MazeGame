@@ -139,6 +139,13 @@ public class Player : MonoBehaviour {
 		PickedUpPowerUp = false;
 
 		guiThreeDeeGlasses.SetActive (false);
+
+		// Item Collection Reset
+		vhsCollectedCount = 0;
+		batteryCollectedCount = 0;
+		popcornCollectedCount = 0;
+		sodaCollectedCount = 0;
+		threedeeglassesCollectedCount = 0;
 	}
 
 	void Update () {

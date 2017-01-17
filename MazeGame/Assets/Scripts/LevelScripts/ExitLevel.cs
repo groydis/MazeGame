@@ -19,6 +19,6 @@ public class ExitLevel : MonoBehaviour {
 				yield return new WaitForSeconds (1f);
 			}
 		}
-		GameManager.GameOverPanel ();
+		GameManager.Instance.GameOverPanel ();
 	}
 }

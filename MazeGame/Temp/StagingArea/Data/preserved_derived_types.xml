@@ -119,6 +119,7 @@
 <type fullname="TorchControl" preserve="all"/>
 <type fullname="VideoCamera" preserve="all"/>
 <type fullname="WallLamp" preserve="all"/>
+<type fullname="Timer" preserve="all"/>
 </assembly>
 <assembly fullname="Assembly-UnityScript">
 <type fullname="OldGUIExamplesJS" preserve="all"/>

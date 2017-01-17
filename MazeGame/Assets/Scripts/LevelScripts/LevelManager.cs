@@ -40,4 +40,39 @@ public class LevelManager : MonoBehaviour {
 		return currentLevel;
 	}
 
+	//TODO: Write code to read this info from player prefs for a progress screen
+	public static void SaveHundredPercent(string currentLevel) {
+		if (CheckIfHundredPercent ()) {
+			PlayerPrefs.SetString (currentLevel, "100%");
+		}
+	}
+
+	public static bool CheckIfHundredPercent() {
+		if (Player.vhsCollectedCount == GameManager.vhsCount &&
+		    Player.batteryCollectedCount == GameManager.batteryCount &&
+		    Player.popcornCollectedCount == GameManager.popcornCount &&
+		    Player.sodaCollectedCount == GameManager.sodaCount &&
+		    Player.threedeeglassesCollectedCount == GameManager.threedeeglassesCount) {
+			Debug.Log ("100% FULLY LIT");
+			Debug.Log ("VHS: " + GameManager.vhsCount + " Battery: " + GameManager.batteryCount + " Popcorn: " + GameManager.popcornCount + " Soda: " + GameManager.sodaCount + " 3D Glasses: " + GameManager.threedeeglassesCount);
+			Debug.Log ("VHS: " + Player.vhsCollectedCount + " Battery: " + Player.batteryCollectedCount + " Popcorn: " + Player.popcornCollectedCount + " Soda: " + Player.sodaCollectedCount + " 3D Glasses: " + Player.threedeeglassesCollectedCount);
+			return true;
+		} else {
+			Debug.Log ("Neg on that 100% fam, try harder");
+			Debug.Log ("VHS: " + GameManager.vhsCount + " Battery: " + GameManager.batteryCount + " Popcorn: " + GameManager.popcornCount + " Soda: " + GameManager.sodaCount + " 3D Glasses: " + GameManager.threedeeglassesCount);
+			Debug.Log ("VHS: " + Player.vhsCollectedCount + " Battery: " + Player.batteryCollectedCount + " Popcorn: " + Player.popcornCollectedCount + " Soda: " + Player.sodaCollectedCount + " 3D Glasses: " + Player.threedeeglassesCollectedCount);
+			return false;
+		}
+	}
+
+	public static void SaveNewBestLevelTime(string currentLevel, float time) {
+		PlayerPrefs.SetFloat (currentLevel + "Time", time);
+		PlayerPrefs.Save ();
+		Debug.Log ("Time Saved for " + currentLevel + "Time" + " : " + time);
+	}
+
+	public static float GetBestLevelTime(string level) {
+		float time = PlayerPrefs.GetFloat (level + "Time");
+		return time;
+	}
 }

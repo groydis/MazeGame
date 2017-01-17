@@ -16,39 +16,43 @@
 			<method name="PlayLevel"/>
 		</type>
 		<type fullname="GameManager">
-			<method name="RestartGame"/>
 			<method name="ExitGame"/>
+			<method name="RestartGame"/>
+			<method name="UnPauseGame"/>
+			<method name="FinishLevel"/>
+			<method name="PauseGame"/>
+			<method name="ExitGame"/>
+			<method name="RestartGame"/>
 			<method name="FinishLevel"/>
 			<method name="UnPauseGame"/>
-			<method name="PauseGame"/>
+			<method name="ExitGame"/>
 			<method name="RestartGame"/>
+			<method name="PauseGame"/>
 			<method name="ToolsButton"/>
-			<method name="PauseGame"/>
-			<method name="UnPauseGame"/>
 			<method name="ExitGame"/>
 			<method name="RestartGame"/>
 			<method name="FinishLevel"/>
+			<method name="UnPauseGame"/>
+			<method name="ExitGame"/>
 			<method name="RestartGame"/>
+			<method name="PauseGame"/>
 			<method name="ToolsButton"/>
-			<method name="PauseGame"/>
-			<method name="UnPauseGame"/>
 			<method name="ExitGame"/>
 			<method name="RestartGame"/>
 			<method name="FinishLevel"/>
+			<method name="UnPauseGame"/>
+			<method name="ExitGame"/>
 			<method name="RestartGame"/>
+			<method name="PauseGame"/>
 			<method name="ToolsButton"/>
-			<method name="PauseGame"/>
-			<method name="UnPauseGame"/>
 			<method name="ExitGame"/>
 			<method name="RestartGame"/>
 			<method name="FinishLevel"/>
+			<method name="UnPauseGame"/>
+			<method name="ExitGame"/>
 			<method name="RestartGame"/>
+			<method name="PauseGame"/>
 			<method name="ToolsButton"/>
-			<method name="PauseGame"/>
-			<method name="UnPauseGame"/>
-			<method name="ExitGame"/>
-			<method name="RestartGame"/>
-			<method name="FinishLevel"/>
 		</type>
 	</assembly>
 </linker>

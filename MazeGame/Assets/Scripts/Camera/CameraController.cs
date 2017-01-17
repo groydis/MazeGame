@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent (typeof (UnityStandardAssets.ImageEffects.Fisheye), typeof(UnityStandardAssets.ImageEffects.MotionBlur), typeof(UnityStandardAssets.ImageEffects.ContrastEnhance))]
-[RequireComponent (typeof (CRT), typeof(GlitchEffect), typeof(MorePPEffects.Anaglyph3D))]
+[RequireComponent (typeof (MorePPEffects.ColoredRays), typeof(GlitchEffect), typeof(MorePPEffects.Anaglyph3D))]
 public class CameraController : MonoBehaviour {
 
 
@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour {
 		GetComponent<UnityStandardAssets.ImageEffects.MotionBlur> ().enabled = false;
 		GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ().enabled = false;
 		GetComponent<GlitchEffect> ().enabled = true;
-		GetComponent<CRT> ().enabled = true;
+		GetComponent<MorePPEffects.ColoredRays> ().enabled = true;
 		GetComponent<MorePPEffects.Anaglyph3D> ().enabled = false;
 	
 	}
