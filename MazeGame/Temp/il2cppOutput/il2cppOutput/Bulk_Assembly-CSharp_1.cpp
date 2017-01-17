@@ -55,8 +55,6 @@ struct AudioSource_t1740077639;
 struct Collider_t2939674232;
 // UnityEngine.BoxCollider
 struct BoxCollider_t2538127765;
-// Timer
-struct Timer_t80811813;
 // TorchControl
 struct TorchControl_t67717601;
 // System.Collections.IEnumerator
@@ -197,8 +195,6 @@ struct U3CWallLampFlickerU3Ec__Iterator17_t682977216;
 #include "UnityEngine_UnityEngine_AudioClip794140988MethodDeclarations.h"
 #include "UnityEngine_UnityEngine_BoxCollider2538127765.h"
 #include "UnityEngine_UnityEngine_AudioClip794140988.h"
-#include "AssemblyU2DCSharp_Timer80811813.h"
-#include "AssemblyU2DCSharp_Timer80811813MethodDeclarations.h"
 #include "AssemblyU2DCSharp_TorchControl67717601.h"
 #include "AssemblyU2DCSharp_TorchControl67717601MethodDeclarations.h"
 #include "UnityEngine_UnityEngine_Coroutine3621161934.h"
@@ -3182,28 +3178,6 @@ IL_0076:
 		float L_14 = AudioClip_get_length_m1976537364(L_13, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Object_t3071478659_il2cpp_TypeInfo_var);
 		Object_Destroy_m2260435093(NULL /*static, unused*/, L_11, L_14, /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Void Timer::.ctor()
-extern "C"  void Timer__ctor_m3859540966 (Timer_t80811813 * __this, const MethodInfo* method)
-{
-	{
-		MonoBehaviour__ctor_m2022291967(__this, /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Void Timer::Start()
-extern "C"  void Timer_Start_m2806678758 (Timer_t80811813 * __this, const MethodInfo* method)
-{
-	{
-		return;
-	}
-}
-// System.Void Timer::Update()
-extern "C"  void Timer_Update_m1113547751 (Timer_t80811813 * __this, const MethodInfo* method)
-{
-	{
 		return;
 	}
 }

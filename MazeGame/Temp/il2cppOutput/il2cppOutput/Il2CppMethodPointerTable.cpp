@@ -12603,9 +12603,6 @@ extern "C" void ThreeDeeGlasses__ctor_m223708999 ();
 extern "C" void ThreeDeeGlasses_Awake_m461314218 ();
 extern "C" void ThreeDeeGlasses_OnTriggerEnter_m1925930385 ();
 extern "C" void ThreeDeeGlasses_InteractWithThreeDeeGlasses_m173519981 ();
-extern "C" void Timer__ctor_m3859540966 ();
-extern "C" void Timer_Start_m2806678758 ();
-extern "C" void Timer_Update_m1113547751 ();
 extern "C" void TorchControl__ctor_m2746037722 ();
 extern "C" void TorchControl_Start_m1693175514 ();
 extern "C" void TorchControl_Update_m954685555 ();
@@ -12804,7 +12801,7 @@ extern "C" void TestingAllJS_loopPause_m4269658662 ();
 extern "C" void TestingAllJS_loopResume_m1900986143 ();
 extern "C" void TestingAllJS_loopCancel_m2113586732 ();
 extern "C" void TestingAllJS_Main_m2828731591 ();
-extern const Il2CppMethodPointer g_MethodPointers[12793] = 
+extern const Il2CppMethodPointer g_MethodPointers[12790] = 
 {
 	Locale_GetText_m2389348044,
 	Locale_GetText_m2218462520,
@@ -25398,9 +25395,6 @@ extern const Il2CppMethodPointer g_MethodPointers[12793] =
 	ThreeDeeGlasses_Awake_m461314218,
 	ThreeDeeGlasses_OnTriggerEnter_m1925930385,
 	ThreeDeeGlasses_InteractWithThreeDeeGlasses_m173519981,
-	Timer__ctor_m3859540966,
-	Timer_Start_m2806678758,
-	Timer_Update_m1113547751,
 	TorchControl__ctor_m2746037722,
 	TorchControl_Start_m1693175514,
 	TorchControl_Update_m954685555,

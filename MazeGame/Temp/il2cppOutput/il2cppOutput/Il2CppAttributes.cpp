@@ -26979,12 +26979,12 @@ static void SwipeManager_t1439696691_CustomAttributesCacheGenerator_minSwipeLeng
 static void SwipeManager_t1439696691_CustomAttributesCacheGenerator_useEightDirections(CustomAttributesCache* cache)
 {
 	{
-		TooltipAttribute_t1877437789 * tmp = (TooltipAttribute_t1877437789 *)cache->attributes[0];
-		TooltipAttribute__ctor_m3341446606(tmp, il2cpp_codegen_string_new_wrapper("Whether to detect eight or four cardinal directions"), NULL);
+		SerializeField_t3754825534 * tmp = (SerializeField_t3754825534 *)cache->attributes[0];
+		SerializeField__ctor_m4068807987(tmp, NULL);
 	}
 	{
-		SerializeField_t3754825534 * tmp = (SerializeField_t3754825534 *)cache->attributes[1];
-		SerializeField__ctor_m4068807987(tmp, NULL);
+		TooltipAttribute_t1877437789 * tmp = (TooltipAttribute_t1877437789 *)cache->attributes[1];
+		TooltipAttribute__ctor_m3341446606(tmp, il2cpp_codegen_string_new_wrapper("Whether to detect eight or four cardinal directions"), NULL);
 	}
 }
 static void U3CGetSwipeDirByTouchU3Ec__AnonStorey23_t2684003593_CustomAttributesCacheGenerator(CustomAttributesCache* cache)

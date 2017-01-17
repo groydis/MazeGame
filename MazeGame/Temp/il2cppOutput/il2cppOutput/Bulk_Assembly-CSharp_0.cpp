@@ -8204,11 +8204,16 @@ extern "C"  void GameManager_PlayGame_m1613185608 (GameManager_t2369589051 * __t
 }
 // System.Void GameManager::GameOverPanel()
 extern Il2CppClass* GameManager_t2369589051_il2cpp_TypeInfo_var;
+extern Il2CppClass* Single_t4291918972_il2cpp_TypeInfo_var;
 extern Il2CppClass* String_t_il2cpp_TypeInfo_var;
+extern Il2CppClass* Debug_t4195163081_il2cpp_TypeInfo_var;
 extern Il2CppClass* Player_t2393081601_il2cpp_TypeInfo_var;
 extern Il2CppClass* Int32_t1153838500_il2cpp_TypeInfo_var;
+extern Il2CppCodeGenString* _stringLiteral1083719521;
+extern Il2CppCodeGenString* _stringLiteral717631975;
 extern Il2CppCodeGenString* _stringLiteral1858911095;
 extern Il2CppCodeGenString* _stringLiteral2731481199;
+extern Il2CppCodeGenString* _stringLiteral2852373726;
 extern Il2CppCodeGenString* _stringLiteral47;
 extern const uint32_t GameManager_GameOverPanel_m430650604_MetadataUsageId;
 extern "C"  void GameManager_GameOverPanel_m430650604 (GameManager_t2369589051 * __this, const MethodInfo* method)
@@ -8230,6 +8235,8 @@ extern "C"  void GameManager_GameOverPanel_m430650604 (GameManager_t2369589051 *
 	memset(&V_4, 0, sizeof(V_4));
 	Scene_t1080795294  V_5;
 	memset(&V_5, 0, sizeof(V_5));
+	Scene_t1080795294  V_6;
+	memset(&V_6, 0, sizeof(V_6));
 	{
 		__this->set_stopTimer_32((bool)1);
 		float L_0 = __this->get_timerTime_33();
@@ -8239,123 +8246,175 @@ extern "C"  void GameManager_GameOverPanel_m430650604 (GameManager_t2369589051 *
 		String_t* L_2 = Scene_get_name_m894591657((&V_1), /*hidden argument*/NULL);
 		float L_3 = LevelManager_GetBestLevelTime_m3447047789(NULL /*static, unused*/, L_2, /*hidden argument*/NULL);
 		((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->set_bestLevelTime_35(L_3);
-		float L_4 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_currentLevelTime_34();
-		float L_5 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
-		if ((!(((float)L_4) < ((float)L_5))))
+		float L_4 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
+		float L_5 = L_4;
+		Il2CppObject * L_6 = Box(Single_t4291918972_il2cpp_TypeInfo_var, &L_5);
+		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
+		String_t* L_7 = String_Concat_m389863537(NULL /*static, unused*/, _stringLiteral1083719521, L_6, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
+		Debug_Log_m1731103628(NULL /*static, unused*/, L_7, /*hidden argument*/NULL);
+		float L_8 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_currentLevelTime_34();
+		float L_9 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
+		if ((((float)L_8) < ((float)L_9)))
 		{
-			goto IL_0042;
+			goto IL_0060;
 		}
 	}
 	{
-		float L_6 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
-		((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->set_currentLevelTime_34(L_6);
+		float L_10 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
+		if ((!(((float)L_10) == ((float)(0.0f)))))
+		{
+			goto IL_00df;
+		}
 	}
 
-IL_0042:
+IL_0060:
 	{
-		Text_t9039225 * L_7 = __this->get_completetionTimeText_20();
-		float L_8 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_currentLevelTime_34();
-		String_t* L_9 = GameManager_FloatToTime_m2843856150(__this, L_8, /*hidden argument*/NULL);
+		float L_11 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_currentLevelTime_34();
+		((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->set_bestLevelTime_35(L_11);
+		Scene_t1080795294  L_12 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
+		V_2 = L_12;
+		String_t* L_13 = Scene_get_name_m894591657((&V_2), /*hidden argument*/NULL);
+		float L_14 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
+		LevelManager_SaveNewBestLevelTime_m4096614059(NULL /*static, unused*/, L_13, L_14, /*hidden argument*/NULL);
+		float L_15 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
+		float L_16 = L_15;
+		Il2CppObject * L_17 = Box(Single_t4291918972_il2cpp_TypeInfo_var, &L_16);
 		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
-		String_t* L_10 = String_Concat_m138640077(NULL /*static, unused*/, _stringLiteral1858911095, L_9, /*hidden argument*/NULL);
-		NullCheck(L_7);
-		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_7, L_10);
-		Text_t9039225 * L_11 = __this->get_bestTimeText_21();
-		float L_12 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
-		String_t* L_13 = GameManager_FloatToTime_m2843856150(__this, L_12, /*hidden argument*/NULL);
-		String_t* L_14 = String_Concat_m138640077(NULL /*static, unused*/, _stringLiteral2731481199, L_13, /*hidden argument*/NULL);
-		NullCheck(L_11);
-		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_11, L_14);
+		String_t* L_18 = String_Concat_m389863537(NULL /*static, unused*/, _stringLiteral717631975, L_17, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
+		Debug_Log_m1731103628(NULL /*static, unused*/, L_18, /*hidden argument*/NULL);
+		Text_t9039225 * L_19 = __this->get_completetionTimeText_20();
+		float L_20 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_currentLevelTime_34();
+		String_t* L_21 = GameManager_FloatToTime_m2843856150(__this, L_20, /*hidden argument*/NULL);
+		String_t* L_22 = String_Concat_m138640077(NULL /*static, unused*/, _stringLiteral1858911095, L_21, /*hidden argument*/NULL);
+		NullCheck(L_19);
+		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_19, L_22);
+		Text_t9039225 * L_23 = __this->get_bestTimeText_21();
+		float L_24 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
+		String_t* L_25 = GameManager_FloatToTime_m2843856150(__this, L_24, /*hidden argument*/NULL);
+		String_t* L_26 = String_Concat_m138640077(NULL /*static, unused*/, _stringLiteral2731481199, L_25, /*hidden argument*/NULL);
+		NullCheck(L_23);
+		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_23, L_26);
+		goto IL_0138;
+	}
+
+IL_00df:
+	{
+		Text_t9039225 * L_27 = __this->get_completetionTimeText_20();
+		float L_28 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_currentLevelTime_34();
+		String_t* L_29 = GameManager_FloatToTime_m2843856150(__this, L_28, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
+		String_t* L_30 = String_Concat_m138640077(NULL /*static, unused*/, _stringLiteral1858911095, L_29, /*hidden argument*/NULL);
+		NullCheck(L_27);
+		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_27, L_30);
+		Text_t9039225 * L_31 = __this->get_bestTimeText_21();
+		float L_32 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
+		String_t* L_33 = GameManager_FloatToTime_m2843856150(__this, L_32, /*hidden argument*/NULL);
+		String_t* L_34 = String_Concat_m138640077(NULL /*static, unused*/, _stringLiteral2731481199, L_33, /*hidden argument*/NULL);
+		NullCheck(L_31);
+		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_31, L_34);
+		float L_35 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_bestLevelTime_35();
+		float L_36 = L_35;
+		Il2CppObject * L_37 = Box(Single_t4291918972_il2cpp_TypeInfo_var, &L_36);
+		String_t* L_38 = String_Concat_m389863537(NULL /*static, unused*/, _stringLiteral2852373726, L_37, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
+		Debug_Log_m1731103628(NULL /*static, unused*/, L_38, /*hidden argument*/NULL);
+	}
+
+IL_0138:
+	{
 		GameManager_EnableGlitchAndCRT_m4294869306(__this, /*hidden argument*/NULL);
-		Scene_t1080795294  L_15 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
-		V_2 = L_15;
-		String_t* L_16 = Scene_get_name_m894591657((&V_2), /*hidden argument*/NULL);
-		LevelManager_SaveHundredPercent_m1663019132(NULL /*static, unused*/, L_16, /*hidden argument*/NULL);
-		GameObject_t3674682005 * L_17 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_levelOverPanel_11();
-		NullCheck(L_17);
-		GameObject_SetActive_m3538205401(L_17, (bool)1, /*hidden argument*/NULL);
-		Text_t9039225 * L_18 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_vhsText_27();
+		Scene_t1080795294  L_39 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
+		V_3 = L_39;
+		String_t* L_40 = Scene_get_name_m894591657((&V_3), /*hidden argument*/NULL);
+		LevelManager_SaveHundredPercent_m1663019132(NULL /*static, unused*/, L_40, /*hidden argument*/NULL);
+		GameObject_t3674682005 * L_41 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_levelOverPanel_11();
+		NullCheck(L_41);
+		GameObject_SetActive_m3538205401(L_41, (bool)1, /*hidden argument*/NULL);
+		Text_t9039225 * L_42 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_vhsText_27();
 		IL2CPP_RUNTIME_CLASS_INIT(Player_t2393081601_il2cpp_TypeInfo_var);
-		int32_t L_19 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_vhsCollectedCount_6();
-		int32_t L_20 = L_19;
-		Il2CppObject * L_21 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_20);
-		int32_t L_22 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_vhsCount_22();
-		int32_t L_23 = L_22;
-		Il2CppObject * L_24 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_23);
-		String_t* L_25 = String_Concat_m2809334143(NULL /*static, unused*/, L_21, _stringLiteral47, L_24, /*hidden argument*/NULL);
-		NullCheck(L_18);
-		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_18, L_25);
-		Text_t9039225 * L_26 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_batteryText_28();
-		int32_t L_27 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_batteryCollectedCount_7();
-		int32_t L_28 = L_27;
-		Il2CppObject * L_29 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_28);
-		int32_t L_30 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_batteryCount_23();
-		int32_t L_31 = L_30;
-		Il2CppObject * L_32 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_31);
-		String_t* L_33 = String_Concat_m2809334143(NULL /*static, unused*/, L_29, _stringLiteral47, L_32, /*hidden argument*/NULL);
-		NullCheck(L_26);
-		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_26, L_33);
-		Text_t9039225 * L_34 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_popcornText_29();
-		int32_t L_35 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_popcornCollectedCount_8();
-		int32_t L_36 = L_35;
-		Il2CppObject * L_37 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_36);
-		int32_t L_38 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_popcornCount_24();
-		int32_t L_39 = L_38;
-		Il2CppObject * L_40 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_39);
-		String_t* L_41 = String_Concat_m2809334143(NULL /*static, unused*/, L_37, _stringLiteral47, L_40, /*hidden argument*/NULL);
-		NullCheck(L_34);
-		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_34, L_41);
-		Text_t9039225 * L_42 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_sodaText_30();
-		int32_t L_43 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_sodaCollectedCount_9();
+		int32_t L_43 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_vhsCollectedCount_6();
 		int32_t L_44 = L_43;
 		Il2CppObject * L_45 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_44);
-		int32_t L_46 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_sodaCount_25();
+		int32_t L_46 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_vhsCount_22();
 		int32_t L_47 = L_46;
 		Il2CppObject * L_48 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_47);
+		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
 		String_t* L_49 = String_Concat_m2809334143(NULL /*static, unused*/, L_45, _stringLiteral47, L_48, /*hidden argument*/NULL);
 		NullCheck(L_42);
 		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_42, L_49);
-		Text_t9039225 * L_50 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_threedeeglassesText_31();
-		int32_t L_51 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_threedeeglassesCollectedCount_10();
+		Text_t9039225 * L_50 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_batteryText_28();
+		int32_t L_51 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_batteryCollectedCount_7();
 		int32_t L_52 = L_51;
 		Il2CppObject * L_53 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_52);
-		int32_t L_54 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_threedeeglassesCount_26();
+		int32_t L_54 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_batteryCount_23();
 		int32_t L_55 = L_54;
 		Il2CppObject * L_56 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_55);
 		String_t* L_57 = String_Concat_m2809334143(NULL /*static, unused*/, L_53, _stringLiteral47, L_56, /*hidden argument*/NULL);
 		NullCheck(L_50);
 		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_50, L_57);
+		Text_t9039225 * L_58 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_popcornText_29();
+		int32_t L_59 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_popcornCollectedCount_8();
+		int32_t L_60 = L_59;
+		Il2CppObject * L_61 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_60);
+		int32_t L_62 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_popcornCount_24();
+		int32_t L_63 = L_62;
+		Il2CppObject * L_64 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_63);
+		String_t* L_65 = String_Concat_m2809334143(NULL /*static, unused*/, L_61, _stringLiteral47, L_64, /*hidden argument*/NULL);
+		NullCheck(L_58);
+		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_58, L_65);
+		Text_t9039225 * L_66 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_sodaText_30();
+		int32_t L_67 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_sodaCollectedCount_9();
+		int32_t L_68 = L_67;
+		Il2CppObject * L_69 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_68);
+		int32_t L_70 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_sodaCount_25();
+		int32_t L_71 = L_70;
+		Il2CppObject * L_72 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_71);
+		String_t* L_73 = String_Concat_m2809334143(NULL /*static, unused*/, L_69, _stringLiteral47, L_72, /*hidden argument*/NULL);
+		NullCheck(L_66);
+		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_66, L_73);
+		Text_t9039225 * L_74 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_threedeeglassesText_31();
+		int32_t L_75 = ((Player_t2393081601_StaticFields*)Player_t2393081601_il2cpp_TypeInfo_var->static_fields)->get_threedeeglassesCollectedCount_10();
+		int32_t L_76 = L_75;
+		Il2CppObject * L_77 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_76);
+		int32_t L_78 = ((GameManager_t2369589051_StaticFields*)GameManager_t2369589051_il2cpp_TypeInfo_var->static_fields)->get_threedeeglassesCount_26();
+		int32_t L_79 = L_78;
+		Il2CppObject * L_80 = Box(Int32_t1153838500_il2cpp_TypeInfo_var, &L_79);
+		String_t* L_81 = String_Concat_m2809334143(NULL /*static, unused*/, L_77, _stringLiteral47, L_80, /*hidden argument*/NULL);
+		NullCheck(L_74);
+		VirtActionInvoker1< String_t* >::Invoke(74 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_74, L_81);
 		V_0 = 0;
-		Scene_t1080795294  L_58 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
-		V_3 = L_58;
-		String_t* L_59 = Scene_get_name_m894591657((&V_3), /*hidden argument*/NULL);
-		int32_t L_60 = LevelManager_GetLevelRuns_m2894180364(NULL /*static, unused*/, L_59, /*hidden argument*/NULL);
-		if (!L_60)
+		Scene_t1080795294  L_82 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
+		V_4 = L_82;
+		String_t* L_83 = Scene_get_name_m894591657((&V_4), /*hidden argument*/NULL);
+		int32_t L_84 = LevelManager_GetLevelRuns_m2894180364(NULL /*static, unused*/, L_83, /*hidden argument*/NULL);
+		if (!L_84)
 		{
-			goto IL_019f;
+			goto IL_0256;
 		}
 	}
 	{
-		Scene_t1080795294  L_61 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
-		V_4 = L_61;
-		String_t* L_62 = Scene_get_name_m894591657((&V_4), /*hidden argument*/NULL);
-		int32_t L_63 = LevelManager_GetLevelRuns_m2894180364(NULL /*static, unused*/, L_62, /*hidden argument*/NULL);
-		V_0 = L_63;
-		goto IL_01a1;
+		Scene_t1080795294  L_85 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
+		V_5 = L_85;
+		String_t* L_86 = Scene_get_name_m894591657((&V_5), /*hidden argument*/NULL);
+		int32_t L_87 = LevelManager_GetLevelRuns_m2894180364(NULL /*static, unused*/, L_86, /*hidden argument*/NULL);
+		V_0 = L_87;
+		goto IL_0258;
 	}
 
-IL_019f:
+IL_0256:
 	{
 		V_0 = 1;
 	}
 
-IL_01a1:
+IL_0258:
 	{
-		Scene_t1080795294  L_64 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
-		V_5 = L_64;
-		String_t* L_65 = Scene_get_name_m894591657((&V_5), /*hidden argument*/NULL);
-		int32_t L_66 = V_0;
-		LevelManager_SaveLevelProgress_m1179132441(NULL /*static, unused*/, L_65, L_66, /*hidden argument*/NULL);
+		Scene_t1080795294  L_88 = SceneManager_GetActiveScene_m3062973092(NULL /*static, unused*/, /*hidden argument*/NULL);
+		V_6 = L_88;
+		String_t* L_89 = Scene_get_name_m894591657((&V_6), /*hidden argument*/NULL);
+		int32_t L_90 = V_0;
+		LevelManager_SaveLevelProgress_m1179132441(NULL /*static, unused*/, L_89, L_90, /*hidden argument*/NULL);
 		return;
 	}
 }
@@ -12999,10 +13058,13 @@ IL_014d:
 	}
 }
 // System.Void LevelManager::SaveNewBestLevelTime(System.String,System.Single)
-extern Il2CppClass* Single_t4291918972_il2cpp_TypeInfo_var;
 extern Il2CppClass* String_t_il2cpp_TypeInfo_var;
+extern Il2CppClass* ObjectU5BU5D_t1108656482_il2cpp_TypeInfo_var;
+extern Il2CppClass* Single_t4291918972_il2cpp_TypeInfo_var;
 extern Il2CppClass* Debug_t4195163081_il2cpp_TypeInfo_var;
-extern Il2CppCodeGenString* _stringLiteral3915099546;
+extern Il2CppCodeGenString* _stringLiteral2606829;
+extern Il2CppCodeGenString* _stringLiteral576868771;
+extern Il2CppCodeGenString* _stringLiteral350663993;
 extern const uint32_t LevelManager_SaveNewBestLevelTime_m4096614059_MetadataUsageId;
 extern "C"  void LevelManager_SaveNewBestLevelTime_m4096614059 (Il2CppObject * __this /* static, unused */, String_t* ___currentLevel0, float ___time1, const MethodInfo* method)
 {
@@ -13014,29 +13076,62 @@ extern "C"  void LevelManager_SaveNewBestLevelTime_m4096614059 (Il2CppObject * _
 	}
 	{
 		String_t* L_0 = ___currentLevel0;
-		float L_1 = ___time1;
-		PlayerPrefs_SetFloat_m1687591347(NULL /*static, unused*/, L_0, L_1, /*hidden argument*/NULL);
-		PlayerPrefs_Save_m3891538519(NULL /*static, unused*/, /*hidden argument*/NULL);
-		float L_2 = ___time1;
-		float L_3 = L_2;
-		Il2CppObject * L_4 = Box(Single_t4291918972_il2cpp_TypeInfo_var, &L_3);
 		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
-		String_t* L_5 = String_Concat_m389863537(NULL /*static, unused*/, _stringLiteral3915099546, L_4, /*hidden argument*/NULL);
+		String_t* L_1 = String_Concat_m138640077(NULL /*static, unused*/, L_0, _stringLiteral2606829, /*hidden argument*/NULL);
+		float L_2 = ___time1;
+		PlayerPrefs_SetFloat_m1687591347(NULL /*static, unused*/, L_1, L_2, /*hidden argument*/NULL);
+		PlayerPrefs_Save_m3891538519(NULL /*static, unused*/, /*hidden argument*/NULL);
+		ObjectU5BU5D_t1108656482* L_3 = ((ObjectU5BU5D_t1108656482*)SZArrayNew(ObjectU5BU5D_t1108656482_il2cpp_TypeInfo_var, (uint32_t)4));
+		NullCheck(L_3);
+		IL2CPP_ARRAY_BOUNDS_CHECK(L_3, 0);
+		ArrayElementTypeCheck (L_3, _stringLiteral576868771);
+		(L_3)->SetAt(static_cast<il2cpp_array_size_t>(0), (Il2CppObject *)_stringLiteral576868771);
+		ObjectU5BU5D_t1108656482* L_4 = L_3;
+		String_t* L_5 = ___currentLevel0;
+		NullCheck(L_4);
+		IL2CPP_ARRAY_BOUNDS_CHECK(L_4, 1);
+		ArrayElementTypeCheck (L_4, L_5);
+		(L_4)->SetAt(static_cast<il2cpp_array_size_t>(1), (Il2CppObject *)L_5);
+		ObjectU5BU5D_t1108656482* L_6 = L_4;
+		NullCheck(L_6);
+		IL2CPP_ARRAY_BOUNDS_CHECK(L_6, 2);
+		ArrayElementTypeCheck (L_6, _stringLiteral350663993);
+		(L_6)->SetAt(static_cast<il2cpp_array_size_t>(2), (Il2CppObject *)_stringLiteral350663993);
+		ObjectU5BU5D_t1108656482* L_7 = L_6;
+		float L_8 = ___time1;
+		float L_9 = L_8;
+		Il2CppObject * L_10 = Box(Single_t4291918972_il2cpp_TypeInfo_var, &L_9);
+		NullCheck(L_7);
+		IL2CPP_ARRAY_BOUNDS_CHECK(L_7, 3);
+		ArrayElementTypeCheck (L_7, L_10);
+		(L_7)->SetAt(static_cast<il2cpp_array_size_t>(3), (Il2CppObject *)L_10);
+		String_t* L_11 = String_Concat_m3016520001(NULL /*static, unused*/, L_7, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t4195163081_il2cpp_TypeInfo_var);
-		Debug_Log_m1731103628(NULL /*static, unused*/, L_5, /*hidden argument*/NULL);
+		Debug_Log_m1731103628(NULL /*static, unused*/, L_11, /*hidden argument*/NULL);
 		return;
 	}
 }
 // System.Single LevelManager::GetBestLevelTime(System.String)
+extern Il2CppClass* String_t_il2cpp_TypeInfo_var;
+extern Il2CppCodeGenString* _stringLiteral2606829;
+extern const uint32_t LevelManager_GetBestLevelTime_m3447047789_MetadataUsageId;
 extern "C"  float LevelManager_GetBestLevelTime_m3447047789 (Il2CppObject * __this /* static, unused */, String_t* ___level0, const MethodInfo* method)
 {
+	static bool s_Il2CppMethodIntialized;
+	if (!s_Il2CppMethodIntialized)
+	{
+		il2cpp_codegen_initialize_method (LevelManager_GetBestLevelTime_m3447047789_MetadataUsageId);
+		s_Il2CppMethodIntialized = true;
+	}
 	float V_0 = 0.0f;
 	{
 		String_t* L_0 = ___level0;
-		float L_1 = PlayerPrefs_GetFloat_m4179026766(NULL /*static, unused*/, L_0, /*hidden argument*/NULL);
-		V_0 = L_1;
-		float L_2 = V_0;
-		return L_2;
+		IL2CPP_RUNTIME_CLASS_INIT(String_t_il2cpp_TypeInfo_var);
+		String_t* L_1 = String_Concat_m138640077(NULL /*static, unused*/, L_0, _stringLiteral2606829, /*hidden argument*/NULL);
+		float L_2 = PlayerPrefs_GetFloat_m4179026766(NULL /*static, unused*/, L_1, /*hidden argument*/NULL);
+		V_0 = L_2;
+		float L_3 = V_0;
+		return L_3;
 	}
 }
 // System.Void LevelSelectController::.ctor()

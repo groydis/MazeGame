@@ -16,10 +16,10 @@
 			<method name="PlayLevel"/>
 		</type>
 		<type fullname="GameManager">
-			<method name="ExitGame"/>
 			<method name="RestartGame"/>
-			<method name="UnPauseGame"/>
 			<method name="FinishLevel"/>
+			<method name="UnPauseGame"/>
+			<method name="ExitGame"/>
 			<method name="PauseGame"/>
 			<method name="ExitGame"/>
 			<method name="RestartGame"/>
@@ -45,14 +45,14 @@
 			<method name="RestartGame"/>
 			<method name="PauseGame"/>
 			<method name="ToolsButton"/>
-			<method name="ExitGame"/>
-			<method name="RestartGame"/>
-			<method name="FinishLevel"/>
-			<method name="UnPauseGame"/>
-			<method name="ExitGame"/>
-			<method name="RestartGame"/>
 			<method name="PauseGame"/>
+			<method name="ExitGame"/>
+			<method name="UnPauseGame"/>
+			<method name="RestartGame"/>
+			<method name="RestartGame"/>
+			<method name="ExitGame"/>
 			<method name="ToolsButton"/>
+			<method name="FinishLevel"/>
 		</type>
 	</assembly>
 </linker>
