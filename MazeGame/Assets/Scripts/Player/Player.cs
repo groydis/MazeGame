@@ -99,6 +99,10 @@ public class Player : MonoBehaviour {
 
 	//public AudioClip flashLightClick;
 
+
+	// Death
+	public static bool isDead;
+
 	// Finds various components for the player script
 	void Awake() {
 

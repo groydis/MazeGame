@@ -42,11 +42,14 @@ public class TorchControl : MonoBehaviour {
 		if (Player.batteryCharge > 0) {
 			if (!decreasingBattery) {
 				StartCoroutine ("DecreaseBattery");
+				Player.isDead = false;
 			}
 		}
 		if (Player.batteryCharge == 0) {
 			batteryFailing = false;
 			TorchOff ();
+			Debug.Log ("Torch Off");
+			Player.isDead = true;
 		}
 		if (Player.batteryCharge > flickerStartTime) {
 			batteryFailing = false;

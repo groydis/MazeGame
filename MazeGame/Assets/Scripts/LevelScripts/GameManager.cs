@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
 
 	public static GameObject levelOverPanel;
 
+	public static GameObject fwdButton;
+
 	private GlitchEffect glitchEffect;
 	private MorePPEffects.ColoredRays crtEffect;
 
@@ -59,7 +61,7 @@ public class GameManager : MonoBehaviour {
 	public static float currentLevelTime;
 	public static float bestLevelTime;
 
-
+	private bool timeToDie;
 
 
 	// Use this for initialization
@@ -85,6 +87,8 @@ public class GameManager : MonoBehaviour {
 		completetionTimeText = GameObject.Find ("CompletionTime").GetComponent<Text> ();
 		bestTimeText = GameObject.Find ("BestTime").GetComponent<Text> ();
 
+		fwdButton = GameObject.Find ("Forward");
+
 		recImage = GameObject.Find ("RecDot").GetComponent<Image>();
 
 		pauseRecTextText = pauseRecText.GetComponent<Text> ();
@@ -97,6 +101,8 @@ public class GameManager : MonoBehaviour {
 		levelOverPanel.SetActive (false);
 		DialogueSystem.dialogueActive = false;
 		pauseGame = false;
+
+		timeToDie = false;
 
 		glitchEffect = GameObject.Find ("Main Camera").GetComponent<GlitchEffect> ();
 		crtEffect = GameObject.Find ("Main Camera").GetComponent<MorePPEffects.ColoredRays> ();
@@ -119,7 +125,13 @@ public class GameManager : MonoBehaviour {
 	void Update() {
 		if (!stopTimer) {
 			timerTime += Time.deltaTime;
-			Debug.Log (FloatToTime(timerTime));
+			//Debug.Log (FloatToTime(timerTime));
+		}
+
+		if (Player.isDead) {
+			if (!timeToDie) {
+				StartCoroutine ("Die");
+			}
 		}
 	}
 		
@@ -242,6 +254,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void GameOverPanel() {
+		Player.canMove = false;
 		stopTimer = true;
 		currentLevelTime = timerTime;
 		bestLevelTime = LevelManager.GetBestLevelTime (SceneManager.GetActiveScene ().name);
@@ -261,7 +274,7 @@ public class GameManager : MonoBehaviour {
 
 			Debug.Log("No Winnere Here : Best Level Time : " + bestLevelTime);
 		}
-
+		fwdButton.SetActive (true);
 		EnableGlitchAndCRT ();
 		LevelManager.SaveHundredPercent(SceneManager.GetActiveScene().name);
 		levelOverPanel.SetActive (true);
@@ -314,12 +327,18 @@ public class GameManager : MonoBehaviour {
 		startText.text = "";
 		glitchEffect.enabled = false;
 		DisableGlitchAndCRT ();
-		Player.batteryCharge = 60f;
+		Player.batteryCharge = 10f;
 		Player.canMove = true;
 		StopCoroutine ("StartCountDown");
 	}
 
 	public void CountPickUpItemsInScene() {
+		vhsCount = 0;
+		batteryCount = 0;
+		popcornCount = 0;
+		sodaCount = 0;
+		threedeeglassesCount = 0;
+
 		GameObject[] totalVHS = GameObject.FindGameObjectsWithTag ("VHS Tape");
 		GameObject[] totalBattery = GameObject.FindGameObjectsWithTag ("Battery");
 		GameObject[] totalPopcorn = GameObject.FindGameObjectsWithTag ("Popcorn");
@@ -363,5 +382,24 @@ public class GameManager : MonoBehaviour {
 	public string FloatToTime (float time) {
 		System.TimeSpan t = System.TimeSpan.FromSeconds(time);
 		return string.Format("{0:D2}h/{1:D2}m/{2:D2}s", t.Hours, t.Minutes, t.Seconds);
+	}
+
+
+
+	public IEnumerator Die() {
+		timeToDie = true;
+		float deathTimer = 3;
+			while (deathTimer > 0)
+			{
+				Player.canMove = false;
+				startText.text = deathTimer.ToString();
+				yield return new WaitForSeconds(1.0f);
+				deathTimer--;
+			}
+			GameOverPanel ();
+			Player.canMove = false;
+			completetionTimeText.text = "Consumed by darkness, you go mad. You never escape the labyrinth.";
+			bestTimeText.text = "";
+			fwdButton.SetActive (false);
 	}
 }
