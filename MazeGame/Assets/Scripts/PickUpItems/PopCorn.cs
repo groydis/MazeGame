@@ -29,6 +29,6 @@ public class PopCorn : MonoBehaviour {
 		}
 
 		Player.activatePopCorn = true;
-		Destroy (this.gameObject);
+		Destroy (this.gameObject, aSource.clip.length);
 	}
 }

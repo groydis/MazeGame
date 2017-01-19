@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 
 public class GameManager : MonoBehaviour {
@@ -63,11 +64,30 @@ public class GameManager : MonoBehaviour {
 
 	private bool timeToDie;
 
+	// SETTINGS BUTTOn
+
+	private GameObject musicButton;
+	private bool musicOn;
+	private bool sfxOn;
+	private GameObject backgroundButton;
+	private GameObject resetgameButton;
+	private bool toolButtonsOn;
+
+	public AudioMixerSnapshot musicOffSFXOn;
+	public AudioMixerSnapshot musicOnSFXOff;
+	public AudioMixerSnapshot musicOnSFXOn;
+	public AudioMixerSnapshot musicOffSFXOff;
+
+	public Sprite speakerOn;
+	public Sprite speakerOff;
+
+
 
 	// Use this for initialization
 	void Awake () {
 
 		startText = GameObject.Find ("Main Text").GetComponent<Text>();
+	
 
 
 		playButton = GameObject.Find ("PlayButton");
@@ -77,6 +97,10 @@ public class GameManager : MonoBehaviour {
 		exitButton = GameObject.Find ("ShutDownButton");
 		pauseRecText = GameObject.Find ("PauseRecText");
 		batteryImage = GameObject.Find ("BatteryImage");
+
+		musicButton = GameObject.Find ("Music");
+		backgroundButton = GameObject.Find ("BackGround");
+		resetgameButton = GameObject.Find ("ResetGameData");
 
 		levelOverPanel = GameObject.Find ("LevelOverPanel");
 		vhsText = GameObject.Find ("TapesText").GetComponent<Text> ();
@@ -99,6 +123,10 @@ public class GameManager : MonoBehaviour {
 		pauseRecText.SetActive (false);
 		batteryImage.SetActive (false);
 		levelOverPanel.SetActive (false);
+		musicButton.SetActive (false);
+		backgroundButton.SetActive (false);
+		resetgameButton.SetActive (false);
+		toolButtonsOn = false;
 		DialogueSystem.dialogueActive = false;
 		pauseGame = false;
 
@@ -107,6 +135,9 @@ public class GameManager : MonoBehaviour {
 		glitchEffect = GameObject.Find ("Main Camera").GetComponent<GlitchEffect> ();
 		crtEffect = GameObject.Find ("Main Camera").GetComponent<MorePPEffects.ColoredRays> ();
 		contrastEnhance = GameObject.Find ("Main Camera").GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ();
+
+		musicOn = true;
+		sfxOn = true;
 
 		if (Instance != null && Instance != this) {
 			Destroy (gameObject);
@@ -117,6 +148,32 @@ public class GameManager : MonoBehaviour {
 
 	void Start() {
 		stopTimer = true;
+		// 0 = false
+		// 1 = true
+		if (PlayerPrefs.GetInt ("SFX") == 0) {
+			sfxOn = false;
+			backgroundButton.GetComponent<Image> ().sprite = speakerOff;
+		} else if (PlayerPrefs.GetInt ("SFX") == 1) {
+			sfxOn = true;
+			backgroundButton.GetComponent<Image> ().sprite = speakerOn;
+		} else {
+			PlayerPrefs.SetInt ("SFX", 1);
+			sfxOn = true;
+			backgroundButton.GetComponent<Image> ().sprite = speakerOn;
+		}
+
+		if (PlayerPrefs.GetInt ("Music") == 0) {
+			musicOn = false;
+			musicButton.GetComponent<Image> ().sprite = speakerOff;
+		} else if (PlayerPrefs.GetInt ("Music") == 1) {
+			musicOn = true;
+			musicButton.GetComponent<Image> ().sprite = speakerOn;
+		} else {
+			PlayerPrefs.SetInt ("Music", 1);
+			musicOn = true;
+			musicButton.GetComponent<Image> ().sprite = speakerOn;
+		}
+
 		CountPickUpItemsInScene ();
 			StartGame ();
 
@@ -153,7 +210,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void PauseGame() {
-
+		toolButtonsOn = false;
 		if (!DialogueSystem.dialogueActive) {
 			Debug.Log ("This is a user Pause");
 			pauseButton.SetActive (false);
@@ -220,6 +277,12 @@ public class GameManager : MonoBehaviour {
 			playButton.SetActive (false);
 			restartButton.SetActive (false);
 		}
+		if (toolButtonsOn) {
+			backgroundButton.SetActive (false);
+			musicButton.SetActive (false);
+			resetgameButton.SetActive (false);
+			toolButtonsOn = false;
+		}
 
 		pauseRecTextText.text = "[REC]";
 		recImage.enabled = true;
@@ -243,8 +306,70 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void ToolsButton() {
-		Debug.Log ("Settings Button LO.. actually this deletes all the player prefs... shit aye... sneaky.");
-		PlayerPrefs.DeleteAll ();
+		if (!toolButtonsOn) {
+			musicButton.SetActive (true);
+			backgroundButton.SetActive (true);
+			resetgameButton.SetActive (true);
+			toolButtonsOn = true;
+			Debug.Log("Setting On");
+		} else {
+			musicButton.SetActive (false);
+			backgroundButton.SetActive (false);
+			resetgameButton.SetActive (false);
+			toolButtonsOn = false;
+			Debug.Log("Setting Off");
+		}
+	}
+
+
+	public void MusicOnOff() {
+		if (PlayerPrefs.GetInt("Music") == 1) {
+			PlayerPrefs.SetInt ("Music", 0);
+			musicOn = false;
+			musicButton.GetComponent<Image> ().sprite = speakerOff;
+			if (!musicOn && sfxOn) {
+				musicOffSFXOn.TransitionTo (0.1f);
+				Debug.Log ("Music Off");
+			} else if (!musicOn && !sfxOn) {
+				musicOffSFXOff.TransitionTo (0.1f);
+			}
+			Debug.Log ("Music Off");
+		} else if (PlayerPrefs.GetInt("Music") == 0) {
+			PlayerPrefs.SetInt ("Music", 1);
+			musicOn = true;
+			musicButton.GetComponent<Image> ().sprite = speakerOn;
+			if (musicOn && sfxOn) {
+				musicOnSFXOn.TransitionTo (0.1f);
+			} else if (musicOn && !sfxOn) {
+				musicOnSFXOff.TransitionTo (0.1f);
+			}
+			Debug.Log ("Music On");
+		}
+	}
+
+	public void BackgroundNoiseOnOff() {
+		if (PlayerPrefs.GetInt("SFX") == 1) {
+			PlayerPrefs.SetInt ("SFX", 0);
+			sfxOn = false;
+			backgroundButton.GetComponent<Image> ().sprite = speakerOff;
+			if (!musicOn && !sfxOn) {
+				musicOffSFXOff.TransitionTo (0.1f);
+			} else if (musicOn && !sfxOn) {
+				musicOnSFXOff.TransitionTo (0.1f);
+			}
+			Debug.Log ("BG Noise Off");
+		} else if (PlayerPrefs.GetInt("SFX") == 0) {
+			PlayerPrefs.SetInt ("SFX", 1);
+			sfxOn = true;
+			backgroundButton.GetComponent<Image> ().sprite = speakerOn;
+			if (sfxOn && musicOn) {
+				musicOnSFXOn.TransitionTo (0.1f);
+			} else if (sfxOn && !musicOn) {
+				musicOffSFXOn.TransitionTo (0.1f);
+			}
+			Debug.Log ("BG Music On");
+
+		}
 	}
 
 	public void PlayGame(string levelToLoad) {
@@ -327,7 +452,7 @@ public class GameManager : MonoBehaviour {
 		startText.text = "";
 		glitchEffect.enabled = false;
 		DisableGlitchAndCRT ();
-		Player.batteryCharge = 10f;
+		Player.batteryCharge = 60f;
 		Player.canMove = true;
 		StopCoroutine ("StartCountDown");
 	}
