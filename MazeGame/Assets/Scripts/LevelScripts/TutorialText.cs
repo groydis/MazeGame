@@ -16,7 +16,7 @@ public class TutorialText : MonoBehaviour {
 					Player.batteryCharge = 60f;
 				}
 				if (batteryDrain) {
-					Player.batteryCharge = 10f;
+					Player.batteryCharge = 15f;
 				}
 				DialogueSystem.Instance.AddNewDialogue (dialogue);
 				this.gameObject.SetActive (false);

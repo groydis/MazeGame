@@ -70,7 +70,7 @@ public class TorchControl : MonoBehaviour {
 			yield return new WaitForSecondsRealtime (waitTime);
 			//Debug.Log ("Battery: " + Player.batteryCharge);
 			Player.batteryCharge -= Player.batteryDrainRate;
-			Debug.Log ("Battery: " + Player.batteryCharge);
+			//Debug.Log ("Battery: " + Player.batteryCharge);
 		}
 		decreasingBattery = false;
 	}

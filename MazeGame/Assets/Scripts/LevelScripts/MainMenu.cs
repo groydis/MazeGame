@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 
 public class MainMenu : MonoBehaviour {
-
-	private GlitchEffect glitchEffect;
-	private CRT crtEffect;
+	
 	private GameObject continueButton;
+
 
 	public string currentLevel;
 
@@ -17,8 +16,8 @@ public class MainMenu : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		glitchEffect = GameObject.Find ("Main Camera").GetComponent<GlitchEffect> ();
-		crtEffect = GameObject.Find ("Main Camera").GetComponent<CRT> ();
+		EffectManager.Instance.GlitchEffectOn ();
+		EffectManager.Instance.ColoredRaysOn ();
 		continueButton = GameObject.Find ("ContinueButton");
 		currentLevel = LevelManager.GetCurrentLevel ();
 		if (currentLevel == "") {
@@ -26,7 +25,6 @@ public class MainMenu : MonoBehaviour {
 		} else {
 			continueButton.SetActive (true);
 		}
-		StartCoroutine ("MainMenuLoad");
 	}
 	
 	// Update is called once per frame
@@ -45,18 +43,5 @@ public class MainMenu : MonoBehaviour {
 			SceneManager.LoadScene (currentLevel);
 		}
 	}
-
-	public IEnumerator MainMenuLoad() {
-		yield return new WaitForSeconds (5f);
-		LeanTween.value (this.gameObject, 0, 756.8f, 5.0f).setOnUpdate ((float val) => {
-			crtEffect.TextureSize = val;
-		});
-		LeanTween.value (this.gameObject, 1.0f, 0, 3.0f).setOnUpdate ((float val) => {
-			glitchEffect.colorIntensity = val;
-		});
-	}
-
-
-
-
+		
 }

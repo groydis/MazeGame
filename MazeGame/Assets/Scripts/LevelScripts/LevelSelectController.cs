@@ -15,9 +15,6 @@ public class LevelSelectController : MonoBehaviour {
 
 	public Button[] levelButtonsScenarioOne;
 
-	private GlitchEffect glitchEffect;
-	private MorePPEffects.ColoredRays crtEffect;
-
 
 	private int filmTitleCount;
 	private int currentFilm;
@@ -41,8 +38,6 @@ public class LevelSelectController : MonoBehaviour {
 		titleText = GameObject.Find ("FilmTitle").GetComponent<Text> ();
 		playButton = GameObject.Find ("PlayButton").GetComponent<Button> ();
 
-		glitchEffect = GameObject.Find ("Main Camera").GetComponent<GlitchEffect> ();
-		crtEffect = GameObject.Find ("Main Camera").GetComponent<MorePPEffects.ColoredRays> ();
 
 		levelSelectScreen = GameObject.Find ("LevelSelectScreen");
 		waitText = GameObject.Find ("WaitText");
@@ -57,9 +52,6 @@ public class LevelSelectController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		crtEffect.enabled = false;
-		glitchEffect.enabled = false;
 
 		filmTitleCount = filmTitles.Length;
 		currentFilm = 0;
@@ -125,8 +117,8 @@ public class LevelSelectController : MonoBehaviour {
 
 		canSpin = false;
 
-		crtEffect.enabled = true;
-		glitchEffect.enabled = true;
+		EffectManager.Instance.ColoredRaysOn ();
+		EffectManager.Instance.GlitchEffectOn ();
 
 		LeanTween.rotateAround (this.gameObject, Vector3.up, -90f, 1f);
 
@@ -163,8 +155,8 @@ public class LevelSelectController : MonoBehaviour {
 
 		yield return new WaitForSeconds (1f);
 
-		crtEffect.enabled = false;
-		glitchEffect.enabled = false;
+		EffectManager.Instance.ColoredRaysOff ();
+		EffectManager.Instance.GlitchEffectOff ();
 		canSpin = true;
 
 	}
@@ -173,8 +165,8 @@ public class LevelSelectController : MonoBehaviour {
 		Debug.Log ("Next");
 		canSpin = false;
 
-		crtEffect.enabled = true;
-		glitchEffect.enabled = true;
+		EffectManager.Instance.ColoredRaysOn ();
+		EffectManager.Instance.GlitchEffectOn ();
 
 		LeanTween.rotateAround (this.gameObject, Vector3.up, 90f, 1f);
 
@@ -216,8 +208,8 @@ public class LevelSelectController : MonoBehaviour {
 
 		yield return new WaitForSeconds (1f);
 
-		crtEffect.enabled = false;
-		glitchEffect.enabled = false;
+		EffectManager.Instance.ColoredRaysOff ();
+		EffectManager.Instance.GlitchEffectOff ();
 
 		canSpin = true;
 
@@ -226,8 +218,8 @@ public class LevelSelectController : MonoBehaviour {
 
 	public void PlayScenario() {
 		levelSelectScreen.SetActive (true);
-		crtEffect.enabled = true;
-		glitchEffect.enabled = true;
+		EffectManager.Instance.ColoredRaysOn ();
+		EffectManager.Instance.GlitchEffectOn ();
 		int i = 0;
 		foreach (Button button in levelButtonsScenarioOne) {
 			if (LevelManager.GetLevelProgress (scenarioOneLevels [i])) {
@@ -271,7 +263,7 @@ public class LevelSelectController : MonoBehaviour {
 	public void BackToScenarioButton() {
 		levelSelectScreen.SetActive (false);
 		waitText.SetActive (false);
-		crtEffect.enabled = false;
-		glitchEffect.enabled = false;
+		EffectManager.Instance.ColoredRaysOff ();
+		EffectManager.Instance.GlitchEffectOff ();
 	}
 }

@@ -50,7 +50,7 @@ public class DialogueSystem : MonoBehaviour {
 
 	public void CreateDialogue() {
 		dialogueActive = true;
-		GameManager.Instance.PauseGame ();
+		PauseMenu.Instance.PauseGame ();
 		dialogueText.text = dialogueLines[dialogueIndex];
 		dialoguePanel.SetActive (true);
 	}
@@ -62,7 +62,7 @@ public class DialogueSystem : MonoBehaviour {
 		} else {
 			dialoguePanel.SetActive (false);
 			dialogueActive = false;
-			GameManager.Instance.UnPauseGame ();
+			PauseMenu.Instance.UnPauseGame ();
 		}
 	}
 }

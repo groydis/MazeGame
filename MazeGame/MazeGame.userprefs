@@ -1,11 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelScripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelScripts/LevelSelectController.cs">
     <Files>
+      <File FileName="Assets/Scripts/LevelScripts/DialogueSystem.cs" Line="25" Column="1" />
       <File FileName="Assets/Scripts/Player/TorchControl.cs" Line="45" Column="27" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="110" Column="3" />
-      <File FileName="Assets/Scripts/LevelScripts/GameManager.cs" Line="470" Column="43" />
-      <File FileName="Assets/Scripts/LevelScripts/LevelManager.cs" Line="77" Column="3" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="84" Column="1" />
+      <File FileName="Assets/Scripts/PauseMenu.cs" Line="111" Column="21" />
+      <File FileName="Assets/Scripts/SettingsMenu.cs" Line="71" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="10" Column="2" />
+      <File FileName="Assets/Scripts/LevelScripts/TutorialText.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AudioManager.cs" Line="14" Column="31" />
+      <File FileName="Assets/Scripts/EffectManager.cs" Line="147" Column="3" />
+      <File FileName="Assets/Scripts/LevelScripts/MainMenu.cs" Line="20" Column="43" />
+      <File FileName="Assets/Scripts/LevelScripts/LevelSelectController.cs" Line="124" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

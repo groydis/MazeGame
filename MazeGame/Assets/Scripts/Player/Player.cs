@@ -27,9 +27,6 @@ public class Player : MonoBehaviour {
 	// When power up collected, enables this
 	public static bool PickedUpPowerUp;
 
-	// TODO: Will this effect make it into the game??
-	// Bool to declare if the drunk effect is active
-	public static bool isDrunk;
 	// Bool to declae if Soda effect has been activated
 	// Occurs when player collides with Soda Pick Up item
 	public static bool activateSoda;
@@ -43,9 +40,7 @@ public class Player : MonoBehaviour {
 	// Bool to declare if spectral effect has been actived
 	// Occurs when player collides with spectral
 	public static float spectralEffect = 5.0f;
-	// Duration in which teh isDrunk effect takes place;
-	private float intoxicationDuration = 10.0f;
-	private float intoxicationCountDown;
+
 	// Duration in which the Soda Effect takes place
 	private float sodaEffectDuration = 5.0f;
 	private float sodaEffectCountDown;
@@ -65,9 +60,6 @@ public class Player : MonoBehaviour {
 	// Declares if an image effect has been activated
 	private bool imageEffectActive;
 
-	// The main Camera
-	private GameObject mainCamera;
-
 	// Prefab for the pop corn that is instantiated when the Popcorn effect has been activated
 	public GameObject popCornTrail;
 
@@ -80,13 +72,6 @@ public class Player : MonoBehaviour {
 	// All the Mesh Renderes on teh player model
 	private Renderer[] renderers;
 
-	// Shader Effects
-	private UnityStandardAssets.ImageEffects.Fisheye fishEyeEffect;
-	private UnityStandardAssets.ImageEffects.MotionBlur motionBlurEffect;
-	private UnityStandardAssets.ImageEffects.ContrastEnhance contrastEnhanceEffect;
-	private MorePPEffects.Anaglyph3D threeDeeEffect;
-	// Animation to control the fish eye effect 
-	private Animation fishEyeAnim;
 
 	private bool guiModelShowing;
 	private GameObject guiThreeDeeGlasses;
@@ -109,16 +94,9 @@ public class Player : MonoBehaviour {
 		// Audio 
 		aSource = GetComponent<AudioSource> ();
 
-		mainCamera = GameObject.Find ("Main Camera");
 		playerAnim = GetComponentInChildren<Animator> ();
 		renderers = GetComponentsInChildren<MeshRenderer> ();
 
-		fishEyeEffect = mainCamera.GetComponent<UnityStandardAssets.ImageEffects.Fisheye> ();
-		motionBlurEffect = mainCamera.GetComponent<UnityStandardAssets.ImageEffects.MotionBlur> ();
-		contrastEnhanceEffect = mainCamera.GetComponent<UnityStandardAssets.ImageEffects.ContrastEnhance> ();
-		threeDeeEffect = mainCamera.GetComponent<MorePPEffects.Anaglyph3D> ();
-
-		fishEyeAnim = mainCamera.GetComponent<Animation> ();
 
 		guiThreeDeeGlasses = GameObject.Find ("GUI3DGlasses01");
 		guiSoda = GameObject.Find ("GUISoda01");
@@ -135,7 +113,6 @@ public class Player : MonoBehaviour {
 	void Start () {
 		batteryCharge = 60.0f;
 		batteryDrainRate = 1.0f;
-		isDrunk = false;
 		imageEffectActive = false;
 		activateSoda = false;
 		activatePopCorn = false;
@@ -209,8 +186,8 @@ public class Player : MonoBehaviour {
 				sodaEffectCountDown = sodaEffectDuration;
 
 				if (!imageEffectActive) {
-					motionBlurEffect.enabled = true;
-					contrastEnhanceEffect.enabled = true;
+					EffectManager.Instance.MotionBlurOn ();
+					EffectManager.Instance.ContrastEnhanceOn();
 					imageEffectActive = true;
 				}
 
@@ -226,8 +203,8 @@ public class Player : MonoBehaviour {
 				activateSoda = false;
 
 				if (imageEffectActive) {
-					motionBlurEffect.enabled = false;
-					contrastEnhanceEffect.enabled = false;
+					EffectManager.Instance.MotionBlurOff ();
+					EffectManager.Instance.ContrastEnhanceOff();
 					imageEffectActive = false;
 				}
 				Debug.Log ("Soda Over");
@@ -274,14 +251,14 @@ public class Player : MonoBehaviour {
 
 				threeDeeEffectCountDown = threeDeeEffectDuration;
 
-				threeDeeEffect.enabled = true;
+				EffectManager.Instance.ThreeDeeEffectOn ();
 
 				while (threeDeeEffectCountDown != 0) {
 					yield return new WaitForSeconds (1f);
 					threeDeeEffectCountDown -= 1f;
 				}
 
-				threeDeeEffect.enabled = false;
+				EffectManager.Instance.ThreeDeeEffectOff ();
 				activateThreeDee = false;
 
 				Debug.Log ("Three Dee Over");
@@ -291,40 +268,7 @@ public class Player : MonoBehaviour {
 		} else {
 			threeDeeEffectCountDown = threeDeeEffectDuration;
 		}
-
-		// When BoozyWoozy starts, sets the intoxicationCountDown to intoxicationDuration
-		// Begins MuntedOn
-		// Performs countdown intoxicationDuration
-		// Begins MuntedOff once countdonw complete
-		if (!drunkActive) {
-			drunkActive = true;
-			while (isDrunk) {
-				intoxicationCountDown = intoxicationDuration;
-				if (!imageEffectActive) {
-					fishEyeEffect.enabled = true;
-					fishEyeAnim.enabled = true;
-					imageEffectActive = true;
-				}
-
-				while (intoxicationCountDown != 0) {
-					yield return new WaitForSecondsRealtime (1f);
-					intoxicationCountDown -= 1f;
-				}
-
-				isDrunk = false;
-
-				if (imageEffectActive) {
-					fishEyeEffect.enabled = false;
-					fishEyeAnim.enabled = false;
-					imageEffectActive = false;
-				}
-				Debug.Log ("Drunk Over");
-			} 
-			drunkActive = false;
-		} else {
-			intoxicationCountDown = intoxicationDuration;
-		}
-
+			
 		Debug.Log ("Power Up Done");
 	}
 

@@ -96,8 +96,10 @@
      <Compile Include="Assets\More PostProcessing Effects\Scripts\ThermalVision.cs" />
      <Compile Include="Assets\More PostProcessing Effects\Scripts\Waves.cs" />
      <Compile Include="Assets\More PostProcessing Effects\Scripts\Wiggle.cs" />
-     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
+     <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraMovement.cs" />
+     <Compile Include="Assets\Scripts\EffectManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Hazards\EnemySpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Hazards\EnemySpawnTrigger.cs" />
      <Compile Include="Assets\Scripts\Hazards\SpectralController.cs" />
@@ -107,13 +109,12 @@
      <Compile Include="Assets\Scripts\LevelScripts\DialogueSystem.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\Entrance.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\ExitLevel.cs" />
-     <Compile Include="Assets\Scripts\LevelScripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\LevelSelectController.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\TutorialText.cs" />
+     <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\Battery.cs" />
-     <Compile Include="Assets\Scripts\PickUpItems\Booze.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\PopCorn.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\PopCornTrail.cs" />
      <Compile Include="Assets\Scripts\PickUpItems\Soda.cs" />
@@ -125,6 +126,7 @@
      <Compile Include="Assets\Scripts\Player\TorchControl.cs" />
      <Compile Include="Assets\Scripts\Scenary\VideoCamera.cs" />
      <Compile Include="Assets\Scripts\Scenary\WallLamp.cs" />
+     <Compile Include="Assets\Scripts\SettingsMenu.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
