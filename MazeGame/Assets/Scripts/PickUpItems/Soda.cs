@@ -19,7 +19,6 @@ public class Soda : MonoBehaviour {
 
 	void InteractWithSoda() {
 		Player.sodaCollectedCount++;
-		Player.activateSoda = true;
 		this.gameObject.GetComponent<Renderer>().enabled = false;
 		this.gameObject.GetComponent<BoxCollider> ().enabled = false;
 		if (aSource.clip != null) {
@@ -27,6 +26,7 @@ public class Soda : MonoBehaviour {
 			aSource.loop = false;
 			aSource.Play ();
 		}
+		Player.activateSoda = true;
 		Destroy (this.gameObject, aSource.clip.length);
 	}
 }

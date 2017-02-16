@@ -6,4 +6,5 @@ public class EnemySpawnPoint : MonoBehaviour {
 	public GameObject enemyPrefab;
 	public GameObject enemySpawnTrigger;
 
+
 }

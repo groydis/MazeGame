@@ -17,3 +17,4 @@
 /Users/greydenscott/Documents/Projects/Personal/MazeGame/MazeGame/Temp/bin/Debug/Mono.Cecil.Mdb.dll
 /Users/greydenscott/Documents/Projects/Personal/MazeGame/MazeGame/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
 /Users/greydenscott/Documents/Projects/Personal/MazeGame/MazeGame/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/greydenscott/Documents/Projects/Personal/MazeGame/MazeGame/Temp/bin/Debug/UnityEngine.Analytics.dll

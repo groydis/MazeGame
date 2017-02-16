@@ -16,9 +16,14 @@ public class TrolleyController : MonoBehaviour {
 	private MeshRenderer objectMeshRenderer;
 
 	public AudioClip crash;
+	public AudioClip popSoundClip;
 	private AudioSource aSource;
 
+	private GameObject playerHead;
+	public GameObject[] stunSpawnObject;
+
 	void Awake() {
+		playerHead = GameObject.FindGameObjectWithTag("PlayerHead");
 		aSource = GetComponent<AudioSource> ();
 	}
 
@@ -88,6 +93,9 @@ public class TrolleyController : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player") {
 			if (!isDisabling) {
+				
+				StartCoroutine ("HeadSpin");
+
 				Debug.Log ("Trolley hit player");
 				if (aSource.clip != null) {
 					Debug.Log ("Playing Crash Cause I hit the Player");
@@ -107,12 +115,23 @@ public class TrolleyController : MonoBehaviour {
 		} 
 	}
 
+	IEnumerator HeadSpin() {
+		GameObject headSpin = Instantiate(stunSpawnObject[Random.Range(1, 2)], playerHead.transform.position, Quaternion.identity) as GameObject; 
+		headSpin.transform.SetParent (playerHead.transform);
+		yield return new WaitForSeconds (deathTime);
+		aSource.Stop ();
+		aSource.clip = popSoundClip;
+		aSource.loop = false;
+		aSource.Play ();
+		Destroy (headSpin, popSoundClip.length);
+	}
+
 	public IEnumerator DestroyTrolley () {
 		var material = GetComponent<Renderer>().material;
 		var color = material.color;
 		material.color = new Color(color.r, color.g, color.b, color.a - (25f * Time.deltaTime));
 		startMoving = false;
-		yield return new WaitForSeconds (deathTime);
+		yield return new WaitForSeconds (deathTime + popSoundClip.length);
 		Player.canMove = true;
 		Destroy (this.gameObject);
 	}

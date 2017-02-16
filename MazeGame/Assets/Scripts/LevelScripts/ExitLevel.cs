@@ -14,6 +14,7 @@ public class ExitLevel : MonoBehaviour {
 
 	// Temp Code for Alpha
 	IEnumerator Exiting() {
+		TorchControl.Instance.levelComplete = true;
 		if (dialogue.Length > 0) {
 			DialogueSystem.Instance.AddNewDialogue (dialogue);
 			while (DialogueSystem.dialogueActive) {

@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class TorchControl : MonoBehaviour {
+	public static TorchControl Instance { get; set; }
 
 	private float waitTime = 1.0f;
 	private float minFlickerSpeed = 0.1f;
@@ -15,13 +16,29 @@ public class TorchControl : MonoBehaviour {
 
 	private Light theTorch;
 
+	public bool levelComplete;
+
+	void Awake() {
+		if (Instance != null && Instance != this) {
+			Destroy (gameObject);
+		} else {
+			Instance = this;
+		}
+	}
 
 	void Start () 
 	{
+		levelComplete = false;
 		theTorch = GetComponent<Light>();
 		batteryFailing = false;
 		torchFlickerOn = false;
+		decreasingBattery = false;
 		TorchOn();
+		//StartCoroutine ("DecreaseBattery");
+
+	}
+
+	public void StartDecreasingBattery() {
 		StartCoroutine ("DecreaseBattery");
 	}
 		
@@ -41,15 +58,18 @@ public class TorchControl : MonoBehaviour {
 		}
 		if (Player.batteryCharge > 0) {
 			if (!decreasingBattery) {
-				StartCoroutine ("DecreaseBattery");
-				Player.isDead = false;
+				if (GameManager.hasStarted) {
+					StartCoroutine ("DecreaseBattery");
+					Player.isDead = false;
+				}
 			}
 		}
 		if (Player.batteryCharge == 0) {
 			batteryFailing = false;
 			TorchOff ();
-			Debug.Log ("Torch Off");
-			Player.isDead = true;
+			if (!levelComplete) {
+				Player.isDead = true;
+			}
 		}
 		if (Player.batteryCharge > flickerStartTime) {
 			batteryFailing = false;
@@ -59,18 +79,18 @@ public class TorchControl : MonoBehaviour {
 	// Decreases Battery over time
 	IEnumerator DecreaseBattery() 
 	{	
-
+		decreasingBattery = true;
 		while (Player.batteryCharge != 0) {
 			TorchOn ();
-			while (GameManager.pauseGame) 
-			{
-				yield return new WaitForFixedUpdate();	
+			while (GameManager.pauseGame) {
+				yield return new WaitForFixedUpdate ();	
 			}
 			decreasingBattery = true;
 			yield return new WaitForSecondsRealtime (waitTime);
-			//Debug.Log ("Battery: " + Player.batteryCharge);
+			Debug.Log ("Battery: " + Player.batteryCharge);
 			Player.batteryCharge -= Player.batteryDrainRate;
-			//Debug.Log ("Battery: " + Player.batteryCharge);
+
+
 		}
 		decreasingBattery = false;
 	}

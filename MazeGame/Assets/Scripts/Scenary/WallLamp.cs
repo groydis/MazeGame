@@ -35,8 +35,10 @@ public class WallLamp : MonoBehaviour {
 		scarePlayer = false;
 		if (hit.gameObject.tag == "Player") {
 			StopCoroutine("WallLampFlicker");
-			if (aSource.isPlaying) {
-				aSource.Pause ();
+			if (aSource != null) {
+				if (aSource.isPlaying) {
+					aSource.Pause ();
+				}
 			}
 			if (wallLampLight.enabled == true) {
 				wallLampLight.enabled = false;
@@ -48,18 +50,22 @@ public class WallLamp : MonoBehaviour {
 	{
 
 		while (scarePlayer) {
-			if (!aSource.isPlaying) {
-				aSource.pitch = Random.Range (0.97f, 1f);
-				aSource.Play ();
-			} else {
-				aSource.pitch = Random.Range (0.97f, 1f);
-				aSource.UnPause ();
+			if (aSource != null) {
+				if (!aSource.isPlaying) {
+					aSource.pitch = Random.Range (0.97f, 1f);
+					aSource.Play ();
+				} else {
+					aSource.pitch = Random.Range (0.97f, 1f);
+					aSource.UnPause ();
+				}
 			}
 			wallLampLight.enabled = true;
 			yield return new WaitForSeconds (Random.Range (minFlickerSpeed, maxFlickerSpeed));
-			if (aSource.isPlaying) {
-				aSource.pitch = Random.Range (0.97f, 1f);
-				aSource.Pause ();
+			if (aSource != null) {
+				if (aSource.isPlaying) {
+					aSource.pitch = Random.Range (0.97f, 1f);
+					aSource.Pause ();
+				}
 			}
 			wallLampLight.enabled = false;
 			yield return new WaitForSeconds (Random.Range (minFlickerSpeed, maxFlickerSpeed));

@@ -113,6 +113,8 @@ public class Player : MonoBehaviour {
 	void Start () {
 		batteryCharge = 60.0f;
 		batteryDrainRate = 1.0f;
+		movementSpeed = 2.5f;
+		isDead = false;
 		imageEffectActive = false;
 		activateSoda = false;
 		activatePopCorn = false;

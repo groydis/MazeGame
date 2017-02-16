@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour {
 			Debug.Log ("Found One: " + level);
 			return true;
 		} else {
+			Debug.Log (level + " Not Complete");
 			return false;
 		}
 	}
@@ -74,5 +75,25 @@ public class LevelManager : MonoBehaviour {
 	public static float GetBestLevelTime(string level) {
 		float time = PlayerPrefs.GetFloat (level + "Time");
 		return time;
+	}
+	public static bool scenarioOneUnlocked() {
+		return true;
+	}
+
+	public static bool scenarioTwoUnlocked() {
+		if (GetLevelProgress("S1Level04")) {
+			Debug.Log ("S1 Level 04 is completed");
+			return true;
+		} else {
+			Debug.Log ("S1 Level 04 is not complete");
+			return false;
+		}
+	}
+	public static bool scenarioThreeUnlocked() {
+		return false;
+	}
+	public static bool scenarioFourUnlocked() {
+		return false;
+
 	}
 }

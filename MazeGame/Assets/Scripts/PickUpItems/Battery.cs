@@ -35,7 +35,6 @@ public class Battery : MonoBehaviour {
 			}
 		}
 		if (aSource.clip != null) {
-			Debug.Log ("Playing Crash Cause I hit the Player");
 			aSource.Stop ();
 			aSource.loop = false;
 			aSource.Play ();
