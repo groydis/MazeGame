@@ -5,6 +5,7 @@ public class ExitLevel : MonoBehaviour {
 
 	public string[] dialogue;
 
+
 	void OnTriggerEnter(Collider hit) {
 		if (hit.gameObject.tag == "Player") {
 			Player.canMove = false;

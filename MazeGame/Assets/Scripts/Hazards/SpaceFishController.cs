@@ -102,12 +102,12 @@ public class SpaceFishController : MonoBehaviour {
 
 	IEnumerator DeSpawnSpacefish () {
 		if (!hitPlayer) {
-			if (aSource.clip != null) {
-				aSource.Stop ();
-				aSource.clip = spawn;
-				aSource.loop = false;
-				aSource.Play ();
-			}
+			
+			aSource.Stop ();
+			aSource.clip = spawn;
+			aSource.loop = false;
+			aSource.Play ();
+
 			GameObject particles = Instantiate (spaceFishParticles, this.transform.position, spaceFishParticles.transform.rotation) as GameObject;
 			particles.transform.SetParent (this.gameObject.transform);
 			animController.SetBool ("despawning", true);
@@ -118,6 +118,7 @@ public class SpaceFishController : MonoBehaviour {
 	}
 
 	IEnumerator Spawn() {
+
 		GameObject particles = Instantiate (spaceFishParticles, this.transform.position, spaceFishParticles.transform.rotation) as GameObject;
 		particles.transform.SetParent (this.gameObject.transform);
 

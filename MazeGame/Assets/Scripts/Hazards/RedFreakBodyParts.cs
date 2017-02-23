@@ -9,6 +9,7 @@ public class RedFreakBodyParts : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		PlayerSpeech.Instance.PlayClip(PlayerSpeech.Instance.playerRedFreakSpectralInteraction);
 		StartCoroutine (DeSpawnSpaceFish ());
 	}
 

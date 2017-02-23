@@ -94,6 +94,8 @@ public class TrolleyController : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			if (!isDisabling) {
 				
+				PlayerSpeech.Instance.PlayClip(PlayerSpeech.Instance.playerHit);
+
 				StartCoroutine ("HeadSpin");
 
 				Debug.Log ("Trolley hit player");
@@ -116,7 +118,7 @@ public class TrolleyController : MonoBehaviour {
 	}
 
 	IEnumerator HeadSpin() {
-		GameObject headSpin = Instantiate(stunSpawnObject[Random.Range(1, 2)], playerHead.transform.position, Quaternion.identity) as GameObject; 
+		GameObject headSpin = Instantiate(stunSpawnObject[Random.Range(0, 1)], playerHead.transform.position, Quaternion.identity) as GameObject; 
 		headSpin.transform.SetParent (playerHead.transform);
 		yield return new WaitForSeconds (deathTime);
 		aSource.Stop ();

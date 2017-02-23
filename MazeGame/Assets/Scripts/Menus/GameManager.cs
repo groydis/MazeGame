@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+
 		startText = GameObject.Find ("Main Text").GetComponent<Text>();
 
 		levelOverPanel = GameObject.Find ("LevelOverPanel");
@@ -127,9 +128,6 @@ public class GameManager : MonoBehaviour {
 
 		Player.canMove = false;
 		PauseMenu.Instance.HidePausebutton ();
-
-
-		//StartCoroutine ("StartCountDown");
 
 	}
 		

@@ -11,33 +11,28 @@ public class EnemySpawnTrigger : MonoBehaviour {
 
 	public bool canReSpawn; 
 
-	public GameObject enemyBodyPile;
-	private GameObject spawnBodyParts;
 
 	void Start() {
 		prefabToSpawn = spawnPoint.GetComponent<EnemySpawnPoint> ().enemyPrefab;
 
 		canSpawn = true;
 		canReSpawn = true;
-
-		if (enemyBodyPile != null) {
-			GameObject spawnBodyParts = Instantiate (enemyBodyPile, this.transform.position, Quaternion.identity) as GameObject;
-			spawnBodyParts.transform.parent = transform;
-		}
 	}
 		
 	void OnTriggerEnter(Collider hit) {
 		if (hit.gameObject.tag == "Player") {
 			if (canSpawn) {
-				if (canReSpawn) {
-					if (enemyBodyPile != null) {
-						Destroy (this.spawnBodyParts);
+				if (Random.Range (1, 3) == 2 ) {
+					if (Random.Range (1, 3) == 1) {
+						PlayerSpeech.Instance.PlayClip (PlayerSpeech.Instance.playerExpressionsGeneral);
+					} else {
+						PlayerSpeech.Instance.PlayClip (PlayerSpeech.Instance.playerScared);
 					}
-					GameObject spawnedItem = Instantiate (prefabToSpawn, spawnPoint.transform.position, spawnPoint.transform.rotation) as GameObject;
-					spawnedItem.transform.parent = transform;
-					canSpawn = false;
-					StartCoroutine ("ReSpawnCheck");
 				}
+				GameObject spawnedItem = Instantiate (prefabToSpawn, spawnPoint.transform.position, spawnPoint.transform.rotation) as GameObject;
+				spawnedItem.transform.parent = transform;
+				canSpawn = false;
+				StartCoroutine ("ReSpawnCheck");
 			}
 		}
 	}

@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BattleTransitions\SimpleBlit.cs" />
      <Compile Include="Assets\GUI\CRT.cs" />
      <Compile Include="Assets\GUI\GlitchEffect.cs" />
      <Compile Include="Assets\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
@@ -129,6 +130,7 @@
      <Compile Include="Assets\Scripts\PickUpItems\TypeWriter.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerSpeech.cs" />
      <Compile Include="Assets\Scripts\Player\SwipeManager.cs" />
      <Compile Include="Assets\Scripts\Player\TorchControl.cs" />
      <Compile Include="Assets\Scripts\Scenary\PipeScare.cs" />
@@ -180,6 +182,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
      <None Include="Assets\More PostProcessing Effects\Shaders\Laplacian.shader" />
      <None Include="Assets\More PostProcessing Effects\Shaders\Wiggle.shader" />
+     <None Include="Assets\BattleTransitions\BattleTransitions.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />

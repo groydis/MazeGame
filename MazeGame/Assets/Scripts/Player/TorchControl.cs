@@ -81,15 +81,14 @@ public class TorchControl : MonoBehaviour {
 	{	
 		decreasingBattery = true;
 		while (Player.batteryCharge != 0) {
-			TorchOn ();
-			while (GameManager.pauseGame) {
-				yield return new WaitForFixedUpdate ();	
-			}
-			decreasingBattery = true;
-			yield return new WaitForSecondsRealtime (waitTime);
-			Debug.Log ("Battery: " + Player.batteryCharge);
-			Player.batteryCharge -= Player.batteryDrainRate;
-
+				TorchOn ();
+				while (GameManager.pauseGame) {
+					yield return new WaitForFixedUpdate ();	
+				}
+				decreasingBattery = true;
+				yield return new WaitForSecondsRealtime (waitTime);
+				Debug.Log ("Battery: " + Player.batteryCharge);
+				Player.batteryCharge -= Player.batteryDrainRate;
 
 		}
 		decreasingBattery = false;

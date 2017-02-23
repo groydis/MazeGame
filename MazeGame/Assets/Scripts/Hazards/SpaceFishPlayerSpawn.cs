@@ -22,6 +22,8 @@ public class SpaceFishPlayerSpawn : MonoBehaviour {
 	}
 	
 	IEnumerator DeSpawnSpaceFish () {
+		PlayerSpeech.Instance.PlayClip(PlayerSpeech.Instance.playerSpaceFishInteraction);
+
 		Player.movementSpeed = .5f;
 		// Make Player Spin
 		yield return new WaitForSeconds(despawnTime);

@@ -12,6 +12,13 @@ public class ThreeDeeGlasses : MonoBehaviour {
 	void OnTriggerEnter(Collider hit) 
 	{
 		if (hit.gameObject.tag == "Player") {
+			if (Random.Range (1, 3) == 2 ) {
+				if (Random.Range (1, 3) == 1) {
+					PlayerSpeech.Instance.PlayClip (PlayerSpeech.Instance.playerPickUpGeneral);
+				} else {
+					PlayerSpeech.Instance.PlayClip (PlayerSpeech.Instance.playerPickUpThreeDee);
+				}
+			}
 			Player.PickedUpPowerUp = true;
 			InteractWithThreeDeeGlasses();
 		}
